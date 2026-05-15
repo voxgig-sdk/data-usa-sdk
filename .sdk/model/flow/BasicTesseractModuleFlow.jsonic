@@ -1,0 +1,40 @@
+# BasicTesseractModuleFlow
+
+main: kit: flow: BasicTesseractModuleFlow:
+{
+  entity: "tesseract_module",
+  kind: "basic",
+  name: "BasicTesseractModuleFlow",
+  step: [
+    {
+      input: {
+        ref: "tesseract_module_ref01"
+      }
+
+      match: {
+        extension: "extension01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "tesseract_module_ref01",
+        srcdatavar: "tesseract_module_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-tesseract_module_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTesseractModuleFlow"
+}

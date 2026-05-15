@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "calculations_module": {
+      "CALCULATIONS_MODULE00": {
+        "extension": "EXTENSION01"
+      },
+      "CALCULATIONS_MODULE01": {
+        "extension": "EXTENSION01"
+      },
+      "CALCULATIONS_MODULE02": {
+        "extension": "EXTENSION01"
+      }
+    }
+  },
+  "new": {
+    "calculations_module": {
+      "calculations_module_ref01": {}
+    }
+  }
+}

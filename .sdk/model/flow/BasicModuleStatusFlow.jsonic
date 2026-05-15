@@ -1,0 +1,28 @@
+# BasicModuleStatusFlow
+
+main: kit: flow: BasicModuleStatusFlow:
+{
+  entity: "module_status",
+  kind: "basic",
+  name: "BasicModuleStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "module_status_ref01",
+        srcdatavar: "module_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-module_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicModuleStatusFlow"
+}

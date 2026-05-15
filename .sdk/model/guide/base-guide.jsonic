@@ -1,0 +1,142 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 9
+  metrics: count: path: 35
+  metrics: count: method: 35
+
+  entity: calculations_module: {
+    path: "/calcs/acs.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/calcs/merge.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/calcs/pums.{extension}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: economic_complexity_module: {
+    path: "/complexity/eci.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/eci_subnational.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/opportunity_gain.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/pci.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/pci_subnational.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/peii.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/pgi.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/rca.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/rca_historical.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/rca_subnational.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/relatedness.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/relatedness_subnational.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/relative_relatedness.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/relative_relatedness_subnational.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/complexity/{endpoint}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: health: {
+    path: "/_health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: member: {
+    path: "/tesseract/members": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: module_status: {
+    path: "/calcs/": {
+      op: load: method: *GET
+    }
+    path: "/complexity/": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: route_index_get: {
+    path: "/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: tesseract_cube: {
+    path: "/complexity/cubes/{cube_name}": {
+      rename: param: "cube_name": *"id"
+      op: load: method: *GET
+    }
+    path: "/tesseract/cubes/{cube_name}": {
+      rename: param: "cube_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: tesseract_module: {
+    path: "/tesseract/data": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/data.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/debug/flush": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/debug/query": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/debug/schema": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/members.{extension}": {
+      op: load: method: *GET
+    }
+    path: "/tesseract/multiquery.{extension}": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: tesseract_schema: {
+    path: "/complexity/cubes": {
+      op: list: method: *GET
+    }
+    path: "/tesseract/cubes": {
+      op: list: method: *GET
+    }
+  }
+
+}

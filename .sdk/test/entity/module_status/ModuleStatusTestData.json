@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "module_status": {
+      "MODULE_STATUS00": {
+        "debug": "s28",
+        "module": "s29",
+        "status": "s2a",
+        "version": "s2b"
+      },
+      "MODULE_STATUS01": {
+        "debug": "s50",
+        "module": "s51",
+        "status": "s52",
+        "version": "s53"
+      },
+      "MODULE_STATUS02": {
+        "debug": "s78",
+        "module": "s79",
+        "status": "s7a",
+        "version": "s7b"
+      }
+    }
+  },
+  "new": {
+    "module_status": {
+      "module_status_ref01": {
+        "debug": "sa0",
+        "module": "sa1",
+        "status": "sa2",
+        "version": "sa3"
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "tesseract_cube": {
+      "TESSERACT_CUBE00": {
+        "annotation": {},
+        "caption": "s33",
+        "dimension": [],
+        "measure": [],
+        "name": "s36"
+      },
+      "TESSERACT_CUBE01": {
+        "annotation": {},
+        "caption": "s65",
+        "dimension": [],
+        "measure": [],
+        "name": "s68"
+      },
+      "TESSERACT_CUBE02": {
+        "annotation": {},
+        "caption": "s97",
+        "dimension": [],
+        "measure": [],
+        "name": "s9a"
+      }
+    }
+  },
+  "new": {
+    "tesseract_cube": {
+      "tesseract_cube_ref01": {
+        "annotation": {},
+        "caption": "sc9",
+        "dimension": [],
+        "measure": [],
+        "name": "scc"
+      }
+    }
+  }
+}

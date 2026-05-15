@@ -1,0 +1,4826 @@
+
+import { BaseFeature } from './feature/base/BaseFeature'
+import { TestFeature } from './feature/test/TestFeature'
+
+
+
+const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
+   test: TestFeature
+
+}
+
+
+class Config {
+
+  makeFeature(this: any, fn: string) {
+    const fc = FEATURE_CLASS[fn]
+    const fi = new fc()
+    // TODO: errors etc
+    return fi
+  }
+
+
+  main = {
+    name: 'ProjectName',
+  }
+
+
+  feature = {
+     test:     {
+      "options": {
+        "active": false
+      }
+    }
+
+  }
+
+
+  options = {
+    base: 'https://honduras.datausa.io',
+
+    auth: {
+      prefix: 'Bearer',
+    },
+
+    headers: {
+      "content-type": "application/json"
+    },
+
+    entity: {
+      
+      calculations_module: {
+      },
+
+      economic_complexity_module: {
+      },
+
+      health: {
+      },
+
+      member: {
+      },
+
+      module_status: {
+      },
+
+      route_index_get: {
+      },
+
+      tesseract_cube: {
+      },
+
+      tesseract_module: {
+      },
+
+      tesseract_schema: {
+      },
+
+    }
+  }
+
+
+  entity = {
+    "calculations_module": {
+      "fields": [],
+      "name": "calculations_module",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "param",
+                    "orig": "param",
+                    "reqd": true,
+                    "type": "`$OBJECT`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/calcs/merge.{extension}",
+              "parts": [
+                "calcs",
+                "merge.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "extension",
+                  "filter",
+                  "param",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "param",
+                    "orig": "param",
+                    "reqd": true,
+                    "type": "`$OBJECT`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/calcs/pums.{extension}",
+              "parts": [
+                "calcs",
+                "pums.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "extension",
+                  "filter",
+                  "param",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "param",
+                    "orig": "param",
+                    "reqd": true,
+                    "type": "`$OBJECT`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/calcs/acs.{extension}",
+              "parts": [
+                "calcs",
+                "acs.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "extension",
+                  "param",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "economic_complexity_module": {
+      "fields": [],
+      "name": "economic_complexity_module",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_activity",
+                    "orig": "global_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cube",
+                    "orig": "global_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cut",
+                    "orig": "global_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_location",
+                    "orig": "global_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_measure",
+                    "orig": "global_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_threshold",
+                    "orig": "global_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_activity",
+                    "orig": "subnat_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cube",
+                    "orig": "subnat_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cut",
+                    "orig": "subnat_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_location",
+                    "orig": "subnat_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_measure",
+                    "orig": "subnat_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_threshold",
+                    "orig": "subnat_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold_eci",
+                    "orig": "threshold_eci",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/eci_subnational.{extension}",
+              "parts": [
+                "complexity",
+                "eci_subnational.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "global_activity",
+                  "global_cube",
+                  "global_cut",
+                  "global_location",
+                  "global_measure",
+                  "global_threshold",
+                  "locale",
+                  "parent",
+                  "rank",
+                  "subnat_activity",
+                  "subnat_cube",
+                  "subnat_cut",
+                  "subnat_location",
+                  "subnat_measure",
+                  "subnat_threshold",
+                  "threshold_eci",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_activity",
+                    "orig": "global_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cube",
+                    "orig": "global_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cut",
+                    "orig": "global_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_location",
+                    "orig": "global_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_measure",
+                    "orig": "global_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_threshold",
+                    "orig": "global_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_activity",
+                    "orig": "subnat_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cube",
+                    "orig": "subnat_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cut",
+                    "orig": "subnat_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_location",
+                    "orig": "subnat_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_measure",
+                    "orig": "subnat_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_threshold",
+                    "orig": "subnat_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold_eci",
+                    "orig": "threshold_eci",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/pci_subnational.{extension}",
+              "parts": [
+                "complexity",
+                "pci_subnational.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "global_activity",
+                  "global_cube",
+                  "global_cut",
+                  "global_location",
+                  "global_measure",
+                  "global_threshold",
+                  "locale",
+                  "parent",
+                  "rank",
+                  "subnat_activity",
+                  "subnat_cube",
+                  "subnat_cut",
+                  "subnat_location",
+                  "subnat_measure",
+                  "subnat_threshold",
+                  "threshold_eci",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_activity",
+                    "orig": "global_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cube",
+                    "orig": "global_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cut",
+                    "orig": "global_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_location",
+                    "orig": "global_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_measure",
+                    "orig": "global_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_threshold",
+                    "orig": "global_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_activity",
+                    "orig": "subnat_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cube",
+                    "orig": "subnat_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cut",
+                    "orig": "subnat_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_location",
+                    "orig": "subnat_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_measure",
+                    "orig": "subnat_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_threshold",
+                    "orig": "subnat_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/relatedness_subnational.{extension}",
+              "parts": [
+                "complexity",
+                "relatedness_subnational.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "global_activity",
+                  "global_cube",
+                  "global_cut",
+                  "global_location",
+                  "global_measure",
+                  "global_threshold",
+                  "locale",
+                  "parent",
+                  "rank",
+                  "subnat_activity",
+                  "subnat_cube",
+                  "subnat_cut",
+                  "subnat_location",
+                  "subnat_measure",
+                  "subnat_threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_activity",
+                    "orig": "global_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cube",
+                    "orig": "global_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cut",
+                    "orig": "global_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_location",
+                    "orig": "global_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_measure",
+                    "orig": "global_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_threshold",
+                    "orig": "global_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_activity",
+                    "orig": "subnat_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cube",
+                    "orig": "subnat_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cut",
+                    "orig": "subnat_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_location",
+                    "orig": "subnat_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_measure",
+                    "orig": "subnat_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_threshold",
+                    "orig": "subnat_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/relative_relatedness_subnational.{extension}",
+              "parts": [
+                "complexity",
+                "relative_relatedness_subnational.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "global_activity",
+                  "global_cube",
+                  "global_cut",
+                  "global_location",
+                  "global_measure",
+                  "global_threshold",
+                  "locale",
+                  "parent",
+                  "rank",
+                  "subnat_activity",
+                  "subnat_cube",
+                  "subnat_cut",
+                  "subnat_location",
+                  "subnat_measure",
+                  "subnat_threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "complementary_drilldown",
+                    "orig": "complementary_drilldown",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "complementary_measure",
+                    "orig": "complementary_measure",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "having",
+                    "orig": "having",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "property",
+                    "orig": "property",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "time",
+                    "orig": "time",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "time_filter",
+                    "orig": "time_filter",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/rca_historical.{extension}",
+              "parts": [
+                "complexity",
+                "rca_historical.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "complementary_drilldown",
+                  "complementary_measure",
+                  "cube",
+                  "cut",
+                  "extension",
+                  "filter",
+                  "having",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "property",
+                  "rank",
+                  "threshold",
+                  "time",
+                  "time_filter",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_activity",
+                    "orig": "global_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cube",
+                    "orig": "global_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_cut",
+                    "orig": "global_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_location",
+                    "orig": "global_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_measure",
+                    "orig": "global_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "global_threshold",
+                    "orig": "global_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_activity",
+                    "orig": "subnat_activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cube",
+                    "orig": "subnat_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_cut",
+                    "orig": "subnat_cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_location",
+                    "orig": "subnat_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_measure",
+                    "orig": "subnat_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "subnat_threshold",
+                    "orig": "subnat_threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/rca_subnational.{extension}",
+              "parts": [
+                "complexity",
+                "rca_subnational.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "extension",
+                  "filter",
+                  "global_activity",
+                  "global_cube",
+                  "global_cut",
+                  "global_location",
+                  "global_measure",
+                  "global_threshold",
+                  "locale",
+                  "parent",
+                  "rank",
+                  "subnat_activity",
+                  "subnat_cube",
+                  "subnat_cut",
+                  "subnat_location",
+                  "subnat_measure",
+                  "subnat_threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "emissions_cube",
+                    "orig": "emissions_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "emissions_location",
+                    "orig": "emissions_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "emissions_measure",
+                    "orig": "emissions_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/peii.{extension}",
+              "parts": [
+                "complexity",
+                "peii.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "emissions_cube",
+                  "emissions_location",
+                  "emissions_measure",
+                  "extension",
+                  "filter",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gini_cube",
+                    "orig": "gini_cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gini_location",
+                    "orig": "gini_location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gini_measure",
+                    "orig": "gini_measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/pgi.{extension}",
+              "parts": [
+                "complexity",
+                "pgi.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "gini_cube",
+                  "gini_location",
+                  "gini_measure",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 20,
+                    "kind": "query",
+                    "name": "iteration",
+                    "orig": "iteration",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "wdi",
+                    "orig": "wdi",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/eci.{extension}",
+              "parts": [
+                "complexity",
+                "eci.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "iteration",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "wdi",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 8
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 20,
+                    "kind": "query",
+                    "name": "iteration",
+                    "orig": "iteration",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "wdi",
+                    "orig": "wdi",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/pci.{extension}",
+              "parts": [
+                "complexity",
+                "pci.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "iteration",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "wdi",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 9
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/opportunity_gain.{extension}",
+              "parts": [
+                "complexity",
+                "opportunity_gain.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 10
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/relatedness.{extension}",
+              "parts": [
+                "complexity",
+                "relatedness.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 11
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "example": 1,
+                    "kind": "query",
+                    "name": "cutoff",
+                    "orig": "cutoff",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/relative_relatedness.{extension}",
+              "parts": [
+                "complexity",
+                "relative_relatedness.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "cutoff",
+                  "extension",
+                  "filter",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 12
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "activity",
+                    "orig": "activity",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "alia",
+                    "orig": "alia",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ascending",
+                    "orig": "ascending",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cut",
+                    "orig": "cut",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "location",
+                    "orig": "location",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "rank",
+                    "orig": "rank",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "threshold",
+                    "orig": "threshold",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "wdi",
+                    "orig": "wdi",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/rca.{extension}",
+              "parts": [
+                "complexity",
+                "rca.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "activity",
+                  "alia",
+                  "ascending",
+                  "authorization",
+                  "cube",
+                  "cut",
+                  "extension",
+                  "filter",
+                  "locale",
+                  "location",
+                  "measure",
+                  "parent",
+                  "rank",
+                  "threshold",
+                  "token",
+                  "top",
+                  "wdi",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 13
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "accept",
+                    "orig": "accept",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "endpoint",
+                    "orig": "endpoint",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/{endpoint}",
+              "parts": [
+                "complexity",
+                "{endpoint}"
+              ],
+              "select": {
+                "exist": [
+                  "accept",
+                  "endpoint"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 14
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "complexity"
+          ]
+        ]
+      }
+    },
+    "health": {
+      "fields": [],
+      "name": "health",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/_health",
+              "parts": [
+                "_health"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "member": {
+      "fields": [
+        {
+          "name": "annotation",
+          "req": true,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "caption",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "name",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "type",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 3
+        }
+      ],
+      "name": "member",
+      "op": {
+        "list": {
+          "name": "list",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "level",
+                    "orig": "level",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "0",
+                    "kind": "query",
+                    "name": "limit",
+                    "orig": "limit",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "search",
+                    "orig": "search",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/members",
+              "parts": [
+                "tesseract",
+                "members"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "cube",
+                  "level",
+                  "limit",
+                  "locale",
+                  "parent",
+                  "search",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "list"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "module_status": {
+      "fields": [
+        {
+          "name": "debug",
+          "req": true,
+          "type": "`$ANY`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "module",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "status",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "version",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 3
+        }
+      ],
+      "name": "module_status",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/calcs/",
+              "parts": [
+                "calcs"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            },
+            {
+              "method": "GET",
+              "orig": "/complexity/",
+              "parts": [
+                "complexity"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 1
+            },
+            {
+              "method": "GET",
+              "orig": "/tesseract/",
+              "parts": [
+                "tesseract"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 2
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "route_index_get": {
+      "fields": [],
+      "name": "route_index_get",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/",
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "parts": [],
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "tesseract_cube": {
+      "fields": [
+        {
+          "name": "annotation",
+          "req": true,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "caption",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "dimension",
+          "req": true,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "measure",
+          "req": true,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 3
+        },
+        {
+          "name": "name",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 4
+        }
+      ],
+      "name": "tesseract_cube",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "cube_name",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/cubes/{cube_name}",
+              "parts": [
+                "complexity",
+                "cubes",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "cube_name": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "authorization",
+                  "id",
+                  "locale",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "cube_name",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/cubes/{cube_name}",
+              "parts": [
+                "tesseract",
+                "cubes",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "cube_name": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "authorization",
+                  "id",
+                  "locale",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "tesseract_module": {
+      "fields": [
+        {
+          "name": "join",
+          "req": false,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "pagination",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "request",
+          "req": true,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 2
+        }
+      ],
+      "name": "tesseract_module",
+      "op": {
+        "create": {
+          "name": "create",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "POST",
+              "orig": "/tesseract/multiquery.{extension}",
+              "parts": [
+                "tesseract",
+                "multiquery.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "extension",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "create"
+        },
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "accept",
+                    "orig": "accept",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alias",
+                    "orig": "alias",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "drilldown",
+                    "orig": "drilldown",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "exclude",
+                    "orig": "exclude",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "growth",
+                    "orig": "growth",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "include",
+                    "orig": "include",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "0",
+                    "kind": "query",
+                    "name": "limit",
+                    "orig": "limit",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "property",
+                    "orig": "property",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "ranking",
+                    "orig": "ranking",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "sort",
+                    "orig": "sort",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "time",
+                    "orig": "time",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/debug/query",
+              "parts": [
+                "tesseract",
+                "debug",
+                "query"
+              ],
+              "select": {
+                "exist": [
+                  "accept",
+                  "alias",
+                  "authorization",
+                  "cube",
+                  "drilldown",
+                  "exclude",
+                  "filter",
+                  "growth",
+                  "include",
+                  "limit",
+                  "locale",
+                  "measure",
+                  "parent",
+                  "property",
+                  "ranking",
+                  "sort",
+                  "time",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "alias",
+                    "orig": "alias",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "cube",
+                    "orig": "cube",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "drilldown",
+                    "orig": "drilldown",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "exclude",
+                    "orig": "exclude",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "filter",
+                    "orig": "filter",
+                    "reqd": false,
+                    "type": "`$ARRAY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "growth",
+                    "orig": "growth",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "include",
+                    "orig": "include",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "0",
+                    "kind": "query",
+                    "name": "limit",
+                    "orig": "limit",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "measure",
+                    "orig": "measure",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "parent",
+                    "orig": "parent",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "property",
+                    "orig": "property",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "ranking",
+                    "orig": "ranking",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "sort",
+                    "orig": "sort",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "time",
+                    "orig": "time",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "top",
+                    "orig": "top",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/data.{extension}",
+              "parts": [
+                "tesseract",
+                "data.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "alias",
+                  "authorization",
+                  "cube",
+                  "drilldown",
+                  "exclude",
+                  "extension",
+                  "filter",
+                  "growth",
+                  "include",
+                  "limit",
+                  "locale",
+                  "measure",
+                  "parent",
+                  "property",
+                  "ranking",
+                  "sort",
+                  "time",
+                  "token",
+                  "top",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/debug/flush",
+              "parts": [
+                "tesseract",
+                "debug",
+                "flush"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/debug/schema",
+              "parts": [
+                "tesseract",
+                "debug",
+                "schema"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "extension",
+                    "orig": "extension",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/members.{extension}",
+              "parts": [
+                "tesseract",
+                "members.{extension}"
+              ],
+              "select": {
+                "exist": [
+                  "extension"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "method": "GET",
+              "orig": "/tesseract/data",
+              "parts": [
+                "tesseract",
+                "data"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 5
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "tesseract_schema": {
+      "fields": [
+        {
+          "name": "annotation",
+          "req": true,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "caption",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "dimension",
+          "req": true,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "measure",
+          "req": true,
+          "type": "`$ARRAY`",
+          "active": true,
+          "index$": 3
+        },
+        {
+          "name": "name",
+          "req": true,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 4
+        }
+      ],
+      "name": "tesseract_schema",
+      "op": {
+        "list": {
+          "name": "list",
+          "points": [
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/complexity/cubes",
+              "parts": [
+                "complexity",
+                "cubes"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "locale",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "header": [
+                  {
+                    "kind": "header",
+                    "name": "authorization",
+                    "orig": "authorization",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "header",
+                    "name": "x_tesseract_jwt",
+                    "orig": "x_tesseract_jwt",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "locale",
+                    "orig": "locale",
+                    "reqd": false,
+                    "type": "`$ANY`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "token",
+                    "orig": "token",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/tesseract/cubes",
+              "parts": [
+                "tesseract",
+                "cubes"
+              ],
+              "select": {
+                "exist": [
+                  "authorization",
+                  "locale",
+                  "token",
+                  "x_tesseract_jwt"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "list"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    }
+  }
+}
+
+
+const config = new Config()
+
+export {
+  config
+}
+

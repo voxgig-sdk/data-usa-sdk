@@ -1,0 +1,246 @@
+# Entity: calculations_module
+
+main: kit: entity: calculations_module: {
+
+  alias: field: {}
+
+  name: "calculations_module"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "param"
+                orig: "param"
+                reqd: true
+                type: "`$OBJECT`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "top"
+                orig: "top"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/calcs/merge.{extension}"
+          parts: [
+            "calcs"
+            "merge.{extension}"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "extension"
+              "filter"
+              "param"
+              "token"
+              "top"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "param"
+                orig: "param"
+                reqd: true
+                type: "`$OBJECT`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "top"
+                orig: "top"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/calcs/pums.{extension}"
+          parts: [
+            "calcs"
+            "pums.{extension}"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "extension"
+              "filter"
+              "param"
+              "token"
+              "top"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "param"
+                orig: "param"
+                reqd: true
+                type: "`$OBJECT`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/calcs/acs.{extension}"
+          parts: [
+            "calcs"
+            "acs.{extension}"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "extension"
+              "param"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

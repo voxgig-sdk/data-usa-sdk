@@ -1,0 +1,32 @@
+# BasicTesseractCubeFlow
+
+main: kit: flow: BasicTesseractCubeFlow:
+{
+  entity: "tesseract_cube",
+  kind: "basic",
+  name: "BasicTesseractCubeFlow",
+  step: [
+    {
+      input: {
+        ref: "tesseract_cube_ref01",
+        srcdatavar: "tesseract_cube_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "tesseract_cube01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-tesseract_cube_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTesseractCubeFlow"
+}

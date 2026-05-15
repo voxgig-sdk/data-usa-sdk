@@ -1,0 +1,186 @@
+# Entity: tesseract_cube
+
+main: kit: entity: tesseract_cube: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "annotation"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "caption"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "dimension"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "measure"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "tesseract_cube"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "cube_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/complexity/cubes/{cube_name}"
+          parts: [
+            "complexity"
+            "cubes"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              cube_name: "id"
+            }
+          }
+          select: {
+            exist: [
+              "authorization"
+              "id"
+              "locale"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "cube_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/cubes/{cube_name}"
+          parts: [
+            "tesseract"
+            "cubes"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              cube_name: "id"
+            }
+          }
+          select: {
+            exist: [
+              "authorization"
+              "id"
+              "locale"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

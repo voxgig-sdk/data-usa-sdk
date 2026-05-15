@@ -1,0 +1,610 @@
+# Entity: tesseract_module
+
+main: kit: entity: tesseract_module: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "join"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pagination"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "request"
+      req: true
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "tesseract_module"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/tesseract/multiquery.{extension}"
+          parts: [
+            "tesseract"
+            "multiquery.{extension}"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "extension"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "accept"
+                orig: "accept"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "alias"
+                orig: "alias"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "cube"
+                orig: "cube"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "drilldown"
+                orig: "drilldown"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "growth"
+                orig: "growth"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "include"
+                orig: "include"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "0"
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "measure"
+                orig: "measure"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "parent"
+                orig: "parent"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "property"
+                orig: "property"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "ranking"
+                orig: "ranking"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "time"
+                orig: "time"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "top"
+                orig: "top"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/debug/query"
+          parts: [
+            "tesseract"
+            "debug"
+            "query"
+          ]
+          select: {
+            exist: [
+              "accept"
+              "alias"
+              "authorization"
+              "cube"
+              "drilldown"
+              "exclude"
+              "filter"
+              "growth"
+              "include"
+              "limit"
+              "locale"
+              "measure"
+              "parent"
+              "property"
+              "ranking"
+              "sort"
+              "time"
+              "token"
+              "top"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "alias"
+                orig: "alias"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "cube"
+                orig: "cube"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "drilldown"
+                orig: "drilldown"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                kind: "query"
+                name: "growth"
+                orig: "growth"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "include"
+                orig: "include"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "0"
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "measure"
+                orig: "measure"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "parent"
+                orig: "parent"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "property"
+                orig: "property"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "ranking"
+                orig: "ranking"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "time"
+                orig: "time"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "top"
+                orig: "top"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/data.{extension}"
+          parts: [
+            "tesseract"
+            "data.{extension}"
+          ]
+          select: {
+            exist: [
+              "alias"
+              "authorization"
+              "cube"
+              "drilldown"
+              "exclude"
+              "extension"
+              "filter"
+              "growth"
+              "include"
+              "limit"
+              "locale"
+              "measure"
+              "parent"
+              "property"
+              "ranking"
+              "sort"
+              "time"
+              "token"
+              "top"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/debug/flush"
+          parts: [
+            "tesseract"
+            "debug"
+            "flush"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/debug/schema"
+          parts: [
+            "tesseract"
+            "debug"
+            "schema"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "extension"
+                orig: "extension"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/members.{extension}"
+          parts: [
+            "tesseract"
+            "members.{extension}"
+          ]
+          select: {
+            exist: [
+              "extension"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/tesseract/data"
+          parts: [
+            "tesseract"
+            "data"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

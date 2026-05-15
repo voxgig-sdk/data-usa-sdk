@@ -1,0 +1,138 @@
+# Entity: member
+
+main: kit: entity: member: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "annotation"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "caption"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "member"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cube"
+                orig: "cube"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "level"
+                orig: "level"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "0"
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "parent"
+                orig: "parent"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/members"
+          parts: [
+            "tesseract"
+            "members"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "cube"
+              "level"
+              "limit"
+              "locale"
+              "parent"
+              "search"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

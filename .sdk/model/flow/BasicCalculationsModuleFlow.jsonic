@@ -1,0 +1,32 @@
+# BasicCalculationsModuleFlow
+
+main: kit: flow: BasicCalculationsModuleFlow:
+{
+  entity: "calculations_module",
+  kind: "basic",
+  name: "BasicCalculationsModuleFlow",
+  step: [
+    {
+      input: {
+        ref: "calculations_module_ref01",
+        srcdatavar: "calculations_module_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        extension: "extension01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-calculations_module_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCalculationsModuleFlow"
+}

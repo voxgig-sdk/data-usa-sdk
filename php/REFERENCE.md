@@ -1,0 +1,600 @@
+# DataUsa PHP SDK Reference
+
+Complete API reference for the DataUsa PHP SDK.
+
+
+## DataUsaSDK
+
+### Constructor
+
+```php
+require_once __DIR__ . '/data-usa_sdk.php';
+
+$client = new DataUsaSDK($options);
+```
+
+Create a new SDK client instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `$options` | `array` | SDK configuration options. |
+| `$options["apikey"]` | `string` | API key for authentication. |
+| `$options["base"]` | `string` | Base URL for API requests. |
+| `$options["prefix"]` | `string` | URL prefix appended after base. |
+| `$options["suffix"]` | `string` | URL suffix appended after path. |
+| `$options["headers"]` | `array` | Custom headers for all requests. |
+| `$options["feature"]` | `array` | Feature configuration. |
+| `$options["system"]` | `array` | System overrides (e.g. custom fetch). |
+
+
+### Static Methods
+
+#### `DataUsaSDK::test($testopts = null, $sdkopts = null)`
+
+Create a test client with mock features active. Both arguments may be `null`.
+
+```php
+$client = DataUsaSDK::test();
+```
+
+
+### Instance Methods
+
+#### `CalculationsModule($data = null)`
+
+Create a new `CalculationsModuleEntity` instance. Pass `null` for no initial data.
+
+#### `EconomicComplexityModule($data = null)`
+
+Create a new `EconomicComplexityModuleEntity` instance. Pass `null` for no initial data.
+
+#### `Health($data = null)`
+
+Create a new `HealthEntity` instance. Pass `null` for no initial data.
+
+#### `Member($data = null)`
+
+Create a new `MemberEntity` instance. Pass `null` for no initial data.
+
+#### `ModuleStatus($data = null)`
+
+Create a new `ModuleStatusEntity` instance. Pass `null` for no initial data.
+
+#### `RouteIndexGet($data = null)`
+
+Create a new `RouteIndexGetEntity` instance. Pass `null` for no initial data.
+
+#### `TesseractCube($data = null)`
+
+Create a new `TesseractCubeEntity` instance. Pass `null` for no initial data.
+
+#### `TesseractModule($data = null)`
+
+Create a new `TesseractModuleEntity` instance. Pass `null` for no initial data.
+
+#### `TesseractSchema($data = null)`
+
+Create a new `TesseractSchemaEntity` instance. Pass `null` for no initial data.
+
+#### `optionsMap(): array`
+
+Return a deep copy of the current SDK options.
+
+#### `getUtility(): ProjectNameUtility`
+
+Return a copy of the SDK utility object.
+
+#### `direct(array $fetchargs = []): array`
+
+Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `$fetchargs["path"]` | `string` | URL path with optional `{param}` placeholders. |
+| `$fetchargs["method"]` | `string` | HTTP method (default: `"GET"`). |
+| `$fetchargs["params"]` | `array` | Path parameter values for `{param}` substitution. |
+| `$fetchargs["query"]` | `array` | Query string parameters. |
+| `$fetchargs["headers"]` | `array` | Request headers (merged with defaults). |
+| `$fetchargs["body"]` | `mixed` | Request body (arrays are JSON-serialized). |
+| `$fetchargs["ctrl"]` | `array` | Control options. |
+
+**Returns:** `array [$result, $err]`
+
+#### `prepare(array $fetchargs = []): array`
+
+Prepare a fetch definition without sending the request. Returns `[$fetchdef, $err]`.
+
+
+---
+
+## CalculationsModuleEntity
+
+```php
+$calculations_module = $client->CalculationsModule();
+```
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->CalculationsModule()->load(["id" => "calculations_module_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): CalculationsModuleEntity`
+
+Create a new `CalculationsModuleEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## EconomicComplexityModuleEntity
+
+```php
+$economic_complexity_module = $client->EconomicComplexityModule();
+```
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->EconomicComplexityModule()->load(["id" => "economic_complexity_module_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): EconomicComplexityModuleEntity`
+
+Create a new `EconomicComplexityModuleEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## HealthEntity
+
+```php
+$health = $client->Health();
+```
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->Health()->load(["id" => "health_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): HealthEntity`
+
+Create a new `HealthEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## MemberEntity
+
+```php
+$member = $client->Member();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `annotation` | ``$OBJECT`` | Yes |  |
+| `caption` | ``$STRING`` | Yes |  |
+| `name` | ``$STRING`` | Yes |  |
+| `type` | ``$STRING`` | Yes |  |
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Member()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MemberEntity`
+
+Create a new `MemberEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## ModuleStatusEntity
+
+```php
+$module_status = $client->ModuleStatus();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `debug` | ``$ANY`` | Yes |  |
+| `module` | ``$STRING`` | Yes |  |
+| `status` | ``$STRING`` | Yes |  |
+| `version` | ``$STRING`` | Yes |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->ModuleStatus()->load(["id" => "module_status_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): ModuleStatusEntity`
+
+Create a new `ModuleStatusEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## RouteIndexGetEntity
+
+```php
+$route_index_get = $client->RouteIndexGet();
+```
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->RouteIndexGet()->load(["id" => "route_index_get_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): RouteIndexGetEntity`
+
+Create a new `RouteIndexGetEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## TesseractCubeEntity
+
+```php
+$tesseract_cube = $client->TesseractCube();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `annotation` | ``$OBJECT`` | Yes |  |
+| `caption` | ``$STRING`` | Yes |  |
+| `dimension` | ``$ARRAY`` | Yes |  |
+| `measure` | ``$ARRAY`` | Yes |  |
+| `name` | ``$STRING`` | Yes |  |
+
+### Operations
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->TesseractCube()->load(["id" => "tesseract_cube_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): TesseractCubeEntity`
+
+Create a new `TesseractCubeEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## TesseractModuleEntity
+
+```php
+$tesseract_module = $client->TesseractModule();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `join` | ``$ARRAY`` | No |  |
+| `pagination` | ``$OBJECT`` | No |  |
+| `request` | ``$ARRAY`` | Yes |  |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): array`
+
+Create a new entity with the given data.
+
+```php
+[$result, $err] = $client->TesseractModule()->create([
+  "request" => /* `$ARRAY` */,
+]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->TesseractModule()->load(["id" => "tesseract_module_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): TesseractModuleEntity`
+
+Create a new `TesseractModuleEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## TesseractSchemaEntity
+
+```php
+$tesseract_schema = $client->TesseractSchema();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `annotation` | ``$OBJECT`` | Yes |  |
+| `caption` | ``$STRING`` | Yes |  |
+| `dimension` | ``$ARRAY`` | Yes |  |
+| `measure` | ``$ARRAY`` | Yes |  |
+| `name` | ``$STRING`` | Yes |  |
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->TesseractSchema()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): TesseractSchemaEntity`
+
+Create a new `TesseractSchemaEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## Features
+
+| Feature | Version | Description |
+| --- | --- | --- |
+| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
+
+
+Features are activated via the `feature` option:
+
+```php
+$client = new DataUsaSDK([
+  "feature" => [
+    "test" => ["active" => true],
+  ],
+]);
+```
+

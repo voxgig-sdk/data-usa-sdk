@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "member": {
+      "MEMBER00": {
+        "annotation": {},
+        "caption": "s29",
+        "name": "s2a",
+        "type": "s2b"
+      },
+      "MEMBER01": {
+        "annotation": {},
+        "caption": "s51",
+        "name": "s52",
+        "type": "s53"
+      },
+      "MEMBER02": {
+        "annotation": {},
+        "caption": "s79",
+        "name": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "member": {
+      "member_ref01": {
+        "annotation": {},
+        "caption": "sa1",
+        "name": "sa2",
+        "type": "sa3"
+      }
+    }
+  }
+}

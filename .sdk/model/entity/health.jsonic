@@ -1,0 +1,29 @@
+# Entity: health
+
+main: kit: entity: health: {
+
+  alias: field: {}
+
+  name: "health"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/_health"
+          parts: [
+            "_health"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

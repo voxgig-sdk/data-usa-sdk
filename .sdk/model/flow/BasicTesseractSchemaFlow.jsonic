@@ -1,0 +1,22 @@
+# BasicTesseractSchemaFlow
+
+main: kit: flow: BasicTesseractSchemaFlow:
+{
+  entity: "tesseract_schema",
+  kind: "basic",
+  name: "BasicTesseractSchemaFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "tesseract_schema_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTesseractSchemaFlow"
+}

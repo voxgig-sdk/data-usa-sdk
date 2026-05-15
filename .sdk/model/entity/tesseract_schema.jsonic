@@ -1,0 +1,154 @@
+# Entity: tesseract_schema
+
+main: kit: entity: tesseract_schema: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "annotation"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "caption"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "dimension"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "measure"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "tesseract_schema"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/complexity/cubes"
+          parts: [
+            "complexity"
+            "cubes"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "locale"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "authorization"
+                orig: "authorization"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "header"
+                name: "x_tesseract_jwt"
+                orig: "x_tesseract_jwt"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "locale"
+                orig: "locale"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tesseract/cubes"
+          parts: [
+            "tesseract"
+            "cubes"
+          ]
+          select: {
+            exist: [
+              "authorization"
+              "locale"
+              "token"
+              "x_tesseract_jwt"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

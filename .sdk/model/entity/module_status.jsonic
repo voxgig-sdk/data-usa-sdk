@@ -1,0 +1,74 @@
+# Entity: module_status
+
+main: kit: entity: module_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "debug"
+      req: true
+      type: "`$ANY`"
+    }
+    {
+      name: "module"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "module_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/calcs/"
+          parts: [
+            "calcs"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/complexity/"
+          parts: [
+            "complexity"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/tesseract/"
+          parts: [
+            "tesseract"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

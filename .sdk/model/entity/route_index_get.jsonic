@@ -1,0 +1,26 @@
+# Entity: route_index_get
+
+main: kit: entity: route_index_get: {
+
+  alias: field: {}
+
+  name: "route_index_get"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/"
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,32 @@
+# BasicEconomicComplexityModuleFlow
+
+main: kit: flow: BasicEconomicComplexityModuleFlow:
+{
+  entity: "economic_complexity_module",
+  kind: "basic",
+  name: "BasicEconomicComplexityModuleFlow",
+  step: [
+    {
+      input: {
+        ref: "economic_complexity_module_ref01",
+        srcdatavar: "economic_complexity_module_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "economic_complexity_module01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-economic_complexity_module_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEconomicComplexityModuleFlow"
+}

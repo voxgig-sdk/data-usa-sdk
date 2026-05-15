@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "tesseract_schema": {
+      "TESSERACT_SCHEMA00": {
+        "annotation": {},
+        "caption": "s33",
+        "dimension": [],
+        "measure": [],
+        "name": "s36"
+      },
+      "TESSERACT_SCHEMA01": {
+        "annotation": {},
+        "caption": "s65",
+        "dimension": [],
+        "measure": [],
+        "name": "s68"
+      },
+      "TESSERACT_SCHEMA02": {
+        "annotation": {},
+        "caption": "s97",
+        "dimension": [],
+        "measure": [],
+        "name": "s9a"
+      }
+    }
+  },
+  "new": {
+    "tesseract_schema": {
+      "tesseract_schema_ref01": {
+        "annotation": {},
+        "caption": "sc9",
+        "dimension": [],
+        "measure": [],
+        "name": "scc"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "tesseract_module": {
+      "TESSERACT_MODULE00": {
+        "join": [],
+        "pagination": {},
+        "request": [],
+        "extension": "EXTENSION01"
+      },
+      "TESSERACT_MODULE01": {
+        "join": [],
+        "pagination": {},
+        "request": [],
+        "extension": "EXTENSION01"
+      },
+      "TESSERACT_MODULE02": {
+        "join": [],
+        "pagination": {},
+        "request": [],
+        "extension": "EXTENSION01"
+      }
+    }
+  },
+  "new": {
+    "tesseract_module": {
+      "tesseract_module_ref01": {
+        "join": [],
+        "pagination": {},
+        "request": []
+      }
+    }
+  }
+}
