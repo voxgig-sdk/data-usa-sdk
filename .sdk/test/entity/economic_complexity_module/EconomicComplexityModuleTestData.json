@@ -3,15 +3,18 @@
     "economic_complexity_module": {
       "ECONOMIC_COMPLEXITY_MODULE00": {
         "extension": "EXTENSION01",
-        "endpoint": "ENDPOINT01"
+        "endpoint": "ENDPOINT01",
+        "id": "ECONOMIC_COMPLEXITY_MODULE00"
       },
       "ECONOMIC_COMPLEXITY_MODULE01": {
         "extension": "EXTENSION01",
-        "endpoint": "ENDPOINT01"
+        "endpoint": "ENDPOINT01",
+        "id": "ECONOMIC_COMPLEXITY_MODULE01"
       },
       "ECONOMIC_COMPLEXITY_MODULE02": {
         "extension": "EXTENSION01",
-        "endpoint": "ENDPOINT01"
+        "endpoint": "ENDPOINT01",
+        "id": "ECONOMIC_COMPLEXITY_MODULE02"
       }
     }
   },

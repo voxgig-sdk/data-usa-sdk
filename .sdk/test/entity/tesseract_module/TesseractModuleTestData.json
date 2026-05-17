@@ -5,19 +5,22 @@
         "join": [],
         "pagination": {},
         "request": [],
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "TESSERACT_MODULE00"
       },
       "TESSERACT_MODULE01": {
         "join": [],
         "pagination": {},
         "request": [],
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "TESSERACT_MODULE01"
       },
       "TESSERACT_MODULE02": {
         "join": [],
         "pagination": {},
         "request": [],
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "TESSERACT_MODULE02"
       }
     }
   },

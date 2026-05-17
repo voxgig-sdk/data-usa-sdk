@@ -6,21 +6,24 @@
         "caption": "s33",
         "dimension": [],
         "measure": [],
-        "name": "s36"
+        "name": "s36",
+        "id": "TESSERACT_CUBE00"
       },
       "TESSERACT_CUBE01": {
         "annotation": {},
         "caption": "s65",
         "dimension": [],
         "measure": [],
-        "name": "s68"
+        "name": "s68",
+        "id": "TESSERACT_CUBE01"
       },
       "TESSERACT_CUBE02": {
         "annotation": {},
         "caption": "s97",
         "dimension": [],
         "measure": [],
-        "name": "s9a"
+        "name": "s9a",
+        "id": "TESSERACT_CUBE02"
       }
     }
   },

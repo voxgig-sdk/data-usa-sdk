@@ -1,9 +1,15 @@
 {
   "existing": {
     "route_index_get": {
-      "ROUTE_INDEX_GET00": {},
-      "ROUTE_INDEX_GET01": {},
-      "ROUTE_INDEX_GET02": {}
+      "ROUTE_INDEX_GET00": {
+        "id": "ROUTE_INDEX_GET00"
+      },
+      "ROUTE_INDEX_GET01": {
+        "id": "ROUTE_INDEX_GET01"
+      },
+      "ROUTE_INDEX_GET02": {
+        "id": "ROUTE_INDEX_GET02"
+      }
     }
   },
   "new": {

@@ -1,10 +1,10 @@
 package voxgigdatausasdk
 
 import (
-	"github.com/voxgig-sdk/data-usa-sdk/core"
-	"github.com/voxgig-sdk/data-usa-sdk/entity"
-	"github.com/voxgig-sdk/data-usa-sdk/feature"
-	_ "github.com/voxgig-sdk/data-usa-sdk/utility"
+	"github.com/voxgig-sdk/data-usa-sdk/go/core"
+	"github.com/voxgig-sdk/data-usa-sdk/go/entity"
+	"github.com/voxgig-sdk/data-usa-sdk/go/feature"
+	_ "github.com/voxgig-sdk/data-usa-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

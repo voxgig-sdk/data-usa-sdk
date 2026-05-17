@@ -5,19 +5,22 @@
         "debug": "s28",
         "module": "s29",
         "status": "s2a",
-        "version": "s2b"
+        "version": "s2b",
+        "id": "MODULE_STATUS00"
       },
       "MODULE_STATUS01": {
         "debug": "s50",
         "module": "s51",
         "status": "s52",
-        "version": "s53"
+        "version": "s53",
+        "id": "MODULE_STATUS01"
       },
       "MODULE_STATUS02": {
         "debug": "s78",
         "module": "s79",
         "status": "s7a",
-        "version": "s7b"
+        "version": "s7b",
+        "id": "MODULE_STATUS02"
       }
     }
   },

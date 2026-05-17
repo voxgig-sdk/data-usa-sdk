@@ -2,13 +2,16 @@
   "existing": {
     "calculations_module": {
       "CALCULATIONS_MODULE00": {
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "CALCULATIONS_MODULE00"
       },
       "CALCULATIONS_MODULE01": {
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "CALCULATIONS_MODULE01"
       },
       "CALCULATIONS_MODULE02": {
-        "extension": "EXTENSION01"
+        "extension": "EXTENSION01",
+        "id": "CALCULATIONS_MODULE02"
       }
     }
   },
