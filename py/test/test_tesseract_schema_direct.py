@@ -61,14 +61,12 @@ def _tesseract_schema_direct_setup(mockres):
     env = runner.env_override({
         "DATAUSA_TEST_TESSERACT_SCHEMA_ENTID": {},
         "DATAUSA_TEST_LIVE": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     live = env.get("DATAUSA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("DATAUSA_APIKEY"),
         }
         client = DataUsaSDK(merged_opts)
         return {

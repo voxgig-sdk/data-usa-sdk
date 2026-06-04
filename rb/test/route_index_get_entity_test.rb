@@ -82,7 +82,6 @@ def route_index_get_basic_setup(extra)
     "DATAUSA_TEST_ROUTE_INDEX_GET_ENTID" => idmap,
     "DATAUSA_TEST_LIVE" => "FALSE",
     "DATAUSA_TEST_EXPLAIN" => "FALSE",
-    "DATAUSA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +93,6 @@ def route_index_get_basic_setup(extra)
   if env["DATAUSA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["DATAUSA_APIKEY"],
       },
       extra || {},
     ])

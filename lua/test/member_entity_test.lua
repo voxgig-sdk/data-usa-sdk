@@ -92,7 +92,6 @@ function member_basic_setup(extra)
     ["DATAUSA_TEST_MEMBER_ENTID"] = idmap,
     ["DATAUSA_TEST_LIVE"] = "FALSE",
     ["DATAUSA_TEST_EXPLAIN"] = "FALSE",
-    ["DATAUSA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function member_basic_setup(extra)
   if env["DATAUSA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["DATAUSA_APIKEY"],
       },
       extra or {},
     })

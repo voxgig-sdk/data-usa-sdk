@@ -99,14 +99,12 @@ func economic_complexity_moduleDirectSetup(mockres any) *economic_complexity_mod
 	env := envOverride(map[string]any{
 		"DATAUSA_TEST_ECONOMIC_COMPLEXITY_MODULE_ENTID": map[string]any{},
 		"DATAUSA_TEST_LIVE":    "FALSE",
-		"DATAUSA_APIKEY":       "NONE",
 	})
 
 	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["DATAUSA_APIKEY"],
 		}
 		client := sdk.NewDataUsaSDK(mergedOpts)
 

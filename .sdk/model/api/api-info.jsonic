@@ -11,8 +11,38 @@ main: {
       ]
       title: "FastAPI"
       version: "0.1.0"
+      tagline: "Query DataUSA's aggregated US public-data cubes through a Tesseract OLAP backend"
+      homepage: "https://datausa.io"
+      docs_url: "https://datausa.io/about/api"
+      license_short: "Public US Government data exposed via the DataUSA platform; check datausa.io for attribution and terms."
+      license_md: `- Underlying datasets are aggregated US public / government data sources surfaced by DataUSA.
+- DataUSA is a collaboration between Deloitte, Datawheel and Cesar Hidalgo (MIT Media Lab); attribution to DataUSA and the original data publishers is expected.
+- No explicit licence is published on the Tesseract endpoint itself — review datausa.io terms before redistribution.
+- The visualisation stack uses the open-source D3plus engine from Datawheel.`
+      about_md: `[DataUSA](https://datausa.io) bills itself as the most comprehensive visualisation engine for US public-government data, covering places, occupations, industries and education. It is run as a partnership between Deloitte, [Datawheel](https://www.datawheel.us/) and MIT Media Lab professor Cesar Hidalgo.
+
+This SDK targets the public Tesseract OLAP server at \`honduras.datausa.io\`, which is the backend that powers DataUSA visualisations. [Tesseract](https://www.datawheel.us/) is Datawheel's OLAP engine that exposes multidimensional data cubes (schemas, cubes, dimensions, measures, members) over a REST API for drilldown / cut / measure queries.
+
+What you can do through the API:
+- Discover the available schemas, cubes and modules served by the instance.
+- Inspect cube metadata — dimensions, hierarchies, levels and measures.
+- List members of a level (e.g. the set of US states, industries, occupations).
+- Run economic-complexity and calculation modules that DataUSA layers on top of the cubes.
+- Check service health and module status before issuing larger queries.
+
+The endpoint is a read-only public service with no documented authentication. It is a shared community resource — be considerate with query volume and prefer narrow drilldowns and cuts over wide scans.`
+      entity_desc: {
+        calculations_module: "Endpoints for Tesseract's calculations module, which applies derived computations (growth, share, RCA, etc.) on top of cube measures."
+        economic_complexity_module: "Economic-complexity analytics (ECI, PCI, relatedness, opportunity gain) over trade / industry cubes — a signature DataUSA / Datawheel feature."
+        health: "Service health-check endpoint used to verify the Tesseract server is up and responsive."
+        member: "Lookup of the members of a dimension level (e.g. the list of states, counties, NAICS industries) for a given cube."
+        module_status: "Reports which Tesseract modules (calculations, economic complexity, etc.) are loaded and available on this instance."
+        route_index_get: "Root index route that lists the available top-level routes / modules on the Tesseract server."
+        tesseract_cube: "Metadata and data-query routes for an individual OLAP cube — dimensions, hierarchies, levels and measures, plus drilldown / cut / measure queries."
+        tesseract_module: "Generic Tesseract module discovery endpoint describing which extension modules the server exposes."
+        tesseract_schema: "Top-level schema description listing the cubes and shared dimensions served by this Tesseract instance."
+      }
+      auth: false
     }
   }
-}
-
 }

@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://honduras.datausa.io',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

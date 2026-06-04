@@ -68,14 +68,12 @@ function tesseract_schema_direct_setup($mockres)
     $env = Runner::env_override([
         "DATAUSA_TEST_TESSERACT_SCHEMA_ENTID" => [],
         "DATAUSA_TEST_LIVE" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $live = $env["DATAUSA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["DATAUSA_APIKEY"],
         ];
         $client = new DataUsaSDK($merged_opts);
         return [

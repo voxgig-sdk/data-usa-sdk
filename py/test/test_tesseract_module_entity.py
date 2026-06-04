@@ -94,7 +94,6 @@ def _tesseract_module_basic_setup(extra):
         "DATAUSA_TEST_TESSERACT_MODULE_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -105,7 +104,6 @@ def _tesseract_module_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])
