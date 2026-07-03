@@ -10,7 +10,7 @@ The Python SDK for the DataUsa API — an entity-oriented client following Pytho
 
 ## Install
 ```bash
-pip install data-usa-sdk
+pip install voxgig-sdk-data-usa
 ```
 
 Or install from source:

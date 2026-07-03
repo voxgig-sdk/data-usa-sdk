@@ -10,13 +10,13 @@ The Ruby SDK for the DataUsa API — an entity-oriented client using idiomatic R
 
 ## Install
 ```bash
-gem install data-usa-sdk
+gem install voxgig-sdk-data-usa
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "data-usa-sdk"
+gem "voxgig-sdk-data-usa"
 ```
 
 Then run:

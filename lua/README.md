@@ -10,7 +10,7 @@ The Lua SDK for the DataUsa API — an entity-oriented client using Lua conventi
 
 ## Install
 ```bash
-luarocks install data-usa-sdk
+luarocks install voxgig-sdk-data-usa
 ```
 
 If the module is not yet published, add the source directory to

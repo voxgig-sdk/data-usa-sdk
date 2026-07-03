@@ -10,7 +10,7 @@ The PHP SDK for the DataUsa API — an entity-oriented client using PHP conventi
 
 ## Install
 ```bash
-composer require voxgig/data-usa-sdk
+composer require voxgig-sdk/data-usa
 ```
 
 

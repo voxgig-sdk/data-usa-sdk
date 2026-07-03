@@ -10,7 +10,7 @@ The TypeScript SDK for the DataUsa API — a type-safe, entity-oriented client w
 
 ## Install
 ```bash
-npm install data-usa
+npm install @voxgig-sdk/data-usa
 ```
 ## Tutorial: your first API call
 
