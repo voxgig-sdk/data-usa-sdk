@@ -117,12 +117,14 @@ func tesseract_cubeDirectSetup(mockres any) *tesseract_cubeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DATAUSA_TEST_TESSERACT_CUBE_ENTID": map[string]any{},
 		"DATAUSA_TEST_LIVE":    "FALSE",
+		"DATAUSA_APIKEY":       "NONE",
 	})
 
 	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DATAUSA_APIKEY"],
 		}
 		client := sdk.NewDataUsaSDK(mergedOpts)
 

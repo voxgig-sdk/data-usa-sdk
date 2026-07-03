@@ -99,12 +99,14 @@ func module_statusDirectSetup(mockres any) *module_statusDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DATAUSA_TEST_MODULE_STATUS_ENTID": map[string]any{},
 		"DATAUSA_TEST_LIVE":    "FALSE",
+		"DATAUSA_APIKEY":       "NONE",
 	})
 
 	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DATAUSA_APIKEY"],
 		}
 		client := sdk.NewDataUsaSDK(mergedOpts)
 

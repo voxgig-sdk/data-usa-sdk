@@ -1,23 +1,8 @@
 # DataUsa SDK
 
-Query DataUSA's aggregated US public-data cubes through a Tesseract OLAP backend
+FastAPI client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About FastAPI
-
-[DataUSA](https://datausa.io) bills itself as the most comprehensive visualisation engine for US public-government data, covering places, occupations, industries and education. It is run as a partnership between Deloitte, [Datawheel](https://www.datawheel.us/) and MIT Media Lab professor Cesar Hidalgo.
-
-This SDK targets the public Tesseract OLAP server at `honduras.datausa.io`, which is the backend that powers DataUSA visualisations. [Tesseract](https://www.datawheel.us/) is Datawheel's OLAP engine that exposes multidimensional data cubes (schemas, cubes, dimensions, measures, members) over a REST API for drilldown / cut / measure queries.
-
-What you can do through the API:
-- Discover the available schemas, cubes and modules served by the instance.
-- Inspect cube metadata — dimensions, hierarchies, levels and measures.
-- List members of a level (e.g. the set of US states, industries, occupations).
-- Run economic-complexity and calculation modules that DataUSA layers on top of the cubes.
-- Check service health and module status before issuing larger queries.
-
-The endpoint is a read-only public service with no documented authentication. It is a shared community resource — be considerate with query volume and prefer narrow drilldowns and cuts over wide scans.
 
 ## Try it
 
@@ -51,27 +36,31 @@ gem install data-usa-sdk
 luarocks install data-usa-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { DataUsaSDK } from 'data-usa'
 
-const client = new DataUsaSDK({})
+const client = new DataUsaSDK({
+  apikey: process.env.DATA-USA_APIKEY,
+})
 
+// Load calculationsmodule data
+const calculationsmodule = await client.CalculationsModule().load({})
+console.log(calculationsmodule.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,15 +90,15 @@ The API exposes 9 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **CalculationsModule** | Endpoints for Tesseract's calculations module, which applies derived computations (growth, share, RCA, etc.) on top of cube measures. | `/calcs/merge.{extension}` |
-| **EconomicComplexityModule** | Economic-complexity analytics (ECI, PCI, relatedness, opportunity gain) over trade / industry cubes — a signature DataUSA / Datawheel feature. | `/complexity/eci_subnational.{extension}` |
-| **Health** | Service health-check endpoint used to verify the Tesseract server is up and responsive. | `/_health` |
-| **Member** | Lookup of the members of a dimension level (e.g. the list of states, counties, NAICS industries) for a given cube. | `/tesseract/members` |
-| **ModuleStatus** | Reports which Tesseract modules (calculations, economic complexity, etc.) are loaded and available on this instance. | `/calcs/` |
-| **RouteIndexGet** | Root index route that lists the available top-level routes / modules on the Tesseract server. | `/` |
-| **TesseractCube** | Metadata and data-query routes for an individual OLAP cube — dimensions, hierarchies, levels and measures, plus drilldown / cut / measure queries. | `/complexity/cubes/{cube_name}` |
-| **TesseractModule** | Generic Tesseract module discovery endpoint describing which extension modules the server exposes. | `/tesseract/multiquery.{extension}` |
-| **TesseractSchema** | Top-level schema description listing the cubes and shared dimensions served by this Tesseract instance. | `/complexity/cubes` |
+| **CalculationsModule** |  | `/calcs/merge.{extension}` |
+| **EconomicComplexityModule** |  | `/complexity/eci_subnational.{extension}` |
+| **Health** |  | `/_health` |
+| **Member** |  | `/tesseract/members` |
+| **ModuleStatus** |  | `/calcs/` |
+| **RouteIndexGet** |  | `/` |
+| **TesseractCube** |  | `/complexity/cubes/{cube_name}` |
+| **TesseractModule** |  | `/tesseract/multiquery.{extension}` |
+| **TesseractSchema** |  | `/complexity/cubes` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -119,15 +108,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from datausa_sdk import DataUsaSDK
 
-client = DataUsaSDK({})
+client = DataUsaSDK({
+    "apikey": os.environ.get("DATA-USA_APIKEY"),
+})
 
 
 # Load a specific calculationsmodule
-calculationsmodule, err = client.CalculationsModule(None).load(
-    {"id": "example_id"}, None
-)
+calculationsmodule, err = client.CalculationsModule().load({"id": "example_id"})
+print(calculationsmodule)
 ```
 
 ### PHP
@@ -136,13 +127,14 @@ calculationsmodule, err = client.CalculationsModule(None).load(
 <?php
 require_once 'datausa_sdk.php';
 
-$client = new DataUsaSDK([]);
+$client = new DataUsaSDK([
+    "apikey" => getenv("DATA-USA_APIKEY"),
+]);
 
 
 // Load a specific calculationsmodule
-[$calculationsmodule, $err] = $client->CalculationsModule(null)->load(
-    ["id" => "example_id"], null
-);
+[$calculationsmodule, $err] = $client->CalculationsModule()->load(["id" => "example_id"]);
+print_r($calculationsmodule);
 ```
 
 ### Golang
@@ -150,8 +142,13 @@ $client = new DataUsaSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/data-usa-sdk/go"
 
-client := sdk.NewDataUsaSDK(map[string]any{})
+client := sdk.NewDataUsaSDK(map[string]any{
+    "apikey": os.Getenv("DATA-USA_APIKEY"),
+})
 
+// Load calculationsmodule data
+calculationsmodule, err := client.CalculationsModule(nil).Load(map[string]any{}, nil)
+fmt.Println(calculationsmodule)
 ```
 
 ### Ruby
@@ -159,13 +156,14 @@ client := sdk.NewDataUsaSDK(map[string]any{})
 ```ruby
 require_relative "DataUsa_sdk"
 
-client = DataUsaSDK.new({})
+client = DataUsaSDK.new({
+  "apikey" => ENV["DATA-USA_APIKEY"],
+})
 
 
 # Load a specific calculationsmodule
-calculationsmodule, err = client.CalculationsModule(nil).load(
-  { "id" => "example_id" }, nil
-)
+calculationsmodule, err = client.CalculationsModule().load({ "id" => "example_id" })
+puts calculationsmodule
 ```
 
 ### Lua
@@ -173,13 +171,14 @@ calculationsmodule, err = client.CalculationsModule(nil).load(
 ```lua
 local sdk = require("data-usa_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("DATA-USA_APIKEY"),
+})
 
 
 -- Load a specific calculationsmodule
-local calculationsmodule, err = client:CalculationsModule(nil):load(
-  { id = "example_id" }, nil
-)
+local calculationsmodule, err = client:CalculationsModule():load({ id = "example_id" })
+print(calculationsmodule)
 ```
 
 ## Unit testing in offline mode
@@ -198,25 +197,21 @@ const result = await client.CalculationsModule().load({ id: 'test01' })
 ### Python
 
 ```python
-client = DataUsaSDK.test(None, None)
-result, err = client.CalculationsModule(None).load(
-    {"id": "test01"}, None
-)
+client = DataUsaSDK.test()
+result, err = client.CalculationsModule().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = DataUsaSDK::test(null, null);
-[$result, $err] = $client->CalculationsModule(null)->load(
-    ["id" => "test01"], null
-);
+$client = DataUsaSDK::test();
+[$result, $err] = $client->CalculationsModule()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.CalculationsModule(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -225,19 +220,15 @@ result, err := client.CalculationsModule(nil).Load(
 ### Ruby
 
 ```ruby
-client = DataUsaSDK.test(nil, nil)
-result, err = client.CalculationsModule(nil).load(
-  { "id" => "test01" }, nil
-)
+client = DataUsaSDK.test
+result, err = client.CalculationsModule().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:CalculationsModule(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:CalculationsModule():load({ id = "test01" })
 ```
 
 ## How it works
@@ -341,16 +332,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the FastAPI
-
-- Upstream: [https://datausa.io](https://datausa.io)
-- API docs: [https://datausa.io/about/api](https://datausa.io/about/api)
-
-- Underlying datasets are aggregated US public / government data sources surfaced by DataUSA.
-- DataUSA is a collaboration between Deloitte, Datawheel and Cesar Hidalgo (MIT Media Lab); attribution to DataUSA and the original data publishers is expected.
-- No explicit licence is published on the Tesseract endpoint itself — review datausa.io terms before redistribution.
-- The visualisation stack uses the open-source D3plus engine from Datawheel.
 
 ---
 

@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'DATAUSA_TEST_ROUTE_INDEX_GET_ENTID': {},
     'DATAUSA_TEST_LIVE': 'FALSE',
+    'DATAUSA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.DATAUSA_TEST_LIVE
 
   if (live) {
     const client = new DataUsaSDK({
+      apikey: env.DATAUSA_APIKEY,
     })
 
     let idmap: any = env['DATAUSA_TEST_ROUTE_INDEX_GET_ENTID']

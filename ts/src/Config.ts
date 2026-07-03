@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://honduras.datausa.io',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -81,72 +85,74 @@ class Config {
       "name": "calculations_module",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
                     "reqd": true,
-                    "type": "`$OBJECT`",
-                    "active": true
+                    "type": "`$OBJECT`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -171,73 +177,73 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
                     "reqd": true,
-                    "type": "`$OBJECT`",
-                    "active": true
+                    "type": "`$OBJECT`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -262,55 +268,55 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
                     "reqd": true,
-                    "type": "`$OBJECT`",
-                    "active": true
+                    "type": "`$OBJECT`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -333,11 +339,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 2
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -350,209 +354,211 @@ class Config {
       "name": "economic_complexity_module",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold_eci",
                     "orig": "threshold_eci",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -594,210 +600,210 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold_eci",
                     "orig": "threshold_eci",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -839,211 +845,211 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -1085,211 +1091,211 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 2
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -1331,202 +1337,202 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 3
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "complementary_drilldown",
                     "orig": "complementary_drilldown",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "complementary_measure",
                     "orig": "complementary_measure",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "having",
                     "orig": "having",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "time_filter",
                     "orig": "time_filter",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -1567,202 +1573,202 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 4
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -1803,178 +1809,178 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 5
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "emissions_cube",
                     "orig": "emissions_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "emissions_location",
                     "orig": "emissions_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "emissions_measure",
                     "orig": "emissions_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -2012,178 +2018,178 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 6
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "gini_cube",
                     "orig": "gini_cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "gini_location",
                     "orig": "gini_location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "gini_measure",
                     "orig": "gini_measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -2221,171 +2227,171 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 7
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 20,
                     "kind": "query",
                     "name": "iteration",
                     "orig": "iteration",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   }
                 ]
               },
@@ -2422,171 +2428,171 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 8
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 20,
                     "kind": "query",
                     "name": "iteration",
                     "orig": "iteration",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   }
                 ]
               },
@@ -2623,163 +2629,163 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 9
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -2815,163 +2821,163 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 10
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3007,163 +3013,163 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 11
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3199,162 +3205,162 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 12
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   }
                 ]
               },
@@ -3390,29 +3396,29 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 13
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "accept",
                     "orig": "accept",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "endpoint",
                     "orig": "endpoint",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3432,11 +3438,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 14
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -3453,25 +3457,25 @@ class Config {
       "name": "health",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/_health",
               "parts": [
                 "_health"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -3482,118 +3486,120 @@ class Config {
     "member": {
       "fields": [
         {
+          "active": true,
           "name": "annotation",
           "req": true,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "caption",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "name",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "type",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         }
       ],
       "name": "member",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "level",
                     "orig": "level",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$BOOLEAN`",
-                    "active": true
+                    "type": "`$BOOLEAN`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "search",
                     "orig": "search",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3620,11 +3626,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },
@@ -3635,86 +3639,86 @@ class Config {
     "module_status": {
       "fields": [
         {
+          "active": true,
           "name": "debug",
           "req": true,
           "type": "`$ANY`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "module",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "status",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "version",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         }
       ],
       "name": "module_status",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/calcs/",
               "parts": [
                 "calcs"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/complexity/",
               "parts": [
                 "complexity"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 1
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/tesseract/",
               "parts": [
                 "tesseract"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 2
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -3727,23 +3731,23 @@ class Config {
       "name": "route_index_get",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/",
+              "parts": [],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "parts": [],
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -3754,92 +3758,94 @@ class Config {
     "tesseract_cube": {
       "fields": [
         {
+          "active": true,
           "name": "annotation",
           "req": true,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "caption",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "dimension",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "measure",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "name",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         }
       ],
       "name": "tesseract_cube",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3868,55 +3874,55 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3945,11 +3951,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -3960,70 +3964,72 @@ class Config {
     "tesseract_module": {
       "fields": [
         {
+          "active": true,
           "name": "join",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "pagination",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "request",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 2
         }
       ],
       "name": "tesseract_module",
       "op": {
         "create": {
+          "input": "data",
           "name": "create",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4045,186 +4051,186 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "create"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "accept",
                     "orig": "accept",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alias",
                     "orig": "alias",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "drilldown",
                     "orig": "drilldown",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "exclude",
                     "orig": "exclude",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "growth",
                     "orig": "growth",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "include",
                     "orig": "include",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "ranking",
                     "orig": "ranking",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "sort",
                     "orig": "sort",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ]
               },
@@ -4263,181 +4269,181 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "alias",
                     "orig": "alias",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "drilldown",
                     "orig": "drilldown",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "exclude",
                     "orig": "exclude",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
                     "reqd": false,
-                    "type": "`$ARRAY`",
-                    "active": true
+                    "type": "`$ARRAY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "growth",
                     "orig": "growth",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "include",
                     "orig": "include",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "ranking",
                     "orig": "ranking",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "sort",
                     "orig": "sort",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ]
               },
@@ -4475,37 +4481,37 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4527,37 +4533,37 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 2
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4579,19 +4585,19 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 3
             },
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4610,27 +4616,25 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 4
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/tesseract/data",
               "parts": [
                 "tesseract",
                 "data"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 5
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
@@ -4641,82 +4645,84 @@ class Config {
     "tesseract_schema": {
       "fields": [
         {
+          "active": true,
           "name": "annotation",
           "req": true,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "caption",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "dimension",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "measure",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "name",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         }
       ],
       "name": "tesseract_schema",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4738,45 +4744,45 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "header": [
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
                     "reqd": false,
-                    "type": "`$ANY`",
-                    "active": true
+                    "type": "`$ANY`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4798,11 +4804,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },

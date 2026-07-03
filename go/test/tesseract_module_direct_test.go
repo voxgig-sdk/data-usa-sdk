@@ -99,12 +99,14 @@ func tesseract_moduleDirectSetup(mockres any) *tesseract_moduleDirectSetupResult
 	env := envOverride(map[string]any{
 		"DATAUSA_TEST_TESSERACT_MODULE_ENTID": map[string]any{},
 		"DATAUSA_TEST_LIVE":    "FALSE",
+		"DATAUSA_APIKEY":       "NONE",
 	})
 
 	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DATAUSA_APIKEY"],
 		}
 		client := sdk.NewDataUsaSDK(mergedOpts)
 

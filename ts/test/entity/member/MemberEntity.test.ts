@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'DATA_USA_TEST_MEMBER_ENTID': idmap,
     'DATA_USA_TEST_LIVE': 'FALSE',
     'DATA_USA_TEST_EXPLAIN': 'FALSE',
+    'DATA_USA_APIKEY': 'NONE',
   })
 
   idmap = env['DATA_USA_TEST_MEMBER_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new DataUsaSDK(merge([
       {
+        apikey: env.DATA_USA_APIKEY,
       },
       extra
     ]))

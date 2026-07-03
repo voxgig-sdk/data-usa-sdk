@@ -61,12 +61,14 @@ def economic_complexity_module_direct_setup(mockres)
   env = Runner.env_override({
     "DATAUSA_TEST_ECONOMIC_COMPLEXITY_MODULE_ENTID" => {},
     "DATAUSA_TEST_LIVE" => "FALSE",
+    "DATAUSA_APIKEY" => "NONE",
   })
 
   live = env["DATAUSA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["DATAUSA_APIKEY"],
     }
     client = DataUsaSDK.new(merged_opts)
     return {

@@ -62,12 +62,14 @@ function route_index_get_direct_setup(mockres)
   local env = runner.env_override({
     ["DATAUSA_TEST_ROUTE_INDEX_GET_ENTID"] = {},
     ["DATAUSA_TEST_LIVE"] = "FALSE",
+    ["DATAUSA_APIKEY"] = "NONE",
   })
 
   local live = env["DATAUSA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["DATAUSA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

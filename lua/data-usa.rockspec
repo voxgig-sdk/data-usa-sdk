@@ -1,7 +1,11 @@
 package = "voxgig-sdk-data-usa"
-version = "0.0-1"
+version = "0.0.1-1"
 source = {
-  url = "git://github.com/voxgig-sdk/data-usa-sdk.git"
+  -- git+https (GitHub dropped git:// in 2022); pin the install to the release
+  -- tag pushed by `make publish`, and point at the lua/ subdir of the monorepo.
+  url = "git+https://github.com/voxgig-sdk/data-usa-sdk.git",
+  tag = "lua/v0.0.1",
+  dir = "data-usa-sdk/lua"
 }
 description = {
   summary = "DataUsa SDK for Lua",
