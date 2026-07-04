@@ -30,11 +30,14 @@ const client = new DataUsaSDK()
 
 ### 3. Load a calculationsmodule
 
-```ts
-const result = await client.calculationsmodule.load({ id: 'example_id' })
+`load()` returns the entity directly and throws on failure:
 
-if (result.ok) {
-  console.log(result.data)
+```ts
+try {
+  const calculationsmodule = await client.CalculationsModule().load({ id: 'example_id' })
+  console.log(calculationsmodule)
+} catch (err) {
+  console.error('load failed:', err)
 }
 ```
 
@@ -52,6 +55,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -80,9 +86,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DataUsaSDK.test()
 
-const result = await client.calculationsmodule.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const calculationsmodule = await client.CalculationsModule().load({ id: 'test01' })
+// calculationsmodule is a bare entity populated with mock response data
+console.log(calculationsmodule)
 ```
 
 You can also use the instance method:
@@ -97,7 +103,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.calculationsmodule
+const entity = client.CalculationsModule()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -176,7 +182,7 @@ new DataUsaSDK(options?: {
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
 | `CalculationsModule(data?)` | `CalculationsModuleEntity` | Create a CalculationsModule entity instance. |
-| `EconomicComplexityModule(data?)` | `EconomicComplexityModuleEntity` | Create a EconomicComplexityModule entity instance. |
+| `EconomicComplexityModule(data?)` | `EconomicComplexityModuleEntity` | Create an EconomicComplexityModule entity instance. |
 | `Health(data?)` | `HealthEntity` | Create a Health entity instance. |
 | `Member(data?)` | `MemberEntity` | Create a Member entity instance. |
 | `ModuleStatus(data?)` | `ModuleStatusEntity` | Create a ModuleStatus entity instance. |
@@ -200,29 +206,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): DataUsaSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -363,7 +370,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `const calculations_module = client.calculations_module`
+Create an instance: `const calculations_module = client.CalculationsModule()`
 
 #### Operations
 
@@ -374,13 +381,13 @@ Create an instance: `const calculations_module = client.calculations_module`
 #### Example: Load
 
 ```ts
-const calculations_module = await client.calculations_module.load({ id: 'calculations_module_id' })
+const calculations_module = await client.CalculationsModule().load({ id: 'calculations_module_id' })
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `const economic_complexity_module = client.economic_complexity_module`
+Create an instance: `const economic_complexity_module = client.EconomicComplexityModule()`
 
 #### Operations
 
@@ -391,13 +398,13 @@ Create an instance: `const economic_complexity_module = client.economic_complexi
 #### Example: Load
 
 ```ts
-const economic_complexity_module = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
+const economic_complexity_module = await client.EconomicComplexityModule().load({ id: 'economic_complexity_module_id' })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.health`
+Create an instance: `const health = client.Health()`
 
 #### Operations
 
@@ -408,13 +415,13 @@ Create an instance: `const health = client.health`
 #### Example: Load
 
 ```ts
-const health = await client.health.load({ id: 'health_id' })
+const health = await client.Health().load({ id: 'health_id' })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `const member = client.Member()`
 
 #### Operations
 
@@ -434,13 +441,13 @@ Create an instance: `const member = client.member`
 #### Example: List
 
 ```ts
-const members = await client.member.list()
+const members = await client.Member().list()
 ```
 
 
 ### ModuleStatus
 
-Create an instance: `const module_status = client.module_status`
+Create an instance: `const module_status = client.ModuleStatus()`
 
 #### Operations
 
@@ -460,13 +467,13 @@ Create an instance: `const module_status = client.module_status`
 #### Example: Load
 
 ```ts
-const module_status = await client.module_status.load({ id: 'module_status_id' })
+const module_status = await client.ModuleStatus().load({ id: 'module_status_id' })
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `const route_index_get = client.route_index_get`
+Create an instance: `const route_index_get = client.RouteIndexGet()`
 
 #### Operations
 
@@ -477,13 +484,13 @@ Create an instance: `const route_index_get = client.route_index_get`
 #### Example: Load
 
 ```ts
-const route_index_get = await client.route_index_get.load({ id: 'route_index_get_id' })
+const route_index_get = await client.RouteIndexGet().load({ id: 'route_index_get_id' })
 ```
 
 
 ### TesseractCube
 
-Create an instance: `const tesseract_cube = client.tesseract_cube`
+Create an instance: `const tesseract_cube = client.TesseractCube()`
 
 #### Operations
 
@@ -504,13 +511,13 @@ Create an instance: `const tesseract_cube = client.tesseract_cube`
 #### Example: Load
 
 ```ts
-const tesseract_cube = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
+const tesseract_cube = await client.TesseractCube().load({ id: 'tesseract_cube_id' })
 ```
 
 
 ### TesseractModule
 
-Create an instance: `const tesseract_module = client.tesseract_module`
+Create an instance: `const tesseract_module = client.TesseractModule()`
 
 #### Operations
 
@@ -530,13 +537,13 @@ Create an instance: `const tesseract_module = client.tesseract_module`
 #### Example: Load
 
 ```ts
-const tesseract_module = await client.tesseract_module.load({ id: 'tesseract_module_id' })
+const tesseract_module = await client.TesseractModule().load({ id: 'tesseract_module_id' })
 ```
 
 #### Example: Create
 
 ```ts
-const tesseract_module = await client.tesseract_module.create({
+const tesseract_module = await client.TesseractModule().create({
   request: /* `$ARRAY` */,
 })
 ```
@@ -544,7 +551,7 @@ const tesseract_module = await client.tesseract_module.create({
 
 ### TesseractSchema
 
-Create an instance: `const tesseract_schema = client.tesseract_schema`
+Create an instance: `const tesseract_schema = client.TesseractSchema()`
 
 #### Operations
 
@@ -565,7 +572,7 @@ Create an instance: `const tesseract_schema = client.tesseract_schema`
 #### Example: List
 
 ```ts
-const tesseract_schemas = await client.tesseract_schema.list()
+const tesseract_schemas = await client.TesseractSchema().list()
 ```
 
 
@@ -636,7 +643,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const calculationsmodule = client.calculationsmodule
+const calculationsmodule = client.CalculationsModule()
 await calculationsmodule.load({ id: "example_id" })
 
 // calculationsmodule.data() now returns the loaded calculationsmodule data

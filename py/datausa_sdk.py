@@ -220,153 +220,63 @@ class DataUsaSDK:
         }
 
 
-    @property
-    def calculations_module(self):
-        """Idiomatic facade: client.calculations_module.list() / client.calculations_module.load({"id": ...})."""
-        from entity.calculations_module_entity import CalculationsModuleEntity
-        cached = getattr(self, "_calculations_module", None)
-        if cached is None:
-            cached = CalculationsModuleEntity(self, None)
-            self._calculations_module = cached
-        return cached
-
-    def CalculationsModule(self, data=None):
-        # Deprecated: use client.calculations_module instead.
+    def CalculationsModule(self, data=None) -> "CalculationsModuleEntity":
+        """Entity factory: client.CalculationsModule().list({}) / client.CalculationsModule().load({"id": ...})."""
         from entity.calculations_module_entity import CalculationsModuleEntity
         return CalculationsModuleEntity(self, data)
 
 
-    @property
-    def economic_complexity_module(self):
-        """Idiomatic facade: client.economic_complexity_module.list() / client.economic_complexity_module.load({"id": ...})."""
-        from entity.economic_complexity_module_entity import EconomicComplexityModuleEntity
-        cached = getattr(self, "_economic_complexity_module", None)
-        if cached is None:
-            cached = EconomicComplexityModuleEntity(self, None)
-            self._economic_complexity_module = cached
-        return cached
-
-    def EconomicComplexityModule(self, data=None):
-        # Deprecated: use client.economic_complexity_module instead.
+    def EconomicComplexityModule(self, data=None) -> "EconomicComplexityModuleEntity":
+        """Entity factory: client.EconomicComplexityModule().list({}) / client.EconomicComplexityModule().load({"id": ...})."""
         from entity.economic_complexity_module_entity import EconomicComplexityModuleEntity
         return EconomicComplexityModuleEntity(self, data)
 
 
-    @property
-    def health(self):
-        """Idiomatic facade: client.health.list() / client.health.load({"id": ...})."""
-        from entity.health_entity import HealthEntity
-        cached = getattr(self, "_health", None)
-        if cached is None:
-            cached = HealthEntity(self, None)
-            self._health = cached
-        return cached
-
-    def Health(self, data=None):
-        # Deprecated: use client.health instead.
+    def Health(self, data=None) -> "HealthEntity":
+        """Entity factory: client.Health().list({}) / client.Health().load({"id": ...})."""
         from entity.health_entity import HealthEntity
         return HealthEntity(self, data)
 
 
-    @property
-    def member(self):
-        """Idiomatic facade: client.member.list() / client.member.load({"id": ...})."""
-        from entity.member_entity import MemberEntity
-        cached = getattr(self, "_member", None)
-        if cached is None:
-            cached = MemberEntity(self, None)
-            self._member = cached
-        return cached
-
-    def Member(self, data=None):
-        # Deprecated: use client.member instead.
+    def Member(self, data=None) -> "MemberEntity":
+        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
-    @property
-    def module_status(self):
-        """Idiomatic facade: client.module_status.list() / client.module_status.load({"id": ...})."""
-        from entity.module_status_entity import ModuleStatusEntity
-        cached = getattr(self, "_module_status", None)
-        if cached is None:
-            cached = ModuleStatusEntity(self, None)
-            self._module_status = cached
-        return cached
-
-    def ModuleStatus(self, data=None):
-        # Deprecated: use client.module_status instead.
+    def ModuleStatus(self, data=None) -> "ModuleStatusEntity":
+        """Entity factory: client.ModuleStatus().list({}) / client.ModuleStatus().load({"id": ...})."""
         from entity.module_status_entity import ModuleStatusEntity
         return ModuleStatusEntity(self, data)
 
 
-    @property
-    def route_index_get(self):
-        """Idiomatic facade: client.route_index_get.list() / client.route_index_get.load({"id": ...})."""
-        from entity.route_index_get_entity import RouteIndexGetEntity
-        cached = getattr(self, "_route_index_get", None)
-        if cached is None:
-            cached = RouteIndexGetEntity(self, None)
-            self._route_index_get = cached
-        return cached
-
-    def RouteIndexGet(self, data=None):
-        # Deprecated: use client.route_index_get instead.
+    def RouteIndexGet(self, data=None) -> "RouteIndexGetEntity":
+        """Entity factory: client.RouteIndexGet().list({}) / client.RouteIndexGet().load({"id": ...})."""
         from entity.route_index_get_entity import RouteIndexGetEntity
         return RouteIndexGetEntity(self, data)
 
 
-    @property
-    def tesseract_cube(self):
-        """Idiomatic facade: client.tesseract_cube.list() / client.tesseract_cube.load({"id": ...})."""
-        from entity.tesseract_cube_entity import TesseractCubeEntity
-        cached = getattr(self, "_tesseract_cube", None)
-        if cached is None:
-            cached = TesseractCubeEntity(self, None)
-            self._tesseract_cube = cached
-        return cached
-
-    def TesseractCube(self, data=None):
-        # Deprecated: use client.tesseract_cube instead.
+    def TesseractCube(self, data=None) -> "TesseractCubeEntity":
+        """Entity factory: client.TesseractCube().list({}) / client.TesseractCube().load({"id": ...})."""
         from entity.tesseract_cube_entity import TesseractCubeEntity
         return TesseractCubeEntity(self, data)
 
 
-    @property
-    def tesseract_module(self):
-        """Idiomatic facade: client.tesseract_module.list() / client.tesseract_module.load({"id": ...})."""
-        from entity.tesseract_module_entity import TesseractModuleEntity
-        cached = getattr(self, "_tesseract_module", None)
-        if cached is None:
-            cached = TesseractModuleEntity(self, None)
-            self._tesseract_module = cached
-        return cached
-
-    def TesseractModule(self, data=None):
-        # Deprecated: use client.tesseract_module instead.
+    def TesseractModule(self, data=None) -> "TesseractModuleEntity":
+        """Entity factory: client.TesseractModule().list({}) / client.TesseractModule().load({"id": ...})."""
         from entity.tesseract_module_entity import TesseractModuleEntity
         return TesseractModuleEntity(self, data)
 
 
-    @property
-    def tesseract_schema(self):
-        """Idiomatic facade: client.tesseract_schema.list() / client.tesseract_schema.load({"id": ...})."""
-        from entity.tesseract_schema_entity import TesseractSchemaEntity
-        cached = getattr(self, "_tesseract_schema", None)
-        if cached is None:
-            cached = TesseractSchemaEntity(self, None)
-            self._tesseract_schema = cached
-        return cached
-
-    def TesseractSchema(self, data=None):
-        # Deprecated: use client.tesseract_schema instead.
+    def TesseractSchema(self, data=None) -> "TesseractSchemaEntity":
+        """Entity factory: client.TesseractSchema().list({}) / client.TesseractSchema().load({"id": ...})."""
         from entity.tesseract_schema_entity import TesseractSchemaEntity
         return TesseractSchemaEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "DataUsaSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -386,3 +296,17 @@ class DataUsaSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.calculations_module_entity import CalculationsModuleEntity
+    from entity.economic_complexity_module_entity import EconomicComplexityModuleEntity
+    from entity.health_entity import HealthEntity
+    from entity.member_entity import MemberEntity
+    from entity.module_status_entity import ModuleStatusEntity
+    from entity.route_index_get_entity import RouteIndexGetEntity
+    from entity.tesseract_cube_entity import TesseractCubeEntity
+    from entity.tesseract_module_entity import TesseractModuleEntity
+    from entity.tesseract_schema_entity import TesseractSchemaEntity

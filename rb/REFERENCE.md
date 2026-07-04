@@ -118,7 +118,7 @@ same parameters as `direct()`. Raises on error.
 ## CalculationsModuleEntity
 
 ```ruby
-calculations_module = client.calculations_module
+calculations_module = client.CalculationsModule
 ```
 
 ### Operations
@@ -128,7 +128,7 @@ calculations_module = client.calculations_module
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.calculations_module.load({ "id" => "calculations_module_id" })
+result = client.CalculationsModule.load({ "id" => "calculations_module_id" })
 ```
 
 ### Common Methods
@@ -164,7 +164,7 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```ruby
-economic_complexity_module = client.economic_complexity_module
+economic_complexity_module = client.EconomicComplexityModule
 ```
 
 ### Operations
@@ -174,7 +174,7 @@ economic_complexity_module = client.economic_complexity_module
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.economic_complexity_module.load({ "id" => "economic_complexity_module_id" })
+result = client.EconomicComplexityModule.load({ "id" => "economic_complexity_module_id" })
 ```
 
 ### Common Methods
@@ -210,7 +210,7 @@ Return the entity name.
 ## HealthEntity
 
 ```ruby
-health = client.health
+health = client.Health
 ```
 
 ### Operations
@@ -220,7 +220,7 @@ health = client.health
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.health.load({ "id" => "health_id" })
+result = client.Health.load({ "id" => "health_id" })
 ```
 
 ### Common Methods
@@ -256,7 +256,7 @@ Return the entity name.
 ## MemberEntity
 
 ```ruby
-member = client.member
+member = client.Member
 ```
 
 ### Fields
@@ -275,7 +275,7 @@ member = client.member
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.member.list(nil)
+results = client.Member.list(nil)
 ```
 
 ### Common Methods
@@ -311,7 +311,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```ruby
-module_status = client.module_status
+module_status = client.ModuleStatus
 ```
 
 ### Fields
@@ -330,7 +330,7 @@ module_status = client.module_status
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.module_status.load({ "id" => "module_status_id" })
+result = client.ModuleStatus.load({ "id" => "module_status_id" })
 ```
 
 ### Common Methods
@@ -366,7 +366,7 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```ruby
-route_index_get = client.route_index_get
+route_index_get = client.RouteIndexGet
 ```
 
 ### Operations
@@ -376,7 +376,7 @@ route_index_get = client.route_index_get
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.route_index_get.load({ "id" => "route_index_get_id" })
+result = client.RouteIndexGet.load({ "id" => "route_index_get_id" })
 ```
 
 ### Common Methods
@@ -412,7 +412,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```ruby
-tesseract_cube = client.tesseract_cube
+tesseract_cube = client.TesseractCube
 ```
 
 ### Fields
@@ -432,7 +432,7 @@ tesseract_cube = client.tesseract_cube
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.tesseract_cube.load({ "id" => "tesseract_cube_id" })
+result = client.TesseractCube.load({ "id" => "tesseract_cube_id" })
 ```
 
 ### Common Methods
@@ -468,7 +468,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```ruby
-tesseract_module = client.tesseract_module
+tesseract_module = client.TesseractModule
 ```
 
 ### Fields
@@ -486,7 +486,7 @@ tesseract_module = client.tesseract_module
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.tesseract_module.create({
+result = client.TesseractModule.create({
   "request" => # `$ARRAY`,
 })
 ```
@@ -496,7 +496,7 @@ result = client.tesseract_module.create({
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.tesseract_module.load({ "id" => "tesseract_module_id" })
+result = client.TesseractModule.load({ "id" => "tesseract_module_id" })
 ```
 
 ### Common Methods
@@ -532,7 +532,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```ruby
-tesseract_schema = client.tesseract_schema
+tesseract_schema = client.TesseractSchema
 ```
 
 ### Fields
@@ -552,7 +552,7 @@ tesseract_schema = client.tesseract_schema
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.tesseract_schema.list(nil)
+results = client.TesseractSchema.list(nil)
 ```
 
 ### Common Methods

@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a calculationsmodule
 
 ```lua
-local result, err = client:calculationsmodule():load({ id = "example_id" })
+local calculationsmodule, err = client:CalculationsModule():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(calculationsmodule)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:calculationsmodule():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:CalculationsModule():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -162,7 +162,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
 | `CalculationsModule` | `(data) -> CalculationsModuleEntity` | Create a CalculationsModule entity instance. |
-| `EconomicComplexityModule` | `(data) -> EconomicComplexityModuleEntity` | Create a EconomicComplexityModule entity instance. |
+| `EconomicComplexityModule` | `(data) -> EconomicComplexityModuleEntity` | Create an EconomicComplexityModule entity instance. |
 | `Health` | `(data) -> HealthEntity` | Create a Health entity instance. |
 | `Member` | `(data) -> MemberEntity` | Create a Member entity instance. |
 | `ModuleStatus` | `(data) -> ModuleStatusEntity` | Create a ModuleStatus entity instance. |
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local calculations_module, err = client:CalculationsModule():load({ id = "example_id" })
+    if err then error(err) end
+    -- calculations_module is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -314,7 +319,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `const calculations_module = client.calculations_module`
+Create an instance: `local calculations_module = client:CalculationsModule(nil)`
 
 #### Operations
 
@@ -324,14 +329,14 @@ Create an instance: `const calculations_module = client.calculations_module`
 
 #### Example: Load
 
-```ts
-const calculations_module = await client.calculations_module.load({ id: 'calculations_module_id' })
+```lua
+local calculations_module, err = client:CalculationsModule():load({ id = "calculations_module_id" })
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `const economic_complexity_module = client.economic_complexity_module`
+Create an instance: `local economic_complexity_module = client:EconomicComplexityModule(nil)`
 
 #### Operations
 
@@ -341,14 +346,14 @@ Create an instance: `const economic_complexity_module = client.economic_complexi
 
 #### Example: Load
 
-```ts
-const economic_complexity_module = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
+```lua
+local economic_complexity_module, err = client:EconomicComplexityModule():load({ id = "economic_complexity_module_id" })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.health`
+Create an instance: `local health = client:Health(nil)`
 
 #### Operations
 
@@ -358,14 +363,14 @@ Create an instance: `const health = client.health`
 
 #### Example: Load
 
-```ts
-const health = await client.health.load({ id: 'health_id' })
+```lua
+local health, err = client:Health():load({ id = "health_id" })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `local member = client:Member(nil)`
 
 #### Operations
 
@@ -384,14 +389,14 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```lua
+local members, err = client:Member():list()
 ```
 
 
 ### ModuleStatus
 
-Create an instance: `const module_status = client.module_status`
+Create an instance: `local module_status = client:ModuleStatus(nil)`
 
 #### Operations
 
@@ -410,14 +415,14 @@ Create an instance: `const module_status = client.module_status`
 
 #### Example: Load
 
-```ts
-const module_status = await client.module_status.load({ id: 'module_status_id' })
+```lua
+local module_status, err = client:ModuleStatus():load({ id = "module_status_id" })
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `const route_index_get = client.route_index_get`
+Create an instance: `local route_index_get = client:RouteIndexGet(nil)`
 
 #### Operations
 
@@ -427,14 +432,14 @@ Create an instance: `const route_index_get = client.route_index_get`
 
 #### Example: Load
 
-```ts
-const route_index_get = await client.route_index_get.load({ id: 'route_index_get_id' })
+```lua
+local route_index_get, err = client:RouteIndexGet():load({ id = "route_index_get_id" })
 ```
 
 
 ### TesseractCube
 
-Create an instance: `const tesseract_cube = client.tesseract_cube`
+Create an instance: `local tesseract_cube = client:TesseractCube(nil)`
 
 #### Operations
 
@@ -454,14 +459,14 @@ Create an instance: `const tesseract_cube = client.tesseract_cube`
 
 #### Example: Load
 
-```ts
-const tesseract_cube = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
+```lua
+local tesseract_cube, err = client:TesseractCube():load({ id = "tesseract_cube_id" })
 ```
 
 
 ### TesseractModule
 
-Create an instance: `const tesseract_module = client.tesseract_module`
+Create an instance: `local tesseract_module = client:TesseractModule(nil)`
 
 #### Operations
 
@@ -480,22 +485,22 @@ Create an instance: `const tesseract_module = client.tesseract_module`
 
 #### Example: Load
 
-```ts
-const tesseract_module = await client.tesseract_module.load({ id: 'tesseract_module_id' })
+```lua
+local tesseract_module, err = client:TesseractModule():load({ id = "tesseract_module_id" })
 ```
 
 #### Example: Create
 
-```ts
-const tesseract_module = await client.tesseract_module.create({
-  request: /* `$ARRAY` */,
+```lua
+local tesseract_module, err = client:TesseractModule():create({
+  request = nil, -- `$ARRAY`
 })
 ```
 
 
 ### TesseractSchema
 
-Create an instance: `const tesseract_schema = client.tesseract_schema`
+Create an instance: `local tesseract_schema = client:TesseractSchema(nil)`
 
 #### Operations
 
@@ -515,8 +520,8 @@ Create an instance: `const tesseract_schema = client.tesseract_schema`
 
 #### Example: List
 
-```ts
-const tesseract_schemas = await client.tesseract_schema.list()
+```lua
+local tesseract_schemas, err = client:TesseractSchema():list()
 ```
 
 
@@ -591,7 +596,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local calculationsmodule = client:calculationsmodule()
+local calculationsmodule = client:CalculationsModule()
 calculationsmodule:load({ id = "example_id" })
 
 -- calculationsmodule:data_get() now returns the loaded calculationsmodule data

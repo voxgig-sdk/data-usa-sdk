@@ -117,7 +117,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CalculationsModuleEntity
 
 ```php
-$calculations_module = $client->calculations_module();
+$calculations_module = $client->CalculationsModule();
 ```
 
 ### Operations
@@ -127,7 +127,7 @@ $calculations_module = $client->calculations_module();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->calculations_module()->load(["id" => "calculations_module_id"]);
+$result = $client->CalculationsModule()->load(["id" => "calculations_module_id"]);
 ```
 
 ### Common Methods
@@ -163,7 +163,7 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```php
-$economic_complexity_module = $client->economic_complexity_module();
+$economic_complexity_module = $client->EconomicComplexityModule();
 ```
 
 ### Operations
@@ -173,7 +173,7 @@ $economic_complexity_module = $client->economic_complexity_module();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->economic_complexity_module()->load(["id" => "economic_complexity_module_id"]);
+$result = $client->EconomicComplexityModule()->load(["id" => "economic_complexity_module_id"]);
 ```
 
 ### Common Methods
@@ -209,7 +209,7 @@ Return the entity name.
 ## HealthEntity
 
 ```php
-$health = $client->health();
+$health = $client->Health();
 ```
 
 ### Operations
@@ -219,7 +219,7 @@ $health = $client->health();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->health()->load(["id" => "health_id"]);
+$result = $client->Health()->load(["id" => "health_id"]);
 ```
 
 ### Common Methods
@@ -255,7 +255,7 @@ Return the entity name.
 ## MemberEntity
 
 ```php
-$member = $client->member();
+$member = $client->Member();
 ```
 
 ### Fields
@@ -274,7 +274,7 @@ $member = $client->member();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->member()->list([]);
+$results = $client->Member()->list([]);
 ```
 
 ### Common Methods
@@ -310,7 +310,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```php
-$module_status = $client->module_status();
+$module_status = $client->ModuleStatus();
 ```
 
 ### Fields
@@ -329,7 +329,7 @@ $module_status = $client->module_status();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->module_status()->load(["id" => "module_status_id"]);
+$result = $client->ModuleStatus()->load(["id" => "module_status_id"]);
 ```
 
 ### Common Methods
@@ -365,7 +365,7 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```php
-$route_index_get = $client->route_index_get();
+$route_index_get = $client->RouteIndexGet();
 ```
 
 ### Operations
@@ -375,7 +375,7 @@ $route_index_get = $client->route_index_get();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->route_index_get()->load(["id" => "route_index_get_id"]);
+$result = $client->RouteIndexGet()->load(["id" => "route_index_get_id"]);
 ```
 
 ### Common Methods
@@ -411,7 +411,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```php
-$tesseract_cube = $client->tesseract_cube();
+$tesseract_cube = $client->TesseractCube();
 ```
 
 ### Fields
@@ -431,7 +431,7 @@ $tesseract_cube = $client->tesseract_cube();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->tesseract_cube()->load(["id" => "tesseract_cube_id"]);
+$result = $client->TesseractCube()->load(["id" => "tesseract_cube_id"]);
 ```
 
 ### Common Methods
@@ -467,7 +467,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```php
-$tesseract_module = $client->tesseract_module();
+$tesseract_module = $client->TesseractModule();
 ```
 
 ### Fields
@@ -485,7 +485,7 @@ $tesseract_module = $client->tesseract_module();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->tesseract_module()->create([
+$result = $client->TesseractModule()->create([
   "request" => /* `$ARRAY` */,
 ]);
 ```
@@ -495,7 +495,7 @@ $result = $client->tesseract_module()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->tesseract_module()->load(["id" => "tesseract_module_id"]);
+$result = $client->TesseractModule()->load(["id" => "tesseract_module_id"]);
 ```
 
 ### Common Methods
@@ -531,7 +531,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```php
-$tesseract_schema = $client->tesseract_schema();
+$tesseract_schema = $client->TesseractSchema();
 ```
 
 ### Fields
@@ -551,7 +551,7 @@ $tesseract_schema = $client->tesseract_schema();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->tesseract_schema()->list([]);
+$results = $client->TesseractSchema()->list([]);
 ```
 
 ### Common Methods

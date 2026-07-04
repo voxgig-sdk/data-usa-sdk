@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:calculations_module():list() / client:calculations_module():load({ id = ... })
-function DataUsaSDK:calculations_module(data)
+-- Idiomatic facade: client:CalculationsModule():list() / client:CalculationsModule():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:CalculationsModule(data)
   local EntityMod = require("entity.calculations_module_entity")
   if data == nil then
     if self._calculations_module == nil then
@@ -256,15 +257,10 @@ function DataUsaSDK:calculations_module(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:calculations_module() instead.
-function DataUsaSDK:CalculationsModule(data)
-  local EntityMod = require("entity.calculations_module_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:economic_complexity_module():list() / client:economic_complexity_module():load({ id = ... })
-function DataUsaSDK:economic_complexity_module(data)
+-- Idiomatic facade: client:EconomicComplexityModule():list() / client:EconomicComplexityModule():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:EconomicComplexityModule(data)
   local EntityMod = require("entity.economic_complexity_module_entity")
   if data == nil then
     if self._economic_complexity_module == nil then
@@ -275,15 +271,10 @@ function DataUsaSDK:economic_complexity_module(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:economic_complexity_module() instead.
-function DataUsaSDK:EconomicComplexityModule(data)
-  local EntityMod = require("entity.economic_complexity_module_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:health():list() / client:health():load({ id = ... })
-function DataUsaSDK:health(data)
+-- Idiomatic facade: client:Health():list() / client:Health():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:Health(data)
   local EntityMod = require("entity.health_entity")
   if data == nil then
     if self._health == nil then
@@ -294,15 +285,10 @@ function DataUsaSDK:health(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:health() instead.
-function DataUsaSDK:Health(data)
-  local EntityMod = require("entity.health_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:member():list() / client:member():load({ id = ... })
-function DataUsaSDK:member(data)
+-- Idiomatic facade: client:Member():list() / client:Member():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:Member(data)
   local EntityMod = require("entity.member_entity")
   if data == nil then
     if self._member == nil then
@@ -313,15 +299,10 @@ function DataUsaSDK:member(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:member() instead.
-function DataUsaSDK:Member(data)
-  local EntityMod = require("entity.member_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:module_status():list() / client:module_status():load({ id = ... })
-function DataUsaSDK:module_status(data)
+-- Idiomatic facade: client:ModuleStatus():list() / client:ModuleStatus():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:ModuleStatus(data)
   local EntityMod = require("entity.module_status_entity")
   if data == nil then
     if self._module_status == nil then
@@ -332,15 +313,10 @@ function DataUsaSDK:module_status(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:module_status() instead.
-function DataUsaSDK:ModuleStatus(data)
-  local EntityMod = require("entity.module_status_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:route_index_get():list() / client:route_index_get():load({ id = ... })
-function DataUsaSDK:route_index_get(data)
+-- Idiomatic facade: client:RouteIndexGet():list() / client:RouteIndexGet():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:RouteIndexGet(data)
   local EntityMod = require("entity.route_index_get_entity")
   if data == nil then
     if self._route_index_get == nil then
@@ -351,15 +327,10 @@ function DataUsaSDK:route_index_get(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:route_index_get() instead.
-function DataUsaSDK:RouteIndexGet(data)
-  local EntityMod = require("entity.route_index_get_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tesseract_cube():list() / client:tesseract_cube():load({ id = ... })
-function DataUsaSDK:tesseract_cube(data)
+-- Idiomatic facade: client:TesseractCube():list() / client:TesseractCube():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:TesseractCube(data)
   local EntityMod = require("entity.tesseract_cube_entity")
   if data == nil then
     if self._tesseract_cube == nil then
@@ -370,15 +341,10 @@ function DataUsaSDK:tesseract_cube(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:tesseract_cube() instead.
-function DataUsaSDK:TesseractCube(data)
-  local EntityMod = require("entity.tesseract_cube_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tesseract_module():list() / client:tesseract_module():load({ id = ... })
-function DataUsaSDK:tesseract_module(data)
+-- Idiomatic facade: client:TesseractModule():list() / client:TesseractModule():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:TesseractModule(data)
   local EntityMod = require("entity.tesseract_module_entity")
   if data == nil then
     if self._tesseract_module == nil then
@@ -389,15 +355,10 @@ function DataUsaSDK:tesseract_module(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:tesseract_module() instead.
-function DataUsaSDK:TesseractModule(data)
-  local EntityMod = require("entity.tesseract_module_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tesseract_schema():list() / client:tesseract_schema():load({ id = ... })
-function DataUsaSDK:tesseract_schema(data)
+-- Idiomatic facade: client:TesseractSchema():list() / client:TesseractSchema():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DataUsaSDK:TesseractSchema(data)
   local EntityMod = require("entity.tesseract_schema_entity")
   if data == nil then
     if self._tesseract_schema == nil then
@@ -405,12 +366,6 @@ function DataUsaSDK:tesseract_schema(data)
     end
     return self._tesseract_schema
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:tesseract_schema() instead.
-function DataUsaSDK:TesseractSchema(data)
-  local EntityMod = require("entity.tesseract_schema_entity")
   return EntityMod.new(self, data)
 end
 

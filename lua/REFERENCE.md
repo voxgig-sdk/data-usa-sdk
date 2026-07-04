@@ -115,7 +115,7 @@ same parameters as `direct()`.
 ## CalculationsModuleEntity
 
 ```lua
-local calculations_module = client:calculations_module(nil)
+local calculations_module = client:CalculationsModule(nil)
 ```
 
 ### Operations
@@ -125,7 +125,7 @@ local calculations_module = client:calculations_module(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:calculations_module():load({ id = "calculations_module_id" })
+local result, err = client:CalculationsModule():load({ id = "calculations_module_id" })
 ```
 
 ### Common Methods
@@ -161,7 +161,7 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```lua
-local economic_complexity_module = client:economic_complexity_module(nil)
+local economic_complexity_module = client:EconomicComplexityModule(nil)
 ```
 
 ### Operations
@@ -171,7 +171,7 @@ local economic_complexity_module = client:economic_complexity_module(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:economic_complexity_module():load({ id = "economic_complexity_module_id" })
+local result, err = client:EconomicComplexityModule():load({ id = "economic_complexity_module_id" })
 ```
 
 ### Common Methods
@@ -207,7 +207,7 @@ Return the entity name.
 ## HealthEntity
 
 ```lua
-local health = client:health(nil)
+local health = client:Health(nil)
 ```
 
 ### Operations
@@ -217,7 +217,7 @@ local health = client:health(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:health():load({ id = "health_id" })
+local result, err = client:Health():load({ id = "health_id" })
 ```
 
 ### Common Methods
@@ -253,7 +253,7 @@ Return the entity name.
 ## MemberEntity
 
 ```lua
-local member = client:member(nil)
+local member = client:Member(nil)
 ```
 
 ### Fields
@@ -272,7 +272,7 @@ local member = client:member(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:member():list()
+local results, err = client:Member():list()
 ```
 
 ### Common Methods
@@ -308,7 +308,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```lua
-local module_status = client:module_status(nil)
+local module_status = client:ModuleStatus(nil)
 ```
 
 ### Fields
@@ -327,7 +327,7 @@ local module_status = client:module_status(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:module_status():load({ id = "module_status_id" })
+local result, err = client:ModuleStatus():load({ id = "module_status_id" })
 ```
 
 ### Common Methods
@@ -363,7 +363,7 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```lua
-local route_index_get = client:route_index_get(nil)
+local route_index_get = client:RouteIndexGet(nil)
 ```
 
 ### Operations
@@ -373,7 +373,7 @@ local route_index_get = client:route_index_get(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:route_index_get():load({ id = "route_index_get_id" })
+local result, err = client:RouteIndexGet():load({ id = "route_index_get_id" })
 ```
 
 ### Common Methods
@@ -409,7 +409,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```lua
-local tesseract_cube = client:tesseract_cube(nil)
+local tesseract_cube = client:TesseractCube(nil)
 ```
 
 ### Fields
@@ -429,7 +429,7 @@ local tesseract_cube = client:tesseract_cube(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:tesseract_cube():load({ id = "tesseract_cube_id" })
+local result, err = client:TesseractCube():load({ id = "tesseract_cube_id" })
 ```
 
 ### Common Methods
@@ -465,7 +465,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```lua
-local tesseract_module = client:tesseract_module(nil)
+local tesseract_module = client:TesseractModule(nil)
 ```
 
 ### Fields
@@ -483,7 +483,7 @@ local tesseract_module = client:tesseract_module(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:tesseract_module():create({
+local result, err = client:TesseractModule():create({
   request = --[[ `$ARRAY` ]],
 })
 ```
@@ -493,7 +493,7 @@ local result, err = client:tesseract_module():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:tesseract_module():load({ id = "tesseract_module_id" })
+local result, err = client:TesseractModule():load({ id = "tesseract_module_id" })
 ```
 
 ### Common Methods
@@ -529,7 +529,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```lua
-local tesseract_schema = client:tesseract_schema(nil)
+local tesseract_schema = client:TesseractSchema(nil)
 ```
 
 ### Fields
@@ -549,7 +549,7 @@ local tesseract_schema = client:tesseract_schema(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:tesseract_schema():list()
+local results, err = client:TesseractSchema():list()
 ```
 
 ### Common Methods

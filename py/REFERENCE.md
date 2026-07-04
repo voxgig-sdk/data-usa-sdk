@@ -112,7 +112,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CalculationsModuleEntity
 
 ```python
-calculations_module = client.calculations_module
+calculations_module = client.CalculationsModule()
 ```
 
 ### Operations
@@ -122,7 +122,7 @@ calculations_module = client.calculations_module
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.calculations_module.load({"id": "calculations_module_id"})
+result = client.CalculationsModule().load({"id": "calculations_module_id"})
 ```
 
 ### Common Methods
@@ -157,7 +157,7 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```python
-economic_complexity_module = client.economic_complexity_module
+economic_complexity_module = client.EconomicComplexityModule()
 ```
 
 ### Operations
@@ -167,7 +167,7 @@ economic_complexity_module = client.economic_complexity_module
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.economic_complexity_module.load({"id": "economic_complexity_module_id"})
+result = client.EconomicComplexityModule().load({"id": "economic_complexity_module_id"})
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ Return the entity name.
 ## HealthEntity
 
 ```python
-health = client.health
+health = client.Health()
 ```
 
 ### Operations
@@ -212,7 +212,7 @@ health = client.health
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.health.load({"id": "health_id"})
+result = client.Health().load({"id": "health_id"})
 ```
 
 ### Common Methods
@@ -247,7 +247,7 @@ Return the entity name.
 ## MemberEntity
 
 ```python
-member = client.member
+member = client.Member()
 ```
 
 ### Fields
@@ -266,7 +266,9 @@ member = client.member
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.member.list({})
+results = client.Member().list({})
+for member in results:
+    print(member)
 ```
 
 ### Common Methods
@@ -301,7 +303,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```python
-module_status = client.module_status
+module_status = client.ModuleStatus()
 ```
 
 ### Fields
@@ -320,7 +322,7 @@ module_status = client.module_status
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.module_status.load({"id": "module_status_id"})
+result = client.ModuleStatus().load({"id": "module_status_id"})
 ```
 
 ### Common Methods
@@ -355,7 +357,7 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```python
-route_index_get = client.route_index_get
+route_index_get = client.RouteIndexGet()
 ```
 
 ### Operations
@@ -365,7 +367,7 @@ route_index_get = client.route_index_get
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.route_index_get.load({"id": "route_index_get_id"})
+result = client.RouteIndexGet().load({"id": "route_index_get_id"})
 ```
 
 ### Common Methods
@@ -400,7 +402,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```python
-tesseract_cube = client.tesseract_cube
+tesseract_cube = client.TesseractCube()
 ```
 
 ### Fields
@@ -420,7 +422,7 @@ tesseract_cube = client.tesseract_cube
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.tesseract_cube.load({"id": "tesseract_cube_id"})
+result = client.TesseractCube().load({"id": "tesseract_cube_id"})
 ```
 
 ### Common Methods
@@ -455,7 +457,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```python
-tesseract_module = client.tesseract_module
+tesseract_module = client.TesseractModule()
 ```
 
 ### Fields
@@ -473,8 +475,8 @@ tesseract_module = client.tesseract_module
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.tesseract_module.create({
-    "request": # `$ARRAY`,
+result = client.TesseractModule().create({
+    "request": ...,  # `$ARRAY`
 })
 ```
 
@@ -483,7 +485,7 @@ result = client.tesseract_module.create({
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.tesseract_module.load({"id": "tesseract_module_id"})
+result = client.TesseractModule().load({"id": "tesseract_module_id"})
 ```
 
 ### Common Methods
@@ -518,7 +520,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```python
-tesseract_schema = client.tesseract_schema
+tesseract_schema = client.TesseractSchema()
 ```
 
 ### Fields
@@ -538,7 +540,9 @@ tesseract_schema = client.tesseract_schema
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.tesseract_schema.list({})
+results = client.TesseractSchema().list({})
+for tesseract_schema in results:
+    print(tesseract_schema)
 ```
 
 ### Common Methods

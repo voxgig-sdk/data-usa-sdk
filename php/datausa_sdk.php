@@ -233,10 +233,10 @@ class DataUsaSDK
 
     private $_calculations_module = null;
 
-    // Idiomatic facade: $client->calculations_module()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias CalculationsModule() (PHP method
-    // names are case-insensitive).
-    public function calculations_module($data = null)
+    // Canonical facade: $client->CalculationsModule()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->calculations_module()
+    // resolves here too.
+    public function CalculationsModule($data = null)
     {
         require_once __DIR__ . '/entity/calculations_module_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class DataUsaSDK
 
     private $_economic_complexity_module = null;
 
-    // Idiomatic facade: $client->economic_complexity_module()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias EconomicComplexityModule() (PHP method
-    // names are case-insensitive).
-    public function economic_complexity_module($data = null)
+    // Canonical facade: $client->EconomicComplexityModule()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->economic_complexity_module()
+    // resolves here too.
+    public function EconomicComplexityModule($data = null)
     {
         require_once __DIR__ . '/entity/economic_complexity_module_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class DataUsaSDK
 
     private $_health = null;
 
-    // Idiomatic facade: $client->health()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Health() (PHP method
-    // names are case-insensitive).
-    public function health($data = null)
+    // Canonical facade: $client->Health()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->health()
+    // resolves here too.
+    public function Health($data = null)
     {
         require_once __DIR__ . '/entity/health_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class DataUsaSDK
 
     private $_member = null;
 
-    // Idiomatic facade: $client->member()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Member() (PHP method
-    // names are case-insensitive).
-    public function member($data = null)
+    // Canonical facade: $client->Member()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->member()
+    // resolves here too.
+    public function Member($data = null)
     {
         require_once __DIR__ . '/entity/member_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class DataUsaSDK
 
     private $_module_status = null;
 
-    // Idiomatic facade: $client->module_status()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ModuleStatus() (PHP method
-    // names are case-insensitive).
-    public function module_status($data = null)
+    // Canonical facade: $client->ModuleStatus()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->module_status()
+    // resolves here too.
+    public function ModuleStatus($data = null)
     {
         require_once __DIR__ . '/entity/module_status_entity.php';
         if ($data === null) {
@@ -323,10 +323,10 @@ class DataUsaSDK
 
     private $_route_index_get = null;
 
-    // Idiomatic facade: $client->route_index_get()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RouteIndexGet() (PHP method
-    // names are case-insensitive).
-    public function route_index_get($data = null)
+    // Canonical facade: $client->RouteIndexGet()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->route_index_get()
+    // resolves here too.
+    public function RouteIndexGet($data = null)
     {
         require_once __DIR__ . '/entity/route_index_get_entity.php';
         if ($data === null) {
@@ -341,10 +341,10 @@ class DataUsaSDK
 
     private $_tesseract_cube = null;
 
-    // Idiomatic facade: $client->tesseract_cube()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TesseractCube() (PHP method
-    // names are case-insensitive).
-    public function tesseract_cube($data = null)
+    // Canonical facade: $client->TesseractCube()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tesseract_cube()
+    // resolves here too.
+    public function TesseractCube($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_cube_entity.php';
         if ($data === null) {
@@ -359,10 +359,10 @@ class DataUsaSDK
 
     private $_tesseract_module = null;
 
-    // Idiomatic facade: $client->tesseract_module()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TesseractModule() (PHP method
-    // names are case-insensitive).
-    public function tesseract_module($data = null)
+    // Canonical facade: $client->TesseractModule()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tesseract_module()
+    // resolves here too.
+    public function TesseractModule($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_module_entity.php';
         if ($data === null) {
@@ -377,10 +377,10 @@ class DataUsaSDK
 
     private $_tesseract_schema = null;
 
-    // Idiomatic facade: $client->tesseract_schema()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TesseractSchema() (PHP method
-    // names are case-insensitive).
-    public function tesseract_schema($data = null)
+    // Canonical facade: $client->TesseractSchema()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tesseract_schema()
+    // resolves here too.
+    public function TesseractSchema($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_schema_entity.php';
         if ($data === null) {

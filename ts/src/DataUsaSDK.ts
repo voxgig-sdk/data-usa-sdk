@@ -212,126 +212,63 @@ class DataUsaSDK {
 
 
 
-  _calculations_module?: CalculationsModuleEntity
-
-  // Idiomatic facade: `client.calculations_module.list()` / `client.calculations_module.load({ id })`.
-  get calculations_module(): CalculationsModuleEntity {
-    return (this._calculations_module ??= new CalculationsModuleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.calculations_module` instead. */
+  // Entity access: `client.CalculationsModule().list()` / `client.CalculationsModule().load({ id })`.
   CalculationsModule(data?: any) {
     const self = this
     return new CalculationsModuleEntity(self,data)
   }
 
 
-  _economic_complexity_module?: EconomicComplexityModuleEntity
-
-  // Idiomatic facade: `client.economic_complexity_module.list()` / `client.economic_complexity_module.load({ id })`.
-  get economic_complexity_module(): EconomicComplexityModuleEntity {
-    return (this._economic_complexity_module ??= new EconomicComplexityModuleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.economic_complexity_module` instead. */
+  // Entity access: `client.EconomicComplexityModule().list()` / `client.EconomicComplexityModule().load({ id })`.
   EconomicComplexityModule(data?: any) {
     const self = this
     return new EconomicComplexityModuleEntity(self,data)
   }
 
 
-  _health?: HealthEntity
-
-  // Idiomatic facade: `client.health.list()` / `client.health.load({ id })`.
-  get health(): HealthEntity {
-    return (this._health ??= new HealthEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.health` instead. */
+  // Entity access: `client.Health().list()` / `client.Health().load({ id })`.
   Health(data?: any) {
     const self = this
     return new HealthEntity(self,data)
   }
 
 
-  _member?: MemberEntity
-
-  // Idiomatic facade: `client.member.list()` / `client.member.load({ id })`.
-  get member(): MemberEntity {
-    return (this._member ??= new MemberEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.member` instead. */
+  // Entity access: `client.Member().list()` / `client.Member().load({ id })`.
   Member(data?: any) {
     const self = this
     return new MemberEntity(self,data)
   }
 
 
-  _module_status?: ModuleStatusEntity
-
-  // Idiomatic facade: `client.module_status.list()` / `client.module_status.load({ id })`.
-  get module_status(): ModuleStatusEntity {
-    return (this._module_status ??= new ModuleStatusEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.module_status` instead. */
+  // Entity access: `client.ModuleStatus().list()` / `client.ModuleStatus().load({ id })`.
   ModuleStatus(data?: any) {
     const self = this
     return new ModuleStatusEntity(self,data)
   }
 
 
-  _route_index_get?: RouteIndexGetEntity
-
-  // Idiomatic facade: `client.route_index_get.list()` / `client.route_index_get.load({ id })`.
-  get route_index_get(): RouteIndexGetEntity {
-    return (this._route_index_get ??= new RouteIndexGetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.route_index_get` instead. */
+  // Entity access: `client.RouteIndexGet().list()` / `client.RouteIndexGet().load({ id })`.
   RouteIndexGet(data?: any) {
     const self = this
     return new RouteIndexGetEntity(self,data)
   }
 
 
-  _tesseract_cube?: TesseractCubeEntity
-
-  // Idiomatic facade: `client.tesseract_cube.list()` / `client.tesseract_cube.load({ id })`.
-  get tesseract_cube(): TesseractCubeEntity {
-    return (this._tesseract_cube ??= new TesseractCubeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.tesseract_cube` instead. */
+  // Entity access: `client.TesseractCube().list()` / `client.TesseractCube().load({ id })`.
   TesseractCube(data?: any) {
     const self = this
     return new TesseractCubeEntity(self,data)
   }
 
 
-  _tesseract_module?: TesseractModuleEntity
-
-  // Idiomatic facade: `client.tesseract_module.list()` / `client.tesseract_module.load({ id })`.
-  get tesseract_module(): TesseractModuleEntity {
-    return (this._tesseract_module ??= new TesseractModuleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.tesseract_module` instead. */
+  // Entity access: `client.TesseractModule().list()` / `client.TesseractModule().load({ id })`.
   TesseractModule(data?: any) {
     const self = this
     return new TesseractModuleEntity(self,data)
   }
 
 
-  _tesseract_schema?: TesseractSchemaEntity
-
-  // Idiomatic facade: `client.tesseract_schema.list()` / `client.tesseract_schema.load({ id })`.
-  get tesseract_schema(): TesseractSchemaEntity {
-    return (this._tesseract_schema ??= new TesseractSchemaEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.tesseract_schema` instead. */
+  // Entity access: `client.TesseractSchema().list()` / `client.TesseractSchema().load({ id })`.
   TesseractSchema(data?: any) {
     const self = this
     return new TesseractSchemaEntity(self,data)

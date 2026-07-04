@@ -32,8 +32,9 @@ client = DataUsaSDK.new
 
 ```ruby
 begin
-  result = client.calculationsmodule.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare CalculationsModule record (raises on error).
+  calculationsmodule = client.CalculationsModule.load({ "id" => "example_id" })
+  puts calculationsmodule
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = DataUsaSDK.test
+client = DataUsaSDK.test({
+  "entity" => { "calculationsmodule" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.calculationsmodule.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+calculationsmodule = client.CalculationsModule.load({ "id" => "test01" })
+puts calculationsmodule
 ```
 
 ### Use a custom fetch function
@@ -163,7 +168,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
 | `CalculationsModule` | `(data) -> CalculationsModuleEntity` | Create a CalculationsModule entity instance. |
-| `EconomicComplexityModule` | `(data) -> EconomicComplexityModuleEntity` | Create a EconomicComplexityModule entity instance. |
+| `EconomicComplexityModule` | `(data) -> EconomicComplexityModuleEntity` | Create an EconomicComplexityModule entity instance. |
 | `Health` | `(data) -> HealthEntity` | Create a Health entity instance. |
 | `Member` | `(data) -> MemberEntity` | Create a Member entity instance. |
 | `ModuleStatus` | `(data) -> ModuleStatusEntity` | Create a ModuleStatus entity instance. |
@@ -318,7 +323,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `const calculations_module = client.calculations_module`
+Create an instance: `calculations_module = client.CalculationsModule`
 
 #### Operations
 
@@ -328,14 +333,15 @@ Create an instance: `const calculations_module = client.calculations_module`
 
 #### Example: Load
 
-```ts
-const calculations_module = await client.calculations_module.load({ id: 'calculations_module_id' })
+```ruby
+# load returns the bare CalculationsModule record (raises on error).
+calculations_module = client.CalculationsModule.load({ "id" => "calculations_module_id" })
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `const economic_complexity_module = client.economic_complexity_module`
+Create an instance: `economic_complexity_module = client.EconomicComplexityModule`
 
 #### Operations
 
@@ -345,14 +351,15 @@ Create an instance: `const economic_complexity_module = client.economic_complexi
 
 #### Example: Load
 
-```ts
-const economic_complexity_module = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
+```ruby
+# load returns the bare EconomicComplexityModule record (raises on error).
+economic_complexity_module = client.EconomicComplexityModule.load({ "id" => "economic_complexity_module_id" })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.health`
+Create an instance: `health = client.Health`
 
 #### Operations
 
@@ -362,14 +369,15 @@ Create an instance: `const health = client.health`
 
 #### Example: Load
 
-```ts
-const health = await client.health.load({ id: 'health_id' })
+```ruby
+# load returns the bare Health record (raises on error).
+health = client.Health.load({ "id" => "health_id" })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.member`
+Create an instance: `member = client.Member`
 
 #### Operations
 
@@ -388,14 +396,15 @@ Create an instance: `const member = client.member`
 
 #### Example: List
 
-```ts
-const members = await client.member.list()
+```ruby
+# list returns an Array of Member records (raises on error).
+members = client.Member.list
 ```
 
 
 ### ModuleStatus
 
-Create an instance: `const module_status = client.module_status`
+Create an instance: `module_status = client.ModuleStatus`
 
 #### Operations
 
@@ -414,14 +423,15 @@ Create an instance: `const module_status = client.module_status`
 
 #### Example: Load
 
-```ts
-const module_status = await client.module_status.load({ id: 'module_status_id' })
+```ruby
+# load returns the bare ModuleStatus record (raises on error).
+module_status = client.ModuleStatus.load({ "id" => "module_status_id" })
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `const route_index_get = client.route_index_get`
+Create an instance: `route_index_get = client.RouteIndexGet`
 
 #### Operations
 
@@ -431,14 +441,15 @@ Create an instance: `const route_index_get = client.route_index_get`
 
 #### Example: Load
 
-```ts
-const route_index_get = await client.route_index_get.load({ id: 'route_index_get_id' })
+```ruby
+# load returns the bare RouteIndexGet record (raises on error).
+route_index_get = client.RouteIndexGet.load({ "id" => "route_index_get_id" })
 ```
 
 
 ### TesseractCube
 
-Create an instance: `const tesseract_cube = client.tesseract_cube`
+Create an instance: `tesseract_cube = client.TesseractCube`
 
 #### Operations
 
@@ -458,14 +469,15 @@ Create an instance: `const tesseract_cube = client.tesseract_cube`
 
 #### Example: Load
 
-```ts
-const tesseract_cube = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
+```ruby
+# load returns the bare TesseractCube record (raises on error).
+tesseract_cube = client.TesseractCube.load({ "id" => "tesseract_cube_id" })
 ```
 
 
 ### TesseractModule
 
-Create an instance: `const tesseract_module = client.tesseract_module`
+Create an instance: `tesseract_module = client.TesseractModule`
 
 #### Operations
 
@@ -484,22 +496,23 @@ Create an instance: `const tesseract_module = client.tesseract_module`
 
 #### Example: Load
 
-```ts
-const tesseract_module = await client.tesseract_module.load({ id: 'tesseract_module_id' })
+```ruby
+# load returns the bare TesseractModule record (raises on error).
+tesseract_module = client.TesseractModule.load({ "id" => "tesseract_module_id" })
 ```
 
 #### Example: Create
 
-```ts
-const tesseract_module = await client.tesseract_module.create({
-  request: /* `$ARRAY` */,
+```ruby
+tesseract_module = client.TesseractModule.create({
+  "request" => nil, # `$ARRAY`
 })
 ```
 
 
 ### TesseractSchema
 
-Create an instance: `const tesseract_schema = client.tesseract_schema`
+Create an instance: `tesseract_schema = client.TesseractSchema`
 
 #### Operations
 
@@ -519,8 +532,9 @@ Create an instance: `const tesseract_schema = client.tesseract_schema`
 
 #### Example: List
 
-```ts
-const tesseract_schemas = await client.tesseract_schema.list()
+```ruby
+# list returns an Array of TesseractSchema records (raises on error).
+tesseract_schemas = client.TesseractSchema.list
 ```
 
 
@@ -595,7 +609,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-calculationsmodule = client.calculationsmodule
+calculationsmodule = client.CalculationsModule
 calculationsmodule.load({ "id" => "example_id" })
 
 # calculationsmodule.data_get now returns the loaded calculationsmodule data

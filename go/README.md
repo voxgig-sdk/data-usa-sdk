@@ -30,36 +30,30 @@ go mod edit -replace github.com/voxgig-sdk/data-usa-sdk/go=../data-usa-sdk/go
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/data-usa-sdk/go"
-    "github.com/voxgig-sdk/data-usa-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 3. Load a calculationsmodule
-
-```go
-    result, err = client.CalculationsModule(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single calculationsmodule — the value is the loaded record.
+    calculationsmodule, err := client.CalculationsModule(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(calculationsmodule)
 }
 ```
 
@@ -110,10 +104,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.CalculationsModule(nil).Load(
+calculationsmodule, err := client.CalculationsModule(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(calculationsmodule) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -191,7 +188,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
 | `CalculationsModule` | `(data map[string]any) DataUsaEntity` | Create a CalculationsModule entity instance. |
-| `EconomicComplexityModule` | `(data map[string]any) DataUsaEntity` | Create a EconomicComplexityModule entity instance. |
+| `EconomicComplexityModule` | `(data map[string]any) DataUsaEntity` | Create an EconomicComplexityModule entity instance. |
 | `Health` | `(data map[string]any) DataUsaEntity` | Create a Health entity instance. |
 | `Member` | `(data map[string]any) DataUsaEntity` | Create a Member entity instance. |
 | `ModuleStatus` | `(data map[string]any) DataUsaEntity` | Create a ModuleStatus entity instance. |
@@ -218,17 +215,24 @@ All entities implement the `DataUsaEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    calculationsmodule, err := client.CalculationsModule(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // calculationsmodule is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -352,7 +356,11 @@ Create an instance: `calculations_module := client.CalculationsModule(nil)`
 #### Example: Load
 
 ```go
-result, err := client.CalculationsModule(nil).Load(map[string]any{"id": "calculations_module_id"}, nil)
+calculations_module, err := client.CalculationsModule(nil).Load(map[string]any{"id": "calculations_module_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(calculations_module) // the loaded record
 ```
 
 
@@ -369,7 +377,11 @@ Create an instance: `economic_complexity_module := client.EconomicComplexityModu
 #### Example: Load
 
 ```go
-result, err := client.EconomicComplexityModule(nil).Load(map[string]any{"id": "economic_complexity_module_id"}, nil)
+economic_complexity_module, err := client.EconomicComplexityModule(nil).Load(map[string]any{"id": "economic_complexity_module_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(economic_complexity_module) // the loaded record
 ```
 
 
@@ -386,7 +398,11 @@ Create an instance: `health := client.Health(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+health, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(health) // the loaded record
 ```
 
 
@@ -412,7 +428,11 @@ Create an instance: `member := client.Member(nil)`
 #### Example: List
 
 ```go
-results, err := client.Member(nil).List(nil, nil)
+members, err := client.Member(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(members) // the array of records
 ```
 
 
@@ -438,7 +458,11 @@ Create an instance: `module_status := client.ModuleStatus(nil)`
 #### Example: Load
 
 ```go
-result, err := client.ModuleStatus(nil).Load(map[string]any{"id": "module_status_id"}, nil)
+module_status, err := client.ModuleStatus(nil).Load(map[string]any{"id": "module_status_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(module_status) // the loaded record
 ```
 
 
@@ -455,7 +479,11 @@ Create an instance: `route_index_get := client.RouteIndexGet(nil)`
 #### Example: Load
 
 ```go
-result, err := client.RouteIndexGet(nil).Load(map[string]any{"id": "route_index_get_id"}, nil)
+route_index_get, err := client.RouteIndexGet(nil).Load(map[string]any{"id": "route_index_get_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(route_index_get) // the loaded record
 ```
 
 
@@ -482,7 +510,11 @@ Create an instance: `tesseract_cube := client.TesseractCube(nil)`
 #### Example: Load
 
 ```go
-result, err := client.TesseractCube(nil).Load(map[string]any{"id": "tesseract_cube_id"}, nil)
+tesseract_cube, err := client.TesseractCube(nil).Load(map[string]any{"id": "tesseract_cube_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(tesseract_cube) // the loaded record
 ```
 
 
@@ -508,7 +540,11 @@ Create an instance: `tesseract_module := client.TesseractModule(nil)`
 #### Example: Load
 
 ```go
-result, err := client.TesseractModule(nil).Load(map[string]any{"id": "tesseract_module_id"}, nil)
+tesseract_module, err := client.TesseractModule(nil).Load(map[string]any{"id": "tesseract_module_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(tesseract_module) // the loaded record
 ```
 
 #### Example: Create
@@ -543,7 +579,11 @@ Create an instance: `tesseract_schema := client.TesseractSchema(nil)`
 #### Example: List
 
 ```go
-results, err := client.TesseractSchema(nil).List(nil, nil)
+tesseract_schemas, err := client.TesseractSchema(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(tesseract_schemas) // the array of records
 ```
 
 

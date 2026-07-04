@@ -26,9 +26,9 @@ import { DataUsaSDK } from '@voxgig-sdk/data-usa'
 
 const client = new DataUsaSDK()
 
-// Load calculationsmodule data
-const calculationsmodule = await client.calculationsmodule.load({})
-console.log(calculationsmodule.data)
+// Load calculationsmodule data (returns a CalculationsModule)
+const calculationsmodule = await client.CalculationsModule().load()
+console.log(calculationsmodule)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -92,8 +92,8 @@ from datausa_sdk import DataUsaSDK
 client = DataUsaSDK()
 
 
-# Load a specific calculationsmodule
-calculationsmodule = client.calculationsmodule.load({"id": "example_id"})
+# Load a specific calculationsmodule (returns the record, raises on error)
+calculationsmodule = client.CalculationsModule().load({"id": "example_id"})
 print(calculationsmodule)
 ```
 
@@ -106,8 +106,8 @@ require_once 'datausa_sdk.php';
 $client = new DataUsaSDK();
 
 
-// Load a specific calculationsmodule
-$calculationsmodule = $client->calculationsmodule()->load(["id" => "example_id"]);
+// Load a specific calculationsmodule (returns the bare record; throws on error)
+$calculationsmodule = $client->CalculationsModule()->load(["id" => "example_id"]);
 print_r($calculationsmodule);
 ```
 
@@ -131,8 +131,8 @@ require_relative "DataUsa_sdk"
 client = DataUsaSDK.new
 
 
-# Load a specific calculationsmodule
-calculationsmodule = client.calculationsmodule.load({ "id" => "example_id" })
+# Load a specific calculationsmodule (returns the bare record; raises on error)
+calculationsmodule = client.CalculationsModule.load({ "id" => "example_id" })
 puts calculationsmodule
 ```
 
@@ -145,7 +145,7 @@ local client = sdk.new()
 
 
 -- Load a specific calculationsmodule
-local calculationsmodule, err = client:calculationsmodule():load({ id = "example_id" })
+local calculationsmodule, err = client:CalculationsModule():load({ id = "example_id" })
 print(calculationsmodule)
 ```
 
@@ -158,22 +158,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = DataUsaSDK.test()
-const result = await client.calculationsmodule.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const calculationsmodule = await client.CalculationsModule().load({ id: 'test01' })
+// calculationsmodule is a bare CalculationsModule populated with mock data
+console.log(calculationsmodule)
 ```
 
 ### Python
 
 ```python
 client = DataUsaSDK.test()
-result = client.calculationsmodule.load({"id": "test01"})
+calculationsmodule = client.CalculationsModule().load({"id": "test01"})
+print(calculationsmodule)
 ```
 
 ### PHP
 
 ```php
-$client = DataUsaSDK::test();
-$result = $client->calculationsmodule()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = DataUsaSDK::test([
+    "entity" => ["calculationsmodule" => ["test01" => ["id" => "test01"]]],
+]);
+$calculationsmodule = $client->CalculationsModule()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -188,15 +193,18 @@ result, err := client.CalculationsModule(nil).Load(
 ### Ruby
 
 ```ruby
-client = DataUsaSDK.test
-result = client.calculationsmodule.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = DataUsaSDK.test({
+  "entity" => { "calculationsmodule" => { "test01" => { "id" => "test01" } } },
+})
+calculationsmodule = client.CalculationsModule.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:calculationsmodule():load({ id = "test01" })
+local result, err = client:CalculationsModule():load({ id = "test01" })
 ```
 
 ## How it works
@@ -244,6 +252,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

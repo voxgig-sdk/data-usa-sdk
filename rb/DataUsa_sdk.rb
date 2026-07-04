@@ -208,117 +208,63 @@ class DataUsaSDK
   end
 
 
-  # Idiomatic facade: client.calculations_module.list / client.calculations_module.load({ "id" => ... })
-  def calculations_module
-    require_relative 'entity/calculations_module_entity'
-    @calculations_module ||= CalculationsModuleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.calculations_module instead.
+  # Canonical facade: client.CalculationsModule.list / client.CalculationsModule.load({ "id" => ... })
   def CalculationsModule(data = nil)
     require_relative 'entity/calculations_module_entity'
     CalculationsModuleEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.economic_complexity_module.list / client.economic_complexity_module.load({ "id" => ... })
-  def economic_complexity_module
-    require_relative 'entity/economic_complexity_module_entity'
-    @economic_complexity_module ||= EconomicComplexityModuleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.economic_complexity_module instead.
+  # Canonical facade: client.EconomicComplexityModule.list / client.EconomicComplexityModule.load({ "id" => ... })
   def EconomicComplexityModule(data = nil)
     require_relative 'entity/economic_complexity_module_entity'
     EconomicComplexityModuleEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.health.list / client.health.load({ "id" => ... })
-  def health
-    require_relative 'entity/health_entity'
-    @health ||= HealthEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.health instead.
+  # Canonical facade: client.Health.list / client.Health.load({ "id" => ... })
   def Health(data = nil)
     require_relative 'entity/health_entity'
     HealthEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.member.list / client.member.load({ "id" => ... })
-  def member
-    require_relative 'entity/member_entity'
-    @member ||= MemberEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.member instead.
+  # Canonical facade: client.Member.list / client.Member.load({ "id" => ... })
   def Member(data = nil)
     require_relative 'entity/member_entity'
     MemberEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.module_status.list / client.module_status.load({ "id" => ... })
-  def module_status
-    require_relative 'entity/module_status_entity'
-    @module_status ||= ModuleStatusEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.module_status instead.
+  # Canonical facade: client.ModuleStatus.list / client.ModuleStatus.load({ "id" => ... })
   def ModuleStatus(data = nil)
     require_relative 'entity/module_status_entity'
     ModuleStatusEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.route_index_get.list / client.route_index_get.load({ "id" => ... })
-  def route_index_get
-    require_relative 'entity/route_index_get_entity'
-    @route_index_get ||= RouteIndexGetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.route_index_get instead.
+  # Canonical facade: client.RouteIndexGet.list / client.RouteIndexGet.load({ "id" => ... })
   def RouteIndexGet(data = nil)
     require_relative 'entity/route_index_get_entity'
     RouteIndexGetEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.tesseract_cube.list / client.tesseract_cube.load({ "id" => ... })
-  def tesseract_cube
-    require_relative 'entity/tesseract_cube_entity'
-    @tesseract_cube ||= TesseractCubeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.tesseract_cube instead.
+  # Canonical facade: client.TesseractCube.list / client.TesseractCube.load({ "id" => ... })
   def TesseractCube(data = nil)
     require_relative 'entity/tesseract_cube_entity'
     TesseractCubeEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.tesseract_module.list / client.tesseract_module.load({ "id" => ... })
-  def tesseract_module
-    require_relative 'entity/tesseract_module_entity'
-    @tesseract_module ||= TesseractModuleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.tesseract_module instead.
+  # Canonical facade: client.TesseractModule.list / client.TesseractModule.load({ "id" => ... })
   def TesseractModule(data = nil)
     require_relative 'entity/tesseract_module_entity'
     TesseractModuleEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.tesseract_schema.list / client.tesseract_schema.load({ "id" => ... })
-  def tesseract_schema
-    require_relative 'entity/tesseract_schema_entity'
-    @tesseract_schema ||= TesseractSchemaEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.tesseract_schema instead.
+  # Canonical facade: client.TesseractSchema.list / client.TesseractSchema.load({ "id" => ... })
   def TesseractSchema(data = nil)
     require_relative 'entity/tesseract_schema_entity'
     TesseractSchemaEntity.new(self, data)

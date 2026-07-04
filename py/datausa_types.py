@@ -4,88 +4,80 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class CalculationsModule:
+class CalculationsModule(TypedDict):
     pass
 
 
-@dataclass
-class CalculationsModuleLoadMatch:
+class CalculationsModuleLoadMatch(TypedDict):
     extension: str
 
 
-@dataclass
-class EconomicComplexityModule:
+class EconomicComplexityModule(TypedDict):
     pass
 
 
-@dataclass
-class EconomicComplexityModuleLoadMatch:
+class EconomicComplexityModuleLoadMatch(TypedDict):
     extension: str
     endpoint: str
 
 
-@dataclass
-class Health:
+class Health(TypedDict):
     pass
 
 
-@dataclass
-class HealthLoadMatch:
+class HealthLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class Member:
+class Member(TypedDict):
     annotation: dict
     caption: str
     name: str
     type: str
 
 
-@dataclass
-class MemberListMatch:
-    annotation: Optional[dict] = None
-    caption: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
+class MemberListMatch(TypedDict, total=False):
+    annotation: dict
+    caption: str
+    name: str
+    type: str
 
 
-@dataclass
-class ModuleStatus:
+class ModuleStatus(TypedDict):
     debug: Any
     module: str
     status: str
     version: str
 
 
-@dataclass
-class ModuleStatusLoadMatch:
-    debug: Optional[Any] = None
-    module: Optional[str] = None
-    status: Optional[str] = None
-    version: Optional[str] = None
+class ModuleStatusLoadMatch(TypedDict, total=False):
+    debug: Any
+    module: str
+    status: str
+    version: str
 
 
-@dataclass
-class RouteIndexGet:
+class RouteIndexGet(TypedDict):
     pass
 
 
-@dataclass
-class RouteIndexGetLoadMatch:
+class RouteIndexGetLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class TesseractCube:
+class TesseractCube(TypedDict):
     annotation: dict
     caption: str
     dimension: list
@@ -93,30 +85,28 @@ class TesseractCube:
     name: str
 
 
-@dataclass
-class TesseractCubeLoadMatch:
+class TesseractCubeLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class TesseractModule:
+class TesseractModuleRequired(TypedDict):
     request: list
-    join: Optional[list] = None
-    pagination: Optional[dict] = None
 
 
-@dataclass
-class TesseractModuleLoadMatch:
+class TesseractModule(TesseractModuleRequired, total=False):
+    join: list
+    pagination: dict
+
+
+class TesseractModuleLoadMatch(TypedDict):
     extension: str
 
 
-@dataclass
-class TesseractModuleCreateData:
+class TesseractModuleCreateData(TypedDict):
     extension: str
 
 
-@dataclass
-class TesseractSchema:
+class TesseractSchema(TypedDict):
     annotation: dict
     caption: str
     dimension: list
@@ -124,11 +114,9 @@ class TesseractSchema:
     name: str
 
 
-@dataclass
-class TesseractSchemaListMatch:
-    annotation: Optional[dict] = None
-    caption: Optional[str] = None
-    dimension: Optional[list] = None
-    measure: Optional[list] = None
-    name: Optional[str] = None
-
+class TesseractSchemaListMatch(TypedDict, total=False):
+    annotation: dict
+    caption: str
+    dimension: list
+    measure: list
+    name: str
