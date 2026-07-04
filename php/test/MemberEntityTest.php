@@ -50,8 +50,7 @@ class MemberEntityTest extends TestCase
         $member_ref01_ent = $client->Member(null);
         $member_ref01_match = [];
 
-        [$member_ref01_list_result, $err] = $member_ref01_ent->list($member_ref01_match, null);
-        $this->assertNull($err);
+        $member_ref01_list_result = $member_ref01_ent->list($member_ref01_match, null);
         $this->assertIsArray($member_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function member_basic_setup($extra)
         "DATAUSA_TEST_MEMBER_ENTID" => $idmap,
         "DATAUSA_TEST_LIVE" => "FALSE",
         "DATAUSA_TEST_EXPLAIN" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function member_basic_setup($extra)
     if ($env["DATAUSA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAUSA_APIKEY"],
             ],
             $extra ?? [],
         ]);

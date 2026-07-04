@@ -244,54 +244,171 @@ end
 
 
 
+-- Idiomatic facade: client:calculations_module():list() / client:calculations_module():load({ id = ... })
+function DataUsaSDK:calculations_module(data)
+  local EntityMod = require("entity.calculations_module_entity")
+  if data == nil then
+    if self._calculations_module == nil then
+      self._calculations_module = EntityMod.new(self, nil)
+    end
+    return self._calculations_module
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:calculations_module() instead.
 function DataUsaSDK:CalculationsModule(data)
   local EntityMod = require("entity.calculations_module_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:economic_complexity_module():list() / client:economic_complexity_module():load({ id = ... })
+function DataUsaSDK:economic_complexity_module(data)
+  local EntityMod = require("entity.economic_complexity_module_entity")
+  if data == nil then
+    if self._economic_complexity_module == nil then
+      self._economic_complexity_module = EntityMod.new(self, nil)
+    end
+    return self._economic_complexity_module
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:economic_complexity_module() instead.
 function DataUsaSDK:EconomicComplexityModule(data)
   local EntityMod = require("entity.economic_complexity_module_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:health():list() / client:health():load({ id = ... })
+function DataUsaSDK:health(data)
+  local EntityMod = require("entity.health_entity")
+  if data == nil then
+    if self._health == nil then
+      self._health = EntityMod.new(self, nil)
+    end
+    return self._health
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:health() instead.
 function DataUsaSDK:Health(data)
   local EntityMod = require("entity.health_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:member():list() / client:member():load({ id = ... })
+function DataUsaSDK:member(data)
+  local EntityMod = require("entity.member_entity")
+  if data == nil then
+    if self._member == nil then
+      self._member = EntityMod.new(self, nil)
+    end
+    return self._member
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:member() instead.
 function DataUsaSDK:Member(data)
   local EntityMod = require("entity.member_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:module_status():list() / client:module_status():load({ id = ... })
+function DataUsaSDK:module_status(data)
+  local EntityMod = require("entity.module_status_entity")
+  if data == nil then
+    if self._module_status == nil then
+      self._module_status = EntityMod.new(self, nil)
+    end
+    return self._module_status
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:module_status() instead.
 function DataUsaSDK:ModuleStatus(data)
   local EntityMod = require("entity.module_status_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:route_index_get():list() / client:route_index_get():load({ id = ... })
+function DataUsaSDK:route_index_get(data)
+  local EntityMod = require("entity.route_index_get_entity")
+  if data == nil then
+    if self._route_index_get == nil then
+      self._route_index_get = EntityMod.new(self, nil)
+    end
+    return self._route_index_get
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:route_index_get() instead.
 function DataUsaSDK:RouteIndexGet(data)
   local EntityMod = require("entity.route_index_get_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:tesseract_cube():list() / client:tesseract_cube():load({ id = ... })
+function DataUsaSDK:tesseract_cube(data)
+  local EntityMod = require("entity.tesseract_cube_entity")
+  if data == nil then
+    if self._tesseract_cube == nil then
+      self._tesseract_cube = EntityMod.new(self, nil)
+    end
+    return self._tesseract_cube
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:tesseract_cube() instead.
 function DataUsaSDK:TesseractCube(data)
   local EntityMod = require("entity.tesseract_cube_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:tesseract_module():list() / client:tesseract_module():load({ id = ... })
+function DataUsaSDK:tesseract_module(data)
+  local EntityMod = require("entity.tesseract_module_entity")
+  if data == nil then
+    if self._tesseract_module == nil then
+      self._tesseract_module = EntityMod.new(self, nil)
+    end
+    return self._tesseract_module
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:tesseract_module() instead.
 function DataUsaSDK:TesseractModule(data)
   local EntityMod = require("entity.tesseract_module_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:tesseract_schema():list() / client:tesseract_schema():load({ id = ... })
+function DataUsaSDK:tesseract_schema(data)
+  local EntityMod = require("entity.tesseract_schema_entity")
+  if data == nil then
+    if self._tesseract_schema == nil then
+      self._tesseract_schema = EntityMod.new(self, nil)
+    end
+    return self._tesseract_schema
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:tesseract_schema() instead.
 function DataUsaSDK:TesseractSchema(data)
   local EntityMod = require("entity.tesseract_schema_entity")
   return EntityMod.new(self, data)

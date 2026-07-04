@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  TesseractModule,
+  TesseractModuleLoadMatch,
+  TesseractModuleCreateData,
+} from '../DataUsaTypes'
 
 // TODO: needs Entity superclass
-class TesseractModuleEntity extends DataUsaEntityBase {
+class TesseractModuleEntity extends DataUsaEntityBase<TesseractModule> {
 
   constructor(client: DataUsaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class TesseractModuleEntity extends DataUsaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: TesseractModuleLoadMatch, ctrl?: Control): Promise<TesseractModule> {
 
     const utility = this._utility
 
@@ -136,7 +141,9 @@ class TesseractModuleEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<TesseractModule> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
@@ -144,7 +151,7 @@ class TesseractModuleEntity extends DataUsaEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: TesseractModuleCreateData, ctrl?: Control): Promise<TesseractModule> {
 
     const utility = this._utility
     const {
@@ -243,7 +250,9 @@ class TesseractModuleEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<TesseractModule> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

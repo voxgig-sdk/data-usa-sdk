@@ -99,14 +99,12 @@ func calculations_moduleDirectSetup(mockres any) *calculations_moduleDirectSetup
 	env := envOverride(map[string]any{
 		"DATAUSA_TEST_CALCULATIONS_MODULE_ENTID": map[string]any{},
 		"DATAUSA_TEST_LIVE":    "FALSE",
-		"DATAUSA_APIKEY":       "NONE",
 	})
 
 	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["DATAUSA_APIKEY"],
 		}
 		client := sdk.NewDataUsaSDK(mergedOpts)
 

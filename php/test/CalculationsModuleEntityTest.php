@@ -49,8 +49,7 @@ class CalculationsModuleEntityTest extends TestCase
         // LOAD
         $calculations_module_ref01_ent = $client->CalculationsModule(null);
         $calculations_module_ref01_match_dt0 = [];
-        [$calculations_module_ref01_data_dt0_loaded, $err] = $calculations_module_ref01_ent->load($calculations_module_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $calculations_module_ref01_data_dt0_loaded = $calculations_module_ref01_ent->load($calculations_module_ref01_match_dt0, null);
         $this->assertNotNull($calculations_module_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function calculations_module_basic_setup($extra)
         "DATAUSA_TEST_CALCULATIONS_MODULE_ENTID" => $idmap,
         "DATAUSA_TEST_LIVE" => "FALSE",
         "DATAUSA_TEST_EXPLAIN" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function calculations_module_basic_setup($extra)
     if ($env["DATAUSA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAUSA_APIKEY"],
             ],
             $extra ?? [],
         ]);

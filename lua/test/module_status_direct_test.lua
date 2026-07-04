@@ -62,14 +62,12 @@ function module_status_direct_setup(mockres)
   local env = runner.env_override({
     ["DATAUSA_TEST_MODULE_STATUS_ENTID"] = {},
     ["DATAUSA_TEST_LIVE"] = "FALSE",
-    ["DATAUSA_APIKEY"] = "NONE",
   })
 
   local live = env["DATAUSA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["DATAUSA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

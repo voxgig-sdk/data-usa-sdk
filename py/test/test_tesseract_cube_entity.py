@@ -49,8 +49,7 @@ class TestTesseractCubeEntity:
         # LOAD
         tesseract_cube_ref01_ent = client.TesseractCube(None)
         tesseract_cube_ref01_match_dt0 = {}
-        tesseract_cube_ref01_data_dt0_loaded, err = tesseract_cube_ref01_ent.load(tesseract_cube_ref01_match_dt0, None)
-        assert err is None
+        tesseract_cube_ref01_data_dt0_loaded = tesseract_cube_ref01_ent.load(tesseract_cube_ref01_match_dt0, None)
         assert tesseract_cube_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _tesseract_cube_basic_setup(extra):
         "DATAUSA_TEST_TESSERACT_CUBE_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _tesseract_cube_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

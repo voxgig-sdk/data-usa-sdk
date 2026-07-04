@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `$options` | `array` | SDK configuration options. |
-| `$options["apikey"]` | `string` | API key for authentication. |
 | `$options["base"]` | `string` | Base URL for API requests. |
 | `$options["prefix"]` | `string` | URL prefix appended after base. |
 | `$options["suffix"]` | `string` | URL suffix appended after path. |
@@ -88,7 +87,10 @@ Return a copy of the SDK utility object.
 
 #### `direct(array $fetchargs = []): array`
 
-Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
+Make a direct HTTP request to any API endpoint. This is the raw-HTTP escape
+hatch: it does **not** throw. It returns a result array
+`["ok" => bool, "status" => int, "headers" => array, "data" => mixed]`, or
+`["ok" => false, "err" => \Exception]` on failure. Branch on `$result["ok"]`.
 
 **Parameters:**
 
@@ -102,11 +104,12 @@ Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
 | `$fetchargs["body"]` | `mixed` | Request body (arrays are JSON-serialized). |
 | `$fetchargs["ctrl"]` | `array` | Control options. |
 
-**Returns:** `array [$result, $err]`
+**Returns:** `array` — the result dict (see above); never throws.
 
-#### `prepare(array $fetchargs = []): array`
+#### `prepare(array $fetchargs = []): mixed`
 
-Prepare a fetch definition without sending the request. Returns `[$fetchdef, $err]`.
+Prepare a fetch definition without sending the request. Returns the
+`$fetchdef` array. Throws on error.
 
 
 ---
@@ -114,17 +117,17 @@ Prepare a fetch definition without sending the request. Returns `[$fetchdef, $er
 ## CalculationsModuleEntity
 
 ```php
-$calculations_module = $client->CalculationsModule();
+$calculations_module = $client->calculations_module();
 ```
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->CalculationsModule()->load(["id" => "calculations_module_id"]);
+$result = $client->calculations_module()->load(["id" => "calculations_module_id"]);
 ```
 
 ### Common Methods
@@ -160,17 +163,17 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```php
-$economic_complexity_module = $client->EconomicComplexityModule();
+$economic_complexity_module = $client->economic_complexity_module();
 ```
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->EconomicComplexityModule()->load(["id" => "economic_complexity_module_id"]);
+$result = $client->economic_complexity_module()->load(["id" => "economic_complexity_module_id"]);
 ```
 
 ### Common Methods
@@ -206,17 +209,17 @@ Return the entity name.
 ## HealthEntity
 
 ```php
-$health = $client->Health();
+$health = $client->health();
 ```
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Health()->load(["id" => "health_id"]);
+$result = $client->health()->load(["id" => "health_id"]);
 ```
 
 ### Common Methods
@@ -252,7 +255,7 @@ Return the entity name.
 ## MemberEntity
 
 ```php
-$member = $client->Member();
+$member = $client->member();
 ```
 
 ### Fields
@@ -266,12 +269,12 @@ $member = $client->Member();
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): array`
+#### `list(array $reqmatch, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-[$results, $err] = $client->Member()->list([]);
+$results = $client->member()->list([]);
 ```
 
 ### Common Methods
@@ -307,7 +310,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```php
-$module_status = $client->ModuleStatus();
+$module_status = $client->module_status();
 ```
 
 ### Fields
@@ -321,12 +324,12 @@ $module_status = $client->ModuleStatus();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->ModuleStatus()->load(["id" => "module_status_id"]);
+$result = $client->module_status()->load(["id" => "module_status_id"]);
 ```
 
 ### Common Methods
@@ -362,17 +365,17 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```php
-$route_index_get = $client->RouteIndexGet();
+$route_index_get = $client->route_index_get();
 ```
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->RouteIndexGet()->load(["id" => "route_index_get_id"]);
+$result = $client->route_index_get()->load(["id" => "route_index_get_id"]);
 ```
 
 ### Common Methods
@@ -408,7 +411,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```php
-$tesseract_cube = $client->TesseractCube();
+$tesseract_cube = $client->tesseract_cube();
 ```
 
 ### Fields
@@ -423,12 +426,12 @@ $tesseract_cube = $client->TesseractCube();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->TesseractCube()->load(["id" => "tesseract_cube_id"]);
+$result = $client->tesseract_cube()->load(["id" => "tesseract_cube_id"]);
 ```
 
 ### Common Methods
@@ -464,7 +467,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```php
-$tesseract_module = $client->TesseractModule();
+$tesseract_module = $client->tesseract_module();
 ```
 
 ### Fields
@@ -477,22 +480,22 @@ $tesseract_module = $client->TesseractModule();
 
 ### Operations
 
-#### `create(array $reqdata, ?array $ctrl = null): array`
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Throws on error.
 
 ```php
-[$result, $err] = $client->TesseractModule()->create([
+$result = $client->tesseract_module()->create([
   "request" => /* `$ARRAY` */,
 ]);
 ```
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->TesseractModule()->load(["id" => "tesseract_module_id"]);
+$result = $client->tesseract_module()->load(["id" => "tesseract_module_id"]);
 ```
 
 ### Common Methods
@@ -528,7 +531,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```php
-$tesseract_schema = $client->TesseractSchema();
+$tesseract_schema = $client->tesseract_schema();
 ```
 
 ### Fields
@@ -543,12 +546,12 @@ $tesseract_schema = $client->TesseractSchema();
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): array`
+#### `list(array $reqmatch, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-[$results, $err] = $client->TesseractSchema()->list([]);
+$results = $client->tesseract_schema()->list([]);
 ```
 
 ### Common Methods

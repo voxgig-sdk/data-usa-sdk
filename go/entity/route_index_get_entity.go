@@ -85,6 +85,27 @@ func (e *RouteIndexGetEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an RouteIndexGet; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *RouteIndexGetEntity) DataTyped(data ...RouteIndexGet) RouteIndexGet {
+	if len(data) > 0 {
+		return typedFrom[RouteIndexGet](e.Data(asMap(data[0])))
+	}
+	return typedFrom[RouteIndexGet](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through RouteIndexGet (all fields
+// optional at the wire level).
+func (e *RouteIndexGetEntity) MatchTyped(match ...RouteIndexGet) RouteIndexGet {
+	if len(match) > 0 {
+		return typedFrom[RouteIndexGet](e.Match(asMap(match[0])))
+	}
+	return typedFrom[RouteIndexGet](e.Match())
+}
+
 
 func (e *RouteIndexGetEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *RouteIndexGetEntity) Load(reqmatch map[string]any, ctrl map[string]any)
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// RouteIndexGetLoadMatch and returns an RouteIndexGet. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *RouteIndexGetEntity) LoadTyped(reqmatch RouteIndexGetLoadMatch, ctrl map[string]any) (RouteIndexGet, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return RouteIndexGet{}, err
+	}
+	return typedFrom[RouteIndexGet](res), nil
 }
 
 

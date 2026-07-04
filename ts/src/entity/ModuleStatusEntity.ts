@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  ModuleStatus,
+  ModuleStatusLoadMatch,
+} from '../DataUsaTypes'
 
 // TODO: needs Entity superclass
-class ModuleStatusEntity extends DataUsaEntityBase {
+class ModuleStatusEntity extends DataUsaEntityBase<ModuleStatus> {
 
   constructor(client: DataUsaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ModuleStatusEntity extends DataUsaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ModuleStatusLoadMatch, ctrl?: Control): Promise<ModuleStatus> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ModuleStatusEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<ModuleStatus> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

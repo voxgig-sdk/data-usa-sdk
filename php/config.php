@@ -20,9 +20,6 @@ class DataUsaConfig
             ],
             "options" => [
                 "base" => "https://honduras.datausa.io",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -76,6 +73,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -167,6 +165,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -258,6 +257,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -345,6 +345,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -590,6 +591,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -835,6 +837,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -1081,6 +1084,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -1327,6 +1331,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -1563,6 +1568,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -1799,6 +1805,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -2008,6 +2015,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -2217,6 +2225,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -2418,6 +2427,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -2619,6 +2629,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -2811,6 +2822,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -3003,6 +3015,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -3195,6 +3208,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -3378,6 +3392,7 @@ class DataUsaConfig
                         'orig' => 'endpoint',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -3787,6 +3802,7 @@ class DataUsaConfig
                         'orig' => 'cube_name',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -3864,6 +3880,7 @@ class DataUsaConfig
                         'orig' => 'cube_name',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -3979,6 +3996,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -4259,6 +4277,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                     'query' => [
@@ -4557,6 +4576,7 @@ class DataUsaConfig
                         'orig' => 'extension',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

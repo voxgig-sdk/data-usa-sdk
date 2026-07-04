@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -206,7 +205,7 @@ Alias for `DataUsaSDK.test()`.
 ## CalculationsModuleEntity
 
 ```ts
-const calculations_module = client.CalculationsModule()
+const calculations_module = client.calculations_module
 ```
 
 ### Operations
@@ -216,7 +215,7 @@ const calculations_module = client.CalculationsModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.CalculationsModule().load({ id: 'calculations_module_id' })
+const result = await client.calculations_module.load({ id: 'calculations_module_id' })
 ```
 
 ### Common Methods
@@ -250,7 +249,7 @@ Return a copy of the entity options.
 ## EconomicComplexityModuleEntity
 
 ```ts
-const economic_complexity_module = client.EconomicComplexityModule()
+const economic_complexity_module = client.economic_complexity_module
 ```
 
 ### Operations
@@ -260,7 +259,7 @@ const economic_complexity_module = client.EconomicComplexityModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.EconomicComplexityModule().load({ id: 'economic_complexity_module_id' })
+const result = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
 ```
 
 ### Common Methods
@@ -294,7 +293,7 @@ Return a copy of the entity options.
 ## HealthEntity
 
 ```ts
-const health = client.Health()
+const health = client.health
 ```
 
 ### Operations
@@ -304,7 +303,7 @@ const health = client.Health()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Health().load({ id: 'health_id' })
+const result = await client.health.load({ id: 'health_id' })
 ```
 
 ### Common Methods
@@ -338,7 +337,7 @@ Return a copy of the entity options.
 ## MemberEntity
 
 ```ts
-const member = client.Member()
+const member = client.member
 ```
 
 ### Fields
@@ -357,7 +356,7 @@ const member = client.Member()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Member().list()
+const results = await client.member.list()
 ```
 
 ### Common Methods
@@ -391,7 +390,7 @@ Return a copy of the entity options.
 ## ModuleStatusEntity
 
 ```ts
-const module_status = client.ModuleStatus()
+const module_status = client.module_status
 ```
 
 ### Fields
@@ -410,7 +409,7 @@ const module_status = client.ModuleStatus()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ModuleStatus().load({ id: 'module_status_id' })
+const result = await client.module_status.load({ id: 'module_status_id' })
 ```
 
 ### Common Methods
@@ -444,7 +443,7 @@ Return a copy of the entity options.
 ## RouteIndexGetEntity
 
 ```ts
-const route_index_get = client.RouteIndexGet()
+const route_index_get = client.route_index_get
 ```
 
 ### Operations
@@ -454,7 +453,7 @@ const route_index_get = client.RouteIndexGet()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.RouteIndexGet().load({ id: 'route_index_get_id' })
+const result = await client.route_index_get.load({ id: 'route_index_get_id' })
 ```
 
 ### Common Methods
@@ -488,7 +487,7 @@ Return a copy of the entity options.
 ## TesseractCubeEntity
 
 ```ts
-const tesseract_cube = client.TesseractCube()
+const tesseract_cube = client.tesseract_cube
 ```
 
 ### Fields
@@ -508,7 +507,7 @@ const tesseract_cube = client.TesseractCube()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TesseractCube().load({ id: 'tesseract_cube_id' })
+const result = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
 ```
 
 ### Common Methods
@@ -542,7 +541,7 @@ Return a copy of the entity options.
 ## TesseractModuleEntity
 
 ```ts
-const tesseract_module = client.TesseractModule()
+const tesseract_module = client.tesseract_module
 ```
 
 ### Fields
@@ -560,7 +559,7 @@ const tesseract_module = client.TesseractModule()
 Create a new entity with the given data.
 
 ```ts
-const result = await client.TesseractModule().create({
+const result = await client.tesseract_module.create({
   request: /* `$ARRAY` */,
 })
 ```
@@ -570,7 +569,7 @@ const result = await client.TesseractModule().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TesseractModule().load({ id: 'tesseract_module_id' })
+const result = await client.tesseract_module.load({ id: 'tesseract_module_id' })
 ```
 
 ### Common Methods
@@ -604,7 +603,7 @@ Return a copy of the entity options.
 ## TesseractSchemaEntity
 
 ```ts
-const tesseract_schema = client.TesseractSchema()
+const tesseract_schema = client.tesseract_schema
 ```
 
 ### Fields
@@ -624,7 +623,7 @@ const tesseract_schema = client.TesseractSchema()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.TesseractSchema().list()
+const results = await client.tesseract_schema.list()
 ```
 
 ### Common Methods

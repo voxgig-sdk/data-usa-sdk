@@ -50,8 +50,7 @@ class TestTesseractSchemaEntity:
         tesseract_schema_ref01_ent = client.TesseractSchema(None)
         tesseract_schema_ref01_match = {}
 
-        tesseract_schema_ref01_list_result, err = tesseract_schema_ref01_ent.list(tesseract_schema_ref01_match, None)
-        assert err is None
+        tesseract_schema_ref01_list_result = tesseract_schema_ref01_ent.list(tesseract_schema_ref01_match, None)
         assert isinstance(tesseract_schema_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _tesseract_schema_basic_setup(extra):
         "DATAUSA_TEST_TESSERACT_SCHEMA_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _tesseract_schema_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

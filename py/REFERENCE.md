@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `dict` | SDK configuration options. |
-| `options["apikey"]` | `str` | API key for authentication. |
 | `options["base"]` | `str` | Base URL for API requests. |
 | `options["prefix"]` | `str` | URL prefix appended after base. |
 | `options["suffix"]` | `str` | URL suffix appended after path. |
@@ -86,9 +85,9 @@ Return a deep copy of the current SDK options.
 
 Return a copy of the SDK utility object.
 
-#### `direct(fetchargs=None) -> tuple`
+#### `direct(fetchargs=None) -> dict`
 
-Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
+Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok`, `status`, `headers`, and `data` (or `err` on failure). This escape hatch never raises — branch on `result["ok"]`.
 
 **Parameters:**
 
@@ -101,11 +100,11 @@ Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
 | `fetchargs["headers"]` | `dict` | Request headers (merged with defaults). |
 | `fetchargs["body"]` | `any` | Request body (dicts are JSON-serialized). |
 
-**Returns:** `(result_dict, err)`
+**Returns:** `result_dict`
 
-#### `prepare(fetchargs=None) -> tuple`
+#### `prepare(fetchargs=None) -> dict`
 
-Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
+Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
 
 
 ---
@@ -113,17 +112,17 @@ Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
 ## CalculationsModuleEntity
 
 ```python
-calculations_module = client.CalculationsModule()
+calculations_module = client.calculations_module
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.CalculationsModule().load({"id": "calculations_module_id"})
+result = client.calculations_module.load({"id": "calculations_module_id"})
 ```
 
 ### Common Methods
@@ -158,17 +157,17 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```python
-economic_complexity_module = client.EconomicComplexityModule()
+economic_complexity_module = client.economic_complexity_module
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.EconomicComplexityModule().load({"id": "economic_complexity_module_id"})
+result = client.economic_complexity_module.load({"id": "economic_complexity_module_id"})
 ```
 
 ### Common Methods
@@ -203,17 +202,17 @@ Return the entity name.
 ## HealthEntity
 
 ```python
-health = client.Health()
+health = client.health
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Health().load({"id": "health_id"})
+result = client.health.load({"id": "health_id"})
 ```
 
 ### Common Methods
@@ -248,7 +247,7 @@ Return the entity name.
 ## MemberEntity
 
 ```python
-member = client.Member()
+member = client.member
 ```
 
 ### Fields
@@ -262,12 +261,12 @@ member = client.Member()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Member().list({})
+results = client.member.list({})
 ```
 
 ### Common Methods
@@ -302,7 +301,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```python
-module_status = client.ModuleStatus()
+module_status = client.module_status
 ```
 
 ### Fields
@@ -316,12 +315,12 @@ module_status = client.ModuleStatus()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.ModuleStatus().load({"id": "module_status_id"})
+result = client.module_status.load({"id": "module_status_id"})
 ```
 
 ### Common Methods
@@ -356,17 +355,17 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```python
-route_index_get = client.RouteIndexGet()
+route_index_get = client.route_index_get
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.RouteIndexGet().load({"id": "route_index_get_id"})
+result = client.route_index_get.load({"id": "route_index_get_id"})
 ```
 
 ### Common Methods
@@ -401,7 +400,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```python
-tesseract_cube = client.TesseractCube()
+tesseract_cube = client.tesseract_cube
 ```
 
 ### Fields
@@ -416,12 +415,12 @@ tesseract_cube = client.TesseractCube()
 
 ### Operations
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.TesseractCube().load({"id": "tesseract_cube_id"})
+result = client.tesseract_cube.load({"id": "tesseract_cube_id"})
 ```
 
 ### Common Methods
@@ -456,7 +455,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```python
-tesseract_module = client.TesseractModule()
+tesseract_module = client.tesseract_module
 ```
 
 ### Fields
@@ -469,22 +468,22 @@ tesseract_module = client.TesseractModule()
 
 ### Operations
 
-#### `create(reqdata, ctrl=None) -> tuple`
+#### `create(reqdata, ctrl=None) -> dict`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result, err = client.TesseractModule().create({
+result = client.tesseract_module.create({
     "request": # `$ARRAY`,
 })
 ```
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.TesseractModule().load({"id": "tesseract_module_id"})
+result = client.tesseract_module.load({"id": "tesseract_module_id"})
 ```
 
 ### Common Methods
@@ -519,7 +518,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```python
-tesseract_schema = client.TesseractSchema()
+tesseract_schema = client.tesseract_schema
 ```
 
 ### Fields
@@ -534,12 +533,12 @@ tesseract_schema = client.TesseractSchema()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.TesseractSchema().list({})
+results = client.tesseract_schema.list({})
 ```
 
 ### Common Methods

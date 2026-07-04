@@ -49,8 +49,7 @@ class TestModuleStatusEntity:
         # LOAD
         module_status_ref01_ent = client.ModuleStatus(None)
         module_status_ref01_match_dt0 = {}
-        module_status_ref01_data_dt0_loaded, err = module_status_ref01_ent.load(module_status_ref01_match_dt0, None)
-        assert err is None
+        module_status_ref01_data_dt0_loaded = module_status_ref01_ent.load(module_status_ref01_match_dt0, None)
         assert module_status_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _module_status_basic_setup(extra):
         "DATAUSA_TEST_MODULE_STATUS_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _module_status_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

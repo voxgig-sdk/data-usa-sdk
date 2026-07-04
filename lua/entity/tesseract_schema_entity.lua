@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch TesseractSchemaListMatch
+---@param ctrl? table
+---@return TesseractSchema[]
+---@return string? err
 function TesseractSchemaEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

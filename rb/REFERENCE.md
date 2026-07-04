@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `Hash` | SDK configuration options. |
-| `options["apikey"]` | `String` | API key for authentication. |
 | `options["base"]` | `String` | Base URL for API requests. |
 | `options["prefix"]` | `String` | URL prefix appended after base. |
 | `options["suffix"]` | `String` | URL suffix appended after path. |
@@ -86,9 +85,11 @@ Return a deep copy of the current SDK options.
 
 Return a copy of the SDK utility object.
 
-#### `direct(fetchargs = {}) -> Hash, err`
+#### `direct(fetchargs = {}) -> Hash`
 
-Make a direct HTTP request to any API endpoint.
+Make a direct HTTP request to any API endpoint. Returns a result hash
+(`{ "ok" => ..., "status" => ..., "data" => ..., "err" => ... }`); it
+does not raise — inspect `result["ok"]`.
 
 **Parameters:**
 
@@ -102,14 +103,14 @@ Make a direct HTTP request to any API endpoint.
 | `fetchargs["body"]` | `any` | Request body (hashes are JSON-serialized). |
 | `fetchargs["ctrl"]` | `Hash` | Control options (e.g. `{ "explain" => true }`). |
 
-**Returns:** `Hash, err`
+**Returns:** `Hash`
 
-#### `prepare(fetchargs = {}) -> Hash, err`
+#### `prepare(fetchargs = {}) -> Hash`
 
 Prepare a fetch definition without sending the request. Accepts the
-same parameters as `direct()`.
+same parameters as `direct()`. Raises on error.
 
-**Returns:** `Hash, err`
+**Returns:** `Hash` (the fetch definition; raises on error)
 
 
 ---
@@ -117,17 +118,17 @@ same parameters as `direct()`.
 ## CalculationsModuleEntity
 
 ```ruby
-calculations_module = client.CalculationsModule
+calculations_module = client.calculations_module
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.CalculationsModule.load({ "id" => "calculations_module_id" })
+result = client.calculations_module.load({ "id" => "calculations_module_id" })
 ```
 
 ### Common Methods
@@ -163,17 +164,17 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```ruby
-economic_complexity_module = client.EconomicComplexityModule
+economic_complexity_module = client.economic_complexity_module
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.EconomicComplexityModule.load({ "id" => "economic_complexity_module_id" })
+result = client.economic_complexity_module.load({ "id" => "economic_complexity_module_id" })
 ```
 
 ### Common Methods
@@ -209,17 +210,17 @@ Return the entity name.
 ## HealthEntity
 
 ```ruby
-health = client.Health
+health = client.health
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.Health.load({ "id" => "health_id" })
+result = client.health.load({ "id" => "health_id" })
 ```
 
 ### Common Methods
@@ -255,7 +256,7 @@ Return the entity name.
 ## MemberEntity
 
 ```ruby
-member = client.Member
+member = client.member
 ```
 
 ### Fields
@@ -269,12 +270,12 @@ member = client.Member
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> result, err`
+#### `list(reqmatch, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results, err = client.Member.list(nil)
+results = client.member.list(nil)
 ```
 
 ### Common Methods
@@ -310,7 +311,7 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```ruby
-module_status = client.ModuleStatus
+module_status = client.module_status
 ```
 
 ### Fields
@@ -324,12 +325,12 @@ module_status = client.ModuleStatus
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.ModuleStatus.load({ "id" => "module_status_id" })
+result = client.module_status.load({ "id" => "module_status_id" })
 ```
 
 ### Common Methods
@@ -365,17 +366,17 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```ruby
-route_index_get = client.RouteIndexGet
+route_index_get = client.route_index_get
 ```
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.RouteIndexGet.load({ "id" => "route_index_get_id" })
+result = client.route_index_get.load({ "id" => "route_index_get_id" })
 ```
 
 ### Common Methods
@@ -411,7 +412,7 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```ruby
-tesseract_cube = client.TesseractCube
+tesseract_cube = client.tesseract_cube
 ```
 
 ### Fields
@@ -426,12 +427,12 @@ tesseract_cube = client.TesseractCube
 
 ### Operations
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.TesseractCube.load({ "id" => "tesseract_cube_id" })
+result = client.tesseract_cube.load({ "id" => "tesseract_cube_id" })
 ```
 
 ### Common Methods
@@ -467,7 +468,7 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```ruby
-tesseract_module = client.TesseractModule
+tesseract_module = client.tesseract_module
 ```
 
 ### Fields
@@ -480,22 +481,22 @@ tesseract_module = client.TesseractModule
 
 ### Operations
 
-#### `create(reqdata, ctrl = nil) -> result, err`
+#### `create(reqdata, ctrl = nil) -> result`
 
-Create a new entity with the given data.
+Create a new entity with the given data. Raises on error.
 
 ```ruby
-result, err = client.TesseractModule.create({
+result = client.tesseract_module.create({
   "request" => # `$ARRAY`,
 })
 ```
 
-#### `load(reqmatch, ctrl = nil) -> result, err`
+#### `load(reqmatch, ctrl = nil) -> result`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result, err = client.TesseractModule.load({ "id" => "tesseract_module_id" })
+result = client.tesseract_module.load({ "id" => "tesseract_module_id" })
 ```
 
 ### Common Methods
@@ -531,7 +532,7 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```ruby
-tesseract_schema = client.TesseractSchema
+tesseract_schema = client.tesseract_schema
 ```
 
 ### Fields
@@ -546,12 +547,12 @@ tesseract_schema = client.TesseractSchema
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> result, err`
+#### `list(reqmatch, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results, err = client.TesseractSchema.list(nil)
+results = client.tesseract_schema.list(nil)
 ```
 
 ### Common Methods

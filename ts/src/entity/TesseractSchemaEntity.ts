@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  TesseractSchema,
+  TesseractSchemaListMatch,
+} from '../DataUsaTypes'
 
 // TODO: needs Entity superclass
-class TesseractSchemaEntity extends DataUsaEntityBase {
+class TesseractSchemaEntity extends DataUsaEntityBase<TesseractSchema> {
 
   constructor(client: DataUsaSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class TesseractSchemaEntity extends DataUsaEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: TesseractSchemaListMatch, ctrl?: Control): Promise<TesseractSchema[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class TesseractSchemaEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<TesseractSchema[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

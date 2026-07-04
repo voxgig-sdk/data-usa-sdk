@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TesseractModuleLoadMatch
+---@param ctrl? table
+---@return TesseractModule
+---@return string? err
 function TesseractModuleEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -106,6 +110,10 @@ end
 
 
 
+---@param reqdata TesseractModuleCreateData
+---@param ctrl? table
+---@return TesseractModule
+---@return string? err
 function TesseractModuleEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

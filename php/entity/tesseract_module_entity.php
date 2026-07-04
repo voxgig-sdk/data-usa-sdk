@@ -55,6 +55,9 @@ class TesseractModuleEntity
         return new TesseractModuleEntity($this->_client, $opts);
     }
 
+    /**
+     * @param TesseractModule|array $args TesseractModule data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class TesseractModuleEntity
         }
     }
 
+    /**
+     * @return TesseractModule|array The current TesseractModule data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of TesseractModule fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class TesseractModuleEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of TesseractModule fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class TesseractModuleEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single TesseractModule.
+     *
+     * @param TesseractModuleLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed TesseractModuleLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return TesseractModule|array The loaded TesseractModule as an assoc-array at the
+     *   SDK boundary; throws DataUsaError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -112,7 +133,16 @@ class TesseractModuleEntity
     
 
     
-    public function create($reqdata, $ctrl = null): array
+    /**
+     * Create a new TesseractModule.
+     *
+     * @param TesseractModuleCreateData|array|null $reqdata Body data as an assoc-array;
+     *   a typed TesseractModuleCreateData names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return TesseractModule|array The created TesseractModule as an assoc-array at the
+     *   SDK boundary; throws DataUsaError on failure (item-5 convention).
+     */
+    public function create(?array $reqdata = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -138,7 +168,7 @@ class TesseractModuleEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

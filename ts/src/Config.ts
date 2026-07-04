@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://honduras.datausa.io',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -116,7 +112,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -207,7 +204,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -298,7 +296,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -385,7 +384,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -630,7 +630,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -875,7 +876,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -1121,7 +1123,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -1367,7 +1370,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -1603,7 +1607,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -1839,7 +1844,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -2048,7 +2054,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -2257,7 +2264,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -2458,7 +2466,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -2659,7 +2668,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -2851,7 +2861,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -3043,7 +3054,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -3235,7 +3247,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -3418,7 +3431,8 @@ class Config {
                     "name": "endpoint",
                     "orig": "endpoint",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -3827,7 +3841,8 @@ class Config {
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -3904,7 +3919,8 @@ class Config {
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -4019,7 +4035,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -4299,7 +4316,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ],
                 "query": [
@@ -4597,7 +4615,8 @@ class Config {
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

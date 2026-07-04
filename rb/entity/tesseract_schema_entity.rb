@@ -45,6 +45,7 @@ class TesseractSchemaEntity
     end
   end
 
+  # @return [TesseractSchema, Hash] the current TesseractSchema data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class TesseractSchemaEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of TesseractSchema fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class TesseractSchemaEntity
   
 
   
+  # List TesseractSchema items matching the given filter.
+  #
+  # @param reqmatch [TesseractSchemaListMatch, Hash, nil] match filter (any subset of TesseractSchema fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<TesseractSchema>, Array] the matching TesseractSchema items; raises DataUsaError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

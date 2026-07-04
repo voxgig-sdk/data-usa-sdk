@@ -37,15 +37,13 @@ class TesseractModuleEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.tesseract_module"), "tesseract_module_ref01"))
     tesseract_module_ref01_data["extension"] = setup[:idmap]["extension01"]
 
-    tesseract_module_ref01_data_result, err = tesseract_module_ref01_ent.create(tesseract_module_ref01_data, nil)
-    assert_nil err
+    tesseract_module_ref01_data_result = tesseract_module_ref01_ent.create(tesseract_module_ref01_data, nil)
     tesseract_module_ref01_data = Helpers.to_map(tesseract_module_ref01_data_result)
     assert !tesseract_module_ref01_data.nil?
 
     # LOAD
     tesseract_module_ref01_match_dt0 = {}
-    tesseract_module_ref01_data_dt0_loaded, err = tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0, nil)
-    assert_nil err
+    tesseract_module_ref01_data_dt0_loaded = tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0, nil)
     assert !tesseract_module_ref01_data_dt0_loaded.nil?
 
   end
@@ -84,7 +82,6 @@ def tesseract_module_basic_setup(extra)
     "DATAUSA_TEST_TESSERACT_MODULE_ENTID" => idmap,
     "DATAUSA_TEST_LIVE" => "FALSE",
     "DATAUSA_TEST_EXPLAIN" => "FALSE",
-    "DATAUSA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -96,7 +93,6 @@ def tesseract_module_basic_setup(extra)
   if env["DATAUSA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["DATAUSA_APIKEY"],
       },
       extra || {},
     ])

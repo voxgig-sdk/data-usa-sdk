@@ -45,6 +45,7 @@ class CalculationsModuleEntity
     end
   end
 
+  # @return [CalculationsModule, Hash] the current CalculationsModule data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class CalculationsModuleEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of CalculationsModule fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single CalculationsModule.
+  #
+  # @param reqmatch [CalculationsModuleLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [CalculationsModule, Hash] the loaded CalculationsModule; raises DataUsaError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

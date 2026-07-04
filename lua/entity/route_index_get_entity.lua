@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch RouteIndexGetLoadMatch
+---@param ctrl? table
+---@return RouteIndexGet
+---@return string? err
 function RouteIndexGetEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

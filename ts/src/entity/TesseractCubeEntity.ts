@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  TesseractCube,
+  TesseractCubeLoadMatch,
+} from '../DataUsaTypes'
 
 // TODO: needs Entity superclass
-class TesseractCubeEntity extends DataUsaEntityBase {
+class TesseractCubeEntity extends DataUsaEntityBase<TesseractCube> {
 
   constructor(client: DataUsaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class TesseractCubeEntity extends DataUsaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: TesseractCubeLoadMatch, ctrl?: Control): Promise<TesseractCube> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class TesseractCubeEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<TesseractCube> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -49,8 +49,7 @@ class TesseractCubeEntityTest extends TestCase
         // LOAD
         $tesseract_cube_ref01_ent = $client->TesseractCube(null);
         $tesseract_cube_ref01_match_dt0 = [];
-        [$tesseract_cube_ref01_data_dt0_loaded, $err] = $tesseract_cube_ref01_ent->load($tesseract_cube_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $tesseract_cube_ref01_data_dt0_loaded = $tesseract_cube_ref01_ent->load($tesseract_cube_ref01_match_dt0, null);
         $this->assertNotNull($tesseract_cube_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function tesseract_cube_basic_setup($extra)
         "DATAUSA_TEST_TESSERACT_CUBE_ENTID" => $idmap,
         "DATAUSA_TEST_LIVE" => "FALSE",
         "DATAUSA_TEST_EXPLAIN" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function tesseract_cube_basic_setup($extra)
     if ($env["DATAUSA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAUSA_APIKEY"],
             ],
             $extra ?? [],
         ]);

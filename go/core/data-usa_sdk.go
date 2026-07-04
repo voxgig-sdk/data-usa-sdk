@@ -245,46 +245,73 @@ func (sdk *DataUsaSDK) Direct(fetchargs map[string]any) (map[string]any, error) 
 }
 
 
+// CalculationsModule returns a CalculationsModule entity bound to this client.
+// Idiomatic usage: client.CalculationsModule(nil).List(nil, nil) or
+// client.CalculationsModule(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) CalculationsModule(data map[string]any) DataUsaEntity {
 	return NewCalculationsModuleEntityFunc(sdk, data)
 }
 
 
+// EconomicComplexityModule returns a EconomicComplexityModule entity bound to this client.
+// Idiomatic usage: client.EconomicComplexityModule(nil).List(nil, nil) or
+// client.EconomicComplexityModule(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) EconomicComplexityModule(data map[string]any) DataUsaEntity {
 	return NewEconomicComplexityModuleEntityFunc(sdk, data)
 }
 
 
+// Health returns a Health entity bound to this client.
+// Idiomatic usage: client.Health(nil).List(nil, nil) or
+// client.Health(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) Health(data map[string]any) DataUsaEntity {
 	return NewHealthEntityFunc(sdk, data)
 }
 
 
+// Member returns a Member entity bound to this client.
+// Idiomatic usage: client.Member(nil).List(nil, nil) or
+// client.Member(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) Member(data map[string]any) DataUsaEntity {
 	return NewMemberEntityFunc(sdk, data)
 }
 
 
+// ModuleStatus returns a ModuleStatus entity bound to this client.
+// Idiomatic usage: client.ModuleStatus(nil).List(nil, nil) or
+// client.ModuleStatus(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) ModuleStatus(data map[string]any) DataUsaEntity {
 	return NewModuleStatusEntityFunc(sdk, data)
 }
 
 
+// RouteIndexGet returns a RouteIndexGet entity bound to this client.
+// Idiomatic usage: client.RouteIndexGet(nil).List(nil, nil) or
+// client.RouteIndexGet(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) RouteIndexGet(data map[string]any) DataUsaEntity {
 	return NewRouteIndexGetEntityFunc(sdk, data)
 }
 
 
+// TesseractCube returns a TesseractCube entity bound to this client.
+// Idiomatic usage: client.TesseractCube(nil).List(nil, nil) or
+// client.TesseractCube(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) TesseractCube(data map[string]any) DataUsaEntity {
 	return NewTesseractCubeEntityFunc(sdk, data)
 }
 
 
+// TesseractModule returns a TesseractModule entity bound to this client.
+// Idiomatic usage: client.TesseractModule(nil).List(nil, nil) or
+// client.TesseractModule(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) TesseractModule(data map[string]any) DataUsaEntity {
 	return NewTesseractModuleEntityFunc(sdk, data)
 }
 
 
+// TesseractSchema returns a TesseractSchema entity bound to this client.
+// Idiomatic usage: client.TesseractSchema(nil).List(nil, nil) or
+// client.TesseractSchema(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DataUsaSDK) TesseractSchema(data map[string]any) DataUsaEntity {
 	return NewTesseractSchemaEntityFunc(sdk, data)
 }

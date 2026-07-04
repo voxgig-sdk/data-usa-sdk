@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://honduras.datausa.io",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -70,6 +67,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -161,6 +159,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -252,6 +251,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -339,6 +339,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -584,6 +585,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -829,6 +831,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -1075,6 +1078,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -1321,6 +1325,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -1557,6 +1562,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -1793,6 +1799,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2002,6 +2009,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2211,6 +2219,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2412,6 +2421,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2613,6 +2623,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2805,6 +2816,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -2997,6 +3009,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -3189,6 +3202,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -3372,6 +3386,7 @@ func MakeConfig() map[string]any {
 											"orig": "endpoint",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 								},
@@ -3781,6 +3796,7 @@ func MakeConfig() map[string]any {
 											"orig": "cube_name",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -3858,6 +3874,7 @@ func MakeConfig() map[string]any {
 											"orig": "cube_name",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -3973,6 +3990,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -4253,6 +4271,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 									"query": []any{
@@ -4551,6 +4570,7 @@ func MakeConfig() map[string]any {
 											"orig": "extension",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 								},

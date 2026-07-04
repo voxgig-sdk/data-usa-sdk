@@ -45,6 +45,7 @@ class ModuleStatusEntity
     end
   end
 
+  # @return [ModuleStatus, Hash] the current ModuleStatus data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class ModuleStatusEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of ModuleStatus fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single ModuleStatus.
+  #
+  # @param reqmatch [ModuleStatusLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [ModuleStatus, Hash] the loaded ModuleStatus; raises DataUsaError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

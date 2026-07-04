@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch CalculationsModuleLoadMatch
+---@param ctrl? table
+---@return CalculationsModule
+---@return string? err
 function CalculationsModuleEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

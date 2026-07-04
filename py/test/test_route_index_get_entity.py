@@ -49,8 +49,7 @@ class TestRouteIndexGetEntity:
         # LOAD
         route_index_get_ref01_ent = client.RouteIndexGet(None)
         route_index_get_ref01_match_dt0 = {}
-        route_index_get_ref01_data_dt0_loaded, err = route_index_get_ref01_ent.load(route_index_get_ref01_match_dt0, None)
-        assert err is None
+        route_index_get_ref01_data_dt0_loaded = route_index_get_ref01_ent.load(route_index_get_ref01_match_dt0, None)
         assert route_index_get_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _route_index_get_basic_setup(extra):
         "DATAUSA_TEST_ROUTE_INDEX_GET_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _route_index_get_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

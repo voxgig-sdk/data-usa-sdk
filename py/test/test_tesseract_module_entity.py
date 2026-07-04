@@ -45,15 +45,12 @@ class TestTesseractModuleEntity:
             vs.getpath(setup["data"], "new.tesseract_module"), "tesseract_module_ref01"))
         tesseract_module_ref01_data["extension"] = setup["idmap"]["extension01"]
 
-        tesseract_module_ref01_data_result, err = tesseract_module_ref01_ent.create(tesseract_module_ref01_data, None)
-        assert err is None
-        tesseract_module_ref01_data = helpers.to_map(tesseract_module_ref01_data_result)
+        tesseract_module_ref01_data = helpers.to_map(tesseract_module_ref01_ent.create(tesseract_module_ref01_data, None))
         assert tesseract_module_ref01_data is not None
 
         # LOAD
         tesseract_module_ref01_match_dt0 = {}
-        tesseract_module_ref01_data_dt0_loaded, err = tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0, None)
-        assert err is None
+        tesseract_module_ref01_data_dt0_loaded = tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0, None)
         assert tesseract_module_ref01_data_dt0_loaded is not None
 
 
@@ -94,7 +91,6 @@ def _tesseract_module_basic_setup(extra):
         "DATAUSA_TEST_TESSERACT_MODULE_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -105,7 +101,6 @@ def _tesseract_module_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

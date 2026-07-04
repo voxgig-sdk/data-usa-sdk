@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  CalculationsModule,
+  CalculationsModuleLoadMatch,
+} from '../DataUsaTypes'
 
 // TODO: needs Entity superclass
-class CalculationsModuleEntity extends DataUsaEntityBase {
+class CalculationsModuleEntity extends DataUsaEntityBase<CalculationsModule> {
 
   constructor(client: DataUsaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class CalculationsModuleEntity extends DataUsaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: CalculationsModuleLoadMatch, ctrl?: Control): Promise<CalculationsModule> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class CalculationsModuleEntity extends DataUsaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<CalculationsModule> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

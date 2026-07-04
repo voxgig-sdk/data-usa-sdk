@@ -85,6 +85,27 @@ func (e *TesseractModuleEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an TesseractModule; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *TesseractModuleEntity) DataTyped(data ...TesseractModule) TesseractModule {
+	if len(data) > 0 {
+		return typedFrom[TesseractModule](e.Data(asMap(data[0])))
+	}
+	return typedFrom[TesseractModule](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through TesseractModule (all fields
+// optional at the wire level).
+func (e *TesseractModuleEntity) MatchTyped(match ...TesseractModule) TesseractModule {
+	if len(match) > 0 {
+		return typedFrom[TesseractModule](e.Match(asMap(match[0])))
+	}
+	return typedFrom[TesseractModule](e.Match())
+}
+
 
 func (e *TesseractModuleEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *TesseractModuleEntity) Load(reqmatch map[string]any, ctrl map[string]an
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// TesseractModuleLoadMatch and returns an TesseractModule. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *TesseractModuleEntity) LoadTyped(reqmatch TesseractModuleLoadMatch, ctrl map[string]any) (TesseractModule, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return TesseractModule{}, err
+	}
+	return typedFrom[TesseractModule](res), nil
 }
 
 
@@ -139,6 +171,17 @@ func (e *TesseractModuleEntity) Create(reqdata map[string]any, ctrl map[string]a
 			}
 		}
 	})
+}
+
+// CreateTyped is the statically-typed variant of Create: it takes an
+// TesseractModuleCreateData and returns an TesseractModule. It delegates to the untyped
+// Create (identical runtime) and converts at the typed boundary.
+func (e *TesseractModuleEntity) CreateTyped(reqdata TesseractModuleCreateData, ctrl map[string]any) (TesseractModule, error) {
+	res, err := e.Create(asMap(reqdata), ctrl)
+	if err != nil {
+		return TesseractModule{}, err
+	}
+	return typedFrom[TesseractModule](res), nil
 }
 
 

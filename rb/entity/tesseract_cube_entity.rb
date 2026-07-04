@@ -45,6 +45,7 @@ class TesseractCubeEntity
     end
   end
 
+  # @return [TesseractCube, Hash] the current TesseractCube data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class TesseractCubeEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of TesseractCube fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single TesseractCube.
+  #
+  # @param reqmatch [TesseractCubeLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [TesseractCube, Hash] the loaded TesseractCube; raises DataUsaError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -9,11 +9,9 @@ The Python SDK for the DataUsa API — an entity-oriented client following Pytho
 
 
 ## Install
-```bash
-pip install voxgig-sdk-data-usa
-```
-
-Or install from source:
+This package is not yet published to PyPI. Install it from the GitHub
+release tag (`py/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/data-usa-sdk/releases)) or
+from a source checkout:
 
 ```bash
 pip install -e .
@@ -28,21 +26,19 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from datausa_sdk import DataUsaSDK
 
-client = DataUsaSDK({
-    "apikey": os.environ.get("DATA-USA_APIKEY"),
-})
+client = DataUsaSDK()
 ```
 
 ### 3. Load a calculationsmodule
 
 ```python
-result, err = client.CalculationsModule().load({"id": "example_id"})
-if err:
-    raise Exception(err)
-print(result)
+try:
+    result = client.calculationsmodule.load({"id": "example_id"})
+    print(result)
+except Exception as err:
+    print(f"load failed: {err}")
 ```
 
 
@@ -53,29 +49,28 @@ print(result)
 For endpoints not covered by entity methods:
 
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
+else:
+    print(result["err"])     # error value
 ```
 
 ### Prepare a request without sending it
 
 ```python
-fetchdef, err = client.prepare({
+# prepare() returns the fetch definition and raises on error.
+fetchdef = client.prepare({
     "path": "/api/resource/{id}",
     "method": "DELETE",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 print(fetchdef["url"])
 print(fetchdef["method"])
@@ -89,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DataUsaSDK.test()
 
-result, err = client.DataUsa().load({"id": "test01"})
+result = client.calculationsmodule.load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -119,8 +114,7 @@ client = DataUsaSDK({
 Create a `.env.local` file at the project root:
 
 ```
-DATA-USA_TEST_LIVE=TRUE
-DATA-USA_APIKEY=<your-key>
+DATA_USA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
@@ -166,8 +159,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | --- | --- | --- |
 | `options_map` | `() -> dict` | Deep copy of current SDK options. |
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
-| `prepare` | `(fetchargs) -> (dict, err)` | Build an HTTP request definition without sending. |
-| `direct` | `(fetchargs) -> (dict, err)` | Build and send an HTTP request. |
+| `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
+| `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
 | `CalculationsModule` | `(data) -> CalculationsModuleEntity` | Create a CalculationsModule entity instance. |
 | `EconomicComplexityModule` | `(data) -> EconomicComplexityModuleEntity` | Create a EconomicComplexityModule entity instance. |
 | `Health` | `(data) -> HealthEntity` | Create a Health entity instance. |
@@ -184,11 +177,11 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> (any, err)` | Load a single entity by match criteria. |
-| `list` | `(reqmatch, ctrl) -> (any, err)` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> (any, err)` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> (any, err)` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> (any, err)` | Remove an entity. |
+| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
+| `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
+| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
+| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
+| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -198,8 +191,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`dict` with these keys:
+Entity operations return the bare result data (a `dict` for single-entity
+ops, a `list` for `list`) and raise on error. Wrap calls in
+`try`/`except` to handle failures.
+
+The `direct()` escape hatch never raises — it returns a result `dict`
+you branch on via `result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -321,7 +318,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `const calculations_module = client.CalculationsModule()`
+Create an instance: `const calculations_module = client.calculations_module`
 
 #### Operations
 
@@ -332,13 +329,13 @@ Create an instance: `const calculations_module = client.CalculationsModule()`
 #### Example: Load
 
 ```ts
-const calculations_module = await client.CalculationsModule().load({ id: 'calculations_module_id' })
+const calculations_module = await client.calculations_module.load({ id: 'calculations_module_id' })
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `const economic_complexity_module = client.EconomicComplexityModule()`
+Create an instance: `const economic_complexity_module = client.economic_complexity_module`
 
 #### Operations
 
@@ -349,13 +346,13 @@ Create an instance: `const economic_complexity_module = client.EconomicComplexit
 #### Example: Load
 
 ```ts
-const economic_complexity_module = await client.EconomicComplexityModule().load({ id: 'economic_complexity_module_id' })
+const economic_complexity_module = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.Health()`
+Create an instance: `const health = client.health`
 
 #### Operations
 
@@ -366,13 +363,13 @@ Create an instance: `const health = client.Health()`
 #### Example: Load
 
 ```ts
-const health = await client.Health().load({ id: 'health_id' })
+const health = await client.health.load({ id: 'health_id' })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -392,13 +389,13 @@ Create an instance: `const member = client.Member()`
 #### Example: List
 
 ```ts
-const members = await client.Member().list()
+const members = await client.member.list()
 ```
 
 
 ### ModuleStatus
 
-Create an instance: `const module_status = client.ModuleStatus()`
+Create an instance: `const module_status = client.module_status`
 
 #### Operations
 
@@ -418,13 +415,13 @@ Create an instance: `const module_status = client.ModuleStatus()`
 #### Example: Load
 
 ```ts
-const module_status = await client.ModuleStatus().load({ id: 'module_status_id' })
+const module_status = await client.module_status.load({ id: 'module_status_id' })
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `const route_index_get = client.RouteIndexGet()`
+Create an instance: `const route_index_get = client.route_index_get`
 
 #### Operations
 
@@ -435,13 +432,13 @@ Create an instance: `const route_index_get = client.RouteIndexGet()`
 #### Example: Load
 
 ```ts
-const route_index_get = await client.RouteIndexGet().load({ id: 'route_index_get_id' })
+const route_index_get = await client.route_index_get.load({ id: 'route_index_get_id' })
 ```
 
 
 ### TesseractCube
 
-Create an instance: `const tesseract_cube = client.TesseractCube()`
+Create an instance: `const tesseract_cube = client.tesseract_cube`
 
 #### Operations
 
@@ -462,13 +459,13 @@ Create an instance: `const tesseract_cube = client.TesseractCube()`
 #### Example: Load
 
 ```ts
-const tesseract_cube = await client.TesseractCube().load({ id: 'tesseract_cube_id' })
+const tesseract_cube = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
 ```
 
 
 ### TesseractModule
 
-Create an instance: `const tesseract_module = client.TesseractModule()`
+Create an instance: `const tesseract_module = client.tesseract_module`
 
 #### Operations
 
@@ -488,13 +485,13 @@ Create an instance: `const tesseract_module = client.TesseractModule()`
 #### Example: Load
 
 ```ts
-const tesseract_module = await client.TesseractModule().load({ id: 'tesseract_module_id' })
+const tesseract_module = await client.tesseract_module.load({ id: 'tesseract_module_id' })
 ```
 
 #### Example: Create
 
 ```ts
-const tesseract_module = await client.TesseractModule().create({
+const tesseract_module = await client.tesseract_module.create({
   request: /* `$ARRAY` */,
 })
 ```
@@ -502,7 +499,7 @@ const tesseract_module = await client.TesseractModule().create({
 
 ### TesseractSchema
 
-Create an instance: `const tesseract_schema = client.TesseractSchema()`
+Create an instance: `const tesseract_schema = client.tesseract_schema`
 
 #### Operations
 
@@ -523,7 +520,7 @@ Create an instance: `const tesseract_schema = client.TesseractSchema()`
 #### Example: List
 
 ```ts
-const tesseract_schemas = await client.TesseractSchema().list()
+const tesseract_schemas = await client.tesseract_schema.list()
 ```
 
 
@@ -597,11 +594,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-moon = client.Moon()
-moon.load({"planet_id": "earth", "id": "luna"})
+calculationsmodule = client.calculationsmodule
+calculationsmodule.load({"id": "example_id"})
 
-# moon.data_get() now returns the loaded moon data
-# moon.match_get() returns the last match criteria
+# calculationsmodule.data_get() now returns the loaded calculationsmodule data
+# calculationsmodule.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

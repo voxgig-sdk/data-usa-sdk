@@ -49,8 +49,7 @@ class TestEconomicComplexityModuleEntity:
         # LOAD
         economic_complexity_module_ref01_ent = client.EconomicComplexityModule(None)
         economic_complexity_module_ref01_match_dt0 = {}
-        economic_complexity_module_ref01_data_dt0_loaded, err = economic_complexity_module_ref01_ent.load(economic_complexity_module_ref01_match_dt0, None)
-        assert err is None
+        economic_complexity_module_ref01_data_dt0_loaded = economic_complexity_module_ref01_ent.load(economic_complexity_module_ref01_match_dt0, None)
         assert economic_complexity_module_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _economic_complexity_module_basic_setup(extra):
         "DATAUSA_TEST_ECONOMIC_COMPLEXITY_MODULE_ENTID": idmap,
         "DATAUSA_TEST_LIVE": "FALSE",
         "DATAUSA_TEST_EXPLAIN": "FALSE",
-        "DATAUSA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _economic_complexity_module_basic_setup(extra):
     if env.get("DATAUSA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DATAUSA_APIKEY"),
             },
             extra or {},
         ])

@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://honduras.datausa.io",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -70,6 +67,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -161,6 +159,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -252,6 +251,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -339,6 +339,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -584,6 +585,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -829,6 +831,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -1075,6 +1078,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -1321,6 +1325,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -1557,6 +1562,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -1793,6 +1799,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2002,6 +2009,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2211,6 +2219,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2412,6 +2421,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2613,6 +2623,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2805,6 +2816,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -2997,6 +3009,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -3189,6 +3202,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -3372,6 +3386,7 @@ local function make_config()
                       ["orig"] = "endpoint",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                 },
@@ -3781,6 +3796,7 @@ local function make_config()
                       ["orig"] = "cube_name",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -3858,6 +3874,7 @@ local function make_config()
                       ["orig"] = "cube_name",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -3973,6 +3990,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -4253,6 +4271,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                   ["query"] = {
@@ -4551,6 +4570,7 @@ local function make_config()
                       ["orig"] = "extension",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
+                      ["index$"] = 0,
                     },
                   },
                 },

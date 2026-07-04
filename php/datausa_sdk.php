@@ -103,7 +103,7 @@ class DataUsaSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class DataUsaSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class DataUsaSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,80 +216,179 @@ class DataUsaSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function CalculationsModule($data = null)
+    private $_calculations_module = null;
+
+    // Idiomatic facade: $client->calculations_module()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias CalculationsModule() (PHP method
+    // names are case-insensitive).
+    public function calculations_module($data = null)
     {
         require_once __DIR__ . '/entity/calculations_module_entity.php';
+        if ($data === null) {
+            if ($this->_calculations_module === null) {
+                $this->_calculations_module = new CalculationsModuleEntity($this, null);
+            }
+            return $this->_calculations_module;
+        }
         return new CalculationsModuleEntity($this, $data);
     }
 
 
-    public function EconomicComplexityModule($data = null)
+    private $_economic_complexity_module = null;
+
+    // Idiomatic facade: $client->economic_complexity_module()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias EconomicComplexityModule() (PHP method
+    // names are case-insensitive).
+    public function economic_complexity_module($data = null)
     {
         require_once __DIR__ . '/entity/economic_complexity_module_entity.php';
+        if ($data === null) {
+            if ($this->_economic_complexity_module === null) {
+                $this->_economic_complexity_module = new EconomicComplexityModuleEntity($this, null);
+            }
+            return $this->_economic_complexity_module;
+        }
         return new EconomicComplexityModuleEntity($this, $data);
     }
 
 
-    public function Health($data = null)
+    private $_health = null;
+
+    // Idiomatic facade: $client->health()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Health() (PHP method
+    // names are case-insensitive).
+    public function health($data = null)
     {
         require_once __DIR__ . '/entity/health_entity.php';
+        if ($data === null) {
+            if ($this->_health === null) {
+                $this->_health = new HealthEntity($this, null);
+            }
+            return $this->_health;
+        }
         return new HealthEntity($this, $data);
     }
 
 
-    public function Member($data = null)
+    private $_member = null;
+
+    // Idiomatic facade: $client->member()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Member() (PHP method
+    // names are case-insensitive).
+    public function member($data = null)
     {
         require_once __DIR__ . '/entity/member_entity.php';
+        if ($data === null) {
+            if ($this->_member === null) {
+                $this->_member = new MemberEntity($this, null);
+            }
+            return $this->_member;
+        }
         return new MemberEntity($this, $data);
     }
 
 
-    public function ModuleStatus($data = null)
+    private $_module_status = null;
+
+    // Idiomatic facade: $client->module_status()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias ModuleStatus() (PHP method
+    // names are case-insensitive).
+    public function module_status($data = null)
     {
         require_once __DIR__ . '/entity/module_status_entity.php';
+        if ($data === null) {
+            if ($this->_module_status === null) {
+                $this->_module_status = new ModuleStatusEntity($this, null);
+            }
+            return $this->_module_status;
+        }
         return new ModuleStatusEntity($this, $data);
     }
 
 
-    public function RouteIndexGet($data = null)
+    private $_route_index_get = null;
+
+    // Idiomatic facade: $client->route_index_get()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias RouteIndexGet() (PHP method
+    // names are case-insensitive).
+    public function route_index_get($data = null)
     {
         require_once __DIR__ . '/entity/route_index_get_entity.php';
+        if ($data === null) {
+            if ($this->_route_index_get === null) {
+                $this->_route_index_get = new RouteIndexGetEntity($this, null);
+            }
+            return $this->_route_index_get;
+        }
         return new RouteIndexGetEntity($this, $data);
     }
 
 
-    public function TesseractCube($data = null)
+    private $_tesseract_cube = null;
+
+    // Idiomatic facade: $client->tesseract_cube()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias TesseractCube() (PHP method
+    // names are case-insensitive).
+    public function tesseract_cube($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_cube_entity.php';
+        if ($data === null) {
+            if ($this->_tesseract_cube === null) {
+                $this->_tesseract_cube = new TesseractCubeEntity($this, null);
+            }
+            return $this->_tesseract_cube;
+        }
         return new TesseractCubeEntity($this, $data);
     }
 
 
-    public function TesseractModule($data = null)
+    private $_tesseract_module = null;
+
+    // Idiomatic facade: $client->tesseract_module()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias TesseractModule() (PHP method
+    // names are case-insensitive).
+    public function tesseract_module($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_module_entity.php';
+        if ($data === null) {
+            if ($this->_tesseract_module === null) {
+                $this->_tesseract_module = new TesseractModuleEntity($this, null);
+            }
+            return $this->_tesseract_module;
+        }
         return new TesseractModuleEntity($this, $data);
     }
 
 
-    public function TesseractSchema($data = null)
+    private $_tesseract_schema = null;
+
+    // Idiomatic facade: $client->tesseract_schema()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias TesseractSchema() (PHP method
+    // names are case-insensitive).
+    public function tesseract_schema($data = null)
     {
         require_once __DIR__ . '/entity/tesseract_schema_entity.php';
+        if ($data === null) {
+            if ($this->_tesseract_schema === null) {
+                $this->_tesseract_schema = new TesseractSchemaEntity($this, null);
+            }
+            return $this->_tesseract_schema;
+        }
         return new TesseractSchemaEntity($this, $data);
     }
 

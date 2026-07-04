@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'DataUsa_types'
+
 
 class DataUsaSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class DataUsaSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class DataUsaSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue DataUsaError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = DataUsaHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class DataUsaSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,64 +198,127 @@ class DataUsaSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.calculations_module.list / client.calculations_module.load({ "id" => ... })
+  def calculations_module
+    require_relative 'entity/calculations_module_entity'
+    @calculations_module ||= CalculationsModuleEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.calculations_module instead.
   def CalculationsModule(data = nil)
     require_relative 'entity/calculations_module_entity'
     CalculationsModuleEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.economic_complexity_module.list / client.economic_complexity_module.load({ "id" => ... })
+  def economic_complexity_module
+    require_relative 'entity/economic_complexity_module_entity'
+    @economic_complexity_module ||= EconomicComplexityModuleEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.economic_complexity_module instead.
   def EconomicComplexityModule(data = nil)
     require_relative 'entity/economic_complexity_module_entity'
     EconomicComplexityModuleEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.health.list / client.health.load({ "id" => ... })
+  def health
+    require_relative 'entity/health_entity'
+    @health ||= HealthEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.health instead.
   def Health(data = nil)
     require_relative 'entity/health_entity'
     HealthEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.member.list / client.member.load({ "id" => ... })
+  def member
+    require_relative 'entity/member_entity'
+    @member ||= MemberEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.member instead.
   def Member(data = nil)
     require_relative 'entity/member_entity'
     MemberEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.module_status.list / client.module_status.load({ "id" => ... })
+  def module_status
+    require_relative 'entity/module_status_entity'
+    @module_status ||= ModuleStatusEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.module_status instead.
   def ModuleStatus(data = nil)
     require_relative 'entity/module_status_entity'
     ModuleStatusEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.route_index_get.list / client.route_index_get.load({ "id" => ... })
+  def route_index_get
+    require_relative 'entity/route_index_get_entity'
+    @route_index_get ||= RouteIndexGetEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.route_index_get instead.
   def RouteIndexGet(data = nil)
     require_relative 'entity/route_index_get_entity'
     RouteIndexGetEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.tesseract_cube.list / client.tesseract_cube.load({ "id" => ... })
+  def tesseract_cube
+    require_relative 'entity/tesseract_cube_entity'
+    @tesseract_cube ||= TesseractCubeEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.tesseract_cube instead.
   def TesseractCube(data = nil)
     require_relative 'entity/tesseract_cube_entity'
     TesseractCubeEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.tesseract_module.list / client.tesseract_module.load({ "id" => ... })
+  def tesseract_module
+    require_relative 'entity/tesseract_module_entity'
+    @tesseract_module ||= TesseractModuleEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.tesseract_module instead.
   def TesseractModule(data = nil)
     require_relative 'entity/tesseract_module_entity'
     TesseractModuleEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.tesseract_schema.list / client.tesseract_schema.load({ "id" => ... })
+  def tesseract_schema
+    require_relative 'entity/tesseract_schema_entity'
+    @tesseract_schema ||= TesseractSchemaEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.tesseract_schema instead.
   def TesseractSchema(data = nil)
     require_relative 'entity/tesseract_schema_entity'
     TesseractSchemaEntity.new(self, data)

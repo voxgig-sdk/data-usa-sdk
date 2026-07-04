@@ -9,9 +9,10 @@ The PHP SDK for the DataUsa API — an entity-oriented client using PHP conventi
 
 
 ## Install
-```bash
-composer require voxgig-sdk/data-usa
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/data-usa-sdk/releases](https://github.com/voxgig-sdk/data-usa-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,17 +26,18 @@ loading a specific record.
 <?php
 require_once 'datausa_sdk.php';
 
-$client = new DataUsaSDK([
-    "apikey" => getenv("DATA-USA_APIKEY"),
-]);
+$client = new DataUsaSDK();
 ```
 
 ### 3. Load a calculationsmodule
 
 ```php
-[$result, $err] = $client->CalculationsModule()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->calculationsmodule()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -46,28 +48,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -81,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = DataUsaSDK::test();
 
-[$result, $err] = $client->DataUsa()->load(["id" => "test01"]);
+$result = $client->calculationsmodule()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -115,8 +120,7 @@ $client = new DataUsaSDK([
 Create a `.env.local` file at the project root:
 
 ```
-DATA-USA_TEST_LIVE=TRUE
-DATA-USA_APIKEY=<your-key>
+DATA_USA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -139,7 +143,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -193,8 +196,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -316,7 +323,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `const calculations_module = client.CalculationsModule()`
+Create an instance: `const calculations_module = client.calculations_module`
 
 #### Operations
 
@@ -327,13 +334,13 @@ Create an instance: `const calculations_module = client.CalculationsModule()`
 #### Example: Load
 
 ```ts
-const calculations_module = await client.CalculationsModule().load({ id: 'calculations_module_id' })
+const calculations_module = await client.calculations_module.load({ id: 'calculations_module_id' })
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `const economic_complexity_module = client.EconomicComplexityModule()`
+Create an instance: `const economic_complexity_module = client.economic_complexity_module`
 
 #### Operations
 
@@ -344,13 +351,13 @@ Create an instance: `const economic_complexity_module = client.EconomicComplexit
 #### Example: Load
 
 ```ts
-const economic_complexity_module = await client.EconomicComplexityModule().load({ id: 'economic_complexity_module_id' })
+const economic_complexity_module = await client.economic_complexity_module.load({ id: 'economic_complexity_module_id' })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.Health()`
+Create an instance: `const health = client.health`
 
 #### Operations
 
@@ -361,13 +368,13 @@ Create an instance: `const health = client.Health()`
 #### Example: Load
 
 ```ts
-const health = await client.Health().load({ id: 'health_id' })
+const health = await client.health.load({ id: 'health_id' })
 ```
 
 
 ### Member
 
-Create an instance: `const member = client.Member()`
+Create an instance: `const member = client.member`
 
 #### Operations
 
@@ -387,13 +394,13 @@ Create an instance: `const member = client.Member()`
 #### Example: List
 
 ```ts
-const members = await client.Member().list()
+const members = await client.member.list()
 ```
 
 
 ### ModuleStatus
 
-Create an instance: `const module_status = client.ModuleStatus()`
+Create an instance: `const module_status = client.module_status`
 
 #### Operations
 
@@ -413,13 +420,13 @@ Create an instance: `const module_status = client.ModuleStatus()`
 #### Example: Load
 
 ```ts
-const module_status = await client.ModuleStatus().load({ id: 'module_status_id' })
+const module_status = await client.module_status.load({ id: 'module_status_id' })
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `const route_index_get = client.RouteIndexGet()`
+Create an instance: `const route_index_get = client.route_index_get`
 
 #### Operations
 
@@ -430,13 +437,13 @@ Create an instance: `const route_index_get = client.RouteIndexGet()`
 #### Example: Load
 
 ```ts
-const route_index_get = await client.RouteIndexGet().load({ id: 'route_index_get_id' })
+const route_index_get = await client.route_index_get.load({ id: 'route_index_get_id' })
 ```
 
 
 ### TesseractCube
 
-Create an instance: `const tesseract_cube = client.TesseractCube()`
+Create an instance: `const tesseract_cube = client.tesseract_cube`
 
 #### Operations
 
@@ -457,13 +464,13 @@ Create an instance: `const tesseract_cube = client.TesseractCube()`
 #### Example: Load
 
 ```ts
-const tesseract_cube = await client.TesseractCube().load({ id: 'tesseract_cube_id' })
+const tesseract_cube = await client.tesseract_cube.load({ id: 'tesseract_cube_id' })
 ```
 
 
 ### TesseractModule
 
-Create an instance: `const tesseract_module = client.TesseractModule()`
+Create an instance: `const tesseract_module = client.tesseract_module`
 
 #### Operations
 
@@ -483,13 +490,13 @@ Create an instance: `const tesseract_module = client.TesseractModule()`
 #### Example: Load
 
 ```ts
-const tesseract_module = await client.TesseractModule().load({ id: 'tesseract_module_id' })
+const tesseract_module = await client.tesseract_module.load({ id: 'tesseract_module_id' })
 ```
 
 #### Example: Create
 
 ```ts
-const tesseract_module = await client.TesseractModule().create({
+const tesseract_module = await client.tesseract_module.create({
   request: /* `$ARRAY` */,
 })
 ```
@@ -497,7 +504,7 @@ const tesseract_module = await client.TesseractModule().create({
 
 ### TesseractSchema
 
-Create an instance: `const tesseract_schema = client.TesseractSchema()`
+Create an instance: `const tesseract_schema = client.tesseract_schema`
 
 #### Operations
 
@@ -518,7 +525,7 @@ Create an instance: `const tesseract_schema = client.TesseractSchema()`
 #### Example: List
 
 ```ts
-const tesseract_schemas = await client.TesseractSchema().list()
+const tesseract_schemas = await client.tesseract_schema.list()
 ```
 
 
@@ -593,11 +600,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$calculationsmodule = $client->calculationsmodule();
+$calculationsmodule->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $calculationsmodule->dataGet() now returns the loaded calculationsmodule data
+// $calculationsmodule->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

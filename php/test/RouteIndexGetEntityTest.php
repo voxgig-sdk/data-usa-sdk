@@ -49,8 +49,7 @@ class RouteIndexGetEntityTest extends TestCase
         // LOAD
         $route_index_get_ref01_ent = $client->RouteIndexGet(null);
         $route_index_get_ref01_match_dt0 = [];
-        [$route_index_get_ref01_data_dt0_loaded, $err] = $route_index_get_ref01_ent->load($route_index_get_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $route_index_get_ref01_data_dt0_loaded = $route_index_get_ref01_ent->load($route_index_get_ref01_match_dt0, null);
         $this->assertNotNull($route_index_get_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function route_index_get_basic_setup($extra)
         "DATAUSA_TEST_ROUTE_INDEX_GET_ENTID" => $idmap,
         "DATAUSA_TEST_LIVE" => "FALSE",
         "DATAUSA_TEST_EXPLAIN" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function route_index_get_basic_setup($extra)
     if ($env["DATAUSA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAUSA_APIKEY"],
             ],
             $extra ?? [],
         ]);

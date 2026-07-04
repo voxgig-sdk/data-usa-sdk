@@ -44,15 +44,13 @@ class TesseractModuleEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.tesseract_module"), "tesseract_module_ref01"));
         $tesseract_module_ref01_data["extension"] = $setup["idmap"]["extension01"];
 
-        [$tesseract_module_ref01_data_result, $err] = $tesseract_module_ref01_ent->create($tesseract_module_ref01_data, null);
-        $this->assertNull($err);
+        $tesseract_module_ref01_data_result = $tesseract_module_ref01_ent->create($tesseract_module_ref01_data, null);
         $tesseract_module_ref01_data = Helpers::to_map($tesseract_module_ref01_data_result);
         $this->assertNotNull($tesseract_module_ref01_data);
 
         // LOAD
         $tesseract_module_ref01_match_dt0 = [];
-        [$tesseract_module_ref01_data_dt0_loaded, $err] = $tesseract_module_ref01_ent->load($tesseract_module_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $tesseract_module_ref01_data_dt0_loaded = $tesseract_module_ref01_ent->load($tesseract_module_ref01_match_dt0, null);
         $this->assertNotNull($tesseract_module_ref01_data_dt0_loaded);
 
     }
@@ -87,7 +85,6 @@ function tesseract_module_basic_setup($extra)
         "DATAUSA_TEST_TESSERACT_MODULE_ENTID" => $idmap,
         "DATAUSA_TEST_LIVE" => "FALSE",
         "DATAUSA_TEST_EXPLAIN" => "FALSE",
-        "DATAUSA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -99,7 +96,6 @@ function tesseract_module_basic_setup($extra)
     if ($env["DATAUSA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAUSA_APIKEY"],
             ],
             $extra ?? [],
         ]);

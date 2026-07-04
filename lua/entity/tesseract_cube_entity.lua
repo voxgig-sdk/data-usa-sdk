@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TesseractCubeLoadMatch
+---@param ctrl? table
+---@return TesseractCube
+---@return string? err
 function TesseractCubeEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
