@@ -23,7 +23,8 @@ export interface EconomicComplexityModuleLoadMatch {
 export interface Health {
 }
 
-export type HealthLoadMatch = Partial<Health>
+export interface HealthLoadMatch {
+}
 
 export interface Member {
   annotation: Record<string, any>
@@ -32,7 +33,12 @@ export interface Member {
   type: string
 }
 
-export type MemberListMatch = Partial<Member>
+export interface MemberListMatch {
+  annotation?: Record<string, any>
+  caption?: string
+  name?: string
+  type?: string
+}
 
 export interface ModuleStatus {
   debug: any
@@ -41,12 +47,18 @@ export interface ModuleStatus {
   version: string
 }
 
-export type ModuleStatusLoadMatch = Partial<ModuleStatus>
+export interface ModuleStatusLoadMatch {
+  debug?: any
+  module?: string
+  status?: string
+  version?: string
+}
 
 export interface RouteIndexGet {
 }
 
-export type RouteIndexGetLoadMatch = Partial<RouteIndexGet>
+export interface RouteIndexGetLoadMatch {
+}
 
 export interface TesseractCube {
   annotation: Record<string, any>
@@ -82,5 +94,11 @@ export interface TesseractSchema {
   name: string
 }
 
-export type TesseractSchemaListMatch = Partial<TesseractSchema>
+export interface TesseractSchemaListMatch {
+  annotation?: Record<string, any>
+  caption?: string
+  dimension?: any[]
+  measure?: any[]
+  name?: string
+}
 

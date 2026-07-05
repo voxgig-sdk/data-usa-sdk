@@ -31,8 +31,7 @@ type EconomicComplexityModuleLoadMatch struct {
 type Health struct {
 }
 
-// HealthLoadMatch mirrors the health fields as an all-optional match
-// filter (Go analog of Partial<Health>).
+// HealthLoadMatch is the typed request payload for Health.LoadTyped.
 type HealthLoadMatch struct {
 }
 
@@ -44,8 +43,7 @@ type Member struct {
 	Type string `json:"type"`
 }
 
-// MemberListMatch mirrors the member fields as an all-optional match
-// filter (Go analog of Partial<Member>).
+// MemberListMatch is the typed request payload for Member.ListTyped.
 type MemberListMatch struct {
 	Annotation *map[string]any `json:"annotation,omitempty"`
 	Caption *string `json:"caption,omitempty"`
@@ -61,8 +59,7 @@ type ModuleStatus struct {
 	Version string `json:"version"`
 }
 
-// ModuleStatusLoadMatch mirrors the module_status fields as an all-optional match
-// filter (Go analog of Partial<ModuleStatus>).
+// ModuleStatusLoadMatch is the typed request payload for ModuleStatus.LoadTyped.
 type ModuleStatusLoadMatch struct {
 	Debug *any `json:"debug,omitempty"`
 	Module *string `json:"module,omitempty"`
@@ -74,8 +71,7 @@ type ModuleStatusLoadMatch struct {
 type RouteIndexGet struct {
 }
 
-// RouteIndexGetLoadMatch mirrors the route_index_get fields as an all-optional match
-// filter (Go analog of Partial<RouteIndexGet>).
+// RouteIndexGetLoadMatch is the typed request payload for RouteIndexGet.LoadTyped.
 type RouteIndexGetLoadMatch struct {
 }
 
@@ -119,8 +115,7 @@ type TesseractSchema struct {
 	Name string `json:"name"`
 }
 
-// TesseractSchemaListMatch mirrors the tesseract_schema fields as an all-optional match
-// filter (Go analog of Partial<TesseractSchema>).
+// TesseractSchemaListMatch is the typed request payload for TesseractSchema.ListTyped.
 type TesseractSchemaListMatch struct {
 	Annotation *map[string]any `json:"annotation,omitempty"`
 	Caption *string `json:"caption,omitempty"`

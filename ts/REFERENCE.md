@@ -215,7 +215,7 @@ const calculations_module = client.CalculationsModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.CalculationsModule().load({ id: 'calculations_module_id' })
+const result = await client.CalculationsModule().load()
 ```
 
 ### Common Methods
@@ -259,7 +259,7 @@ const economic_complexity_module = client.EconomicComplexityModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.EconomicComplexityModule().load({ id: 'economic_complexity_module_id' })
+const result = await client.EconomicComplexityModule().load()
 ```
 
 ### Common Methods
@@ -303,7 +303,7 @@ const health = client.Health()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Health().load({ id: 'health_id' })
+const result = await client.Health().load()
 ```
 
 ### Common Methods
@@ -344,10 +344,10 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `Record<string, any>` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -397,10 +397,10 @@ const module_status = client.ModuleStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `any` | Yes |  |
+| `module` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -409,7 +409,7 @@ const module_status = client.ModuleStatus()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ModuleStatus().load({ id: 'module_status_id' })
+const result = await client.ModuleStatus().load()
 ```
 
 ### Common Methods
@@ -453,7 +453,7 @@ const route_index_get = client.RouteIndexGet()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.RouteIndexGet().load({ id: 'route_index_get_id' })
+const result = await client.RouteIndexGet().load()
 ```
 
 ### Common Methods
@@ -494,11 +494,11 @@ const tesseract_cube = client.TesseractCube()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `Record<string, any>` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `any[]` | Yes |  |
+| `measure` | `any[]` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -548,9 +548,9 @@ const tesseract_module = client.TesseractModule()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `any[]` | No |  |
+| `pagination` | `Record<string, any>` | No |  |
+| `request` | `any[]` | Yes |  |
 
 ### Operations
 
@@ -560,7 +560,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.TesseractModule().create({
-  request: /* `$ARRAY` */,
+  request: /* any[] */,
 })
 ```
 
@@ -569,7 +569,7 @@ const result = await client.TesseractModule().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TesseractModule().load({ id: 'tesseract_module_id' })
+const result = await client.TesseractModule().load()
 ```
 
 ### Common Methods
@@ -610,11 +610,11 @@ const tesseract_schema = client.TesseractSchema()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `Record<string, any>` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `any[]` | Yes |  |
+| `measure` | `any[]` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 

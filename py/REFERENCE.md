@@ -8,7 +8,7 @@ Complete API reference for the DataUsa Python SDK.
 ### Constructor
 
 ```python
-from data-usa_sdk import DataUsaSDK
+from datausa_sdk import DataUsaSDK
 
 client = DataUsaSDK(options)
 ```
@@ -122,7 +122,7 @@ calculations_module = client.CalculationsModule()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.CalculationsModule().load({"id": "calculations_module_id"})
+result = client.CalculationsModule().load()
 ```
 
 ### Common Methods
@@ -167,7 +167,7 @@ economic_complexity_module = client.EconomicComplexityModule()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.EconomicComplexityModule().load({"id": "economic_complexity_module_id"})
+result = client.EconomicComplexityModule().load()
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ health = client.Health()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Health().load({"id": "health_id"})
+result = client.Health().load()
 ```
 
 ### Common Methods
@@ -254,19 +254,19 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `dict` | Yes |  |
+| `caption` | `str` | Yes |  |
+| `name` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Member().list({})
+results = client.Member().list()
 for member in results:
     print(member)
 ```
@@ -310,10 +310,10 @@ module_status = client.ModuleStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `Any` | Yes |  |
+| `module` | `str` | Yes |  |
+| `status` | `str` | Yes |  |
+| `version` | `str` | Yes |  |
 
 ### Operations
 
@@ -322,7 +322,7 @@ module_status = client.ModuleStatus()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.ModuleStatus().load({"id": "module_status_id"})
+result = client.ModuleStatus().load()
 ```
 
 ### Common Methods
@@ -367,7 +367,7 @@ route_index_get = client.RouteIndexGet()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.RouteIndexGet().load({"id": "route_index_get_id"})
+result = client.RouteIndexGet().load()
 ```
 
 ### Common Methods
@@ -409,11 +409,11 @@ tesseract_cube = client.TesseractCube()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `dict` | Yes |  |
+| `caption` | `str` | Yes |  |
+| `dimension` | `list` | Yes |  |
+| `measure` | `list` | Yes |  |
+| `name` | `str` | Yes |  |
 
 ### Operations
 
@@ -464,9 +464,9 @@ tesseract_module = client.TesseractModule()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `list` | No |  |
+| `pagination` | `dict` | No |  |
+| `request` | `list` | Yes |  |
 
 ### Operations
 
@@ -476,7 +476,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.TesseractModule().create({
-    "request": ...,  # `$ARRAY`
+    "request": [],  # list
 })
 ```
 
@@ -485,7 +485,7 @@ result = client.TesseractModule().create({
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.TesseractModule().load({"id": "tesseract_module_id"})
+result = client.TesseractModule().load()
 ```
 
 ### Common Methods
@@ -527,20 +527,20 @@ tesseract_schema = client.TesseractSchema()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `dict` | Yes |  |
+| `caption` | `str` | Yes |  |
+| `dimension` | `list` | Yes |  |
+| `measure` | `list` | Yes |  |
+| `name` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.TesseractSchema().list({})
+results = client.TesseractSchema().list()
 for tesseract_schema in results:
     print(tesseract_schema)
 ```

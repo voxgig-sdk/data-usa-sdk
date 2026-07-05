@@ -8,7 +8,7 @@ Complete API reference for the DataUsa Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'data-usa_sdk'
+require_relative 'DataUsa_sdk'
 
 client = DataUsaSDK.new(options)
 ```
@@ -128,7 +128,7 @@ calculations_module = client.CalculationsModule
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.CalculationsModule.load({ "id" => "calculations_module_id" })
+result = client.CalculationsModule.load()
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ economic_complexity_module = client.EconomicComplexityModule
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.EconomicComplexityModule.load({ "id" => "economic_complexity_module_id" })
+result = client.EconomicComplexityModule.load()
 ```
 
 ### Common Methods
@@ -220,7 +220,7 @@ health = client.Health
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Health.load({ "id" => "health_id" })
+result = client.Health.load()
 ```
 
 ### Common Methods
@@ -263,19 +263,19 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `Hash` | Yes |  |
+| `caption` | `String` | Yes |  |
+| `name` | `String` | Yes |  |
+| `type` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Member.list(nil)
+results = client.Member.list
 ```
 
 ### Common Methods
@@ -318,10 +318,10 @@ module_status = client.ModuleStatus
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `Object` | Yes |  |
+| `module` | `String` | Yes |  |
+| `status` | `String` | Yes |  |
+| `version` | `String` | Yes |  |
 
 ### Operations
 
@@ -330,7 +330,7 @@ module_status = client.ModuleStatus
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.ModuleStatus.load({ "id" => "module_status_id" })
+result = client.ModuleStatus.load()
 ```
 
 ### Common Methods
@@ -376,7 +376,7 @@ route_index_get = client.RouteIndexGet
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.RouteIndexGet.load({ "id" => "route_index_get_id" })
+result = client.RouteIndexGet.load()
 ```
 
 ### Common Methods
@@ -419,11 +419,11 @@ tesseract_cube = client.TesseractCube
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `Hash` | Yes |  |
+| `caption` | `String` | Yes |  |
+| `dimension` | `Array` | Yes |  |
+| `measure` | `Array` | Yes |  |
+| `name` | `String` | Yes |  |
 
 ### Operations
 
@@ -475,9 +475,9 @@ tesseract_module = client.TesseractModule
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `Array` | No |  |
+| `pagination` | `Hash` | No |  |
+| `request` | `Array` | Yes |  |
 
 ### Operations
 
@@ -487,7 +487,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.TesseractModule.create({
-  "request" => # `$ARRAY`,
+  "request" => [], # Array
 })
 ```
 
@@ -496,7 +496,7 @@ result = client.TesseractModule.create({
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.TesseractModule.load({ "id" => "tesseract_module_id" })
+result = client.TesseractModule.load()
 ```
 
 ### Common Methods
@@ -539,20 +539,20 @@ tesseract_schema = client.TesseractSchema
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `Hash` | Yes |  |
+| `caption` | `String` | Yes |  |
+| `dimension` | `Array` | Yes |  |
+| `measure` | `Array` | Yes |  |
+| `name` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.TesseractSchema.list(nil)
+results = client.TesseractSchema.list
 ```
 
 ### Common Methods

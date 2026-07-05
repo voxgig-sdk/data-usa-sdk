@@ -125,7 +125,7 @@ local calculations_module = client:CalculationsModule(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:CalculationsModule():load({ id = "calculations_module_id" })
+local result, err = client:CalculationsModule():load()
 ```
 
 ### Common Methods
@@ -171,7 +171,7 @@ local economic_complexity_module = client:EconomicComplexityModule(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:EconomicComplexityModule():load({ id = "economic_complexity_module_id" })
+local result, err = client:EconomicComplexityModule():load()
 ```
 
 ### Common Methods
@@ -217,7 +217,7 @@ local health = client:Health(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Health():load({ id = "health_id" })
+local result, err = client:Health():load()
 ```
 
 ### Common Methods
@@ -260,10 +260,10 @@ local member = client:Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `table` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -315,10 +315,10 @@ local module_status = client:ModuleStatus(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `any` | Yes |  |
+| `module` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -327,7 +327,7 @@ local module_status = client:ModuleStatus(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ModuleStatus():load({ id = "module_status_id" })
+local result, err = client:ModuleStatus():load()
 ```
 
 ### Common Methods
@@ -373,7 +373,7 @@ local route_index_get = client:RouteIndexGet(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:RouteIndexGet():load({ id = "route_index_get_id" })
+local result, err = client:RouteIndexGet():load()
 ```
 
 ### Common Methods
@@ -416,11 +416,11 @@ local tesseract_cube = client:TesseractCube(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `table` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `table` | Yes |  |
+| `measure` | `table` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -472,9 +472,9 @@ local tesseract_module = client:TesseractModule(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `table` | No |  |
+| `pagination` | `table` | No |  |
+| `request` | `table` | Yes |  |
 
 ### Operations
 
@@ -484,7 +484,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:TesseractModule():create({
-  request = --[[ `$ARRAY` ]],
+  request = --[[ table ]],
 })
 ```
 
@@ -493,7 +493,7 @@ local result, err = client:TesseractModule():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TesseractModule():load({ id = "tesseract_module_id" })
+local result, err = client:TesseractModule():load()
 ```
 
 ### Common Methods
@@ -536,11 +536,11 @@ local tesseract_schema = client:TesseractSchema(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `table` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `table` | Yes |  |
+| `measure` | `table` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 

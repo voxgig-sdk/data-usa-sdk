@@ -40,7 +40,7 @@ class Health
 {
 }
 
-/** Match filter for Health#load (any subset of Health fields). */
+/** Request payload for Health#load. */
 class HealthLoadMatch
 {
 }
@@ -54,7 +54,7 @@ class Member
     public string $type;
 }
 
-/** Match filter for Member#list (any subset of Member fields). */
+/** Request payload for Member#list. */
 class MemberListMatch
 {
     public ?array $annotation = null;
@@ -72,7 +72,7 @@ class ModuleStatus
     public string $version;
 }
 
-/** Match filter for ModuleStatus#load (any subset of ModuleStatus fields). */
+/** Request payload for ModuleStatus#load. */
 class ModuleStatusLoadMatch
 {
     public mixed $debug = null;
@@ -86,7 +86,7 @@ class RouteIndexGet
 {
 }
 
-/** Match filter for RouteIndexGet#load (any subset of RouteIndexGet fields). */
+/** Request payload for RouteIndexGet#load. */
 class RouteIndexGetLoadMatch
 {
 }
@@ -137,7 +137,7 @@ class TesseractSchema
     public string $name;
 }
 
-/** Match filter for TesseractSchema#list (any subset of TesseractSchema fields). */
+/** Request payload for TesseractSchema#list. */
 class TesseractSchemaListMatch
 {
     public ?array $annotation = null;

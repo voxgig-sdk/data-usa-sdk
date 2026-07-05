@@ -221,55 +221,55 @@ class DataUsaSDK:
 
 
     def CalculationsModule(self, data=None) -> "CalculationsModuleEntity":
-        """Entity factory: client.CalculationsModule().list({}) / client.CalculationsModule().load({"id": ...})."""
+        """Entity factory: client.CalculationsModule().list() / client.CalculationsModule().load({"id": ...})."""
         from entity.calculations_module_entity import CalculationsModuleEntity
         return CalculationsModuleEntity(self, data)
 
 
     def EconomicComplexityModule(self, data=None) -> "EconomicComplexityModuleEntity":
-        """Entity factory: client.EconomicComplexityModule().list({}) / client.EconomicComplexityModule().load({"id": ...})."""
+        """Entity factory: client.EconomicComplexityModule().list() / client.EconomicComplexityModule().load({"id": ...})."""
         from entity.economic_complexity_module_entity import EconomicComplexityModuleEntity
         return EconomicComplexityModuleEntity(self, data)
 
 
     def Health(self, data=None) -> "HealthEntity":
-        """Entity factory: client.Health().list({}) / client.Health().load({"id": ...})."""
+        """Entity factory: client.Health().list() / client.Health().load({"id": ...})."""
         from entity.health_entity import HealthEntity
         return HealthEntity(self, data)
 
 
     def Member(self, data=None) -> "MemberEntity":
-        """Entity factory: client.Member().list({}) / client.Member().load({"id": ...})."""
+        """Entity factory: client.Member().list() / client.Member().load({"id": ...})."""
         from entity.member_entity import MemberEntity
         return MemberEntity(self, data)
 
 
     def ModuleStatus(self, data=None) -> "ModuleStatusEntity":
-        """Entity factory: client.ModuleStatus().list({}) / client.ModuleStatus().load({"id": ...})."""
+        """Entity factory: client.ModuleStatus().list() / client.ModuleStatus().load({"id": ...})."""
         from entity.module_status_entity import ModuleStatusEntity
         return ModuleStatusEntity(self, data)
 
 
     def RouteIndexGet(self, data=None) -> "RouteIndexGetEntity":
-        """Entity factory: client.RouteIndexGet().list({}) / client.RouteIndexGet().load({"id": ...})."""
+        """Entity factory: client.RouteIndexGet().list() / client.RouteIndexGet().load({"id": ...})."""
         from entity.route_index_get_entity import RouteIndexGetEntity
         return RouteIndexGetEntity(self, data)
 
 
     def TesseractCube(self, data=None) -> "TesseractCubeEntity":
-        """Entity factory: client.TesseractCube().list({}) / client.TesseractCube().load({"id": ...})."""
+        """Entity factory: client.TesseractCube().list() / client.TesseractCube().load({"id": ...})."""
         from entity.tesseract_cube_entity import TesseractCubeEntity
         return TesseractCubeEntity(self, data)
 
 
     def TesseractModule(self, data=None) -> "TesseractModuleEntity":
-        """Entity factory: client.TesseractModule().list({}) / client.TesseractModule().load({"id": ...})."""
+        """Entity factory: client.TesseractModule().list() / client.TesseractModule().load({"id": ...})."""
         from entity.tesseract_module_entity import TesseractModuleEntity
         return TesseractModuleEntity(self, data)
 
 
     def TesseractSchema(self, data=None) -> "TesseractSchemaEntity":
-        """Entity factory: client.TesseractSchema().list({}) / client.TesseractSchema().load({"id": ...})."""
+        """Entity factory: client.TesseractSchema().list() / client.TesseractSchema().load({"id": ...})."""
         from entity.tesseract_schema_entity import TesseractSchemaEntity
         return TesseractSchemaEntity(self, data)
 

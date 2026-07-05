@@ -8,7 +8,7 @@ Complete API reference for the DataUsa PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/data-usa_sdk.php';
+require_once __DIR__ . '/datausa_sdk.php';
 
 $client = new DataUsaSDK($options);
 ```
@@ -77,11 +77,11 @@ Create a new `TesseractModuleEntity` instance. Pass `null` for no initial data.
 
 Create a new `TesseractSchemaEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): DataUsaUtility`
 
 Return a copy of the SDK utility object.
 
@@ -127,24 +127,24 @@ $calculations_module = $client->CalculationsModule();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->CalculationsModule()->load(["id" => "calculations_module_id"]);
+$result = $client->CalculationsModule()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -153,7 +153,7 @@ Set the entity match criteria.
 Create a new `CalculationsModuleEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -173,24 +173,24 @@ $economic_complexity_module = $client->EconomicComplexityModule();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->EconomicComplexityModule()->load(["id" => "economic_complexity_module_id"]);
+$result = $client->EconomicComplexityModule()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -199,7 +199,7 @@ Set the entity match criteria.
 Create a new `EconomicComplexityModuleEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -219,24 +219,24 @@ $health = $client->Health();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Health()->load(["id" => "health_id"]);
+$result = $client->Health()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -245,7 +245,7 @@ Set the entity match criteria.
 Create a new `HealthEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -262,36 +262,36 @@ $member = $client->Member();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `array` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Member()->list([]);
+$results = $client->Member()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -300,7 +300,7 @@ Set the entity match criteria.
 Create a new `MemberEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -317,10 +317,10 @@ $module_status = $client->ModuleStatus();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `mixed` | Yes |  |
+| `module` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -329,24 +329,24 @@ $module_status = $client->ModuleStatus();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->ModuleStatus()->load(["id" => "module_status_id"]);
+$result = $client->ModuleStatus()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -355,7 +355,7 @@ Set the entity match criteria.
 Create a new `ModuleStatusEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -375,24 +375,24 @@ $route_index_get = $client->RouteIndexGet();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->RouteIndexGet()->load(["id" => "route_index_get_id"]);
+$result = $client->RouteIndexGet()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -401,7 +401,7 @@ Set the entity match criteria.
 Create a new `RouteIndexGetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -418,11 +418,11 @@ $tesseract_cube = $client->TesseractCube();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `array` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `array` | Yes |  |
+| `measure` | `array` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -436,19 +436,19 @@ $result = $client->TesseractCube()->load(["id" => "tesseract_cube_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -457,7 +457,7 @@ Set the entity match criteria.
 Create a new `TesseractCubeEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -474,9 +474,9 @@ $tesseract_module = $client->TesseractModule();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `array` | No |  |
+| `pagination` | `array` | No |  |
+| `request` | `array` | Yes |  |
 
 ### Operations
 
@@ -486,7 +486,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->TesseractModule()->create([
-  "request" => /* `$ARRAY` */,
+  "request" => null, // array
 ]);
 ```
 
@@ -495,24 +495,24 @@ $result = $client->TesseractModule()->create([
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->TesseractModule()->load(["id" => "tesseract_module_id"]);
+$result = $client->TesseractModule()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -521,7 +521,7 @@ Set the entity match criteria.
 Create a new `TesseractModuleEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -538,37 +538,37 @@ $tesseract_schema = $client->TesseractSchema();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `array` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `array` | Yes |  |
+| `measure` | `array` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->TesseractSchema()->list([]);
+$results = $client->TesseractSchema()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -577,7 +577,7 @@ Set the entity match criteria.
 Create a new `TesseractSchemaEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

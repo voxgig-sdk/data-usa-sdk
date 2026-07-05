@@ -42,7 +42,7 @@ EconomicComplexityModuleLoadMatch = Struct.new(
 class Health
 end
 
-# Match filter for Health#load (any subset of Health fields).
+# Request payload for Health#load.
 class HealthLoadMatch
 end
 
@@ -67,7 +67,7 @@ Member = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Member#list (any subset of Member fields).
+# Request payload for Member#list.
 #
 # @!attribute [rw] annotation
 #   @return [Hash, nil]
@@ -109,7 +109,7 @@ ModuleStatus = Struct.new(
   keyword_init: true
 )
 
-# Match filter for ModuleStatus#load (any subset of ModuleStatus fields).
+# Request payload for ModuleStatus#load.
 #
 # @!attribute [rw] debug
 #   @return [Object, nil]
@@ -134,7 +134,7 @@ ModuleStatusLoadMatch = Struct.new(
 class RouteIndexGet
 end
 
-# Match filter for RouteIndexGet#load (any subset of RouteIndexGet fields).
+# Request payload for RouteIndexGet#load.
 class RouteIndexGetLoadMatch
 end
 
@@ -232,7 +232,7 @@ TesseractSchema = Struct.new(
   keyword_init: true
 )
 
-# Match filter for TesseractSchema#list (any subset of TesseractSchema fields).
+# Request payload for TesseractSchema#list.
 #
 # @!attribute [rw] annotation
 #   @return [Hash, nil]

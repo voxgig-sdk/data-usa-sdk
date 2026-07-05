@@ -132,7 +132,7 @@ calculations_module := client.CalculationsModule(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.CalculationsModule(nil).Load(map[string]any{"id": "calculations_module_id"}, nil)
+result, err := client.CalculationsModule(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -172,7 +172,7 @@ economic_complexity_module := client.EconomicComplexityModule(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.EconomicComplexityModule(nil).Load(map[string]any{"id": "economic_complexity_module_id"}, nil)
+result, err := client.EconomicComplexityModule(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ health := client.Health(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+result, err := client.Health(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -249,10 +249,10 @@ member := client.Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `annotation` | `map[string]any` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -298,10 +298,10 @@ module_status := client.ModuleStatus(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `debug` | ``$ANY`` | Yes |  |
-| `module` | ``$STRING`` | Yes |  |
-| `status` | ``$STRING`` | Yes |  |
-| `version` | ``$STRING`` | Yes |  |
+| `debug` | `any` | Yes |  |
+| `module` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -310,7 +310,7 @@ module_status := client.ModuleStatus(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.ModuleStatus(nil).Load(map[string]any{"id": "module_status_id"}, nil)
+result, err := client.ModuleStatus(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -350,7 +350,7 @@ route_index_get := client.RouteIndexGet(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.RouteIndexGet(nil).Load(map[string]any{"id": "route_index_get_id"}, nil)
+result, err := client.RouteIndexGet(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -387,11 +387,11 @@ tesseract_cube := client.TesseractCube(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `map[string]any` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `[]any` | Yes |  |
+| `measure` | `[]any` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 
@@ -437,9 +437,9 @@ tesseract_module := client.TesseractModule(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | ``$ARRAY`` | No |  |
-| `pagination` | ``$OBJECT`` | No |  |
-| `request` | ``$ARRAY`` | Yes |  |
+| `join` | `[]any` | No |  |
+| `pagination` | `map[string]any` | No |  |
+| `request` | `[]any` | Yes |  |
 
 ### Operations
 
@@ -449,7 +449,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.TesseractModule(nil).Create(map[string]any{
-    "request": /* `$ARRAY` */,
+    "request": /* []any */,
 }, nil)
 ```
 
@@ -458,7 +458,7 @@ result, err := client.TesseractModule(nil).Create(map[string]any{
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.TesseractModule(nil).Load(map[string]any{"id": "tesseract_module_id"}, nil)
+result, err := client.TesseractModule(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -495,11 +495,11 @@ tesseract_schema := client.TesseractSchema(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | ``$OBJECT`` | Yes |  |
-| `caption` | ``$STRING`` | Yes |  |
-| `dimension` | ``$ARRAY`` | Yes |  |
-| `measure` | ``$ARRAY`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `annotation` | `map[string]any` | Yes |  |
+| `caption` | `string` | Yes |  |
+| `dimension` | `[]any` | Yes |  |
+| `measure` | `[]any` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 

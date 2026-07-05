@@ -4,6 +4,8 @@
 
 The Lua SDK for the DataUsa API — an entity-oriented client using Lua conventions.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:CalculationsModule()` — each with the same small set of operations (`list`, `load`, `create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -34,9 +36,31 @@ local client = sdk.new()
 ### 3. Load a calculationsmodule
 
 ```lua
-local calculationsmodule, err = client:CalculationsModule():load({ id = "example_id" })
+local calculationsmodule, err = client:CalculationsModule():load()
 if err then error(err) end
 print(calculationsmodule)
+```
+
+
+## Error handling
+
+Entity operations return `(value, err)`. Check `err` before using
+the value:
+
+```lua
+local calculationsmodule, err = client:CalculationsModule():load()
+if err then error(err) end
+```
+
+`direct` follows the same `(value, err)` convention:
+
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example_id" },
+})
+if err then error(err) end
 ```
 
 
@@ -82,8 +106,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:CalculationsModule():load({ id = "test01" })
--- result is the loaded data; err is set on failure
+local result, err = client:CalculationsModule():load()
+-- result is the returned data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -180,8 +204,6 @@ All entities share the same interface.
 | `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
 | `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> any, err` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> any, err` | Remove an entity. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -196,12 +218,12 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `load` / `create` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local calculations_module, err = client:CalculationsModule():load({ id = "example_id" })
+    local calculations_module, err = client:CalculationsModule():load()
     if err then error(err) end
     -- calculations_module is the loaded record
 
@@ -330,7 +352,7 @@ Create an instance: `local calculations_module = client:CalculationsModule(nil)`
 #### Example: Load
 
 ```lua
-local calculations_module, err = client:CalculationsModule():load({ id = "calculations_module_id" })
+local calculations_module, err = client:CalculationsModule():load()
 ```
 
 
@@ -347,7 +369,7 @@ Create an instance: `local economic_complexity_module = client:EconomicComplexit
 #### Example: Load
 
 ```lua
-local economic_complexity_module, err = client:EconomicComplexityModule():load({ id = "economic_complexity_module_id" })
+local economic_complexity_module, err = client:EconomicComplexityModule():load()
 ```
 
 
@@ -364,7 +386,7 @@ Create an instance: `local health = client:Health(nil)`
 #### Example: Load
 
 ```lua
-local health, err = client:Health():load({ id = "health_id" })
+local health, err = client:Health():load()
 ```
 
 
@@ -382,10 +404,10 @@ Create an instance: `local member = client:Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
+| `annotation` | `table` |  |
+| `caption` | `string` |  |
+| `name` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: List
 
@@ -408,15 +430,15 @@ Create an instance: `local module_status = client:ModuleStatus(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `debug` | ``$ANY`` |  |
-| `module` | ``$STRING`` |  |
-| `status` | ``$STRING`` |  |
-| `version` | ``$STRING`` |  |
+| `debug` | `any` |  |
+| `module` | `string` |  |
+| `status` | `string` |  |
+| `version` | `string` |  |
 
 #### Example: Load
 
 ```lua
-local module_status, err = client:ModuleStatus():load({ id = "module_status_id" })
+local module_status, err = client:ModuleStatus():load()
 ```
 
 
@@ -433,7 +455,7 @@ Create an instance: `local route_index_get = client:RouteIndexGet(nil)`
 #### Example: Load
 
 ```lua
-local route_index_get, err = client:RouteIndexGet():load({ id = "route_index_get_id" })
+local route_index_get, err = client:RouteIndexGet():load()
 ```
 
 
@@ -451,11 +473,11 @@ Create an instance: `local tesseract_cube = client:TesseractCube(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `dimension` | ``$ARRAY`` |  |
-| `measure` | ``$ARRAY`` |  |
-| `name` | ``$STRING`` |  |
+| `annotation` | `table` |  |
+| `caption` | `string` |  |
+| `dimension` | `table` |  |
+| `measure` | `table` |  |
+| `name` | `string` |  |
 
 #### Example: Load
 
@@ -479,21 +501,21 @@ Create an instance: `local tesseract_module = client:TesseractModule(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | ``$ARRAY`` |  |
-| `pagination` | ``$OBJECT`` |  |
-| `request` | ``$ARRAY`` |  |
+| `join` | `table` |  |
+| `pagination` | `table` |  |
+| `request` | `table` |  |
 
 #### Example: Load
 
 ```lua
-local tesseract_module, err = client:TesseractModule():load({ id = "tesseract_module_id" })
+local tesseract_module, err = client:TesseractModule():load()
 ```
 
 #### Example: Create
 
 ```lua
 local tesseract_module, err = client:TesseractModule():create({
-  request = nil, -- `$ARRAY`
+  request = nil, -- table
 })
 ```
 
@@ -512,11 +534,11 @@ Create an instance: `local tesseract_schema = client:TesseractSchema(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `dimension` | ``$ARRAY`` |  |
-| `measure` | ``$ARRAY`` |  |
-| `name` | ``$STRING`` |  |
+| `annotation` | `table` |  |
+| `caption` | `string` |  |
+| `dimension` | `table` |  |
+| `measure` | `table` |  |
+| `name` | `string` |  |
 
 #### Example: List
 
@@ -525,12 +547,16 @@ local tesseract_schemas, err = client:TesseractSchema():list()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -547,8 +573,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -597,9 +624,9 @@ stores the returned data and match criteria internally.
 
 ```lua
 local calculationsmodule = client:CalculationsModule()
-calculationsmodule:load({ id = "example_id" })
+calculationsmodule:load()
 
--- calculationsmodule:data_get() now returns the loaded calculationsmodule data
+-- calculationsmodule:data_get() now returns the calculationsmodule data from the last load
 -- calculationsmodule:match_get() returns the last match criteria
 ```
 

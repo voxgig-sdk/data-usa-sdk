@@ -28,6 +28,10 @@
 ---@field type string
 
 ---@class MemberListMatch
+---@field annotation? table
+---@field caption? string
+---@field name? string
+---@field type? string
 
 ---@class ModuleStatus
 ---@field debug any
@@ -36,6 +40,10 @@
 ---@field version string
 
 ---@class ModuleStatusLoadMatch
+---@field debug? any
+---@field module? string
+---@field status? string
+---@field version? string
 
 ---@class RouteIndexGet
 
@@ -70,6 +78,11 @@
 ---@field name string
 
 ---@class TesseractSchemaListMatch
+---@field annotation? table
+---@field caption? string
+---@field dimension? table
+---@field measure? table
+---@field name? string
 
 local M = {}
 

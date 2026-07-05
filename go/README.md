@@ -4,6 +4,8 @@
 
 The Golang SDK for the DataUsa API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.CalculationsModule(nil)` — each with the same small set of operations (`List`, `Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -49,12 +51,41 @@ func main() {
     client := sdk.New()
 
     // Load a single calculationsmodule — the value is the loaded record.
-    calculationsmodule, err := client.CalculationsModule(nil).Load(map[string]any{"id": "example_id"}, nil)
+    calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(calculationsmodule)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = calculationsmodule
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -105,12 +136,12 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 calculationsmodule, err := client.CalculationsModule(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(calculationsmodule) // the loaded mock data
+fmt.Println(calculationsmodule) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -206,8 +237,6 @@ All entities implement the `DataUsaEntity` interface.
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
 | `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -220,16 +249,16 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `Load` / `Create` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    calculationsmodule, err := client.CalculationsModule(nil).Load(map[string]any{"id": "example_id"}, nil)
+    calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // calculationsmodule is the loaded record
+    // calculationsmodule is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -356,7 +385,7 @@ Create an instance: `calculations_module := client.CalculationsModule(nil)`
 #### Example: Load
 
 ```go
-calculations_module, err := client.CalculationsModule(nil).Load(map[string]any{"id": "calculations_module_id"}, nil)
+calculations_module, err := client.CalculationsModule(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -377,7 +406,7 @@ Create an instance: `economic_complexity_module := client.EconomicComplexityModu
 #### Example: Load
 
 ```go
-economic_complexity_module, err := client.EconomicComplexityModule(nil).Load(map[string]any{"id": "economic_complexity_module_id"}, nil)
+economic_complexity_module, err := client.EconomicComplexityModule(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -398,7 +427,7 @@ Create an instance: `health := client.Health(nil)`
 #### Example: Load
 
 ```go
-health, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+health, err := client.Health(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -420,10 +449,10 @@ Create an instance: `member := client.Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
+| `annotation` | `map[string]any` |  |
+| `caption` | `string` |  |
+| `name` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: List
 
@@ -450,15 +479,15 @@ Create an instance: `module_status := client.ModuleStatus(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `debug` | ``$ANY`` |  |
-| `module` | ``$STRING`` |  |
-| `status` | ``$STRING`` |  |
-| `version` | ``$STRING`` |  |
+| `debug` | `any` |  |
+| `module` | `string` |  |
+| `status` | `string` |  |
+| `version` | `string` |  |
 
 #### Example: Load
 
 ```go
-module_status, err := client.ModuleStatus(nil).Load(map[string]any{"id": "module_status_id"}, nil)
+module_status, err := client.ModuleStatus(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -479,7 +508,7 @@ Create an instance: `route_index_get := client.RouteIndexGet(nil)`
 #### Example: Load
 
 ```go
-route_index_get, err := client.RouteIndexGet(nil).Load(map[string]any{"id": "route_index_get_id"}, nil)
+route_index_get, err := client.RouteIndexGet(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -501,11 +530,11 @@ Create an instance: `tesseract_cube := client.TesseractCube(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `dimension` | ``$ARRAY`` |  |
-| `measure` | ``$ARRAY`` |  |
-| `name` | ``$STRING`` |  |
+| `annotation` | `map[string]any` |  |
+| `caption` | `string` |  |
+| `dimension` | `[]any` |  |
+| `measure` | `[]any` |  |
+| `name` | `string` |  |
 
 #### Example: Load
 
@@ -533,14 +562,14 @@ Create an instance: `tesseract_module := client.TesseractModule(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | ``$ARRAY`` |  |
-| `pagination` | ``$OBJECT`` |  |
-| `request` | ``$ARRAY`` |  |
+| `join` | `[]any` |  |
+| `pagination` | `map[string]any` |  |
+| `request` | `[]any` |  |
 
 #### Example: Load
 
 ```go
-tesseract_module, err := client.TesseractModule(nil).Load(map[string]any{"id": "tesseract_module_id"}, nil)
+tesseract_module, err := client.TesseractModule(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -551,7 +580,7 @@ fmt.Println(tesseract_module) // the loaded record
 
 ```go
 result, err := client.TesseractModule(nil).Create(map[string]any{
-    "request": /* `$ARRAY` */,
+    "request": /* []any */,
 }, nil)
 ```
 
@@ -570,11 +599,11 @@ Create an instance: `tesseract_schema := client.TesseractSchema(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | ``$OBJECT`` |  |
-| `caption` | ``$STRING`` |  |
-| `dimension` | ``$ARRAY`` |  |
-| `measure` | ``$ARRAY`` |  |
-| `name` | ``$STRING`` |  |
+| `annotation` | `map[string]any` |  |
+| `caption` | `string` |  |
+| `dimension` | `[]any` |  |
+| `measure` | `[]any` |  |
+| `name` | `string` |  |
 
 #### Example: List
 
@@ -587,12 +616,16 @@ fmt.Println(tesseract_schemas) // the array of records
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -609,9 +642,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -657,9 +690,9 @@ stores the returned data and match criteria internally.
 
 ```go
 calculationsmodule := client.CalculationsModule(nil)
-calculationsmodule.Load(map[string]any{"id": "example_id"}, nil)
+calculationsmodule.Load(nil, nil)
 
-// calculationsmodule.Data() now returns the loaded calculationsmodule data
+// calculationsmodule.Data() now returns the calculationsmodule data from the last load
 // calculationsmodule.Match() returns the last match criteria
 ```
 
