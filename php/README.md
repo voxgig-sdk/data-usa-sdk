@@ -36,7 +36,7 @@ $client = new DataUsaSDK();
 ```php
 try {
     // load() returns the bare CalculationsModule record (throws on error).
-    $calculationsmodule = $client->CalculationsModule()->load();
+    $calculationsmodule = $client->CalculationsModule()->load(["extension" => "example_extension"]);
     print_r($calculationsmodule);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -371,7 +371,7 @@ Create an instance: `$calculations_module = $client->CalculationsModule();`
 
 ```php
 // load() returns the bare CalculationsModule record (throws on error).
-$calculations_module = $client->CalculationsModule()->load();
+$calculations_module = $client->CalculationsModule()->load(["extension" => "extension"]);
 ```
 
 
@@ -541,7 +541,7 @@ $tesseract_module = $client->TesseractModule()->load();
 
 ```php
 $tesseract_module = $client->TesseractModule()->create([
-    "request" => null, // array
+    "extension" => null, // string
 ]);
 ```
 

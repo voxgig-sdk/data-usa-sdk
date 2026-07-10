@@ -125,7 +125,7 @@ local calculations_module = client:CalculationsModule(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:CalculationsModule():load()
+local result, err = client:CalculationsModule():load({ extension = "extension" })
 ```
 
 ### Common Methods
@@ -484,7 +484,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:TesseractModule():create({
-  request = --[[ table ]],
+  extension = --[[ string ]],
 })
 ```
 

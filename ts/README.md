@@ -39,7 +39,7 @@ const client = new DataUsaSDK()
 
 ```ts
 try {
-  const calculationsmodule = await client.CalculationsModule().load()
+  const calculationsmodule = await client.CalculationsModule().load({ extension: 'example_extension' })
   console.log(calculationsmodule)
 } catch (err) {
   console.error('load failed:', err)
@@ -412,7 +412,7 @@ Create an instance: `const calculations_module = client.CalculationsModule()`
 #### Example: Load
 
 ```ts
-const calculations_module = await client.CalculationsModule().load()
+const calculations_module = await client.CalculationsModule().load({ extension: 'extension' })
 ```
 
 
@@ -575,7 +575,7 @@ const tesseract_module = await client.TesseractModule().load()
 
 ```ts
 const tesseract_module = await client.TesseractModule().create({
-  request: /* any[] */,
+  extension: 'example_extension',
 })
 ```
 

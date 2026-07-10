@@ -42,7 +42,7 @@ client = DataUsaSDK()
 
 ```python
 try:
-    calculationsmodule = client.CalculationsModule().load()
+    calculationsmodule = client.CalculationsModule().load({"extension": "example_extension"})
     print(calculationsmodule)
 except Exception as err:
     print(f"load failed: {err}")
@@ -366,7 +366,7 @@ Create an instance: `calculations_module = client.CalculationsModule()`
 #### Example: Load
 
 ```python
-calculations_module = client.CalculationsModule().load()
+calculations_module = client.CalculationsModule().load({"extension": "extension"})
 ```
 
 
@@ -529,7 +529,7 @@ tesseract_module = client.TesseractModule().load()
 
 ```python
 tesseract_module = client.TesseractModule().create({
-    "request": [],  # list
+    "extension": "example_extension",  # str
 })
 ```
 

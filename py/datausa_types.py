@@ -28,7 +28,7 @@ class EconomicComplexityModule(TypedDict):
     pass
 
 
-class EconomicComplexityModuleLoadMatch(TypedDict):
+class EconomicComplexityModuleLoadMatch(TypedDict, total=False):
     extension: str
     endpoint: str
 
@@ -98,7 +98,7 @@ class TesseractModule(TesseractModuleRequired, total=False):
     pagination: dict
 
 
-class TesseractModuleLoadMatch(TypedDict):
+class TesseractModuleLoadMatch(TypedDict, total=False):
     extension: str
 
 

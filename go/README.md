@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single calculationsmodule — the value is the loaded record.
-    calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
+    // Load a single calculationsModule — the value is the loaded record.
+    calculationsModule, err := client.CalculationsModule(nil).Load(map[string]any{"extension": "example_extension"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(calculationsmodule)
+    fmt.Println(calculationsModule)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-calculationsmodule, err := client.CalculationsModule(nil).Load(
+calculationsModule, err := client.CalculationsModule(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(calculationsmodule) // the returned mock data
+fmt.Println(calculationsModule) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -256,9 +256,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
+    calculationsModule, err := client.CalculationsModule(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // calculationsmodule is the returned record
+    // calculationsModule is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -374,7 +374,7 @@ API path: `/complexity/cubes`
 
 ### CalculationsModule
 
-Create an instance: `calculations_module := client.CalculationsModule(nil)`
+Create an instance: `calculationsModule := client.CalculationsModule(nil)`
 
 #### Operations
 
@@ -385,17 +385,17 @@ Create an instance: `calculations_module := client.CalculationsModule(nil)`
 #### Example: Load
 
 ```go
-calculations_module, err := client.CalculationsModule(nil).Load(nil, nil)
+calculationsModule, err := client.CalculationsModule(nil).Load(map[string]any{"extension": "extension"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(calculations_module) // the loaded record
+fmt.Println(calculationsModule) // the loaded record
 ```
 
 
 ### EconomicComplexityModule
 
-Create an instance: `economic_complexity_module := client.EconomicComplexityModule(nil)`
+Create an instance: `economicComplexityModule := client.EconomicComplexityModule(nil)`
 
 #### Operations
 
@@ -406,11 +406,11 @@ Create an instance: `economic_complexity_module := client.EconomicComplexityModu
 #### Example: Load
 
 ```go
-economic_complexity_module, err := client.EconomicComplexityModule(nil).Load(nil, nil)
+economicComplexityModule, err := client.EconomicComplexityModule(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(economic_complexity_module) // the loaded record
+fmt.Println(economicComplexityModule) // the loaded record
 ```
 
 
@@ -467,7 +467,7 @@ fmt.Println(members) // the array of records
 
 ### ModuleStatus
 
-Create an instance: `module_status := client.ModuleStatus(nil)`
+Create an instance: `moduleStatus := client.ModuleStatus(nil)`
 
 #### Operations
 
@@ -487,17 +487,17 @@ Create an instance: `module_status := client.ModuleStatus(nil)`
 #### Example: Load
 
 ```go
-module_status, err := client.ModuleStatus(nil).Load(nil, nil)
+moduleStatus, err := client.ModuleStatus(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(module_status) // the loaded record
+fmt.Println(moduleStatus) // the loaded record
 ```
 
 
 ### RouteIndexGet
 
-Create an instance: `route_index_get := client.RouteIndexGet(nil)`
+Create an instance: `routeIndexGet := client.RouteIndexGet(nil)`
 
 #### Operations
 
@@ -508,17 +508,17 @@ Create an instance: `route_index_get := client.RouteIndexGet(nil)`
 #### Example: Load
 
 ```go
-route_index_get, err := client.RouteIndexGet(nil).Load(nil, nil)
+routeIndexGet, err := client.RouteIndexGet(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(route_index_get) // the loaded record
+fmt.Println(routeIndexGet) // the loaded record
 ```
 
 
 ### TesseractCube
 
-Create an instance: `tesseract_cube := client.TesseractCube(nil)`
+Create an instance: `tesseractCube := client.TesseractCube(nil)`
 
 #### Operations
 
@@ -539,24 +539,24 @@ Create an instance: `tesseract_cube := client.TesseractCube(nil)`
 #### Example: Load
 
 ```go
-tesseract_cube, err := client.TesseractCube(nil).Load(map[string]any{"id": "tesseract_cube_id"}, nil)
+tesseractCube, err := client.TesseractCube(nil).Load(map[string]any{"id": "tesseract_cube_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(tesseract_cube) // the loaded record
+fmt.Println(tesseractCube) // the loaded record
 ```
 
 
 ### TesseractModule
 
-Create an instance: `tesseract_module := client.TesseractModule(nil)`
+Create an instance: `tesseractModule := client.TesseractModule(nil)`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `Create(data, ctrl)` | Create a new entity with the given data. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
 
 #### Fields
 
@@ -569,25 +569,29 @@ Create an instance: `tesseract_module := client.TesseractModule(nil)`
 #### Example: Load
 
 ```go
-tesseract_module, err := client.TesseractModule(nil).Load(nil, nil)
+tesseractModule, err := client.TesseractModule(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(tesseract_module) // the loaded record
+fmt.Println(tesseractModule) // the loaded record
 ```
 
 #### Example: Create
 
 ```go
 result, err := client.TesseractModule(nil).Create(map[string]any{
-    "request": /* []any */,
+    "extension": "example_extension",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 
 ### TesseractSchema
 
-Create an instance: `tesseract_schema := client.TesseractSchema(nil)`
+Create an instance: `tesseractSchema := client.TesseractSchema(nil)`
 
 #### Operations
 
@@ -608,11 +612,11 @@ Create an instance: `tesseract_schema := client.TesseractSchema(nil)`
 #### Example: List
 
 ```go
-tesseract_schemas, err := client.TesseractSchema(nil).List(nil, nil)
+tesseractSchemas, err := client.TesseractSchema(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(tesseract_schemas) // the array of records
+fmt.Println(tesseractSchemas) // the array of records
 ```
 
 

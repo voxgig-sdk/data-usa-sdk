@@ -35,7 +35,7 @@ client = DataUsaSDK.new
 ```ruby
 begin
   # load returns the bare CalculationsModule record (raises on error).
-  calculationsmodule = client.CalculationsModule.load()
+  calculationsmodule = client.CalculationsModule.load({ "extension" => "example_extension" })
   puts calculationsmodule
 rescue => err
   warn "load failed: #{err}"
@@ -361,7 +361,7 @@ Create an instance: `calculations_module = client.CalculationsModule`
 
 ```ruby
 # load returns the bare CalculationsModule record (raises on error).
-calculations_module = client.CalculationsModule.load()
+calculations_module = client.CalculationsModule.load({ "extension" => "extension" })
 ```
 
 
@@ -531,7 +531,7 @@ tesseract_module = client.TesseractModule.load()
 
 ```ruby
 tesseract_module = client.TesseractModule.create({
-  "request" => [], # Array
+  "extension" => "example_extension", # String
 })
 ```
 

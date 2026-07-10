@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -5105,13 +5102,15 @@
       },
       "info": {
         "auth": false,
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "url": "https://honduras.datausa.io"
           }
         ],
         "title": "FastAPI",
-        "version": "0.1.0"
+        "version": "0.1.0",
+        "website": "https://honduras.datausa.io"
       },
       "option": {},
       "target": {
@@ -5164,6 +5163,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -5214,6 +5216,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

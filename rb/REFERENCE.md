@@ -128,7 +128,7 @@ calculations_module = client.CalculationsModule
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.CalculationsModule.load()
+result = client.CalculationsModule.load({ "extension" => "extension" })
 ```
 
 ### Common Methods
@@ -487,7 +487,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.TesseractModule.create({
-  "request" => [], # Array
+  "extension" => "example_extension", # String
 })
 ```
 

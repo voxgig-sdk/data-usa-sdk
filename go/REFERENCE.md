@@ -122,7 +122,8 @@ same parameters as `Direct()`.
 ## CalculationsModuleEntity
 
 ```go
-calculations_module := client.CalculationsModule(nil)
+calculationsModule := client.CalculationsModule(nil)
+fmt.Println(calculationsModule.GetName()) // "calculations_module"
 ```
 
 ### Operations
@@ -132,7 +133,11 @@ calculations_module := client.CalculationsModule(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.CalculationsModule(nil).Load(nil, nil)
+result, err := client.CalculationsModule(nil).Load(map[string]any{"extension": "extension"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -162,7 +167,8 @@ Return the entity name.
 ## EconomicComplexityModuleEntity
 
 ```go
-economic_complexity_module := client.EconomicComplexityModule(nil)
+economicComplexityModule := client.EconomicComplexityModule(nil)
+fmt.Println(economicComplexityModule.GetName()) // "economic_complexity_module"
 ```
 
 ### Operations
@@ -173,6 +179,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.EconomicComplexityModule(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -203,6 +213,7 @@ Return the entity name.
 
 ```go
 health := client.Health(nil)
+fmt.Println(health.GetName()) // "health"
 ```
 
 ### Operations
@@ -213,6 +224,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Health(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -243,6 +258,7 @@ Return the entity name.
 
 ```go
 member := client.Member(nil)
+fmt.Println(member.GetName()) // "member"
 ```
 
 ### Fields
@@ -262,6 +278,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Member(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -291,7 +311,8 @@ Return the entity name.
 ## ModuleStatusEntity
 
 ```go
-module_status := client.ModuleStatus(nil)
+moduleStatus := client.ModuleStatus(nil)
+fmt.Println(moduleStatus.GetName()) // "module_status"
 ```
 
 ### Fields
@@ -311,6 +332,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.ModuleStatus(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -340,7 +365,8 @@ Return the entity name.
 ## RouteIndexGetEntity
 
 ```go
-route_index_get := client.RouteIndexGet(nil)
+routeIndexGet := client.RouteIndexGet(nil)
+fmt.Println(routeIndexGet.GetName()) // "route_index_get"
 ```
 
 ### Operations
@@ -351,6 +377,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.RouteIndexGet(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -380,7 +410,8 @@ Return the entity name.
 ## TesseractCubeEntity
 
 ```go
-tesseract_cube := client.TesseractCube(nil)
+tesseractCube := client.TesseractCube(nil)
+fmt.Println(tesseractCube.GetName()) // "tesseract_cube"
 ```
 
 ### Fields
@@ -401,6 +432,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.TesseractCube(nil).Load(map[string]any{"id": "tesseract_cube_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -430,7 +465,8 @@ Return the entity name.
 ## TesseractModuleEntity
 
 ```go
-tesseract_module := client.TesseractModule(nil)
+tesseractModule := client.TesseractModule(nil)
+fmt.Println(tesseractModule.GetName()) // "tesseract_module"
 ```
 
 ### Fields
@@ -443,22 +479,30 @@ tesseract_module := client.TesseractModule(nil)
 
 ### Operations
 
-#### `Create(reqdata, ctrl map[string]any) (any, error)`
-
-Create a new entity with the given data.
-
-```go
-result, err := client.TesseractModule(nil).Create(map[string]any{
-    "request": /* []any */,
-}, nil)
-```
-
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
 Load a single entity matching the given criteria.
 
 ```go
 result, err := client.TesseractModule(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.TesseractModule(nil).Create(map[string]any{
+    "extension": "example_extension",
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -488,7 +532,8 @@ Return the entity name.
 ## TesseractSchemaEntity
 
 ```go
-tesseract_schema := client.TesseractSchema(nil)
+tesseractSchema := client.TesseractSchema(nil)
+fmt.Println(tesseractSchema.GetName()) // "tesseract_schema"
 ```
 
 ### Fields
@@ -509,6 +554,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.TesseractSchema(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

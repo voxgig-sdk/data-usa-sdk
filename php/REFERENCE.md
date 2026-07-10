@@ -127,7 +127,7 @@ $calculations_module = $client->CalculationsModule();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->CalculationsModule()->load();
+$result = $client->CalculationsModule()->load(["extension" => "extension"]);
 ```
 
 ### Common Methods
@@ -486,7 +486,7 @@ Create a new entity with the given data. Throws on error.
 
 ```php
 $result = $client->TesseractModule()->create([
-  "request" => null, // array
+  "extension" => null, // string
 ]);
 ```
 

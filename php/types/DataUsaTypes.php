@@ -31,8 +31,8 @@ class EconomicComplexityModule
 /** Request payload for EconomicComplexityModule#load. */
 class EconomicComplexityModuleLoadMatch
 {
-    public string $extension;
-    public string $endpoint;
+    public ?string $extension = null;
+    public ?string $endpoint = null;
 }
 
 /** Health entity data model. */
@@ -118,7 +118,7 @@ class TesseractModule
 /** Request payload for TesseractModule#load. */
 class TesseractModuleLoadMatch
 {
-    public string $extension;
+    public ?string $extension = null;
 }
 
 /** Request payload for TesseractModule#create. */

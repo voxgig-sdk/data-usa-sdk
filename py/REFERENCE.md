@@ -122,7 +122,7 @@ calculations_module = client.CalculationsModule()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.CalculationsModule().load()
+result = client.CalculationsModule().load({"extension": "extension"})
 ```
 
 ### Common Methods
@@ -476,7 +476,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.TesseractModule().create({
-    "request": [],  # list
+    "extension": "example_extension",  # str
 })
 ```
 

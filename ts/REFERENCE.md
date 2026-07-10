@@ -215,7 +215,7 @@ const calculations_module = client.CalculationsModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.CalculationsModule().load()
+const result = await client.CalculationsModule().load({ extension: 'extension' })
 ```
 
 ### Common Methods
@@ -560,7 +560,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.TesseractModule().create({
-  request: /* any[] */,
+  extension: 'example_extension',
 })
 ```
 

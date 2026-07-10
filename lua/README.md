@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a calculationsmodule
 
 ```lua
-local calculationsmodule, err = client:CalculationsModule():load()
+local calculationsmodule, err = client:CalculationsModule():load({ extension = "example_extension" })
 if err then error(err) end
 print(calculationsmodule)
 ```
@@ -352,7 +352,7 @@ Create an instance: `local calculations_module = client:CalculationsModule(nil)`
 #### Example: Load
 
 ```lua
-local calculations_module, err = client:CalculationsModule():load()
+local calculations_module, err = client:CalculationsModule():load({ extension = "extension" })
 ```
 
 
@@ -515,7 +515,7 @@ local tesseract_module, err = client:TesseractModule():load()
 
 ```lua
 local tesseract_module, err = client:TesseractModule():create({
-  request = nil, -- table
+  extension = "example_extension", -- string
 })
 ```
 

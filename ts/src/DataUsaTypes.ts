@@ -16,8 +16,8 @@ export interface EconomicComplexityModule {
 }
 
 export interface EconomicComplexityModuleLoadMatch {
-  extension: string
-  endpoint: string
+  extension?: string
+  endpoint?: string
 }
 
 export interface Health {
@@ -79,7 +79,7 @@ export interface TesseractModule {
 }
 
 export interface TesseractModuleLoadMatch {
-  extension: string
+  extension?: string
 }
 
 export interface TesseractModuleCreateData {

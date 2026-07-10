@@ -23,8 +23,8 @@ type EconomicComplexityModule struct {
 
 // EconomicComplexityModuleLoadMatch is the typed request payload for EconomicComplexityModule.LoadTyped.
 type EconomicComplexityModuleLoadMatch struct {
-	Extension string `json:"extension"`
-	Endpoint string `json:"endpoint"`
+	Extension *string `json:"extension,omitempty"`
+	Endpoint *string `json:"endpoint,omitempty"`
 }
 
 // Health is the typed data model for the health entity.
@@ -98,7 +98,7 @@ type TesseractModule struct {
 
 // TesseractModuleLoadMatch is the typed request payload for TesseractModule.LoadTyped.
 type TesseractModuleLoadMatch struct {
-	Extension string `json:"extension"`
+	Extension *string `json:"extension,omitempty"`
 }
 
 // TesseractModuleCreateData is the typed request payload for TesseractModule.CreateTyped.
