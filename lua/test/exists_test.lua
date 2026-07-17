@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- DataUsa SDK exists test
 
 local sdk = require("data-usa_sdk")
 
