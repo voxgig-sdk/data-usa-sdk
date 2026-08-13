@@ -66,12 +66,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-calculationsmodule, err := client.CalculationsModule(nil).Load(nil, nil)
+routeindexget, err := client.RouteIndexGet(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = calculationsmodule
+_ = routeindexget
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-calculationsModule, err := client.CalculationsModule(nil).Load(
+routeIndexGet, err := client.RouteIndexGet(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(calculationsModule) // the returned mock data
+fmt.Println(routeIndexGet) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -296,7 +296,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `"annotation"` |  |
+| `"annotations"` |  |
 | `"caption"` |  |
 | `"name"` |  |
 | `"type"` |  |
@@ -309,10 +309,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `"debug"` |  |
-| `"module"` |  |
-| `"status"` |  |
-| `"version"` |  |
 
 Operations: Load.
 
@@ -331,10 +327,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `"annotation"` |  |
+| `"annotations"` |  |
 | `"caption"` |  |
-| `"dimension"` |  |
-| `"measure"` |  |
+| `"dimensions"` |  |
+| `"measures"` |  |
 | `"name"` |  |
 
 Operations: Load.
@@ -345,9 +341,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `"join"` |  |
+| `"joins"` |  |
 | `"pagination"` |  |
-| `"request"` |  |
+| `"requests"` |  |
 
 Operations: Create, Load.
 
@@ -357,10 +353,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `"annotation"` |  |
+| `"annotations"` |  |
 | `"caption"` |  |
-| `"dimension"` |  |
-| `"measure"` |  |
+| `"dimensions"` |  |
+| `"measures"` |  |
 | `"name"` |  |
 
 Operations: List.
@@ -449,7 +445,7 @@ Create an instance: `member := client.Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `map[string]any` |  |
+| `annotations` | `map[string]any` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
@@ -474,15 +470,6 @@ Create an instance: `moduleStatus := client.ModuleStatus(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `any` |  |
-| `module` | `string` |  |
-| `status` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: Load
 
@@ -530,10 +517,10 @@ Create an instance: `tesseractCube := client.TesseractCube(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `map[string]any` |  |
+| `annotations` | `map[string]any` |  |
 | `caption` | `string` |  |
-| `dimension` | `[]any` |  |
-| `measure` | `[]any` |  |
+| `dimensions` | `[]any` |  |
+| `measures` | `[]any` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -562,9 +549,9 @@ Create an instance: `tesseractModule := client.TesseractModule(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `[]any` |  |
+| `joins` | `[]any` |  |
 | `pagination` | `map[string]any` |  |
-| `request` | `[]any` |  |
+| `requests` | `[]any` |  |
 
 #### Example: Load
 
@@ -581,6 +568,7 @@ fmt.Println(tesseractModule) // the loaded record
 ```go
 result, err := client.TesseractModule(nil).Create(map[string]any{
     "extension": "example_extension",
+    "requests": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -603,10 +591,10 @@ Create an instance: `tesseractSchema := client.TesseractSchema(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `map[string]any` |  |
+| `annotations` | `map[string]any` |  |
 | `caption` | `string` |  |
-| `dimension` | `[]any` |  |
-| `measure` | `[]any` |  |
+| `dimensions` | `[]any` |  |
+| `measures` | `[]any` |  |
 | `name` | `string` |  |
 
 #### Example: List
@@ -693,11 +681,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-calculationsmodule := client.CalculationsModule(nil)
-calculationsmodule.Load(nil, nil)
+routeindexget := client.RouteIndexGet(nil)
+routeindexget.Load(nil, nil)
 
-// calculationsmodule.Data() now returns the calculationsmodule data from the last load
-// calculationsmodule.Match() returns the last match criteria
+// routeindexget.Data() now returns the routeindexget data from the last load
+// routeindexget.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

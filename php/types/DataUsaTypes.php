@@ -48,7 +48,7 @@ class HealthLoadMatch
 /** Member entity data model. */
 class Member
 {
-    public array $annotation;
+    public array $annotations;
     public string $caption;
     public string $name;
     public string $type;
@@ -57,7 +57,7 @@ class Member
 /** Request payload for Member#list. */
 class MemberListMatch
 {
-    public ?array $annotation = null;
+    public ?array $annotations = null;
     public ?string $caption = null;
     public ?string $name = null;
     public ?string $type = null;
@@ -66,19 +66,11 @@ class MemberListMatch
 /** ModuleStatus entity data model. */
 class ModuleStatus
 {
-    public mixed $debug;
-    public string $module;
-    public string $status;
-    public string $version;
 }
 
 /** Request payload for ModuleStatus#load. */
 class ModuleStatusLoadMatch
 {
-    public mixed $debug = null;
-    public ?string $module = null;
-    public ?string $status = null;
-    public ?string $version = null;
 }
 
 /** RouteIndexGet entity data model. */
@@ -94,10 +86,10 @@ class RouteIndexGetLoadMatch
 /** TesseractCube entity data model. */
 class TesseractCube
 {
-    public array $annotation;
+    public array $annotations;
     public string $caption;
-    public array $dimension;
-    public array $measure;
+    public array $dimensions;
+    public array $measures;
     public string $name;
 }
 
@@ -110,9 +102,9 @@ class TesseractCubeLoadMatch
 /** TesseractModule entity data model. */
 class TesseractModule
 {
-    public ?array $join = null;
+    public ?array $joins = null;
     public ?array $pagination = null;
-    public array $request;
+    public array $requests;
 }
 
 /** Request payload for TesseractModule#load. */
@@ -125,25 +117,28 @@ class TesseractModuleLoadMatch
 class TesseractModuleCreateData
 {
     public string $extension;
+    public ?array $joins = null;
+    public ?array $pagination = null;
+    public array $requests;
 }
 
 /** TesseractSchema entity data model. */
 class TesseractSchema
 {
-    public array $annotation;
+    public array $annotations;
     public string $caption;
-    public array $dimension;
-    public array $measure;
+    public array $dimensions;
+    public array $measures;
     public string $name;
 }
 
 /** Request payload for TesseractSchema#list. */
 class TesseractSchemaListMatch
 {
-    public ?array $annotation = null;
+    public ?array $annotations = null;
     public ?string $caption = null;
-    public ?array $dimension = null;
-    public ?array $measure = null;
+    public ?array $dimensions = null;
+    public ?array $measures = null;
     public ?string $name = null;
 }
 

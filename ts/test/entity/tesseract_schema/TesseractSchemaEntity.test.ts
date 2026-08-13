@@ -26,8 +26,8 @@ import {
 describe('TesseractSchemaEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when DATAUSA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('DATAUSA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when DATA_USA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('DATA_USA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = DataUsaSDK.test()
@@ -63,7 +63,7 @@ describe('TesseractSchemaEntity', async () => {
     const tesseract_schema_ref01_ent = client.TesseractSchema()
     const tesseract_schema_ref01_match: any = {}
 
-    const tesseract_schema_ref01_list = await tesseract_schema_ref01_ent.list(tesseract_schema_ref01_match)
+    const tesseract_schema_ref01_list = (await tesseract_schema_ref01_ent.list(tesseract_schema_ref01_match)).map((e: any) => e.data())
 
 
   })

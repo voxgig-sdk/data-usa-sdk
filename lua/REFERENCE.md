@@ -260,7 +260,7 @@ local member = client:Member(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `table` | Yes |  |
+| `annotations` | `table` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
@@ -310,15 +310,6 @@ Return the entity name.
 ```lua
 local module_status = client:ModuleStatus(nil)
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `any` | Yes |  |
-| `module` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -416,10 +407,10 @@ local tesseract_cube = client:TesseractCube(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `table` | Yes |  |
+| `annotations` | `table` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `table` | Yes |  |
-| `measure` | `table` | Yes |  |
+| `dimensions` | `table` | Yes |  |
+| `measures` | `table` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations
@@ -472,9 +463,9 @@ local tesseract_module = client:TesseractModule(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `table` | No |  |
+| `joins` | `table` | No |  |
 | `pagination` | `table` | No |  |
-| `request` | `table` | Yes |  |
+| `requests` | `table` | Yes |  |
 
 ### Operations
 
@@ -485,6 +476,7 @@ Create a new entity with the given data.
 ```lua
 local result, err = client:TesseractModule():create({
   extension = --[[ string ]],
+  requests = --[[ table ]],
 })
 ```
 
@@ -536,10 +528,10 @@ local tesseract_schema = client:TesseractSchema(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `table` | Yes |  |
+| `annotations` | `table` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `table` | Yes |  |
-| `measure` | `table` | Yes |  |
+| `dimensions` | `table` | Yes |  |
+| `measures` | `table` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations

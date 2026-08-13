@@ -108,6 +108,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/calcs/merge.{extension}",
                   "parts" => [
@@ -200,6 +201,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/calcs/pums.{extension}",
                   "parts" => [
@@ -274,6 +276,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/calcs/acs.{extension}",
                   "parts" => [
@@ -517,6 +520,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/eci_subnational.{extension}",
                   "parts" => [
@@ -763,6 +767,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/pci_subnational.{extension}",
                   "parts" => [
@@ -1010,6 +1015,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/relatedness_subnational.{extension}",
                   "parts" => [
@@ -1257,6 +1263,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/relative_relatedness_subnational.{extension}",
                   "parts" => [
@@ -1495,6 +1502,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/rca_historical.{extension}",
                   "parts" => [
@@ -1732,6 +1740,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/rca_subnational.{extension}",
                   "parts" => [
@@ -1945,6 +1954,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/peii.{extension}",
                   "parts" => [
@@ -2155,6 +2165,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/pgi.{extension}",
                   "parts" => [
@@ -2358,6 +2369,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/eci.{extension}",
                   "parts" => [
@@ -2560,6 +2572,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/pci.{extension}",
                   "parts" => [
@@ -2754,6 +2767,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/opportunity_gain.{extension}",
                   "parts" => [
@@ -2947,6 +2961,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/relatedness.{extension}",
                   "parts" => [
@@ -3140,6 +3155,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/relative_relatedness.{extension}",
                   "parts" => [
@@ -3332,6 +3348,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/rca.{extension}",
                   "parts" => [
@@ -3391,6 +3408,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/{endpoint}",
                   "parts" => [
@@ -3432,6 +3450,7 @@ module DataUsaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/_health",
                   "parts" => [
@@ -3456,7 +3475,7 @@ module DataUsaConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "annotation",
+              "name" => "annotations",
               "req" => true,
               "type" => "`$OBJECT`",
               "index$" => 0,
@@ -3572,6 +3591,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/members",
                   "parts" => [
@@ -3606,36 +3626,7 @@ module DataUsaConfig
           },
         },
         "module_status" => {
-          "fields" => [
-            {
-              "active" => true,
-              "name" => "debug",
-              "req" => true,
-              "type" => "`$ANY`",
-              "index$" => 0,
-            },
-            {
-              "active" => true,
-              "name" => "module",
-              "req" => true,
-              "type" => "`$STRING`",
-              "index$" => 1,
-            },
-            {
-              "active" => true,
-              "name" => "status",
-              "req" => true,
-              "type" => "`$STRING`",
-              "index$" => 2,
-            },
-            {
-              "active" => true,
-              "name" => "version",
-              "req" => true,
-              "type" => "`$STRING`",
-              "index$" => 3,
-            },
-          ],
+          "fields" => [],
           "name" => "module_status",
           "op" => {
             "load" => {
@@ -3645,6 +3636,7 @@ module DataUsaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/calcs/",
                   "parts" => [
@@ -3653,13 +3645,14 @@ module DataUsaConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.debug`",
                   },
                   "index$" => 0,
                 },
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/",
                   "parts" => [
@@ -3668,13 +3661,14 @@ module DataUsaConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.debug`",
                   },
                   "index$" => 1,
                 },
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/",
                   "parts" => [
@@ -3683,7 +3677,7 @@ module DataUsaConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.debug`",
                   },
                   "index$" => 2,
                 },
@@ -3706,6 +3700,7 @@ module DataUsaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],
@@ -3728,7 +3723,7 @@ module DataUsaConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "annotation",
+              "name" => "annotations",
               "req" => true,
               "type" => "`$OBJECT`",
               "index$" => 0,
@@ -3742,14 +3737,14 @@ module DataUsaConfig
             },
             {
               "active" => true,
-              "name" => "dimension",
+              "name" => "dimensions",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 2,
             },
             {
               "active" => true,
-              "name" => "measure",
+              "name" => "measures",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -3819,6 +3814,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/cubes/{cube_name}",
                   "parts" => [
@@ -3897,6 +3893,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/cubes/{cube_name}",
                   "parts" => [
@@ -3936,7 +3933,7 @@ module DataUsaConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "join",
+              "name" => "joins",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -3950,7 +3947,7 @@ module DataUsaConfig
             },
             {
               "active" => true,
-              "name" => "request",
+              "name" => "requests",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 2,
@@ -4005,6 +4002,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/tesseract/multiquery.{extension}",
                   "parts" => [
@@ -4206,6 +4204,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/debug/query",
                   "parts" => [
@@ -4420,6 +4419,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/data.{extension}",
                   "parts" => [
@@ -4488,6 +4488,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/debug/flush",
                   "parts" => [
@@ -4540,6 +4541,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/debug/schema",
                   "parts" => [
@@ -4575,6 +4577,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/members.{extension}",
                   "parts" => [
@@ -4595,6 +4598,7 @@ module DataUsaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/data",
                   "parts" => [
@@ -4620,7 +4624,7 @@ module DataUsaConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "annotation",
+              "name" => "annotations",
               "req" => true,
               "type" => "`$OBJECT`",
               "index$" => 0,
@@ -4634,14 +4638,14 @@ module DataUsaConfig
             },
             {
               "active" => true,
-              "name" => "dimension",
+              "name" => "dimensions",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 2,
             },
             {
               "active" => true,
-              "name" => "measure",
+              "name" => "measures",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -4700,6 +4704,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/complexity/cubes",
                   "parts" => [
@@ -4760,6 +4765,7 @@ module DataUsaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tesseract/cubes",
                   "parts" => [

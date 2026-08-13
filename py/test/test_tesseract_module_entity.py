@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from datausa_sdk.utility.voxgig_struct import voxgig_struct as vs
 from datausa_sdk import DataUsaSDK
-from core import helpers
+from datausa_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -36,7 +36,7 @@ class TestTesseractModuleEntity:
         # without an *_ENTID env override, those IDs hit the live API and 4xx.
         if setup.get("synthetic_only"):
             pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set DATAUSA_TEST_TESSERACT_MODULE_ENTID JSON to run live")
+                        "set DATA_USA_TEST_TESSERACT_MODULE_ENTID JSON to run live")
         client = setup["client"]
 
         # CREATE
@@ -45,7 +45,7 @@ class TestTesseractModuleEntity:
             vs.getpath(setup["data"], "new.tesseract_module"), "tesseract_module_ref01"))
         tesseract_module_ref01_data["extension"] = setup["idmap"]["extension01"]
 
-        tesseract_module_ref01_data = helpers.to_map(tesseract_module_ref01_ent.create(tesseract_module_ref01_data, None))
+        tesseract_module_ref01_data = helpers.to_map(runner.entity_data(tesseract_module_ref01_ent.create(tesseract_module_ref01_data, None)))
         assert tesseract_module_ref01_data is not None
 
         # LOAD
@@ -84,21 +84,21 @@ def _tesseract_module_basic_setup(extra):
     # mode is on without a real override, the basic test runs against synthetic
     # IDs from the fixture and 4xx's. We surface this so the test can skip.
     _entid_env_raw = os.environ.get(
-        "DATAUSA_TEST_TESSERACT_MODULE_ENTID")
+        "DATA_USA_TEST_TESSERACT_MODULE_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
 
     env = runner.env_override({
-        "DATAUSA_TEST_TESSERACT_MODULE_ENTID": idmap,
-        "DATAUSA_TEST_LIVE": "FALSE",
-        "DATAUSA_TEST_EXPLAIN": "FALSE",
+        "DATA_USA_TEST_TESSERACT_MODULE_ENTID": idmap,
+        "DATA_USA_TEST_LIVE": "FALSE",
+        "DATA_USA_TEST_EXPLAIN": "FALSE",
     })
 
     idmap_resolved = helpers.to_map(
-        env.get("DATAUSA_TEST_TESSERACT_MODULE_ENTID"))
+        env.get("DATA_USA_TEST_TESSERACT_MODULE_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
 
-    if env.get("DATAUSA_TEST_LIVE") == "TRUE":
+    if env.get("DATA_USA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
             },
@@ -106,13 +106,13 @@ def _tesseract_module_basic_setup(extra):
         ])
         client = DataUsaSDK(helpers.to_map(merged_opts))
 
-    _live = env.get("DATAUSA_TEST_LIVE") == "TRUE"
+    _live = env.get("DATA_USA_TEST_LIVE") == "TRUE"
     return {
         "client": client,
         "data": entity_data,
         "idmap": idmap_resolved,
         "env": env,
-        "explain": env.get("DATAUSA_TEST_EXPLAIN") == "TRUE",
+        "explain": env.get("DATA_USA_TEST_EXPLAIN") == "TRUE",
         "live": _live,
         "synthetic_only": _live and not _idmap_overridden,
         "now": int(time.time() * 1000),

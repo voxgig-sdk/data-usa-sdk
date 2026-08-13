@@ -44,7 +44,7 @@ func TestTesseractModuleEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set DATAUSA_TEST_TESSERACT_MODULE_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set DATA_USA_TEST_TESSERACT_MODULE_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -59,7 +59,7 @@ func TestTesseractModuleEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("create failed: %v", err)
 		}
-		tesseractModuleRef01Data = core.ToMapAny(tesseractModuleRef01DataResult)
+		tesseractModuleRef01Data = core.ToMapAny(entityData(tesseractModuleRef01DataResult))
 		if tesseractModuleRef01Data == nil {
 			t.Fatal("expected create result to be a map")
 		}
@@ -114,21 +114,21 @@ func tesseract_moduleBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("DATAUSA_TEST_TESSERACT_MODULE_ENTID")
+	entidEnvRaw := os.Getenv("DATA_USA_TEST_TESSERACT_MODULE_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"DATAUSA_TEST_TESSERACT_MODULE_ENTID": idmap,
-		"DATAUSA_TEST_LIVE":      "FALSE",
-		"DATAUSA_TEST_EXPLAIN":   "FALSE",
+		"DATA_USA_TEST_TESSERACT_MODULE_ENTID": idmap,
+		"DATA_USA_TEST_LIVE":      "FALSE",
+		"DATA_USA_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["DATAUSA_TEST_TESSERACT_MODULE_ENTID"])
+	idmapResolved := core.ToMapAny(env["DATA_USA_TEST_TESSERACT_MODULE_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["DATAUSA_TEST_LIVE"] == "TRUE" {
+	if env["DATA_USA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -137,13 +137,13 @@ func tesseract_moduleBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewDataUsaSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["DATAUSA_TEST_LIVE"] == "TRUE"
+	live := env["DATA_USA_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["DATAUSA_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["DATA_USA_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

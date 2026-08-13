@@ -48,7 +48,7 @@ end
 
 # Member entity data model.
 #
-# @!attribute [rw] annotation
+# @!attribute [rw] annotations
 #   @return [Hash]
 #
 # @!attribute [rw] caption
@@ -60,7 +60,7 @@ end
 # @!attribute [rw] type
 #   @return [String]
 Member = Struct.new(
-  :annotation,
+  :annotations,
   :caption,
   :name,
   :type,
@@ -69,7 +69,7 @@ Member = Struct.new(
 
 # Request payload for Member#list.
 #
-# @!attribute [rw] annotation
+# @!attribute [rw] annotations
 #   @return [Hash, nil]
 #
 # @!attribute [rw] caption
@@ -81,7 +81,7 @@ Member = Struct.new(
 # @!attribute [rw] type
 #   @return [String, nil]
 MemberListMatch = Struct.new(
-  :annotation,
+  :annotations,
   :caption,
   :name,
   :type,
@@ -89,46 +89,12 @@ MemberListMatch = Struct.new(
 )
 
 # ModuleStatus entity data model.
-#
-# @!attribute [rw] debug
-#   @return [Object]
-#
-# @!attribute [rw] module
-#   @return [String]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-ModuleStatus = Struct.new(
-  :debug,
-  :module,
-  :status,
-  :version,
-  keyword_init: true
-)
+class ModuleStatus
+end
 
 # Request payload for ModuleStatus#load.
-#
-# @!attribute [rw] debug
-#   @return [Object, nil]
-#
-# @!attribute [rw] module
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] version
-#   @return [String, nil]
-ModuleStatusLoadMatch = Struct.new(
-  :debug,
-  :module,
-  :status,
-  :version,
-  keyword_init: true
-)
+class ModuleStatusLoadMatch
+end
 
 # RouteIndexGet entity data model.
 class RouteIndexGet
@@ -140,25 +106,25 @@ end
 
 # TesseractCube entity data model.
 #
-# @!attribute [rw] annotation
+# @!attribute [rw] annotations
 #   @return [Hash]
 #
 # @!attribute [rw] caption
 #   @return [String]
 #
-# @!attribute [rw] dimension
+# @!attribute [rw] dimensions
 #   @return [Array]
 #
-# @!attribute [rw] measure
+# @!attribute [rw] measures
 #   @return [Array]
 #
 # @!attribute [rw] name
 #   @return [String]
 TesseractCube = Struct.new(
-  :annotation,
+  :annotations,
   :caption,
-  :dimension,
-  :measure,
+  :dimensions,
+  :measures,
   :name,
   keyword_init: true
 )
@@ -174,18 +140,18 @@ TesseractCubeLoadMatch = Struct.new(
 
 # TesseractModule entity data model.
 #
-# @!attribute [rw] join
+# @!attribute [rw] joins
 #   @return [Array, nil]
 #
 # @!attribute [rw] pagination
 #   @return [Hash, nil]
 #
-# @!attribute [rw] request
+# @!attribute [rw] requests
 #   @return [Array]
 TesseractModule = Struct.new(
-  :join,
+  :joins,
   :pagination,
-  :request,
+  :requests,
   keyword_init: true
 )
 
@@ -202,57 +168,69 @@ TesseractModuleLoadMatch = Struct.new(
 #
 # @!attribute [rw] extension
 #   @return [String]
+#
+# @!attribute [rw] joins
+#   @return [Array, nil]
+#
+# @!attribute [rw] pagination
+#   @return [Hash, nil]
+#
+# @!attribute [rw] requests
+#   @return [Array]
 TesseractModuleCreateData = Struct.new(
   :extension,
+  :joins,
+  :pagination,
+  :requests,
   keyword_init: true
 )
 
 # TesseractSchema entity data model.
 #
-# @!attribute [rw] annotation
+# @!attribute [rw] annotations
 #   @return [Hash]
 #
 # @!attribute [rw] caption
 #   @return [String]
 #
-# @!attribute [rw] dimension
+# @!attribute [rw] dimensions
 #   @return [Array]
 #
-# @!attribute [rw] measure
+# @!attribute [rw] measures
 #   @return [Array]
 #
 # @!attribute [rw] name
 #   @return [String]
 TesseractSchema = Struct.new(
-  :annotation,
+  :annotations,
   :caption,
-  :dimension,
-  :measure,
+  :dimensions,
+  :measures,
   :name,
   keyword_init: true
 )
 
 # Request payload for TesseractSchema#list.
 #
-# @!attribute [rw] annotation
+# @!attribute [rw] annotations
 #   @return [Hash, nil]
 #
 # @!attribute [rw] caption
 #   @return [String, nil]
 #
-# @!attribute [rw] dimension
+# @!attribute [rw] dimensions
 #   @return [Array, nil]
 #
-# @!attribute [rw] measure
+# @!attribute [rw] measures
 #   @return [Array, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 TesseractSchemaListMatch = Struct.new(
-  :annotation,
+  :annotations,
   :caption,
-  :dimension,
-  :measure,
+  :dimensions,
+  :measures,
   :name,
   keyword_init: true
 )

@@ -65,11 +65,11 @@ function route_index_get_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "DATAUSA_TEST_ROUTE_INDEX_GET_ENTID" => [],
-        "DATAUSA_TEST_LIVE" => "FALSE",
+        "DATA_USA_TEST_ROUTE_INDEX_GET_ENTID" => [],
+        "DATA_USA_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["DATAUSA_TEST_LIVE"] === "TRUE";
+    $live = $env["DATA_USA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

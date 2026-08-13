@@ -2,23 +2,23 @@
   "existing": {
     "tesseract_module": {
       "TESSERACT_MODULE00": {
-        "join": [],
+        "joins": [],
         "pagination": {},
-        "request": [],
+        "requests": [],
         "extension": "EXTENSION01",
         "id": "TESSERACT_MODULE00"
       },
       "TESSERACT_MODULE01": {
-        "join": [],
+        "joins": [],
         "pagination": {},
-        "request": [],
+        "requests": [],
         "extension": "EXTENSION01",
         "id": "TESSERACT_MODULE01"
       },
       "TESSERACT_MODULE02": {
-        "join": [],
+        "joins": [],
         "pagination": {},
-        "request": [],
+        "requests": [],
         "extension": "EXTENSION01",
         "id": "TESSERACT_MODULE02"
       }
@@ -27,9 +27,9 @@
   "new": {
     "tesseract_module": {
       "tesseract_module_ref01": {
-        "join": [],
+        "joins": [],
         "pagination": {},
-        "request": []
+        "requests": []
       }
     }
   }

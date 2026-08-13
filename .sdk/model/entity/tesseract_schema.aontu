@@ -6,7 +6,7 @@ main: kit: entity: tesseract_schema: {
 
   fields: [
     {
-      name: "annotation"
+      name: "annotations"
       req: true
       type: "`$OBJECT`"
     }
@@ -16,12 +16,12 @@ main: kit: entity: tesseract_schema: {
       type: "`$STRING`"
     }
     {
-      name: "dimension"
+      name: "dimensions"
       req: true
       type: "`$ARRAY`"
     }
     {
-      name: "measure"
+      name: "measures"
       req: true
       type: "`$ARRAY`"
     }

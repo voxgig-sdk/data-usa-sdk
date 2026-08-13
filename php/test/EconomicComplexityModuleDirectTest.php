@@ -65,11 +65,11 @@ function economic_complexity_module_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "DATAUSA_TEST_ECONOMIC_COMPLEXITY_MODULE_ENTID" => [],
-        "DATAUSA_TEST_LIVE" => "FALSE",
+        "DATA_USA_TEST_ECONOMIC_COMPLEXITY_MODULE_ENTID" => [],
+        "DATA_USA_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["DATAUSA_TEST_LIVE"] === "TRUE";
+    $live = $env["DATA_USA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

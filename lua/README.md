@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local calculationsmodule, err = client:CalculationsModule():load()
+local routeindexget, err = client:RouteIndexGet():load()
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:CalculationsModule():load()
+local result, err = client:RouteIndexGet():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -263,7 +263,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
 | `name` |  |
 | `type` |  |
@@ -276,10 +276,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `debug` |  |
-| `module` |  |
-| `status` |  |
-| `version` |  |
 
 Operations: Load.
 
@@ -298,10 +294,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: Load.
@@ -312,9 +308,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `join` |  |
+| `joins` |  |
 | `pagination` |  |
-| `request` |  |
+| `requests` |  |
 
 Operations: Create, Load.
 
@@ -324,10 +320,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: List.
@@ -404,7 +400,7 @@ Create an instance: `local member = client:Member(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `table` |  |
+| `annotations` | `table` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
@@ -425,15 +421,6 @@ Create an instance: `local module_status = client:ModuleStatus(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `any` |  |
-| `module` | `string` |  |
-| `status` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: Load
 
@@ -473,10 +460,10 @@ Create an instance: `local tesseract_cube = client:TesseractCube(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `table` |  |
+| `annotations` | `table` |  |
 | `caption` | `string` |  |
-| `dimension` | `table` |  |
-| `measure` | `table` |  |
+| `dimensions` | `table` |  |
+| `measures` | `table` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -501,9 +488,9 @@ Create an instance: `local tesseract_module = client:TesseractModule(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `table` |  |
+| `joins` | `table` |  |
 | `pagination` | `table` |  |
-| `request` | `table` |  |
+| `requests` | `table` |  |
 
 #### Example: Load
 
@@ -516,6 +503,7 @@ local tesseract_module, err = client:TesseractModule():load()
 ```lua
 local tesseract_module, err = client:TesseractModule():create({
   extension = "example_extension", -- string
+  requests = {}, -- table
 })
 ```
 
@@ -534,10 +522,10 @@ Create an instance: `local tesseract_schema = client:TesseractSchema(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `table` |  |
+| `annotations` | `table` |  |
 | `caption` | `string` |  |
-| `dimension` | `table` |  |
-| `measure` | `table` |  |
+| `dimensions` | `table` |  |
+| `measures` | `table` |  |
 | `name` | `string` |  |
 
 #### Example: List
@@ -623,11 +611,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local calculationsmodule = client:CalculationsModule()
-calculationsmodule:load()
+local routeindexget = client:RouteIndexGet()
+routeindexget:load()
 
--- calculationsmodule:data_get() now returns the calculationsmodule data from the last load
--- calculationsmodule:match_get() returns the last match criteria
+-- routeindexget:data_get() now returns the routeindexget data from the last load
+-- routeindexget:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

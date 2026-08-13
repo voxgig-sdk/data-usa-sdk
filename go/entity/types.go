@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/data-usa-sdk/go/core"
+)
 
 // CalculationsModule is the typed data model for the calculations_module entity.
 type CalculationsModule struct {
@@ -37,7 +41,7 @@ type HealthLoadMatch struct {
 
 // Member is the typed data model for the member entity.
 type Member struct {
-	Annotation map[string]any `json:"annotation"`
+	Annotations map[string]any `json:"annotations"`
 	Caption string `json:"caption"`
 	Name string `json:"name"`
 	Type string `json:"type"`
@@ -45,7 +49,7 @@ type Member struct {
 
 // MemberListMatch is the typed request payload for Member.ListTyped.
 type MemberListMatch struct {
-	Annotation *map[string]any `json:"annotation,omitempty"`
+	Annotations *map[string]any `json:"annotations,omitempty"`
 	Caption *string `json:"caption,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -53,18 +57,10 @@ type MemberListMatch struct {
 
 // ModuleStatus is the typed data model for the module_status entity.
 type ModuleStatus struct {
-	Debug any `json:"debug"`
-	Module string `json:"module"`
-	Status string `json:"status"`
-	Version string `json:"version"`
 }
 
 // ModuleStatusLoadMatch is the typed request payload for ModuleStatus.LoadTyped.
 type ModuleStatusLoadMatch struct {
-	Debug *any `json:"debug,omitempty"`
-	Module *string `json:"module,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Version *string `json:"version,omitempty"`
 }
 
 // RouteIndexGet is the typed data model for the route_index_get entity.
@@ -77,10 +73,10 @@ type RouteIndexGetLoadMatch struct {
 
 // TesseractCube is the typed data model for the tesseract_cube entity.
 type TesseractCube struct {
-	Annotation map[string]any `json:"annotation"`
+	Annotations map[string]any `json:"annotations"`
 	Caption string `json:"caption"`
-	Dimension []any `json:"dimension"`
-	Measure []any `json:"measure"`
+	Dimensions []any `json:"dimensions"`
+	Measures []any `json:"measures"`
 	Name string `json:"name"`
 }
 
@@ -91,9 +87,9 @@ type TesseractCubeLoadMatch struct {
 
 // TesseractModule is the typed data model for the tesseract_module entity.
 type TesseractModule struct {
-	Join *[]any `json:"join,omitempty"`
+	Joins *[]any `json:"joins,omitempty"`
 	Pagination *map[string]any `json:"pagination,omitempty"`
-	Request []any `json:"request"`
+	Requests []any `json:"requests"`
 }
 
 // TesseractModuleLoadMatch is the typed request payload for TesseractModule.LoadTyped.
@@ -104,23 +100,26 @@ type TesseractModuleLoadMatch struct {
 // TesseractModuleCreateData is the typed request payload for TesseractModule.CreateTyped.
 type TesseractModuleCreateData struct {
 	Extension string `json:"extension"`
+	Joins *[]any `json:"joins,omitempty"`
+	Pagination *map[string]any `json:"pagination,omitempty"`
+	Requests []any `json:"requests"`
 }
 
 // TesseractSchema is the typed data model for the tesseract_schema entity.
 type TesseractSchema struct {
-	Annotation map[string]any `json:"annotation"`
+	Annotations map[string]any `json:"annotations"`
 	Caption string `json:"caption"`
-	Dimension []any `json:"dimension"`
-	Measure []any `json:"measure"`
+	Dimensions []any `json:"dimensions"`
+	Measures []any `json:"measures"`
 	Name string `json:"name"`
 }
 
 // TesseractSchemaListMatch is the typed request payload for TesseractSchema.ListTyped.
 type TesseractSchemaListMatch struct {
-	Annotation *map[string]any `json:"annotation,omitempty"`
+	Annotations *map[string]any `json:"annotations,omitempty"`
 	Caption *string `json:"caption,omitempty"`
-	Dimension *[]any `json:"dimension,omitempty"`
-	Measure *[]any `json:"measure,omitempty"`
+	Dimensions *[]any `json:"dimensions,omitempty"`
+	Measures *[]any `json:"measures,omitempty"`
 	Name *string `json:"name,omitempty"`
 }
 
@@ -136,12 +135,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -153,12 +166,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

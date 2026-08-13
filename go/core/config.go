@@ -107,6 +107,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/merge.{extension}",
 								"parts": []any{
@@ -199,6 +200,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/pums.{extension}",
 								"parts": []any{
@@ -273,6 +275,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/acs.{extension}",
 								"parts": []any{
@@ -295,7 +298,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -516,6 +518,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/eci_subnational.{extension}",
 								"parts": []any{
@@ -762,6 +765,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pci_subnational.{extension}",
 								"parts": []any{
@@ -1009,6 +1013,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relatedness_subnational.{extension}",
 								"parts": []any{
@@ -1256,6 +1261,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relative_relatedness_subnational.{extension}",
 								"parts": []any{
@@ -1494,6 +1500,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca_historical.{extension}",
 								"parts": []any{
@@ -1731,6 +1738,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca_subnational.{extension}",
 								"parts": []any{
@@ -1944,6 +1952,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/peii.{extension}",
 								"parts": []any{
@@ -2154,6 +2163,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pgi.{extension}",
 								"parts": []any{
@@ -2357,6 +2367,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/eci.{extension}",
 								"parts": []any{
@@ -2559,6 +2570,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pci.{extension}",
 								"parts": []any{
@@ -2753,6 +2765,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/opportunity_gain.{extension}",
 								"parts": []any{
@@ -2946,6 +2959,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relatedness.{extension}",
 								"parts": []any{
@@ -3139,6 +3153,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relative_relatedness.{extension}",
 								"parts": []any{
@@ -3331,6 +3346,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca.{extension}",
 								"parts": []any{
@@ -3390,6 +3406,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/{endpoint}",
 								"parts": []any{
@@ -3409,7 +3426,6 @@ func MakeConfig() map[string]any {
 								"index$": 14,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3431,6 +3447,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/_health",
 								"parts": []any{
@@ -3444,7 +3461,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3455,7 +3471,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "annotation",
+						"name": "annotations",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 0,
@@ -3571,6 +3587,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/members",
 								"parts": []any{
@@ -3597,7 +3614,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -3605,36 +3621,7 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"module_status": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "debug",
-						"req": true,
-						"type": "`$ANY`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "module",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "status",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "version",
-						"req": true,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-				},
+				"fields": []any{},
 				"name": "module_status",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -3644,6 +3631,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/",
 								"parts": []any{
@@ -3652,13 +3640,14 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.debug`",
 								},
 								"index$": 0,
 							},
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/",
 								"parts": []any{
@@ -3667,13 +3656,14 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.debug`",
 								},
 								"index$": 1,
 							},
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/",
 								"parts": []any{
@@ -3682,12 +3672,11 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.debug`",
 								},
 								"index$": 2,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3705,6 +3694,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"parts": []any{},
@@ -3716,7 +3706,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3727,7 +3716,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "annotation",
+						"name": "annotations",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 0,
@@ -3741,14 +3730,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "dimension",
+						"name": "dimensions",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "measure",
+						"name": "measures",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 3,
@@ -3818,6 +3807,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/cubes/{cube_name}",
 								"parts": []any{
@@ -3896,6 +3886,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/cubes/{cube_name}",
 								"parts": []any{
@@ -3924,7 +3915,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3935,7 +3925,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "join",
+						"name": "joins",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -3949,7 +3939,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "request",
+						"name": "requests",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 2,
@@ -4004,6 +3994,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "POST",
 								"orig": "/tesseract/multiquery.{extension}",
 								"parts": []any{
@@ -4025,7 +4016,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "create",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -4205,6 +4195,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/query",
 								"parts": []any{
@@ -4419,6 +4410,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/data.{extension}",
 								"parts": []any{
@@ -4487,6 +4479,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/flush",
 								"parts": []any{
@@ -4539,6 +4532,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/schema",
 								"parts": []any{
@@ -4574,6 +4568,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/members.{extension}",
 								"parts": []any{
@@ -4594,6 +4589,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/data",
 								"parts": []any{
@@ -4608,7 +4604,6 @@ func MakeConfig() map[string]any {
 								"index$": 5,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -4619,7 +4614,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "annotation",
+						"name": "annotations",
 						"req": true,
 						"type": "`$OBJECT`",
 						"index$": 0,
@@ -4633,14 +4628,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "dimension",
+						"name": "dimensions",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "measure",
+						"name": "measures",
 						"req": true,
 						"type": "`$ARRAY`",
 						"index$": 3,
@@ -4699,6 +4694,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/cubes",
 								"parts": []any{
@@ -4759,6 +4755,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/cubes",
 								"parts": []any{
@@ -4780,7 +4777,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

@@ -26,8 +26,8 @@ import {
 describe('TesseractModuleEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when DATAUSA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('DATAUSA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when DATA_USA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('DATA_USA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = DataUsaSDK.test()
@@ -63,13 +63,13 @@ describe('TesseractModuleEntity', async () => {
     let tesseract_module_ref01_data = setup.data.new.tesseract_module['tesseract_module_ref01']
     tesseract_module_ref01_data['extension'] = setup.idmap['extension01']
 
-    tesseract_module_ref01_data = await tesseract_module_ref01_ent.create(tesseract_module_ref01_data)
+    tesseract_module_ref01_data = (await tesseract_module_ref01_ent.create(tesseract_module_ref01_data)).data()
     assert(null != tesseract_module_ref01_data)
 
 
     // LOAD
     const tesseract_module_ref01_match_dt0: any = {}
-    const tesseract_module_ref01_data_dt0 = await tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0)
+    const tesseract_module_ref01_data_dt0 = (await tesseract_module_ref01_ent.load(tesseract_module_ref01_match_dt0)).data()
     assert(null != tesseract_module_ref01_data_dt0)
 
 

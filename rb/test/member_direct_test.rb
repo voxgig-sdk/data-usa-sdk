@@ -60,11 +60,11 @@ def member_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "DATAUSA_TEST_MEMBER_ENTID" => {},
-    "DATAUSA_TEST_LIVE" => "FALSE",
+    "DATA_USA_TEST_MEMBER_ENTID" => {},
+    "DATA_USA_TEST_LIVE" => "FALSE",
   })
 
-  live = env["DATAUSA_TEST_LIVE"] == "TRUE"
+  live = env["DATA_USA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

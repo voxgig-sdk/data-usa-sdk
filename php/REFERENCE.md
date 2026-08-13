@@ -262,7 +262,7 @@ $member = $client->Member();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `array` | Yes |  |
+| `annotations` | `array` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
@@ -312,15 +312,6 @@ Return the entity name.
 ```php
 $module_status = $client->ModuleStatus();
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `mixed` | Yes |  |
-| `module` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -418,10 +409,10 @@ $tesseract_cube = $client->TesseractCube();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `array` | Yes |  |
+| `annotations` | `array` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `array` | Yes |  |
-| `measure` | `array` | Yes |  |
+| `dimensions` | `array` | Yes |  |
+| `measures` | `array` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations
@@ -474,9 +465,9 @@ $tesseract_module = $client->TesseractModule();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `array` | No |  |
+| `joins` | `array` | No |  |
 | `pagination` | `array` | No |  |
-| `request` | `array` | Yes |  |
+| `requests` | `array` | Yes |  |
 
 ### Operations
 
@@ -487,6 +478,7 @@ Create a new entity with the given data. Throws on error.
 ```php
 $result = $client->TesseractModule()->create([
   "extension" => null, // string
+  "requests" => null, // array
 ]);
 ```
 
@@ -538,10 +530,10 @@ $tesseract_schema = $client->TesseractSchema();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `array` | Yes |  |
+| `annotations` | `array` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `array` | Yes |  |
-| `measure` | `array` | Yes |  |
+| `dimensions` | `array` | Yes |  |
+| `measures` | `array` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations

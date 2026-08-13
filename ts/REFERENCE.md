@@ -344,7 +344,7 @@ const member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Record<string, any>` | Yes |  |
+| `annotations` | `Record<string, any>` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
@@ -392,15 +392,6 @@ Return a copy of the entity options.
 ```ts
 const module_status = client.ModuleStatus()
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `any` | Yes |  |
-| `module` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -494,10 +485,10 @@ const tesseract_cube = client.TesseractCube()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Record<string, any>` | Yes |  |
+| `annotations` | `Record<string, any>` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `any[]` | Yes |  |
-| `measure` | `any[]` | Yes |  |
+| `dimensions` | `any[]` | Yes |  |
+| `measures` | `any[]` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations
@@ -548,9 +539,9 @@ const tesseract_module = client.TesseractModule()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `any[]` | No |  |
+| `joins` | `any[]` | No |  |
 | `pagination` | `Record<string, any>` | No |  |
-| `request` | `any[]` | Yes |  |
+| `requests` | `any[]` | Yes |  |
 
 ### Operations
 
@@ -561,6 +552,7 @@ Create a new entity with the given data.
 ```ts
 const result = await client.TesseractModule().create({
   extension: 'example_extension',
+  requests: [],
 })
 ```
 
@@ -610,10 +602,10 @@ const tesseract_schema = client.TesseractSchema()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Record<string, any>` | Yes |  |
+| `annotations` | `Record<string, any>` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `any[]` | Yes |  |
-| `measure` | `any[]` | Yes |  |
+| `dimensions` | `any[]` | Yes |  |
+| `measures` | `any[]` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations

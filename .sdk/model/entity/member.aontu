@@ -6,7 +6,7 @@ main: kit: entity: member: {
 
   fields: [
     {
-      name: "annotation"
+      name: "annotations"
       req: true
       type: "`$OBJECT`"
     }

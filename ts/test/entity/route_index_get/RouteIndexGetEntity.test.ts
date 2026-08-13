@@ -26,8 +26,8 @@ import {
 describe('RouteIndexGetEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when DATAUSA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('DATAUSA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when DATA_USA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('DATA_USA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = DataUsaSDK.test()
@@ -62,7 +62,7 @@ describe('RouteIndexGetEntity', async () => {
     // LOAD
     const route_index_get_ref01_ent = client.RouteIndexGet()
     const route_index_get_ref01_match_dt0: any = {}
-    const route_index_get_ref01_data_dt0 = await route_index_get_ref01_ent.load(route_index_get_ref01_match_dt0)
+    const route_index_get_ref01_data_dt0 = (await route_index_get_ref01_ent.load(route_index_get_ref01_match_dt0)).data()
     assert(null != route_index_get_ref01_data_dt0)
 
 

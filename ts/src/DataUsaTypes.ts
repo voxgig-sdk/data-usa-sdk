@@ -27,31 +27,23 @@ export interface HealthLoadMatch {
 }
 
 export interface Member {
-  annotation: Record<string, any>
+  annotations: Record<string, any>
   caption: string
   name: string
   type: string
 }
 
 export interface MemberListMatch {
-  annotation?: Record<string, any>
+  annotations?: Record<string, any>
   caption?: string
   name?: string
   type?: string
 }
 
 export interface ModuleStatus {
-  debug: any
-  module: string
-  status: string
-  version: string
 }
 
 export interface ModuleStatusLoadMatch {
-  debug?: any
-  module?: string
-  status?: string
-  version?: string
 }
 
 export interface RouteIndexGet {
@@ -61,10 +53,10 @@ export interface RouteIndexGetLoadMatch {
 }
 
 export interface TesseractCube {
-  annotation: Record<string, any>
+  annotations: Record<string, any>
   caption: string
-  dimension: any[]
-  measure: any[]
+  dimensions: any[]
+  measures: any[]
   name: string
 }
 
@@ -73,9 +65,9 @@ export interface TesseractCubeLoadMatch {
 }
 
 export interface TesseractModule {
-  join?: any[]
+  joins?: any[]
   pagination?: Record<string, any>
-  request: any[]
+  requests: any[]
 }
 
 export interface TesseractModuleLoadMatch {
@@ -84,21 +76,24 @@ export interface TesseractModuleLoadMatch {
 
 export interface TesseractModuleCreateData {
   extension: string
+  joins?: any[]
+  pagination?: Record<string, any>
+  requests: any[]
 }
 
 export interface TesseractSchema {
-  annotation: Record<string, any>
+  annotations: Record<string, any>
   caption: string
-  dimension: any[]
-  measure: any[]
+  dimensions: any[]
+  measures: any[]
   name: string
 }
 
 export interface TesseractSchemaListMatch {
-  annotation?: Record<string, any>
+  annotations?: Record<string, any>
   caption?: string
-  dimension?: any[]
-  measure?: any[]
+  dimensions?: any[]
+  measures?: any[]
   name?: string
 }
 

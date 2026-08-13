@@ -2,26 +2,26 @@
   "existing": {
     "tesseract_cube": {
       "TESSERACT_CUBE00": {
-        "annotation": {},
+        "annotations": {},
         "caption": "s33",
-        "dimension": [],
-        "measure": [],
+        "dimensions": [],
+        "measures": [],
         "name": "s36",
         "id": "TESSERACT_CUBE00"
       },
       "TESSERACT_CUBE01": {
-        "annotation": {},
+        "annotations": {},
         "caption": "s65",
-        "dimension": [],
-        "measure": [],
+        "dimensions": [],
+        "measures": [],
         "name": "s68",
         "id": "TESSERACT_CUBE01"
       },
       "TESSERACT_CUBE02": {
-        "annotation": {},
+        "annotations": {},
         "caption": "s97",
-        "dimension": [],
-        "measure": [],
+        "dimensions": [],
+        "measures": [],
         "name": "s9a",
         "id": "TESSERACT_CUBE02"
       }
@@ -30,10 +30,10 @@
   "new": {
     "tesseract_cube": {
       "tesseract_cube_ref01": {
-        "annotation": {},
+        "annotations": {},
         "caption": "sc9",
-        "dimension": [],
-        "measure": [],
+        "dimensions": [],
+        "measures": [],
         "name": "scc"
       }
     }

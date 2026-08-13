@@ -80,12 +80,15 @@ guide: {
   entity: module_status: {
     path: "/calcs/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.debug`")|top
     }
     path: "/complexity/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.debug`")|top
     }
     path: "/tesseract/": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.debug`")|top
     }
   }
 

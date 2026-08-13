@@ -263,7 +263,7 @@ member = client.Member
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Hash` | Yes |  |
+| `annotations` | `Hash` | Yes |  |
 | `caption` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
 | `type` | `String` | Yes |  |
@@ -313,15 +313,6 @@ Return the entity name.
 ```ruby
 module_status = client.ModuleStatus
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `Object` | Yes |  |
-| `module` | `String` | Yes |  |
-| `status` | `String` | Yes |  |
-| `version` | `String` | Yes |  |
 
 ### Operations
 
@@ -419,10 +410,10 @@ tesseract_cube = client.TesseractCube
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Hash` | Yes |  |
+| `annotations` | `Hash` | Yes |  |
 | `caption` | `String` | Yes |  |
-| `dimension` | `Array` | Yes |  |
-| `measure` | `Array` | Yes |  |
+| `dimensions` | `Array` | Yes |  |
+| `measures` | `Array` | Yes |  |
 | `name` | `String` | Yes |  |
 
 ### Operations
@@ -475,9 +466,9 @@ tesseract_module = client.TesseractModule
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `Array` | No |  |
+| `joins` | `Array` | No |  |
 | `pagination` | `Hash` | No |  |
-| `request` | `Array` | Yes |  |
+| `requests` | `Array` | Yes |  |
 
 ### Operations
 
@@ -488,6 +479,7 @@ Create a new entity with the given data. Raises on error.
 ```ruby
 result = client.TesseractModule.create({
   "extension" => "example_extension", # String
+  "requests" => [], # Array
 })
 ```
 
@@ -539,10 +531,10 @@ tesseract_schema = client.TesseractSchema
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `Hash` | Yes |  |
+| `annotations` | `Hash` | Yes |  |
 | `caption` | `String` | Yes |  |
-| `dimension` | `Array` | Yes |  |
-| `measure` | `Array` | Yes |  |
+| `dimensions` | `Array` | Yes |  |
+| `measures` | `Array` | Yes |  |
 | `name` | `String` | Yes |  |
 
 ### Operations

@@ -60,11 +60,11 @@ function route_index_get_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["DATAUSA_TEST_ROUTE_INDEX_GET_ENTID"] = {},
-    ["DATAUSA_TEST_LIVE"] = "FALSE",
+    ["DATA_USA_TEST_ROUTE_INDEX_GET_ENTID"] = {},
+    ["DATA_USA_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["DATAUSA_TEST_LIVE"] == "TRUE"
+  local live = env["DATA_USA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

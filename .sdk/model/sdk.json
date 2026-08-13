@@ -5,6 +5,10 @@
       "desc": ""
     },
     "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
       "config": {
         "docs_order": [
           "ts",
@@ -18,6 +22,7 @@
           "content-type": "application/json"
         }
       },
+      "contributor": {},
       "entity": {
         "calculations_module": {
           "active": true,
@@ -99,6 +104,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/calcs/merge.{extension}",
                   "parts": [
@@ -189,6 +195,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/calcs/pums.{extension}",
                   "parts": [
@@ -261,6 +268,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/calcs/acs.{extension}",
                   "parts": [
@@ -505,6 +513,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/eci_subnational.{extension}",
                   "parts": [
@@ -749,6 +758,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/pci_subnational.{extension}",
                   "parts": [
@@ -994,6 +1004,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/relatedness_subnational.{extension}",
                   "parts": [
@@ -1239,6 +1250,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/relative_relatedness_subnational.{extension}",
                   "parts": [
@@ -1475,6 +1487,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/rca_historical.{extension}",
                   "parts": [
@@ -1710,6 +1723,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/rca_subnational.{extension}",
                   "parts": [
@@ -1921,6 +1935,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/peii.{extension}",
                   "parts": [
@@ -2129,6 +2144,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/pgi.{extension}",
                   "parts": [
@@ -2330,6 +2346,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/eci.{extension}",
                   "parts": [
@@ -2530,6 +2547,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/pci.{extension}",
                   "parts": [
@@ -2722,6 +2740,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/opportunity_gain.{extension}",
                   "parts": [
@@ -2913,6 +2932,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/relatedness.{extension}",
                   "parts": [
@@ -3104,6 +3124,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/relative_relatedness.{extension}",
                   "parts": [
@@ -3294,6 +3315,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/rca.{extension}",
                   "parts": [
@@ -3351,6 +3373,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/{endpoint}",
                   "parts": [
@@ -3394,6 +3417,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/_health",
                   "parts": [
@@ -3420,7 +3444,7 @@
           "fields": [
             {
               "active": true,
-              "name": "annotation",
+              "name": "annotations",
               "req": true,
               "type": "`$OBJECT`"
             },
@@ -3532,6 +3556,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/members",
                   "parts": [
@@ -3568,32 +3593,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "debug",
-              "req": true,
-              "type": "`$ANY`"
-            },
-            {
-              "active": true,
-              "name": "module",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "status",
-              "req": true,
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "version",
-              "req": true,
-              "type": "`$STRING`"
-            }
-          ],
+          "fields": [],
           "name": "module_status",
           "op": {
             "load": {
@@ -3603,6 +3603,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/calcs/",
                   "parts": [
@@ -3611,12 +3612,13 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.debug`"
                   }
                 },
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/",
                   "parts": [
@@ -3625,12 +3627,13 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.debug`"
                   }
                 },
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/",
                   "parts": [
@@ -3639,7 +3642,7 @@
                   "select": {},
                   "transform": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.debug`"
                   }
                 }
               ]
@@ -3664,6 +3667,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/",
                   "parts": [],
@@ -3688,7 +3692,7 @@
           "fields": [
             {
               "active": true,
-              "name": "annotation",
+              "name": "annotations",
               "req": true,
               "type": "`$OBJECT`"
             },
@@ -3700,13 +3704,13 @@
             },
             {
               "active": true,
-              "name": "dimension",
+              "name": "dimensions",
               "req": true,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "measure",
+              "name": "measures",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -3773,6 +3777,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/cubes/{cube_name}",
                   "parts": [
@@ -3849,6 +3854,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/cubes/{cube_name}",
                   "parts": [
@@ -3890,7 +3896,7 @@
           "fields": [
             {
               "active": true,
-              "name": "join",
+              "name": "joins",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -3902,7 +3908,7 @@
             },
             {
               "active": true,
-              "name": "request",
+              "name": "requests",
               "req": true,
               "type": "`$ARRAY`"
             }
@@ -3955,6 +3961,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "POST",
                   "orig": "/tesseract/multiquery.{extension}",
                   "parts": [
@@ -4154,6 +4161,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/debug/query",
                   "parts": [
@@ -4366,6 +4374,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/data.{extension}",
                   "parts": [
@@ -4433,6 +4442,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/debug/flush",
                   "parts": [
@@ -4484,6 +4494,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/debug/schema",
                   "parts": [
@@ -4517,6 +4528,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/members.{extension}",
                   "parts": [
@@ -4536,6 +4548,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/data",
                   "parts": [
@@ -4563,7 +4576,7 @@
           "fields": [
             {
               "active": true,
-              "name": "annotation",
+              "name": "annotations",
               "req": true,
               "type": "`$OBJECT`"
             },
@@ -4575,13 +4588,13 @@
             },
             {
               "active": true,
-              "name": "dimension",
+              "name": "dimensions",
               "req": true,
               "type": "`$ARRAY`"
             },
             {
               "active": true,
-              "name": "measure",
+              "name": "measures",
               "req": true,
               "type": "`$ARRAY`"
             },
@@ -4638,6 +4651,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/complexity/cubes",
                   "parts": [
@@ -4697,6 +4711,7 @@
                       }
                     ]
                   },
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/tesseract/cubes",
                   "parts": [
@@ -5102,6 +5117,7 @@
       },
       "info": {
         "auth": false,
+        "description": "The FastAPI API.",
         "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
@@ -5113,18 +5129,41 @@
         "website": "https://honduras.datausa.io"
       },
       "option": {},
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
       "target": {
         "go": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "go",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5146,22 +5185,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Golang"
         },
         "go-cli": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "go-cli",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -5200,21 +5257,39 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go CLI"
         },
         "go-mcp": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "go-mcp",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -5253,12 +5328,17 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go MCP server"
         },
         "lua": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "--"
           },
@@ -5270,10 +5350,23 @@
             }
           },
           "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "lua",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5295,22 +5388,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Lua"
         },
         "php": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "php",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5332,13 +5443,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "PHP"
         },
         "py": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -5350,10 +5466,23 @@
             }
           },
           "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "py",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5375,13 +5504,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Python"
         },
         "rb": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -5398,10 +5532,23 @@
             }
           },
           "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "rb",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5423,13 +5570,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Ruby"
         },
         "ts": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
@@ -5452,10 +5604,23 @@
             }
           },
           "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "data-usa"
+            "goversion": "",
+            "name": "data-usa",
+            "package": "",
+            "path": ""
           },
           "name": "ts",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -5477,9 +5642,17 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": false
         }
       }
     }

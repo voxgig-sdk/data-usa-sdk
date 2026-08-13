@@ -43,8 +43,8 @@ class DataUsaTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('DATAUSA_TEST_LIVE');
-        $override = self::getenv('DATAUSA_TEST_OVERRIDE');
+        $live = self::getenv('DATA_USA_TEST_LIVE');
+        $override = self::getenv('DATA_USA_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class DataUsaTestRunner
             }
         }
 
-        $explain = self::getenv('DATAUSA_TEST_EXPLAIN');
+        $explain = self::getenv('DATA_USA_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['DATAUSA_TEST_EXPLAIN'] = $explain;
+            $m['DATA_USA_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

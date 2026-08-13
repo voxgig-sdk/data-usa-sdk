@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import DataUsaControl
-from core.error import DataUsaError
-from core.result import DataUsaResult
-from core.spec import DataUsaSpec
+from datausa_sdk.config import make_config
+from datausa_sdk.features import _make_feature
+from datausa_sdk.core.control import DataUsaControl
+from datausa_sdk.core.error import DataUsaError
+from datausa_sdk.core.result import DataUsaResult
+from datausa_sdk.core.spec import DataUsaSpec
 
 
 # True when this SDK was generated with the named feature.

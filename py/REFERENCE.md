@@ -254,7 +254,7 @@ member = client.Member()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `dict` | Yes |  |
+| `annotations` | `dict` | Yes |  |
 | `caption` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
 | `type` | `str` | Yes |  |
@@ -305,15 +305,6 @@ Return the entity name.
 ```python
 module_status = client.ModuleStatus()
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `Any` | Yes |  |
-| `module` | `str` | Yes |  |
-| `status` | `str` | Yes |  |
-| `version` | `str` | Yes |  |
 
 ### Operations
 
@@ -409,10 +400,10 @@ tesseract_cube = client.TesseractCube()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `dict` | Yes |  |
+| `annotations` | `dict` | Yes |  |
 | `caption` | `str` | Yes |  |
-| `dimension` | `list` | Yes |  |
-| `measure` | `list` | Yes |  |
+| `dimensions` | `list` | Yes |  |
+| `measures` | `list` | Yes |  |
 | `name` | `str` | Yes |  |
 
 ### Operations
@@ -464,9 +455,9 @@ tesseract_module = client.TesseractModule()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `list` | No |  |
+| `joins` | `list` | No |  |
 | `pagination` | `dict` | No |  |
-| `request` | `list` | Yes |  |
+| `requests` | `list` | Yes |  |
 
 ### Operations
 
@@ -477,6 +468,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 ```python
 result = client.TesseractModule().create({
     "extension": "example_extension",  # str
+    "requests": [],  # list
 })
 ```
 
@@ -527,10 +519,10 @@ tesseract_schema = client.TesseractSchema()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `dict` | Yes |  |
+| `annotations` | `dict` | Yes |  |
 | `caption` | `str` | Yes |  |
-| `dimension` | `list` | Yes |  |
-| `measure` | `list` | Yes |  |
+| `dimensions` | `list` | Yes |  |
+| `measures` | `list` | Yes |  |
 | `name` | `str` | Yes |  |
 
 ### Operations

@@ -265,7 +265,7 @@ fmt.Println(member.GetName()) // "member"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `map[string]any` | Yes |  |
+| `annotations` | `map[string]any` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
@@ -314,15 +314,6 @@ Return the entity name.
 moduleStatus := client.ModuleStatus(nil)
 fmt.Println(moduleStatus.GetName()) // "module_status"
 ```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `debug` | `any` | Yes |  |
-| `module` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `version` | `string` | Yes |  |
 
 ### Operations
 
@@ -418,10 +409,10 @@ fmt.Println(tesseractCube.GetName()) // "tesseract_cube"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `map[string]any` | Yes |  |
+| `annotations` | `map[string]any` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `[]any` | Yes |  |
-| `measure` | `[]any` | Yes |  |
+| `dimensions` | `[]any` | Yes |  |
+| `measures` | `[]any` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations
@@ -473,9 +464,9 @@ fmt.Println(tesseractModule.GetName()) // "tesseract_module"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `join` | `[]any` | No |  |
+| `joins` | `[]any` | No |  |
 | `pagination` | `map[string]any` | No |  |
-| `request` | `[]any` | Yes |  |
+| `requests` | `[]any` | Yes |  |
 
 ### Operations
 
@@ -498,6 +489,7 @@ Create a new entity with the given data.
 ```go
 result, err := client.TesseractModule(nil).Create(map[string]any{
     "extension": "example_extension",
+    "requests": []any{},
 }, nil)
 if err != nil {
     panic(err)
@@ -540,10 +532,10 @@ fmt.Println(tesseractSchema.GetName()) // "tesseract_schema"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `annotation` | `map[string]any` | Yes |  |
+| `annotations` | `map[string]any` | Yes |  |
 | `caption` | `string` | Yes |  |
-| `dimension` | `[]any` | Yes |  |
-| `measure` | `[]any` | Yes |  |
+| `dimensions` | `[]any` | Yes |  |
+| `measures` | `[]any` | Yes |  |
 | `name` | `string` | Yes |  |
 
 ### Operations

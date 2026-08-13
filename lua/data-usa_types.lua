@@ -22,66 +22,61 @@
 ---@class HealthLoadMatch
 
 ---@class Member
----@field annotation table
+---@field annotations table
 ---@field caption string
 ---@field name string
 ---@field type string
 
 ---@class MemberListMatch
----@field annotation? table
+---@field annotations? table
 ---@field caption? string
 ---@field name? string
 ---@field type? string
 
 ---@class ModuleStatus
----@field debug any
----@field module string
----@field status string
----@field version string
 
 ---@class ModuleStatusLoadMatch
----@field debug? any
----@field module? string
----@field status? string
----@field version? string
 
 ---@class RouteIndexGet
 
 ---@class RouteIndexGetLoadMatch
 
 ---@class TesseractCube
----@field annotation table
+---@field annotations table
 ---@field caption string
----@field dimension table
----@field measure table
+---@field dimensions table
+---@field measures table
 ---@field name string
 
 ---@class TesseractCubeLoadMatch
 ---@field id string
 
 ---@class TesseractModule
----@field join? table
+---@field joins? table
 ---@field pagination? table
----@field request table
+---@field requests table
 
 ---@class TesseractModuleLoadMatch
 ---@field extension? string
 
 ---@class TesseractModuleCreateData
 ---@field extension string
+---@field joins? table
+---@field pagination? table
+---@field requests table
 
 ---@class TesseractSchema
----@field annotation table
+---@field annotations table
 ---@field caption string
----@field dimension table
----@field measure table
+---@field dimensions table
+---@field measures table
 ---@field name string
 
 ---@class TesseractSchemaListMatch
----@field annotation? table
+---@field annotations? table
 ---@field caption? string
----@field dimension? table
----@field measure? table
+---@field dimensions? table
+---@field measures? table
 ---@field name? string
 
 local M = {}

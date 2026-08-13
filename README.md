@@ -21,7 +21,7 @@ support (`list`, `load`, `create`):
 
 ```ts
 const client = new DataUsaSDK()
-const calculationsmodule = await client.CalculationsModule().load()
+const calculationsmodule = await client.CalculationsModule().load({ extension: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -36,18 +36,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = DataUsaSDK.test()
-const calculationsmodule = await client.CalculationsModule().load({ extension: 'example_extension' })
-// calculationsmodule is a bare CalculationsModule populated with mock data
-console.log(calculationsmodule)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = DataUsaSDK.test({
+  entity: {
+    route_index_get: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const routeindexget = await client.RouteIndexGet().load()
+// routeindexget is the RouteIndexGet entity, populated with mock data
+// — call routeindexget.data() for the record itself
+console.log(routeindexget)
 ```
 
 ### Python
 
 ```python
 client = DataUsaSDK.test()
-calculationsmodule = client.CalculationsModule().load({"extension": "example"})
-print(calculationsmodule)
+routeindexget = client.RouteIndexGet().load()
+print(routeindexget)
 ```
 
 ### PHP
@@ -55,16 +64,16 @@ print(calculationsmodule)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = DataUsaSDK::test([
-    "entity" => ["calculationsmodule" => ["test01" => []]],
+    "entity" => ["routeindexget" => ["test01" => []]],
 ]);
-$calculationsmodule = $client->CalculationsModule()->load(["extension" => "example"]);
+$routeindexget = $client->RouteIndexGet()->load();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.CalculationsModule(nil).Load(
+result, err := client.RouteIndexGet(nil).Load(
     nil, nil,
 )
 ```
@@ -74,16 +83,16 @@ result, err := client.CalculationsModule(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = DataUsaSDK.test({
-  "entity" => { "calculationsmodule" => { "test01" => {} } },
+  "entity" => { "routeindexget" => { "test01" => {} } },
 })
-calculationsmodule = client.CalculationsModule.load({ "extension" => "example" })
+routeindexget = client.RouteIndexGet.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:CalculationsModule():load({ extension = "example" })
+local result, err = client:RouteIndexGet():load()
 ```
 
 ## Packages
@@ -158,7 +167,7 @@ The API exposes 9 entities:
 | **ModuleStatus** | The ModuleStatus entity (load). | `/calcs/` |
 | **RouteIndexGet** | The RouteIndexGet entity (load). | `/` |
 | **TesseractCube** | The TesseractCube entity (load). | `/complexity/cubes/{cube_name}` |
-| **TesseractModule** | The TesseractModule entity (create, load). | `/tesseract/multiquery.{extension}` |
+| **TesseractModule** | The TesseractModule entity (create, load). | `/tesseract/debug/query` |
 | **TesseractSchema** | The TesseractSchema entity (list). | `/complexity/cubes` |
 
 The operations available across these entities are **load**, **list**, **create** — see each entity's
@@ -188,7 +197,7 @@ require_once 'datausa_sdk.php';
 $client = new DataUsaSDK();
 
 
-// Load a specific calculationsmodule (returns the bare record; throws on error)
+// Load a specific calculationsmodule (returns the ENTITY; call data_get() for the record; throws on error)
 $calculationsmodule = $client->CalculationsModule()->load(["extension" => "example_extension"]);
 print_r($calculationsmodule);
 ```
@@ -216,7 +225,7 @@ require_relative "DataUsa_sdk"
 client = DataUsaSDK.new
 
 
-# Load a specific calculationsmodule (returns the bare record; raises on error)
+# Load a specific calculationsmodule (returns the ENTITY; call data_get for the record)
 calculationsmodule = client.CalculationsModule.load({ "extension" => "example_extension" })
 puts calculationsmodule
 ```
@@ -350,6 +359,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://honduras.datausa.io](https://honduras.datausa.io)
 

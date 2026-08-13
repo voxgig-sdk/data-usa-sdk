@@ -6,7 +6,7 @@ main: kit: entity: tesseract_module: {
 
   fields: [
     {
-      name: "join"
+      name: "joins"
       req: false
       type: "`$ARRAY`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: tesseract_module: {
       type: "`$OBJECT`"
     }
     {
-      name: "request"
+      name: "requests"
       req: true
       type: "`$ARRAY`"
     }

@@ -38,7 +38,7 @@ client = DataUsaSDK()
 
 ### 3. Load a calculationsmodule
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,8 +55,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    calculationsmodule = client.CalculationsModule().load()
-    print(calculationsmodule)
+    routeindexget = client.RouteIndexGet().load()
+    print(routeindexget)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -122,9 +122,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DataUsaSDK.test()
 
-# Entity ops return the bare record and raise on error.
-calculationsmodule = client.CalculationsModule().load()
-# calculationsmodule contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+routeindexget = client.RouteIndexGet().load()
+# routeindexget contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -228,7 +229,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -277,7 +278,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
 | `name` |  |
 | `type` |  |
@@ -290,10 +291,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `debug` |  |
-| `module` |  |
-| `status` |  |
-| `version` |  |
 
 Operations: Load.
 
@@ -312,10 +309,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: Load.
@@ -326,9 +323,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `join` |  |
+| `joins` |  |
 | `pagination` |  |
-| `request` |  |
+| `requests` |  |
 
 Operations: Create, Load.
 
@@ -338,10 +335,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: List.
@@ -418,7 +415,7 @@ Create an instance: `member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `dict` |  |
+| `annotations` | `dict` |  |
 | `caption` | `str` |  |
 | `name` | `str` |  |
 | `type` | `str` |  |
@@ -439,15 +436,6 @@ Create an instance: `module_status = client.ModuleStatus()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `Any` |  |
-| `module` | `str` |  |
-| `status` | `str` |  |
-| `version` | `str` |  |
 
 #### Example: Load
 
@@ -487,10 +475,10 @@ Create an instance: `tesseract_cube = client.TesseractCube()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `dict` |  |
+| `annotations` | `dict` |  |
 | `caption` | `str` |  |
-| `dimension` | `list` |  |
-| `measure` | `list` |  |
+| `dimensions` | `list` |  |
+| `measures` | `list` |  |
 | `name` | `str` |  |
 
 #### Example: Load
@@ -515,9 +503,9 @@ Create an instance: `tesseract_module = client.TesseractModule()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `list` |  |
+| `joins` | `list` |  |
 | `pagination` | `dict` |  |
-| `request` | `list` |  |
+| `requests` | `list` |  |
 
 #### Example: Load
 
@@ -530,6 +518,7 @@ tesseract_module = client.TesseractModule().load()
 ```python
 tesseract_module = client.TesseractModule().create({
     "extension": "example_extension",  # str
+    "requests": [],  # list
 })
 ```
 
@@ -548,10 +537,10 @@ Create an instance: `tesseract_schema = client.TesseractSchema()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `dict` |  |
+| `annotations` | `dict` |  |
 | `caption` | `str` |  |
-| `dimension` | `list` |  |
-| `measure` | `list` |  |
+| `dimensions` | `list` |  |
+| `measures` | `list` |  |
 | `name` | `str` |  |
 
 #### Example: List
@@ -636,11 +625,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-calculationsmodule = client.CalculationsModule()
-calculationsmodule.load()
+routeindexget = client.RouteIndexGet()
+routeindexget.load()
 
-# calculationsmodule.data_get() now returns the calculationsmodule data from the last load
-# calculationsmodule.match_get() returns the last match criteria
+# routeindexget.data_get() now returns the routeindexget data from the last load
+# routeindexget.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -60,11 +60,11 @@ function tesseract_module_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["DATAUSA_TEST_TESSERACT_MODULE_ENTID"] = {},
-    ["DATAUSA_TEST_LIVE"] = "FALSE",
+    ["DATA_USA_TEST_TESSERACT_MODULE_ENTID"] = {},
+    ["DATA_USA_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["DATAUSA_TEST_LIVE"] == "TRUE"
+  local live = env["DATA_USA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

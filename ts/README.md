@@ -53,8 +53,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const calculationsmodule = await client.CalculationsModule().load()
-  console.log(calculationsmodule)
+  const routeindexget = await client.RouteIndexGet().load()
+  console.log(routeindexget)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -120,9 +120,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DataUsaSDK.test()
 
-const calculationsmodule = await client.CalculationsModule().load()
-// calculationsmodule is a bare entity populated with mock response data
-console.log(calculationsmodule)
+const routeindexget = await client.RouteIndexGet().load()
+// routeindexget is the entity, populated with mock response data
+// — call routeindexget.data() for the record itself
+console.log(routeindexget)
 ```
 
 You can also use the instance method:
@@ -137,7 +138,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.CalculationsModule()
+const entity = client.RouteIndexGet()
 
 // First call runs the operation and stores its result
 await entity.load()
@@ -323,7 +324,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
 | `name` |  |
 | `type` |  |
@@ -336,10 +337,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `debug` |  |
-| `module` |  |
-| `status` |  |
-| `version` |  |
 
 Operations: load.
 
@@ -358,10 +355,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: load.
@@ -372,9 +369,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `join` |  |
+| `joins` |  |
 | `pagination` |  |
-| `request` |  |
+| `requests` |  |
 
 Operations: create, load.
 
@@ -384,10 +381,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: list.
@@ -464,7 +461,7 @@ Create an instance: `const member = client.Member()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Record<string, any>` |  |
+| `annotations` | `Record<string, any>` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
@@ -485,15 +482,6 @@ Create an instance: `const module_status = client.ModuleStatus()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `any` |  |
-| `module` | `string` |  |
-| `status` | `string` |  |
-| `version` | `string` |  |
 
 #### Example: Load
 
@@ -533,10 +521,10 @@ Create an instance: `const tesseract_cube = client.TesseractCube()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Record<string, any>` |  |
+| `annotations` | `Record<string, any>` |  |
 | `caption` | `string` |  |
-| `dimension` | `any[]` |  |
-| `measure` | `any[]` |  |
+| `dimensions` | `any[]` |  |
+| `measures` | `any[]` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -561,9 +549,9 @@ Create an instance: `const tesseract_module = client.TesseractModule()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `any[]` |  |
+| `joins` | `any[]` |  |
 | `pagination` | `Record<string, any>` |  |
-| `request` | `any[]` |  |
+| `requests` | `any[]` |  |
 
 #### Example: Load
 
@@ -576,6 +564,7 @@ const tesseract_module = await client.TesseractModule().load()
 ```ts
 const tesseract_module = await client.TesseractModule().create({
   extension: 'example_extension',
+  requests: [],
 })
 ```
 
@@ -594,10 +583,10 @@ Create an instance: `const tesseract_schema = client.TesseractSchema()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Record<string, any>` |  |
+| `annotations` | `Record<string, any>` |  |
 | `caption` | `string` |  |
-| `dimension` | `any[]` |  |
-| `measure` | `any[]` |  |
+| `dimensions` | `any[]` |  |
+| `measures` | `any[]` |  |
 | `name` | `string` |  |
 
 #### Example: List
@@ -676,11 +665,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const calculationsmodule = client.CalculationsModule()
-await calculationsmodule.load()
+const routeindexget = client.RouteIndexGet()
+await routeindexget.load()
 
-// calculationsmodule.data() now returns the calculationsmodule data from the last `load`
-// calculationsmodule.match() returns the last match criteria
+// routeindexget.data() now returns the routeindexget data from the last `load`
+// routeindexget.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -34,7 +34,7 @@ client = DataUsaSDK.new
 
 ```ruby
 begin
-  # load returns the bare CalculationsModule record (raises on error).
+  # load returns the ENTITY — call data_get for the CalculationsModule record (raises on error).
   calculationsmodule = client.CalculationsModule.load({ "extension" => "example_extension" })
   puts calculationsmodule
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  calculationsmodule = client.CalculationsModule.load()
+  routeindexget = client.RouteIndexGet.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -117,9 +117,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = DataUsaSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-calculationsmodule = client.CalculationsModule.load()
-puts calculationsmodule
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+routeindexget = client.RouteIndexGet.load()
+puts routeindexget
 ```
 
 ### Use a custom fetch function
@@ -271,7 +272,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
 | `name` |  |
 | `type` |  |
@@ -284,10 +285,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `debug` |  |
-| `module` |  |
-| `status` |  |
-| `version` |  |
 
 Operations: Load.
 
@@ -306,10 +303,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: Load.
@@ -320,9 +317,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `join` |  |
+| `joins` |  |
 | `pagination` |  |
-| `request` |  |
+| `requests` |  |
 
 Operations: Create, Load.
 
@@ -332,10 +329,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: List.
@@ -360,7 +357,7 @@ Create an instance: `calculations_module = client.CalculationsModule`
 #### Example: Load
 
 ```ruby
-# load returns the bare CalculationsModule record (raises on error).
+# load returns the ENTITY — call data_get for the CalculationsModule record (raises on error).
 calculations_module = client.CalculationsModule.load({ "extension" => "extension" })
 ```
 
@@ -378,7 +375,7 @@ Create an instance: `economic_complexity_module = client.EconomicComplexityModul
 #### Example: Load
 
 ```ruby
-# load returns the bare EconomicComplexityModule record (raises on error).
+# load returns the ENTITY — call data_get for the EconomicComplexityModule record (raises on error).
 economic_complexity_module = client.EconomicComplexityModule.load()
 ```
 
@@ -396,7 +393,7 @@ Create an instance: `health = client.Health`
 #### Example: Load
 
 ```ruby
-# load returns the bare Health record (raises on error).
+# load returns the ENTITY — call data_get for the Health record (raises on error).
 health = client.Health.load()
 ```
 
@@ -415,7 +412,7 @@ Create an instance: `member = client.Member`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Hash` |  |
+| `annotations` | `Hash` |  |
 | `caption` | `String` |  |
 | `name` | `String` |  |
 | `type` | `String` |  |
@@ -438,19 +435,10 @@ Create an instance: `module_status = client.ModuleStatus`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `Object` |  |
-| `module` | `String` |  |
-| `status` | `String` |  |
-| `version` | `String` |  |
-
 #### Example: Load
 
 ```ruby
-# load returns the bare ModuleStatus record (raises on error).
+# load returns the ENTITY — call data_get for the ModuleStatus record (raises on error).
 module_status = client.ModuleStatus.load()
 ```
 
@@ -468,7 +456,7 @@ Create an instance: `route_index_get = client.RouteIndexGet`
 #### Example: Load
 
 ```ruby
-# load returns the bare RouteIndexGet record (raises on error).
+# load returns the ENTITY — call data_get for the RouteIndexGet record (raises on error).
 route_index_get = client.RouteIndexGet.load()
 ```
 
@@ -487,16 +475,16 @@ Create an instance: `tesseract_cube = client.TesseractCube`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Hash` |  |
+| `annotations` | `Hash` |  |
 | `caption` | `String` |  |
-| `dimension` | `Array` |  |
-| `measure` | `Array` |  |
+| `dimensions` | `Array` |  |
+| `measures` | `Array` |  |
 | `name` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare TesseractCube record (raises on error).
+# load returns the ENTITY — call data_get for the TesseractCube record (raises on error).
 tesseract_cube = client.TesseractCube.load({ "id" => "tesseract_cube_id" })
 ```
 
@@ -516,14 +504,14 @@ Create an instance: `tesseract_module = client.TesseractModule`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `Array` |  |
+| `joins` | `Array` |  |
 | `pagination` | `Hash` |  |
-| `request` | `Array` |  |
+| `requests` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare TesseractModule record (raises on error).
+# load returns the ENTITY — call data_get for the TesseractModule record (raises on error).
 tesseract_module = client.TesseractModule.load()
 ```
 
@@ -532,6 +520,7 @@ tesseract_module = client.TesseractModule.load()
 ```ruby
 tesseract_module = client.TesseractModule.create({
   "extension" => "example_extension", # String
+  "requests" => [], # Array
 })
 ```
 
@@ -550,10 +539,10 @@ Create an instance: `tesseract_schema = client.TesseractSchema`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `Hash` |  |
+| `annotations` | `Hash` |  |
 | `caption` | `String` |  |
-| `dimension` | `Array` |  |
-| `measure` | `Array` |  |
+| `dimensions` | `Array` |  |
+| `measures` | `Array` |  |
 | `name` | `String` |  |
 
 #### Example: List
@@ -640,11 +629,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-calculationsmodule = client.CalculationsModule
-calculationsmodule.load()
+routeindexget = client.RouteIndexGet
+routeindexget.load()
 
-# calculationsmodule.data_get now returns the calculationsmodule data from the last load
-# calculationsmodule.match_get returns the last match criteria
+# routeindexget.data_get now returns the routeindexget data from the last load
+# routeindexget.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

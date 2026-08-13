@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from datausa_sdk.utility.voxgig_struct import voxgig_struct as vs
 from datausa_sdk import DataUsaSDK
-from core import helpers
+from datausa_sdk.core import helpers
 from test import runner
 
 
@@ -66,11 +66,11 @@ def _tesseract_cube_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "DATAUSA_TEST_TESSERACT_CUBE_ENTID": {},
-        "DATAUSA_TEST_LIVE": "FALSE",
+        "DATA_USA_TEST_TESSERACT_CUBE_ENTID": {},
+        "DATA_USA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("DATAUSA_TEST_LIVE") == "TRUE"
+    live = env.get("DATA_USA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

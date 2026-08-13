@@ -35,7 +35,7 @@ $client = new DataUsaSDK();
 
 ```php
 try {
-    // load() returns the bare CalculationsModule record (throws on error).
+    // load() returns the ENTITY — call data_get() for the CalculationsModule record (throws on error).
     $calculationsmodule = $client->CalculationsModule()->load(["extension" => "example_extension"]);
     print_r($calculationsmodule);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $calculationsmodule = $client->CalculationsModule()->load();
+    $routeindexget = $client->RouteIndexGet()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -123,9 +123,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = DataUsaSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$calculationsmodule = $client->CalculationsModule()->load();
-print_r($calculationsmodule);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$routeindexget = $client->RouteIndexGet()->load();
+print_r($routeindexget);
 ```
 
 ### Use a custom fetch function
@@ -232,7 +233,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -281,7 +282,7 @@ API path: `/_health`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
 | `name` |  |
 | `type` |  |
@@ -294,10 +295,6 @@ API path: `/tesseract/members`
 
 | Field | Description |
 | --- | --- |
-| `debug` |  |
-| `module` |  |
-| `status` |  |
-| `version` |  |
 
 Operations: Load.
 
@@ -316,10 +313,10 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: Load.
@@ -330,9 +327,9 @@ API path: `/complexity/cubes/{cube_name}`
 
 | Field | Description |
 | --- | --- |
-| `join` |  |
+| `joins` |  |
 | `pagination` |  |
-| `request` |  |
+| `requests` |  |
 
 Operations: Create, Load.
 
@@ -342,10 +339,10 @@ API path: `/tesseract/multiquery.{extension}`
 
 | Field | Description |
 | --- | --- |
-| `annotation` |  |
+| `annotations` |  |
 | `caption` |  |
-| `dimension` |  |
-| `measure` |  |
+| `dimensions` |  |
+| `measures` |  |
 | `name` |  |
 
 Operations: List.
@@ -370,7 +367,7 @@ Create an instance: `$calculations_module = $client->CalculationsModule();`
 #### Example: Load
 
 ```php
-// load() returns the bare CalculationsModule record (throws on error).
+// load() returns the ENTITY — call data_get() for the CalculationsModule record (throws on error).
 $calculations_module = $client->CalculationsModule()->load(["extension" => "extension"]);
 ```
 
@@ -388,7 +385,7 @@ Create an instance: `$economic_complexity_module = $client->EconomicComplexityMo
 #### Example: Load
 
 ```php
-// load() returns the bare EconomicComplexityModule record (throws on error).
+// load() returns the ENTITY — call data_get() for the EconomicComplexityModule record (throws on error).
 $economic_complexity_module = $client->EconomicComplexityModule()->load();
 ```
 
@@ -406,7 +403,7 @@ Create an instance: `$health = $client->Health();`
 #### Example: Load
 
 ```php
-// load() returns the bare Health record (throws on error).
+// load() returns the ENTITY — call data_get() for the Health record (throws on error).
 $health = $client->Health()->load();
 ```
 
@@ -425,7 +422,7 @@ Create an instance: `$member = $client->Member();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `array` |  |
+| `annotations` | `array` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
@@ -448,19 +445,10 @@ Create an instance: `$module_status = $client->ModuleStatus();`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `debug` | `mixed` |  |
-| `module` | `string` |  |
-| `status` | `string` |  |
-| `version` | `string` |  |
-
 #### Example: Load
 
 ```php
-// load() returns the bare ModuleStatus record (throws on error).
+// load() returns the ENTITY — call data_get() for the ModuleStatus record (throws on error).
 $module_status = $client->ModuleStatus()->load();
 ```
 
@@ -478,7 +466,7 @@ Create an instance: `$route_index_get = $client->RouteIndexGet();`
 #### Example: Load
 
 ```php
-// load() returns the bare RouteIndexGet record (throws on error).
+// load() returns the ENTITY — call data_get() for the RouteIndexGet record (throws on error).
 $route_index_get = $client->RouteIndexGet()->load();
 ```
 
@@ -497,16 +485,16 @@ Create an instance: `$tesseract_cube = $client->TesseractCube();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `array` |  |
+| `annotations` | `array` |  |
 | `caption` | `string` |  |
-| `dimension` | `array` |  |
-| `measure` | `array` |  |
+| `dimensions` | `array` |  |
+| `measures` | `array` |  |
 | `name` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare TesseractCube record (throws on error).
+// load() returns the ENTITY — call data_get() for the TesseractCube record (throws on error).
 $tesseract_cube = $client->TesseractCube()->load(["id" => "tesseract_cube_id"]);
 ```
 
@@ -526,14 +514,14 @@ Create an instance: `$tesseract_module = $client->TesseractModule();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `join` | `array` |  |
+| `joins` | `array` |  |
 | `pagination` | `array` |  |
-| `request` | `array` |  |
+| `requests` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare TesseractModule record (throws on error).
+// load() returns the ENTITY — call data_get() for the TesseractModule record (throws on error).
 $tesseract_module = $client->TesseractModule()->load();
 ```
 
@@ -542,6 +530,7 @@ $tesseract_module = $client->TesseractModule()->load();
 ```php
 $tesseract_module = $client->TesseractModule()->create([
     "extension" => null, // string
+    "requests" => null, // array
 ]);
 ```
 
@@ -560,10 +549,10 @@ Create an instance: `$tesseract_schema = $client->TesseractSchema();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `annotation` | `array` |  |
+| `annotations` | `array` |  |
 | `caption` | `string` |  |
-| `dimension` | `array` |  |
-| `measure` | `array` |  |
+| `dimensions` | `array` |  |
+| `measures` | `array` |  |
 | `name` | `string` |  |
 
 #### Example: List
@@ -650,11 +639,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$calculationsmodule = $client->CalculationsModule();
-$calculationsmodule->load();
+$routeindexget = $client->RouteIndexGet();
+$routeindexget->load();
 
-// $calculationsmodule->data_get() now returns the calculationsmodule data from the last load
-// $calculationsmodule->match_get() returns the last match criteria
+// $routeindexget->data_get() now returns the routeindexget data from the last load
+// $routeindexget->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

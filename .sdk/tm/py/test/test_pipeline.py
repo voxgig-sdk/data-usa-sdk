@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import DataUsaSDK
-from core.error import DataUsaError
-from core.result import DataUsaResult
-from core.response import DataUsaResponse
-from core.spec import DataUsaSpec
-from feature.base_feature import DataUsaBaseFeature
+from projectname_sdk.core.error import DataUsaError
+from projectname_sdk.core.result import DataUsaResult
+from projectname_sdk.core.response import DataUsaResponse
+from projectname_sdk.core.spec import DataUsaSpec
+from projectname_sdk.feature.base_feature import DataUsaBaseFeature
 
 
 def _client():

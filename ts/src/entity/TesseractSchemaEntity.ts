@@ -37,7 +37,7 @@ class TesseractSchemaEntity extends DataUsaEntityBase<TesseractSchema> {
 
 
 
-  async list(this: any, reqmatch?: TesseractSchemaListMatch, ctrl?: Control): Promise<TesseractSchema[]> {
+  async list(this: any, reqmatch?: TesseractSchemaListMatch, ctrl?: Control): Promise<TesseractSchemaEntity[]> {
 
     const utility = this._utility
 

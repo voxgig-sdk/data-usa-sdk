@@ -23,8 +23,8 @@ module DataUsaTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("DATAUSA_TEST_LIVE")
-    override = getenv("DATAUSA_TEST_OVERRIDE")
+    live = getenv("DATA_USA_TEST_LIVE")
+    override = getenv("DATA_USA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module DataUsaTestRunner
       end
     end
 
-    explain = getenv("DATAUSA_TEST_EXPLAIN")
-    m["DATAUSA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("DATA_USA_TEST_EXPLAIN")
+    m["DATA_USA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

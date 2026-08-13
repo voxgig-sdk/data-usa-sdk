@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# DataUsa SDK exists test
 
 import pytest
 from datausa_sdk import DataUsaSDK

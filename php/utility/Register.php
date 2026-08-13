@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ DataUsaUtility::setRegistrar(function (DataUsaUtility $u): void {
     $u->prepare_params = [DataUsaPrepareParams::class, 'call'];
     $u->prepare_path = [DataUsaPreparePath::class, 'call'];
     $u->prepare_query = [DataUsaPrepareQuery::class, 'call'];
+    $u->graphql_body = [DataUsaGraphql::class, 'body'];
+    $u->graphql_errors = [DataUsaGraphql::class, 'errors'];
     $u->result_basic = [DataUsaResultBasic::class, 'call'];
     $u->result_body = [DataUsaResultBody::class, 'call'];
     $u->result_headers = [DataUsaResultHeaders::class, 'call'];
