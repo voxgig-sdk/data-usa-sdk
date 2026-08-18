@@ -33,14 +33,17 @@ import { DataUsaSDK } from '@voxgig-sdk/data-usa'
 const client = new DataUsaSDK()
 ```
 
-### 3. Load a calculationsmodule
+### 3. Load an economiccomplexitymodule
 
+EconomicComplexityModule is nested under endpoint, so provide the `endpoint`.
 `load()` returns the entity directly and throws on failure:
 
 ```ts
 try {
-  const calculationsmodule = await client.CalculationsModule().load({ extension: 'example_extension' })
-  console.log(calculationsmodule)
+  const economiccomplexitymodule = await client.EconomicComplexityModule().load({
+    endpoint: 'example_endpoint',
+  })
+  console.log(economiccomplexitymodule)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -426,7 +429,7 @@ Create an instance: `const economic_complexity_module = client.EconomicComplexit
 #### Example: Load
 
 ```ts
-const economic_complexity_module = await client.EconomicComplexityModule().load()
+const economic_complexity_module = await client.EconomicComplexityModule().load({ endpoint: 'endpoint' })
 ```
 
 
@@ -556,7 +559,7 @@ Create an instance: `const tesseract_module = client.TesseractModule()`
 #### Example: Load
 
 ```ts
-const tesseract_module = await client.TesseractModule().load()
+const tesseract_module = await client.TesseractModule().load({ extension: 'extension' })
 ```
 
 #### Example: Create
@@ -595,6 +598,25 @@ Create an instance: `const tesseract_schema = client.TesseractSchema()`
 const tesseract_schemas = await client.TesseractSchema().list()
 ```
 
+
+## Open types
+
+2 fields are carried as open values rather than typed structures.
+This follows from the API definition, not from a gap in this SDK: the
+definition describes them with untagged unions —
+`oneOf`/`anyOf` branches with no `discriminator` — so it never states which
+variant a given value is. Nothing can select a branch reliably, so the SDK
+passes the value through unchanged rather than assert a shape the API does not
+guarantee.
+
+| Entity | Field | Variants | Nesting |
+| --- | --- | --- | --- |
+| `tesseract_module` | `requests` | 5 | 15 levels |
+| `tesseract_module` | `joins` | 3 | 7 levels |
+
+These values round-trip unchanged — read them, modify them, send them back. If
+the API adds a `discriminator` to the definition, regenerating will type them.
+Every other field is typed normally.
 
 ## Advanced
 

@@ -30,13 +30,15 @@ require_relative "DataUsa_sdk"
 client = DataUsaSDK.new
 ```
 
-### 3. Load a calculationsmodule
+### 3. Load an economiccomplexitymodule
+
+EconomicComplexityModule is nested under endpoint, so provide the `endpoint`.
 
 ```ruby
 begin
-  # load returns the ENTITY — call data_get for the CalculationsModule record (raises on error).
-  calculationsmodule = client.CalculationsModule.load({ "extension" => "example_extension" })
-  puts calculationsmodule
+  # load returns the ENTITY — call data_get for the EconomicComplexityModule record (raises on error).
+  economiccomplexitymodule = client.EconomicComplexityModule.load({ "endpoint" => "example_endpoint" })
+  puts economiccomplexitymodule
 rescue => err
   warn "load failed: #{err}"
 end
@@ -376,7 +378,7 @@ Create an instance: `economic_complexity_module = client.EconomicComplexityModul
 
 ```ruby
 # load returns the ENTITY — call data_get for the EconomicComplexityModule record (raises on error).
-economic_complexity_module = client.EconomicComplexityModule.load()
+economic_complexity_module = client.EconomicComplexityModule.load({ "endpoint" => "endpoint" })
 ```
 
 
@@ -512,7 +514,7 @@ Create an instance: `tesseract_module = client.TesseractModule`
 
 ```ruby
 # load returns the ENTITY — call data_get for the TesseractModule record (raises on error).
-tesseract_module = client.TesseractModule.load()
+tesseract_module = client.TesseractModule.load({ "extension" => "extension" })
 ```
 
 #### Example: Create
@@ -552,6 +554,25 @@ Create an instance: `tesseract_schema = client.TesseractSchema`
 tesseract_schemas = client.TesseractSchema.list
 ```
 
+
+## Open types
+
+2 fields are carried as open values rather than typed structures.
+This follows from the API definition, not from a gap in this SDK: the
+definition describes them with untagged unions —
+`oneOf`/`anyOf` branches with no `discriminator` — so it never states which
+variant a given value is. Nothing can select a branch reliably, so the SDK
+passes the value through unchanged rather than assert a shape the API does not
+guarantee.
+
+| Entity | Field | Variants | Nesting |
+| --- | --- | --- | --- |
+| `tesseract_module` | `requests` | 5 | 15 levels |
+| `tesseract_module` | `joins` | 3 | 7 levels |
+
+These values round-trip unchanged — read them, modify them, send them back. If
+the API adds a `discriminator` to the definition, regenerating will type them.
+Every other field is typed normally.
 
 ## Advanced
 

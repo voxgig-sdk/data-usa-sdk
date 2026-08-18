@@ -9,6 +9,11 @@ main: kit: entity: tesseract_module: {
       name: "joins"
       req: false
       type: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 3
+        depth: 7
+      }
     }
     {
       name: "pagination"
@@ -19,6 +24,11 @@ main: kit: entity: tesseract_module: {
       name: "requests"
       req: true
       type: "`$ARRAY`"
+      union: {
+        branches: 5
+        count: 17
+        depth: 15
+      }
     }
   ]
 

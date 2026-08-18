@@ -27,13 +27,9 @@ end
 
 # Request payload for EconomicComplexityModule#load.
 #
-# @!attribute [rw] extension
-#   @return [String, nil]
-#
 # @!attribute [rw] endpoint
-#   @return [String, nil]
+#   @return [String]
 EconomicComplexityModuleLoadMatch = Struct.new(
-  :extension,
   :endpoint,
   keyword_init: true
 )
@@ -158,7 +154,7 @@ TesseractModule = Struct.new(
 # Request payload for TesseractModule#load.
 #
 # @!attribute [rw] extension
-#   @return [String, nil]
+#   @return [String]
 TesseractModuleLoadMatch = Struct.new(
   :extension,
   keyword_init: true

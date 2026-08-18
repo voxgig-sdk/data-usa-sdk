@@ -174,7 +174,7 @@ economic_complexity_module = client.EconomicComplexityModule
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.EconomicComplexityModule.load()
+result = client.EconomicComplexityModule.load({ "endpoint" => "endpoint" })
 ```
 
 ### Common Methods
@@ -488,7 +488,7 @@ result = client.TesseractModule.create({
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.TesseractModule.load()
+result = client.TesseractModule.load({ "extension" => "extension" })
 ```
 
 ### Common Methods

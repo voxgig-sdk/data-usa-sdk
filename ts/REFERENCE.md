@@ -259,7 +259,7 @@ const economic_complexity_module = client.EconomicComplexityModule()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.EconomicComplexityModule().load()
+const result = await client.EconomicComplexityModule().load({ endpoint: 'endpoint' })
 ```
 
 ### Common Methods
@@ -561,7 +561,7 @@ const result = await client.TesseractModule().create({
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TesseractModule().load()
+const result = await client.TesseractModule().load({ extension: 'extension' })
 ```
 
 ### Common Methods

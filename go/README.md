@@ -402,7 +402,7 @@ Create an instance: `economicComplexityModule := client.EconomicComplexityModule
 #### Example: Load
 
 ```go
-economicComplexityModule, err := client.EconomicComplexityModule(nil).Load(nil, nil)
+economicComplexityModule, err := client.EconomicComplexityModule(nil).Load(map[string]any{"endpoint": "endpoint"}, nil)
 if err != nil {
     panic(err)
 }
@@ -556,7 +556,7 @@ Create an instance: `tesseractModule := client.TesseractModule(nil)`
 #### Example: Load
 
 ```go
-tesseractModule, err := client.TesseractModule(nil).Load(nil, nil)
+tesseractModule, err := client.TesseractModule(nil).Load(map[string]any{"extension": "extension"}, nil)
 if err != nil {
     panic(err)
 }
@@ -607,6 +607,25 @@ if err != nil {
 fmt.Println(tesseractSchemas) // the array of records
 ```
 
+
+## Open types
+
+2 fields are carried as open values rather than typed structures.
+This follows from the API definition, not from a gap in this SDK: the
+definition describes them with untagged unions —
+`oneOf`/`anyOf` branches with no `discriminator` — so it never states which
+variant a given value is. Nothing can select a branch reliably, so the SDK
+passes the value through unchanged rather than assert a shape the API does not
+guarantee.
+
+| Entity | Field | Variants | Nesting |
+| --- | --- | --- | --- |
+| `tesseract_module` | `requests` | 5 | 15 levels |
+| `tesseract_module` | `joins` | 3 | 7 levels |
+
+These values round-trip unchanged — read them, modify them, send them back. If
+the API adds a `discriminator` to the definition, regenerating will type them.
+Every other field is typed normally.
 
 ## Advanced
 

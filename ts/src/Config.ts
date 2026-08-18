@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://honduras.datausa.io',
+    base: "https://honduras.datausa.io",
 
     headers: {
       "content-type": "application/json"
@@ -85,49 +85,39 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
@@ -135,20 +125,16 @@ class Config {
                     "type": "`$OBJECT`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -174,53 +160,42 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
@@ -228,20 +203,16 @@ class Config {
                     "type": "`$OBJECT`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -267,44 +238,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "param",
                     "orig": "param",
@@ -312,11 +274,9 @@ class Config {
                     "type": "`$OBJECT`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -340,11 +300,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 2
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -360,73 +318,57 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
@@ -434,7 +376,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
@@ -442,15 +383,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
@@ -458,7 +396,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
@@ -466,41 +403,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
@@ -508,7 +436,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
@@ -516,15 +443,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
@@ -532,7 +456,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
@@ -540,27 +463,21 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold_eci",
                     "orig": "threshold_eci",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -603,77 +520,60 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
@@ -681,7 +581,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
@@ -689,15 +588,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
@@ -705,7 +601,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
@@ -713,41 +608,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
@@ -755,7 +641,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
@@ -763,15 +648,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
@@ -779,7 +661,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
@@ -787,27 +668,21 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold_eci",
                     "orig": "threshold_eci",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -850,77 +725,60 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
@@ -928,7 +786,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
@@ -936,15 +793,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
@@ -952,7 +806,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
@@ -960,41 +813,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
@@ -1002,7 +846,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
@@ -1010,15 +853,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
@@ -1026,7 +866,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
@@ -1034,28 +873,22 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -1098,77 +931,60 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 2
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
@@ -1176,7 +992,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
@@ -1184,15 +999,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
@@ -1200,7 +1012,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
@@ -1208,41 +1019,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
@@ -1250,7 +1052,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
@@ -1258,15 +1059,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
@@ -1274,7 +1072,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
@@ -1282,28 +1079,22 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -1346,44 +1137,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 3
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -1391,39 +1173,30 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "complementary_drilldown",
                     "orig": "complementary_drilldown",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "complementary_measure",
                     "orig": "complementary_measure",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -1431,39 +1204,30 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "having",
                     "orig": "having",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -1471,7 +1235,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -1479,41 +1242,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
@@ -1521,28 +1275,22 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "time_filter",
                     "orig": "time_filter",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -1584,68 +1332,53 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 4
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_activity",
                     "orig": "global_activity",
@@ -1653,7 +1386,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cube",
                     "orig": "global_cube",
@@ -1661,15 +1393,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_cut",
                     "orig": "global_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_location",
                     "orig": "global_location",
@@ -1677,7 +1406,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_measure",
                     "orig": "global_measure",
@@ -1685,41 +1413,32 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "global_threshold",
                     "orig": "global_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_activity",
                     "orig": "subnat_activity",
@@ -1727,7 +1446,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cube",
                     "orig": "subnat_cube",
@@ -1735,15 +1453,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_cut",
                     "orig": "subnat_cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_location",
                     "orig": "subnat_location",
@@ -1751,7 +1466,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_measure",
                     "orig": "subnat_measure",
@@ -1759,28 +1473,22 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "subnat_threshold",
                     "orig": "subnat_threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -1822,44 +1530,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 5
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -1867,23 +1566,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -1891,24 +1585,19 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "emissions_cube",
                     "orig": "emissions_cube",
@@ -1916,7 +1605,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "emissions_location",
                     "orig": "emissions_location",
@@ -1924,7 +1612,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "emissions_measure",
                     "orig": "emissions_measure",
@@ -1932,23 +1619,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -1956,7 +1638,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -1964,37 +1645,29 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -2033,44 +1706,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 6
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -2078,23 +1742,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -2102,32 +1761,25 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "gini_cube",
                     "orig": "gini_cube",
@@ -2135,7 +1787,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "gini_location",
                     "orig": "gini_location",
@@ -2143,7 +1794,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "gini_measure",
                     "orig": "gini_measure",
@@ -2151,15 +1801,12 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -2167,7 +1814,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -2175,37 +1821,29 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -2244,44 +1882,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 7
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -2289,23 +1918,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -2313,49 +1937,38 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 20,
                     "kind": "query",
                     "name": "iteration",
                     "orig": "iteration",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -2363,7 +1976,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -2371,45 +1983,35 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   }
                 ]
@@ -2447,44 +2049,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 8
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -2492,23 +2085,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -2516,49 +2104,38 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 20,
                     "kind": "query",
                     "name": "iteration",
                     "orig": "iteration",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -2566,7 +2143,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -2574,45 +2150,35 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   }
                 ]
@@ -2650,44 +2216,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 9
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -2695,23 +2252,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -2719,40 +2271,31 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -2760,7 +2303,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -2768,46 +2310,36 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -2844,44 +2376,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 10
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -2889,23 +2412,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -2913,40 +2431,31 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -2954,7 +2463,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -2962,46 +2470,36 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -3038,44 +2536,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 11
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -3083,23 +2572,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -3107,40 +2591,31 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "cutoff",
                     "orig": "cutoff",
-                    "reqd": false,
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -3148,7 +2623,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -3156,46 +2630,36 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -3232,44 +2696,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 12
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "activity",
                     "orig": "activity",
@@ -3277,23 +2732,18 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alia",
                     "orig": "alia",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "ascending",
                     "orig": "ascending",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -3301,31 +2751,24 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cut",
                     "orig": "cut",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "location",
                     "orig": "location",
@@ -3333,7 +2776,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -3341,54 +2783,42 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "rank",
                     "orig": "rank",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "threshold",
                     "orig": "threshold",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "wdi",
                     "orig": "wdi",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   }
                 ]
@@ -3425,31 +2855,25 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 13
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "accept",
                     "orig": "accept",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "endpoint",
                     "orig": "endpoint",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -3469,11 +2893,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 14
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -3493,7 +2915,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -3505,11 +2926,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -3519,32 +2938,24 @@ class Config {
     "member": {
       "fields": [
         {
-          "active": true,
           "name": "annotations",
           "req": true,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "caption",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "name",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "type",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         }
       ],
       "name": "member",
@@ -3554,29 +2965,23 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -3584,7 +2989,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "level",
                     "orig": "level",
@@ -3592,46 +2996,36 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "search",
                     "orig": "search",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -3659,11 +3053,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {
@@ -3679,7 +3071,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -3691,11 +3082,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.debug`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -3707,11 +3096,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.debug`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -3723,11 +3110,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.debug`"
-              },
-              "index$": 2
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -3743,7 +3128,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -3753,11 +3137,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -3767,39 +3149,29 @@ class Config {
     "tesseract_cube": {
       "fields": [
         {
-          "active": true,
           "name": "annotations",
           "req": true,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "caption",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "dimensions",
           "req": true,
-          "type": "`$ARRAY`",
-          "index$": 2
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "measures",
           "req": true,
-          "type": "`$ARRAY`",
-          "index$": 3
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "name",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         }
       ],
       "name": "tesseract_cube",
@@ -3809,52 +3181,41 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -3884,56 +3245,44 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "cube_name",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -3963,11 +3312,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -3977,25 +3324,27 @@ class Config {
     "tesseract_module": {
       "fields": [
         {
-          "active": true,
           "name": "joins",
-          "req": false,
           "type": "`$ARRAY`",
-          "index$": 0
+          "union": {
+            "branches": 3,
+            "count": 3,
+            "depth": 7
+          }
         },
         {
-          "active": true,
           "name": "pagination",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 1
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "requests",
           "req": true,
           "type": "`$ARRAY`",
-          "index$": 2
+          "union": {
+            "branches": 5,
+            "count": 17,
+            "depth": 15
+          }
         }
       ],
       "name": "tesseract_module",
@@ -4005,44 +3354,35 @@ class Config {
           "name": "create",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -4065,22 +3405,18 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "create"
+          ]
         },
         "load": {
           "input": "data",
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "accept",
                     "orig": "accept",
@@ -4088,33 +3424,26 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alias",
                     "orig": "alias",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -4122,7 +3451,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "drilldown",
                     "orig": "drilldown",
@@ -4130,58 +3458,45 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "exclude",
                     "orig": "exclude",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "growth",
                     "orig": "growth",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "include",
                     "orig": "include",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -4189,62 +3504,48 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "ranking",
                     "orig": "ranking",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "sort",
                     "orig": "sort",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ]
@@ -4284,52 +3585,41 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "alias",
                     "orig": "alias",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "cube",
                     "orig": "cube",
@@ -4337,7 +3627,6 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "drilldown",
                     "orig": "drilldown",
@@ -4345,58 +3634,45 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "exclude",
                     "orig": "exclude",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "filter",
                     "orig": "filter",
-                    "reqd": false,
                     "type": "`$ARRAY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "growth",
                     "orig": "growth",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "include",
                     "orig": "include",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "0",
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "measure",
                     "orig": "measure",
@@ -4404,62 +3680,48 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "parent",
                     "orig": "parent",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "property",
                     "orig": "property",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "ranking",
                     "orig": "ranking",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "",
                     "kind": "query",
                     "name": "sort",
                     "orig": "sort",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "time",
                     "orig": "time",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "top",
                     "orig": "top",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ]
@@ -4498,37 +3760,29 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -4551,37 +3805,29 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 2
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -4604,21 +3850,17 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 3
+              }
             },
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "extension",
                     "orig": "extension",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -4637,11 +3879,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 4
+              }
             },
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -4654,11 +3894,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 5
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -4668,39 +3906,29 @@ class Config {
     "tesseract_schema": {
       "fields": [
         {
-          "active": true,
           "name": "annotations",
           "req": true,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "caption",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "dimensions",
           "req": true,
-          "type": "`$ARRAY`",
-          "index$": 2
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "measures",
           "req": true,
-          "type": "`$ARRAY`",
-          "index$": 3
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "name",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         }
       ],
       "name": "tesseract_schema",
@@ -4710,41 +3938,32 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -4767,45 +3986,35 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "header": [
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "authorization",
                     "orig": "authorization",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "header",
                     "name": "x_tesseract_jwt",
                     "orig": "x_tesseract_jwt",
-                    "reqd": false,
                     "type": "`$ANY`"
                   }
                 ],
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "locale",
                     "orig": "locale",
-                    "reqd": false,
                     "type": "`$ANY`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "token",
                     "orig": "token",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -4828,11 +4037,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

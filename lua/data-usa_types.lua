@@ -14,8 +14,7 @@
 ---@class EconomicComplexityModule
 
 ---@class EconomicComplexityModuleLoadMatch
----@field extension? string
----@field endpoint? string
+---@field endpoint string
 
 ---@class Health
 
@@ -57,7 +56,7 @@
 ---@field requests table
 
 ---@class TesseractModuleLoadMatch
----@field extension? string
+---@field extension string
 
 ---@class TesseractModuleCreateData
 ---@field extension string

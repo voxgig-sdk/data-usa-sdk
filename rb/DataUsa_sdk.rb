@@ -28,7 +28,7 @@ class DataUsaSDK
     utility = DataUsaUtility.new
     @_utility = utility
 
-    config = DataUsaConfig.make_config
+    config = DataUsaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

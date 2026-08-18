@@ -117,9 +117,12 @@ import { DataUsaSDK } from '@voxgig-sdk/data-usa'
 
 const client = new DataUsaSDK()
 
-// Load calculationsmodule data (returns a CalculationsModule)
-const calculationsmodule = await client.CalculationsModule().load()
-console.log(calculationsmodule)
+
+// Load a specific economiccomplexitymodule (returns a EconomicComplexityModule)
+const economiccomplexitymodule = await client.EconomicComplexityModule().load({
+  endpoint: 'example_endpoint',
+})
+console.log(economiccomplexitymodule)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -209,12 +212,15 @@ import sdk "github.com/voxgig-sdk/data-usa-sdk/go"
 
 client := sdk.New()
 
-// Load calculationsmodule data
-calculationsModule, err := client.CalculationsModule(nil).Load(map[string]any{"extension": "example_extension"}, nil)
+
+// Load a specific economiccomplexitymodule
+economicComplexityModule, err := client.EconomicComplexityModule(nil).Load(
+    map[string]any{"endpoint": "example_endpoint"}, nil,
+)
 if err != nil {
     panic(err)
 }
-fmt.Println(calculationsModule)
+fmt.Println(economicComplexityModule)
 ```
 
 ### Ruby

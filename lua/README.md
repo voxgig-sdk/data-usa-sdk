@@ -33,12 +33,14 @@ local sdk = require("data-usa_sdk")
 local client = sdk.new()
 ```
 
-### 3. Load a calculationsmodule
+### 3. Load an economiccomplexitymodule
+
+EconomicComplexityModule is nested under endpoint, so provide the `endpoint`.
 
 ```lua
-local calculationsmodule, err = client:CalculationsModule():load({ extension = "example_extension" })
+local economiccomplexitymodule, err = client:EconomicComplexityModule():load({ endpoint = "example_endpoint" })
 if err then error(err) end
-print(calculationsmodule)
+print(economiccomplexitymodule)
 ```
 
 
@@ -365,7 +367,7 @@ Create an instance: `local economic_complexity_module = client:EconomicComplexit
 #### Example: Load
 
 ```lua
-local economic_complexity_module, err = client:EconomicComplexityModule():load()
+local economic_complexity_module, err = client:EconomicComplexityModule():load({ endpoint = "endpoint" })
 ```
 
 
@@ -495,7 +497,7 @@ Create an instance: `local tesseract_module = client:TesseractModule(nil)`
 #### Example: Load
 
 ```lua
-local tesseract_module, err = client:TesseractModule():load()
+local tesseract_module, err = client:TesseractModule():load({ extension = "extension" })
 ```
 
 #### Example: Create
@@ -534,6 +536,25 @@ Create an instance: `local tesseract_schema = client:TesseractSchema(nil)`
 local tesseract_schemas, err = client:TesseractSchema():list()
 ```
 
+
+## Open types
+
+2 fields are carried as open values rather than typed structures.
+This follows from the API definition, not from a gap in this SDK: the
+definition describes them with untagged unions —
+`oneOf`/`anyOf` branches with no `discriminator` — so it never states which
+variant a given value is. Nothing can select a branch reliably, so the SDK
+passes the value through unchanged rather than assert a shape the API does not
+guarantee.
+
+| Entity | Field | Variants | Nesting |
+| --- | --- | --- | --- |
+| `tesseract_module` | `requests` | 5 | 15 levels |
+| `tesseract_module` | `joins` | 3 | 7 levels |
+
+These values round-trip unchanged — read them, modify them, send them back. If
+the API adds a `discriminator` to the definition, regenerating will type them.
+Every other field is typed normally.
 
 ## Advanced
 

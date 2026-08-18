@@ -40,7 +40,7 @@ class DataUsaSDK
         $utility = new DataUsaUtility();
         $this->_utility = $utility;
 
-        $config = DataUsaConfig::make_config();
+        $config = DataUsaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

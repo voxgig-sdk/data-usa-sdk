@@ -171,7 +171,7 @@ local economic_complexity_module = client:EconomicComplexityModule(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:EconomicComplexityModule():load()
+local result, err = client:EconomicComplexityModule():load({ endpoint = "endpoint" })
 ```
 
 ### Common Methods
@@ -485,7 +485,7 @@ local result, err = client:TesseractModule():create({
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TesseractModule():load()
+local result, err = client:TesseractModule():load({ extension = "extension" })
 ```
 
 ### Common Methods

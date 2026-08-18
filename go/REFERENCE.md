@@ -178,7 +178,7 @@ fmt.Println(economicComplexityModule.GetName()) // "economic_complexity_module"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.EconomicComplexityModule(nil).Load(nil, nil)
+result, err := client.EconomicComplexityModule(nil).Load(map[string]any{"endpoint": "endpoint"}, nil)
 if err != nil {
     panic(err)
 }
@@ -475,7 +475,7 @@ fmt.Println(tesseractModule.GetName()) // "tesseract_module"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.TesseractModule(nil).Load(nil, nil)
+result, err := client.TesseractModule(nil).Load(map[string]any{"extension": "extension"}, nil)
 if err != nil {
     panic(err)
 }

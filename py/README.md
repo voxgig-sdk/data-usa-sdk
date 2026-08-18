@@ -36,14 +36,15 @@ from datausa_sdk import DataUsaSDK
 client = DataUsaSDK()
 ```
 
-### 3. Load a calculationsmodule
+### 3. Load an economiccomplexitymodule
 
+EconomicComplexityModule is nested under endpoint, so provide the `endpoint`.
 `load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
-    calculationsmodule = client.CalculationsModule().load({"extension": "example_extension"})
-    print(calculationsmodule)
+    economiccomplexitymodule = client.EconomicComplexityModule().load({"endpoint": "example_endpoint"})
+    print(economiccomplexitymodule)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -380,7 +381,7 @@ Create an instance: `economic_complexity_module = client.EconomicComplexityModul
 #### Example: Load
 
 ```python
-economic_complexity_module = client.EconomicComplexityModule().load()
+economic_complexity_module = client.EconomicComplexityModule().load({"endpoint": "endpoint"})
 ```
 
 
@@ -510,7 +511,7 @@ Create an instance: `tesseract_module = client.TesseractModule()`
 #### Example: Load
 
 ```python
-tesseract_module = client.TesseractModule().load()
+tesseract_module = client.TesseractModule().load({"extension": "extension"})
 ```
 
 #### Example: Create
@@ -549,6 +550,25 @@ Create an instance: `tesseract_schema = client.TesseractSchema()`
 tesseract_schemas = client.TesseractSchema().list()
 ```
 
+
+## Open types
+
+2 fields are carried as open values rather than typed structures.
+This follows from the API definition, not from a gap in this SDK: the
+definition describes them with untagged unions —
+`oneOf`/`anyOf` branches with no `discriminator` — so it never states which
+variant a given value is. Nothing can select a branch reliably, so the SDK
+passes the value through unchanged rather than assert a shape the API does not
+guarantee.
+
+| Entity | Field | Variants | Nesting |
+| --- | --- | --- | --- |
+| `tesseract_module` | `requests` | 5 | 15 levels |
+| `tesseract_module` | `joins` | 3 | 7 levels |
+
+These values round-trip unchanged — read them, modify them, send them back. If
+the API adds a `discriminator` to the definition, regenerating will type them.
+Every other field is typed normally.
 
 ## Advanced
 
