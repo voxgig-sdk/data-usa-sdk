@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -330,7 +330,7 @@ API path: `/_health`
 | `annotations` |  |
 | `caption` |  |
 | `name` |  |
-| `type` |  |
+| `type` | Types of the data the user can expect to find in the associated column. |
 
 Operations: list.
 
@@ -373,7 +373,7 @@ API path: `/complexity/cubes/{cube_name}`
 | Field | Description |
 | --- | --- |
 | `joins` |  |
-| `pagination` |  |
+| `pagination` | Pagination instructions. |
 | `requests` |  |
 
 Operations: create, load.
@@ -467,7 +467,7 @@ Create an instance: `const member = client.Member()`
 | `annotations` | `Record<string, any>` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
+| `type` | `string` | Types of the data the user can expect to find in the associated column. |
 
 #### Example: List
 
@@ -553,7 +553,7 @@ Create an instance: `const tesseract_module = client.TesseractModule()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `joins` | `any[]` |  |
-| `pagination` | `Record<string, any>` |  |
+| `pagination` | `Record<string, any>` | Pagination instructions. |
 | `requests` | `any[]` |  |
 
 #### Example: Load

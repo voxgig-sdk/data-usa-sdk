@@ -23,6 +23,7 @@ main: kit: entity: member: {
     {
       name: "type"
       req: true
+      short: "Types of the data the user can expect to find in the associated column."
       type: "`$STRING`"
     }
   ]

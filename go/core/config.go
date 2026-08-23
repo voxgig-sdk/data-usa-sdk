@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "DataUsa",
+			"slug": "data-usa",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -2916,6 +2919,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "Types of the data the user can expect to find in the associated column.",
 						"type": "`$STRING`",
 					},
 				},
@@ -3295,6 +3299,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "pagination",
+						"short": "Pagination instructions.",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{

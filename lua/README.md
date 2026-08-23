@@ -268,7 +268,7 @@ API path: `/_health`
 | `annotations` |  |
 | `caption` |  |
 | `name` |  |
-| `type` |  |
+| `type` | Types of the data the user can expect to find in the associated column. |
 
 Operations: List.
 
@@ -311,7 +311,7 @@ API path: `/complexity/cubes/{cube_name}`
 | Field | Description |
 | --- | --- |
 | `joins` |  |
-| `pagination` |  |
+| `pagination` | Pagination instructions. |
 | `requests` |  |
 
 Operations: Create, Load.
@@ -405,7 +405,7 @@ Create an instance: `local member = client:Member(nil)`
 | `annotations` | `table` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
+| `type` | `string` | Types of the data the user can expect to find in the associated column. |
 
 #### Example: List
 
@@ -491,7 +491,7 @@ Create an instance: `local tesseract_module = client:TesseractModule(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `joins` | `table` |  |
-| `pagination` | `table` |  |
+| `pagination` | `table` | Pagination instructions. |
 | `requests` | `table` |  |
 
 #### Example: Load

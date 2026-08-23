@@ -3466,6 +3466,7 @@
               "active": true,
               "name": "type",
               "req": true,
+              "short": "Types of the data the user can expect to find in the associated column.",
               "type": "`$STRING`"
             }
           ],
@@ -3911,6 +3912,7 @@
               "active": true,
               "name": "pagination",
               "req": false,
+              "short": "Pagination instructions.",
               "type": "`$OBJECT`"
             },
             {

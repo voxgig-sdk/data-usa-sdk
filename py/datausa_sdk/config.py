@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "DataUsa",
+            "slug": "data-usa",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -2933,6 +2936,7 @@ def make_config():
           {
             "name": "type",
             "req": True,
+            "short": "Types of the data the user can expect to find in the associated column.",
             "type": "`$STRING`",
           },
         ],
@@ -3312,6 +3316,7 @@ def make_config():
           },
           {
             "name": "pagination",
+            "short": "Pagination instructions.",
             "type": "`$OBJECT`",
           },
           {

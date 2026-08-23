@@ -6,7 +6,7 @@ The Golang SDK for the DataUsa API — an entity-oriented client using standard 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.CalculationsModule(nil)` — each with the same small set of operations (`List`, `Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -299,7 +299,7 @@ API path: `/_health`
 | `"annotations"` |  |
 | `"caption"` |  |
 | `"name"` |  |
-| `"type"` |  |
+| `"type"` | Types of the data the user can expect to find in the associated column. |
 
 Operations: List.
 
@@ -342,7 +342,7 @@ API path: `/complexity/cubes/{cube_name}`
 | Field | Description |
 | --- | --- |
 | `"joins"` |  |
-| `"pagination"` |  |
+| `"pagination"` | Pagination instructions. |
 | `"requests"` |  |
 
 Operations: Create, Load.
@@ -448,7 +448,7 @@ Create an instance: `member := client.Member(nil)`
 | `annotations` | `map[string]any` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
+| `type` | `string` | Types of the data the user can expect to find in the associated column. |
 
 #### Example: List
 
@@ -550,7 +550,7 @@ Create an instance: `tesseractModule := client.TesseractModule(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `joins` | `[]any` |  |
-| `pagination` | `map[string]any` |  |
+| `pagination` | `map[string]any` | Pagination instructions. |
 | `requests` | `[]any` |  |
 
 #### Example: Load

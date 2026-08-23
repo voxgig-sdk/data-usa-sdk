@@ -257,7 +257,7 @@ member = client.Member()
 | `annotations` | `dict` | Yes |  |
 | `caption` | `str` | Yes |  |
 | `name` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `type` | `str` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -456,7 +456,7 @@ tesseract_module = client.TesseractModule()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `list` | No |  |
-| `pagination` | `dict` | No |  |
+| `pagination` | `dict` | No | Pagination instructions. |
 | `requests` | `list` | Yes |  |
 
 ### Operations

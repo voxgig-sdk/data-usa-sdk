@@ -268,7 +268,7 @@ fmt.Println(member.GetName()) // "member"
 | `annotations` | `map[string]any` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `type` | `string` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -465,7 +465,7 @@ fmt.Println(tesseractModule.GetName()) // "tesseract_module"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `[]any` | No |  |
-| `pagination` | `map[string]any` | No |  |
+| `pagination` | `map[string]any` | No | Pagination instructions. |
 | `requests` | `[]any` | Yes |  |
 
 ### Operations

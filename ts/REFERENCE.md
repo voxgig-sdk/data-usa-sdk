@@ -347,7 +347,7 @@ const member = client.Member()
 | `annotations` | `Record<string, any>` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `type` | `string` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -540,7 +540,7 @@ const tesseract_module = client.TesseractModule()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `any[]` | No |  |
-| `pagination` | `Record<string, any>` | No |  |
+| `pagination` | `Record<string, any>` | No | Pagination instructions. |
 | `requests` | `any[]` | Yes |  |
 
 ### Operations

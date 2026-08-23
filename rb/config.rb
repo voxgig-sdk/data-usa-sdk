@@ -19,6 +19,9 @@ module DataUsaConfig
     {
       "main" => {
         "name" => "DataUsa",
+        "slug" => "data-usa",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -2924,6 +2927,7 @@ module DataUsaConfig
             {
               "name" => "type",
               "req" => true,
+              "short" => "Types of the data the user can expect to find in the associated column.",
               "type" => "`$STRING`",
             },
           ],
@@ -3303,6 +3307,7 @@ module DataUsaConfig
             },
             {
               "name" => "pagination",
+              "short" => "Pagination instructions.",
               "type" => "`$OBJECT`",
             },
             {

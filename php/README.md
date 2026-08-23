@@ -287,7 +287,7 @@ API path: `/_health`
 | `annotations` |  |
 | `caption` |  |
 | `name` |  |
-| `type` |  |
+| `type` | Types of the data the user can expect to find in the associated column. |
 
 Operations: List.
 
@@ -330,7 +330,7 @@ API path: `/complexity/cubes/{cube_name}`
 | Field | Description |
 | --- | --- |
 | `joins` |  |
-| `pagination` |  |
+| `pagination` | Pagination instructions. |
 | `requests` |  |
 
 Operations: Create, Load.
@@ -427,7 +427,7 @@ Create an instance: `$member = $client->Member();`
 | `annotations` | `array` |  |
 | `caption` | `string` |  |
 | `name` | `string` |  |
-| `type` | `string` |  |
+| `type` | `string` | Types of the data the user can expect to find in the associated column. |
 
 #### Example: List
 
@@ -517,7 +517,7 @@ Create an instance: `$tesseract_module = $client->TesseractModule();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `joins` | `array` |  |
-| `pagination` | `array` |  |
+| `pagination` | `array` | Pagination instructions. |
 | `requests` | `array` |  |
 
 #### Example: Load

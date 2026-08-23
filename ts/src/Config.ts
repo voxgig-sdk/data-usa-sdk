@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'DataUsa',
+        slug: "data-usa",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -2955,6 +2966,7 @@ class Config {
         {
           "name": "type",
           "req": true,
+          "short": "Types of the data the user can expect to find in the associated column.",
           "type": "`$STRING`"
         }
       ],
@@ -3334,6 +3346,7 @@ class Config {
         },
         {
           "name": "pagination",
+          "short": "Pagination instructions.",
           "type": "`$OBJECT`"
         },
         {

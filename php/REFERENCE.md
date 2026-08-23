@@ -265,7 +265,7 @@ $member = $client->Member();
 | `annotations` | `array` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `type` | `string` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -466,7 +466,7 @@ $tesseract_module = $client->TesseractModule();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `array` | No |  |
-| `pagination` | `array` | No |  |
+| `pagination` | `array` | No | Pagination instructions. |
 | `requests` | `array` | Yes |  |
 
 ### Operations

@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "DataUsa",
+      slug = "data-usa",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -2912,6 +2915,7 @@ local function make_config()
           {
             ["name"] = "type",
             ["req"] = true,
+            ["short"] = "Types of the data the user can expect to find in the associated column.",
             ["type"] = "`$STRING`",
           },
         },
@@ -3291,6 +3295,7 @@ local function make_config()
           },
           {
             ["name"] = "pagination",
+            ["short"] = "Pagination instructions.",
             ["type"] = "`$OBJECT`",
           },
           {

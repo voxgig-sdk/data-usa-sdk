@@ -282,7 +282,7 @@ API path: `/_health`
 | `annotations` |  |
 | `caption` |  |
 | `name` |  |
-| `type` |  |
+| `type` | Types of the data the user can expect to find in the associated column. |
 
 Operations: List.
 
@@ -325,7 +325,7 @@ API path: `/complexity/cubes/{cube_name}`
 | Field | Description |
 | --- | --- |
 | `joins` |  |
-| `pagination` |  |
+| `pagination` | Pagination instructions. |
 | `requests` |  |
 
 Operations: Create, Load.
@@ -419,7 +419,7 @@ Create an instance: `member = client.Member()`
 | `annotations` | `dict` |  |
 | `caption` | `str` |  |
 | `name` | `str` |  |
-| `type` | `str` |  |
+| `type` | `str` | Types of the data the user can expect to find in the associated column. |
 
 #### Example: List
 
@@ -505,7 +505,7 @@ Create an instance: `tesseract_module = client.TesseractModule()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `joins` | `list` |  |
-| `pagination` | `dict` |  |
+| `pagination` | `dict` | Pagination instructions. |
 | `requests` | `list` |  |
 
 #### Example: Load

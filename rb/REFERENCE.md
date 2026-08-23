@@ -266,7 +266,7 @@ member = client.Member
 | `annotations` | `Hash` | Yes |  |
 | `caption` | `String` | Yes |  |
 | `name` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `type` | `String` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -467,7 +467,7 @@ tesseract_module = client.TesseractModule
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `Array` | No |  |
-| `pagination` | `Hash` | No |  |
+| `pagination` | `Hash` | No | Pagination instructions. |
 | `requests` | `Array` | Yes |  |
 
 ### Operations

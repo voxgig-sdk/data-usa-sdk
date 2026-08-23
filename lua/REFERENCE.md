@@ -263,7 +263,7 @@ local member = client:Member(nil)
 | `annotations` | `table` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `type` | `string` | Yes | Types of the data the user can expect to find in the associated column. |
 
 ### Operations
 
@@ -464,7 +464,7 @@ local tesseract_module = client:TesseractModule(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `joins` | `table` | No |  |
-| `pagination` | `table` | No |  |
+| `pagination` | `table` | No | Pagination instructions. |
 | `requests` | `table` | Yes |  |
 
 ### Operations

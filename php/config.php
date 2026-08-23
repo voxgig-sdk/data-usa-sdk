@@ -33,6 +33,9 @@ class DataUsaConfig
         return [
             "main" => [
                 "name" => "DataUsa",
+                "slug" => "data-usa",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -2938,6 +2941,7 @@ class DataUsaConfig
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'Types of the data the user can expect to find in the associated column.',
               'type' => '`$STRING`',
             ],
           ],
@@ -3317,6 +3321,7 @@ class DataUsaConfig
             ],
             [
               'name' => 'pagination',
+              'short' => 'Pagination instructions.',
               'type' => '`$OBJECT`',
             ],
             [
