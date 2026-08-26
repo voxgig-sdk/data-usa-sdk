@@ -28,6 +28,7 @@ module DataUsaConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -3135,6 +3136,10 @@ module DataUsaConfig
               "name" => "dimensions",
               "req" => true,
               "type" => "`$ARRAY`",
+            },
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
             },
             {
               "name" => "measures",

@@ -361,6 +361,7 @@ API path: `/`
 | `annotations` |  |
 | `caption` |  |
 | `dimensions` |  |
+| `id` |  |
 | `measures` |  |
 | `name` |  |
 
@@ -527,6 +528,7 @@ Create an instance: `const tesseract_cube = client.TesseractCube()`
 | `annotations` | `Record<string, any>` |  |
 | `caption` | `string` |  |
 | `dimensions` | `any[]` |  |
+| `id` | `string` |  |
 | `measures` | `any[]` |  |
 | `name` | `string` |  |
 

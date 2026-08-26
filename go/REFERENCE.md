@@ -412,6 +412,7 @@ fmt.Println(tesseractCube.GetName()) // "tesseract_cube"
 | `annotations` | `map[string]any` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `dimensions` | `[]any` | Yes |  |
+| `id` | `string` | No |  |
 | `measures` | `[]any` | Yes |  |
 | `name` | `string` | Yes |  |
 

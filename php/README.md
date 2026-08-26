@@ -318,6 +318,7 @@ API path: `/`
 | `annotations` |  |
 | `caption` |  |
 | `dimensions` |  |
+| `id` |  |
 | `measures` |  |
 | `name` |  |
 
@@ -490,6 +491,7 @@ Create an instance: `$tesseract_cube = $client->TesseractCube();`
 | `annotations` | `array` |  |
 | `caption` | `string` |  |
 | `dimensions` | `array` |  |
+| `id` | `string` |  |
 | `measures` | `array` |  |
 | `name` | `string` |  |
 

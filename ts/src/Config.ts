@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -3174,6 +3175,10 @@ class Config {
           "name": "dimensions",
           "req": true,
           "type": "`$ARRAY`"
+        },
+        {
+          "name": "id",
+          "type": "`$STRING`"
         },
         {
           "name": "measures",

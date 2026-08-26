@@ -308,6 +308,7 @@ API path: `/`
 | `annotations` |  |
 | `caption` |  |
 | `dimensions` |  |
+| `id` |  |
 | `measures` |  |
 | `name` |  |
 
@@ -480,6 +481,7 @@ Create an instance: `tesseract_cube = client.TesseractCube`
 | `annotations` | `Hash` |  |
 | `caption` | `String` |  |
 | `dimensions` | `Array` |  |
+| `id` | `String` |  |
 | `measures` | `Array` |  |
 | `name` | `String` |  |
 

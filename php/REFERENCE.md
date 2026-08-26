@@ -412,6 +412,7 @@ $tesseract_cube = $client->TesseractCube();
 | `annotations` | `array` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `dimensions` | `array` | Yes |  |
+| `id` | `string` | No |  |
 | `measures` | `array` | Yes |  |
 | `name` | `string` | Yes |  |
 

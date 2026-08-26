@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -3144,6 +3145,10 @@ def make_config():
             "name": "dimensions",
             "req": True,
             "type": "`$ARRAY`",
+          },
+          {
+            "name": "id",
+            "type": "`$STRING`",
           },
           {
             "name": "measures",

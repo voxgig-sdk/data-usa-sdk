@@ -55,6 +55,7 @@ export interface TesseractCube {
   annotations: Record<string, any>
   caption: string
   dimensions: any[]
+  id?: string
   measures: any[]
   name: string
 }

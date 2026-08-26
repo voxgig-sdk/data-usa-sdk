@@ -111,6 +111,9 @@ end
 # @!attribute [rw] dimensions
 #   @return [Array]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] measures
 #   @return [Array]
 #
@@ -120,6 +123,7 @@ TesseractCube = Struct.new(
   :annotations,
   :caption,
   :dimensions,
+  :id,
   :measures,
   :name,
   keyword_init: true

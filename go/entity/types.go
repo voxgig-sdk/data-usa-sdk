@@ -75,6 +75,7 @@ type TesseractCube struct {
 	Annotations map[string]any `json:"annotations"`
 	Caption string `json:"caption"`
 	Dimensions []any `json:"dimensions"`
+	Id *string `json:"id,omitempty"`
 	Measures []any `json:"measures"`
 	Name string `json:"name"`
 }

@@ -410,6 +410,7 @@ local tesseract_cube = client:TesseractCube(nil)
 | `annotations` | `table` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `dimensions` | `table` | Yes |  |
+| `id` | `string` | No |  |
 | `measures` | `table` | Yes |  |
 | `name` | `string` | Yes |  |
 

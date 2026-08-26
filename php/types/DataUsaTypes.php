@@ -88,6 +88,7 @@ class TesseractCube
     public array $annotations;
     public string $caption;
     public array $dimensions;
+    public ?string $id = null;
     public array $measures;
     public string $name;
 }

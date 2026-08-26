@@ -299,6 +299,7 @@ API path: `/`
 | `annotations` |  |
 | `caption` |  |
 | `dimensions` |  |
+| `id` |  |
 | `measures` |  |
 | `name` |  |
 
@@ -465,6 +466,7 @@ Create an instance: `local tesseract_cube = client:TesseractCube(nil)`
 | `annotations` | `table` |  |
 | `caption` | `string` |  |
 | `dimensions` | `table` |  |
+| `id` | `string` |  |
 | `measures` | `table` |  |
 | `name` | `string` |  |
 

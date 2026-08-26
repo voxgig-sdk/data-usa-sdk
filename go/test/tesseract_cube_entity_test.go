@@ -61,13 +61,19 @@ func TestTesseractCubeEntity(t *testing.T) {
 
 		// LOAD
 		tesseractCubeRef01Ent := client.TesseractCube(nil)
-		tesseractCubeRef01MatchDt0 := map[string]any{}
+		tesseractCubeRef01MatchDt0 := map[string]any{
+			"id": tesseractCubeRef01Data["id"],
+		}
 		tesseractCubeRef01DataDt0Loaded, err := tesseractCubeRef01Ent.Load(tesseractCubeRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if tesseractCubeRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		tesseractCubeRef01DataDt0LoadResult := core.ToMapAny(entityData(tesseractCubeRef01DataDt0Loaded))
+		if tesseractCubeRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if tesseractCubeRef01DataDt0LoadResult["id"] != tesseractCubeRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

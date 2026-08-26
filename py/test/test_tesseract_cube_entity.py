@@ -48,9 +48,13 @@ class TestTesseractCubeEntity:
 
         # LOAD
         tesseract_cube_ref01_ent = client.TesseractCube(None)
-        tesseract_cube_ref01_match_dt0 = {}
+        tesseract_cube_ref01_match_dt0 = {
+            "id": tesseract_cube_ref01_data["id"],
+        }
         tesseract_cube_ref01_data_dt0_loaded = tesseract_cube_ref01_ent.load(tesseract_cube_ref01_match_dt0, None)
-        assert tesseract_cube_ref01_data_dt0_loaded is not None
+        tesseract_cube_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(tesseract_cube_ref01_data_dt0_loaded))
+        assert tesseract_cube_ref01_data_dt0_load_result is not None
+        assert tesseract_cube_ref01_data_dt0_load_result["id"] == tesseract_cube_ref01_data["id"]
 
 
 

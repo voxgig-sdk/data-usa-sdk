@@ -330,6 +330,7 @@ API path: `/`
 | `"annotations"` |  |
 | `"caption"` |  |
 | `"dimensions"` |  |
+| `"id"` |  |
 | `"measures"` |  |
 | `"name"` |  |
 
@@ -520,6 +521,7 @@ Create an instance: `tesseractCube := client.TesseractCube(nil)`
 | `annotations` | `map[string]any` |  |
 | `caption` | `string` |  |
 | `dimensions` | `[]any` |  |
+| `id` | `string` |  |
 | `measures` | `[]any` |  |
 | `name` | `string` |  |
 

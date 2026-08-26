@@ -44,6 +44,7 @@
 ---@field annotations table
 ---@field caption string
 ---@field dimensions table
+---@field id? string
 ---@field measures table
 ---@field name string
 

@@ -3,27 +3,27 @@
     "tesseract_cube": {
       "TESSERACT_CUBE00": {
         "annotations": {},
-        "caption": "s33",
+        "caption": "s3d",
         "dimensions": [],
+        "id": "TESSERACT_CUBE00",
         "measures": [],
-        "name": "s36",
-        "id": "TESSERACT_CUBE00"
+        "name": "s41"
       },
       "TESSERACT_CUBE01": {
         "annotations": {},
-        "caption": "s65",
+        "caption": "s79",
         "dimensions": [],
+        "id": "TESSERACT_CUBE01",
         "measures": [],
-        "name": "s68",
-        "id": "TESSERACT_CUBE01"
+        "name": "s7d"
       },
       "TESSERACT_CUBE02": {
         "annotations": {},
-        "caption": "s97",
+        "caption": "sb5",
         "dimensions": [],
+        "id": "TESSERACT_CUBE02",
         "measures": [],
-        "name": "s9a",
-        "id": "TESSERACT_CUBE02"
+        "name": "sb9"
       }
     }
   },
@@ -31,10 +31,10 @@
     "tesseract_cube": {
       "tesseract_cube_ref01": {
         "annotations": {},
-        "caption": "sc9",
+        "caption": "sf1",
         "dimensions": [],
         "measures": [],
-        "name": "scc"
+        "name": "sf5"
       }
     }
   }

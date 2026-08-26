@@ -21,6 +21,11 @@ main: kit: entity: tesseract_cube: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "measures"
       req: true
       type: "`$ARRAY`"
@@ -31,6 +36,11 @@ main: kit: entity: tesseract_cube: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "tesseract_cube"
   op: {

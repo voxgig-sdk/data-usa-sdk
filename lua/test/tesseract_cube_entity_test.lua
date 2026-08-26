@@ -44,10 +44,14 @@ describe("TesseractCubeEntity", function()
 
     -- LOAD
     local tesseract_cube_ref01_ent = client:TesseractCube(nil)
-    local tesseract_cube_ref01_match_dt0 = {}
+    local tesseract_cube_ref01_match_dt0 = {
+      id = tesseract_cube_ref01_data["id"],
+    }
     local tesseract_cube_ref01_data_dt0_loaded, err = tesseract_cube_ref01_ent:load(tesseract_cube_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(tesseract_cube_ref01_data_dt0_loaded)
+    local tesseract_cube_ref01_data_dt0_load_result = helpers.to_map(type(tesseract_cube_ref01_data_dt0_loaded) == 'table' and tesseract_cube_ref01_data_dt0_loaded.data_get and tesseract_cube_ref01_data_dt0_loaded:data_get() or tesseract_cube_ref01_data_dt0_loaded)
+    assert.is_not_nil(tesseract_cube_ref01_data_dt0_load_result)
+    assert.are.equal(tesseract_cube_ref01_data_dt0_load_result["id"], tesseract_cube_ref01_data["id"])
 
   end)
 end)

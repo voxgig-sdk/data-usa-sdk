@@ -70,12 +70,16 @@ class RouteIndexGetLoadMatch(TypedDict):
     pass
 
 
-class TesseractCube(TypedDict):
+class TesseractCubeRequired(TypedDict):
     annotations: dict
     caption: str
     dimensions: list
     measures: list
     name: str
+
+
+class TesseractCube(TesseractCubeRequired, total=False):
+    id: str
 
 
 class TesseractCubeLoadMatch(TypedDict):

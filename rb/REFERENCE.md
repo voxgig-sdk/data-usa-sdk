@@ -413,6 +413,7 @@ tesseract_cube = client.TesseractCube
 | `annotations` | `Hash` | Yes |  |
 | `caption` | `String` | Yes |  |
 | `dimensions` | `Array` | Yes |  |
+| `id` | `String` | No |  |
 | `measures` | `Array` | Yes |  |
 | `name` | `String` | Yes |  |
 

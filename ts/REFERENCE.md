@@ -488,6 +488,7 @@ const tesseract_cube = client.TesseractCube()
 | `annotations` | `Record<string, any>` | Yes |  |
 | `caption` | `string` | Yes |  |
 | `dimensions` | `any[]` | Yes |  |
+| `id` | `string` | No |  |
 | `measures` | `any[]` | Yes |  |
 | `name` | `string` | Yes |  |
 

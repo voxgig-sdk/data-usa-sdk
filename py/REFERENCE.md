@@ -403,6 +403,7 @@ tesseract_cube = client.TesseractCube()
 | `annotations` | `dict` | Yes |  |
 | `caption` | `str` | Yes |  |
 | `dimensions` | `list` | Yes |  |
+| `id` | `str` | No |  |
 | `measures` | `list` | Yes |  |
 | `name` | `str` | Yes |  |
 

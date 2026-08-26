@@ -42,6 +42,7 @@ class DataUsaConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -3149,6 +3150,10 @@ class DataUsaConfig
               'name' => 'dimensions',
               'req' => true,
               'type' => '`$ARRAY`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'measures',

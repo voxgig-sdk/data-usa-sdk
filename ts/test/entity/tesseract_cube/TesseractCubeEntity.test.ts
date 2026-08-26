@@ -59,9 +59,12 @@ describe('TesseractCubeEntity', async () => {
 
     let tesseract_cube_ref01_data = Object.values(setup.data.existing.tesseract_cube)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const tesseract_cube_ref01_ent = client.TesseractCube()
+    const tesseract_cube_ref01_match_dt0: any = {}
+    tesseract_cube_ref01_match_dt0.id = tesseract_cube_ref01_data.id
+    const tesseract_cube_ref01_data_dt0 = (await tesseract_cube_ref01_ent.load(tesseract_cube_ref01_match_dt0)).data()
+    assert(tesseract_cube_ref01_data_dt0.id === tesseract_cube_ref01_data.id)
 
 
   })

@@ -48,9 +48,13 @@ class TesseractCubeEntityTest extends TestCase
 
         // LOAD
         $tesseract_cube_ref01_ent = $client->TesseractCube(null);
-        $tesseract_cube_ref01_match_dt0 = [];
+        $tesseract_cube_ref01_match_dt0 = [
+            "id" => $tesseract_cube_ref01_data["id"],
+        ];
         $tesseract_cube_ref01_data_dt0_loaded = $tesseract_cube_ref01_ent->load($tesseract_cube_ref01_match_dt0, null);
-        $this->assertNotNull($tesseract_cube_ref01_data_dt0_loaded);
+        $tesseract_cube_ref01_data_dt0_load_result = Helpers::to_map(is_object($tesseract_cube_ref01_data_dt0_loaded) && method_exists($tesseract_cube_ref01_data_dt0_loaded, 'data_get') ? $tesseract_cube_ref01_data_dt0_loaded->data_get() : $tesseract_cube_ref01_data_dt0_loaded);
+        $this->assertNotNull($tesseract_cube_ref01_data_dt0_load_result);
+        $this->assertEquals($tesseract_cube_ref01_data_dt0_load_result["id"], $tesseract_cube_ref01_data["id"]);
 
     }
 }
