@@ -10,6 +10,10 @@
 
 ---@class CalculationsModuleLoadMatch
 ---@field extension string
+---@field filter? string
+---@field param table
+---@field token? string
+---@field top? string
 
 ---@class EconomicComplexityModule
 
@@ -27,10 +31,13 @@
 ---@field type string
 
 ---@class MemberListMatch
----@field annotations? table
----@field caption? string
----@field name? string
----@field type? string
+---@field cube string
+---@field level string
+---@field limit? string
+---@field locale? any
+---@field parent? boolean
+---@field search? string
+---@field token? string
 
 ---@class ModuleStatus
 
@@ -50,6 +57,8 @@
 
 ---@class TesseractCubeLoadMatch
 ---@field id string
+---@field locale? any
+---@field token? string
 
 ---@class TesseractModule
 ---@field joins? table
@@ -58,9 +67,27 @@
 
 ---@class TesseractModuleLoadMatch
 ---@field extension string
+---@field alias? any
+---@field cube string
+---@field drilldown string
+---@field exclude? string
+---@field filter? table
+---@field growth? any
+---@field include? string
+---@field limit? string
+---@field locale? any
+---@field measure string
+---@field parent? string
+---@field property? any
+---@field ranking? string
+---@field sort? string
+---@field time? any
+---@field token? string
+---@field top? any
 
 ---@class TesseractModuleCreateData
 ---@field extension string
+---@field token? string
 ---@field joins? table
 ---@field pagination? table
 ---@field requests table
@@ -73,11 +100,8 @@
 ---@field name string
 
 ---@class TesseractSchemaListMatch
----@field annotations? table
----@field caption? string
----@field dimensions? table
----@field measures? table
----@field name? string
+---@field locale? any
+---@field token? string
 
 local M = {}
 

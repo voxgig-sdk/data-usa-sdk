@@ -19,6 +19,10 @@ type CalculationsModule struct {
 // CalculationsModuleLoadMatch is the typed request payload for CalculationsModule.LoadTyped.
 type CalculationsModuleLoadMatch struct {
 	Extension string `json:"extension"`
+	Filter *string `json:"filter,omitempty"`
+	Param map[string]any `json:"param"`
+	Token *string `json:"token,omitempty"`
+	Top *string `json:"top,omitempty"`
 }
 
 // EconomicComplexityModule is the typed data model for the economic_complexity_module entity.
@@ -48,10 +52,13 @@ type Member struct {
 
 // MemberListMatch is the typed request payload for Member.ListTyped.
 type MemberListMatch struct {
-	Annotations *map[string]any `json:"annotations,omitempty"`
-	Caption *string `json:"caption,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Cube string `json:"cube"`
+	Level string `json:"level"`
+	Limit *string `json:"limit,omitempty"`
+	Locale *any `json:"locale,omitempty"`
+	Parent *bool `json:"parent,omitempty"`
+	Search *string `json:"search,omitempty"`
+	Token *string `json:"token,omitempty"`
 }
 
 // ModuleStatus is the typed data model for the module_status entity.
@@ -83,6 +90,8 @@ type TesseractCube struct {
 // TesseractCubeLoadMatch is the typed request payload for TesseractCube.LoadTyped.
 type TesseractCubeLoadMatch struct {
 	Id string `json:"id"`
+	Locale *any `json:"locale,omitempty"`
+	Token *string `json:"token,omitempty"`
 }
 
 // TesseractModule is the typed data model for the tesseract_module entity.
@@ -95,11 +104,29 @@ type TesseractModule struct {
 // TesseractModuleLoadMatch is the typed request payload for TesseractModule.LoadTyped.
 type TesseractModuleLoadMatch struct {
 	Extension string `json:"extension"`
+	Alias *any `json:"alias,omitempty"`
+	Cube string `json:"cube"`
+	Drilldown string `json:"drilldown"`
+	Exclude *string `json:"exclude,omitempty"`
+	Filter *[]any `json:"filter,omitempty"`
+	Growth *any `json:"growth,omitempty"`
+	Include *string `json:"include,omitempty"`
+	Limit *string `json:"limit,omitempty"`
+	Locale *any `json:"locale,omitempty"`
+	Measure string `json:"measure"`
+	Parent *string `json:"parent,omitempty"`
+	Property *any `json:"property,omitempty"`
+	Ranking *string `json:"ranking,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	Time *any `json:"time,omitempty"`
+	Token *string `json:"token,omitempty"`
+	Top *any `json:"top,omitempty"`
 }
 
 // TesseractModuleCreateData is the typed request payload for TesseractModule.CreateTyped.
 type TesseractModuleCreateData struct {
 	Extension string `json:"extension"`
+	Token *string `json:"token,omitempty"`
 	Joins *[]any `json:"joins,omitempty"`
 	Pagination *map[string]any `json:"pagination,omitempty"`
 	Requests []any `json:"requests"`
@@ -116,11 +143,8 @@ type TesseractSchema struct {
 
 // TesseractSchemaListMatch is the typed request payload for TesseractSchema.ListTyped.
 type TesseractSchemaListMatch struct {
-	Annotations *map[string]any `json:"annotations,omitempty"`
-	Caption *string `json:"caption,omitempty"`
-	Dimensions *[]any `json:"dimensions,omitempty"`
-	Measures *[]any `json:"measures,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Locale *any `json:"locale,omitempty"`
+	Token *string `json:"token,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

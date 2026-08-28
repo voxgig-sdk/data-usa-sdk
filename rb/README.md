@@ -361,7 +361,7 @@ Create an instance: `calculations_module = client.CalculationsModule`
 
 ```ruby
 # load returns the ENTITY — call data_get for the CalculationsModule record (raises on error).
-calculations_module = client.CalculationsModule.load({ "extension" => "extension" })
+calculations_module = client.CalculationsModule.load({ "extension" => "extension", "param" => {} })
 ```
 
 
@@ -516,7 +516,7 @@ Create an instance: `tesseract_module = client.TesseractModule`
 
 ```ruby
 # load returns the ENTITY — call data_get for the TesseractModule record (raises on error).
-tesseract_module = client.TesseractModule.load({ "extension" => "extension" })
+tesseract_module = client.TesseractModule.load({ "extension" => "extension", "cube" => "cube", "drilldown" => "drilldown", "measure" => "measure" })
 ```
 
 #### Example: Create
@@ -555,6 +555,29 @@ Create an instance: `tesseract_schema = client.TesseractSchema`
 # list returns an Array of TesseractSchema records (raises on error).
 tesseract_schemas = client.TesseractSchema.list
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Open types

@@ -21,6 +21,10 @@ class CalculationsModule
 class CalculationsModuleLoadMatch
 {
     public string $extension;
+    public ?string $filter = null;
+    public array $param;
+    public ?string $token = null;
+    public ?string $top = null;
 }
 
 /** EconomicComplexityModule entity data model. */
@@ -56,10 +60,13 @@ class Member
 /** Request payload for Member#list. */
 class MemberListMatch
 {
-    public ?array $annotations = null;
-    public ?string $caption = null;
-    public ?string $name = null;
-    public ?string $type = null;
+    public string $cube;
+    public string $level;
+    public ?string $limit = null;
+    public mixed $locale = null;
+    public ?bool $parent = null;
+    public ?string $search = null;
+    public ?string $token = null;
 }
 
 /** ModuleStatus entity data model. */
@@ -97,6 +104,8 @@ class TesseractCube
 class TesseractCubeLoadMatch
 {
     public string $id;
+    public mixed $locale = null;
+    public ?string $token = null;
 }
 
 /** TesseractModule entity data model. */
@@ -111,12 +120,30 @@ class TesseractModule
 class TesseractModuleLoadMatch
 {
     public string $extension;
+    public mixed $alias = null;
+    public string $cube;
+    public string $drilldown;
+    public ?string $exclude = null;
+    public ?array $filter = null;
+    public mixed $growth = null;
+    public ?string $include = null;
+    public ?string $limit = null;
+    public mixed $locale = null;
+    public string $measure;
+    public ?string $parent = null;
+    public mixed $property = null;
+    public ?string $ranking = null;
+    public ?string $sort = null;
+    public mixed $time = null;
+    public ?string $token = null;
+    public mixed $top = null;
 }
 
 /** Request payload for TesseractModule#create. */
 class TesseractModuleCreateData
 {
     public string $extension;
+    public ?string $token = null;
     public ?array $joins = null;
     public ?array $pagination = null;
     public array $requests;
@@ -135,10 +162,7 @@ class TesseractSchema
 /** Request payload for TesseractSchema#list. */
 class TesseractSchemaListMatch
 {
-    public ?array $annotations = null;
-    public ?string $caption = null;
-    public ?array $dimensions = null;
-    public ?array $measures = null;
-    public ?string $name = null;
+    public mixed $locale = null;
+    public ?string $token = null;
 }
 

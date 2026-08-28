@@ -16,8 +16,24 @@ end
 #
 # @!attribute [rw] extension
 #   @return [String]
+#
+# @!attribute [rw] filter
+#   @return [String, nil]
+#
+# @!attribute [rw] param
+#   @return [Hash]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
+#
+# @!attribute [rw] top
+#   @return [String, nil]
 CalculationsModuleLoadMatch = Struct.new(
   :extension,
+  :filter,
+  :param,
+  :token,
+  :top,
   keyword_init: true
 )
 
@@ -65,22 +81,34 @@ Member = Struct.new(
 
 # Request payload for Member#list.
 #
-# @!attribute [rw] annotations
-#   @return [Hash, nil]
+# @!attribute [rw] cube
+#   @return [String]
 #
-# @!attribute [rw] caption
+# @!attribute [rw] level
+#   @return [String]
+#
+# @!attribute [rw] limit
 #   @return [String, nil]
 #
-# @!attribute [rw] name
+# @!attribute [rw] locale
+#   @return [Object, nil]
+#
+# @!attribute [rw] parent
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] search
 #   @return [String, nil]
 #
-# @!attribute [rw] type
+# @!attribute [rw] token
 #   @return [String, nil]
 MemberListMatch = Struct.new(
-  :annotations,
-  :caption,
-  :name,
-  :type,
+  :cube,
+  :level,
+  :limit,
+  :locale,
+  :parent,
+  :search,
+  :token,
   keyword_init: true
 )
 
@@ -133,8 +161,16 @@ TesseractCube = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] locale
+#   @return [Object, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
 TesseractCubeLoadMatch = Struct.new(
   :id,
+  :locale,
+  :token,
   keyword_init: true
 )
 
@@ -159,8 +195,76 @@ TesseractModule = Struct.new(
 #
 # @!attribute [rw] extension
 #   @return [String]
+#
+# @!attribute [rw] alias
+#   @return [Object, nil]
+#
+# @!attribute [rw] cube
+#   @return [String]
+#
+# @!attribute [rw] drilldown
+#   @return [String]
+#
+# @!attribute [rw] exclude
+#   @return [String, nil]
+#
+# @!attribute [rw] filter
+#   @return [Array, nil]
+#
+# @!attribute [rw] growth
+#   @return [Object, nil]
+#
+# @!attribute [rw] include
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [String, nil]
+#
+# @!attribute [rw] locale
+#   @return [Object, nil]
+#
+# @!attribute [rw] measure
+#   @return [String]
+#
+# @!attribute [rw] parent
+#   @return [String, nil]
+#
+# @!attribute [rw] property
+#   @return [Object, nil]
+#
+# @!attribute [rw] ranking
+#   @return [String, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
+#
+# @!attribute [rw] time
+#   @return [Object, nil]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
+#
+# @!attribute [rw] top
+#   @return [Object, nil]
 TesseractModuleLoadMatch = Struct.new(
   :extension,
+  :alias,
+  :cube,
+  :drilldown,
+  :exclude,
+  :filter,
+  :growth,
+  :include,
+  :limit,
+  :locale,
+  :measure,
+  :parent,
+  :property,
+  :ranking,
+  :sort,
+  :time,
+  :token,
+  :top,
   keyword_init: true
 )
 
@@ -168,6 +272,9 @@ TesseractModuleLoadMatch = Struct.new(
 #
 # @!attribute [rw] extension
 #   @return [String]
+#
+# @!attribute [rw] token
+#   @return [String, nil]
 #
 # @!attribute [rw] joins
 #   @return [Array, nil]
@@ -179,6 +286,7 @@ TesseractModuleLoadMatch = Struct.new(
 #   @return [Array]
 TesseractModuleCreateData = Struct.new(
   :extension,
+  :token,
   :joins,
   :pagination,
   :requests,
@@ -212,26 +320,14 @@ TesseractSchema = Struct.new(
 
 # Request payload for TesseractSchema#list.
 #
-# @!attribute [rw] annotations
-#   @return [Hash, nil]
+# @!attribute [rw] locale
+#   @return [Object, nil]
 #
-# @!attribute [rw] caption
-#   @return [String, nil]
-#
-# @!attribute [rw] dimensions
-#   @return [Array, nil]
-#
-# @!attribute [rw] measures
-#   @return [Array, nil]
-#
-# @!attribute [rw] name
+# @!attribute [rw] token
 #   @return [String, nil]
 TesseractSchemaListMatch = Struct.new(
-  :annotations,
-  :caption,
-  :dimensions,
-  :measures,
-  :name,
+  :locale,
+  :token,
   keyword_init: true
 )
 

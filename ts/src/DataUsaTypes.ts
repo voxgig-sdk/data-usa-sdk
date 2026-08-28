@@ -10,6 +10,10 @@ export interface CalculationsModule {
 
 export interface CalculationsModuleLoadMatch {
   extension: string
+  filter?: string
+  param: Record<string, any>
+  token?: string
+  top?: string
 }
 
 export interface EconomicComplexityModule {
@@ -33,10 +37,13 @@ export interface Member {
 }
 
 export interface MemberListMatch {
-  annotations?: Record<string, any>
-  caption?: string
-  name?: string
-  type?: string
+  cube: string
+  level: string
+  limit?: string
+  locale?: any
+  parent?: boolean
+  search?: string
+  token?: string
 }
 
 export interface ModuleStatus {
@@ -62,6 +69,8 @@ export interface TesseractCube {
 
 export interface TesseractCubeLoadMatch {
   id: string
+  locale?: any
+  token?: string
 }
 
 export interface TesseractModule {
@@ -72,10 +81,28 @@ export interface TesseractModule {
 
 export interface TesseractModuleLoadMatch {
   extension: string
+  alias?: any
+  cube: string
+  drilldown: string
+  exclude?: string
+  filter?: any[]
+  growth?: any
+  include?: string
+  limit?: string
+  locale?: any
+  measure: string
+  parent?: string
+  property?: any
+  ranking?: string
+  sort?: string
+  time?: any
+  token?: string
+  top?: any
 }
 
 export interface TesseractModuleCreateData {
   extension: string
+  token?: string
   joins?: any[]
   pagination?: Record<string, any>
   requests: any[]
@@ -90,10 +117,7 @@ export interface TesseractSchema {
 }
 
 export interface TesseractSchemaListMatch {
-  annotations?: Record<string, any>
-  caption?: string
-  dimensions?: any[]
-  measures?: any[]
-  name?: string
+  locale?: any
+  token?: string
 }
 

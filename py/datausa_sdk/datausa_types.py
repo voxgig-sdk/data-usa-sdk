@@ -20,8 +20,15 @@ class CalculationsModule(TypedDict):
     pass
 
 
-class CalculationsModuleLoadMatch(TypedDict):
+class CalculationsModuleLoadMatchRequired(TypedDict):
     extension: str
+    param: dict
+
+
+class CalculationsModuleLoadMatch(CalculationsModuleLoadMatchRequired, total=False):
+    filter: str
+    token: str
+    top: str
 
 
 class EconomicComplexityModule(TypedDict):
@@ -47,11 +54,17 @@ class Member(TypedDict):
     type: str
 
 
-class MemberListMatch(TypedDict, total=False):
-    annotations: dict
-    caption: str
-    name: str
-    type: str
+class MemberListMatchRequired(TypedDict):
+    cube: str
+    level: str
+
+
+class MemberListMatch(MemberListMatchRequired, total=False):
+    limit: str
+    locale: Any
+    parent: bool
+    search: str
+    token: str
 
 
 class ModuleStatus(TypedDict):
@@ -82,8 +95,13 @@ class TesseractCube(TesseractCubeRequired, total=False):
     id: str
 
 
-class TesseractCubeLoadMatch(TypedDict):
+class TesseractCubeLoadMatchRequired(TypedDict):
     id: str
+
+
+class TesseractCubeLoadMatch(TesseractCubeLoadMatchRequired, total=False):
+    locale: Any
+    token: str
 
 
 class TesseractModuleRequired(TypedDict):
@@ -95,8 +113,28 @@ class TesseractModule(TesseractModuleRequired, total=False):
     pagination: dict
 
 
-class TesseractModuleLoadMatch(TypedDict):
+class TesseractModuleLoadMatchRequired(TypedDict):
     extension: str
+    cube: str
+    drilldown: str
+    measure: str
+
+
+class TesseractModuleLoadMatch(TesseractModuleLoadMatchRequired, total=False):
+    alias: Any
+    exclude: str
+    filter: list
+    growth: Any
+    include: str
+    limit: str
+    locale: Any
+    parent: str
+    property: Any
+    ranking: str
+    sort: str
+    time: Any
+    token: str
+    top: Any
 
 
 class TesseractModuleCreateDataRequired(TypedDict):
@@ -105,6 +143,7 @@ class TesseractModuleCreateDataRequired(TypedDict):
 
 
 class TesseractModuleCreateData(TesseractModuleCreateDataRequired, total=False):
+    token: str
     joins: list
     pagination: dict
 
@@ -118,8 +157,5 @@ class TesseractSchema(TypedDict):
 
 
 class TesseractSchemaListMatch(TypedDict, total=False):
-    annotations: dict
-    caption: str
-    dimensions: list
-    measures: list
-    name: str
+    locale: Any
+    token: str
