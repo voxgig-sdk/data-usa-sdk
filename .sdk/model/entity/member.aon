@@ -108,9 +108,13 @@ main: kit: entity: member: {
           }
           method: "GET"
           orig: "/tesseract/members"
-          parts: [
-            "tesseract"
-            "members"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "members"
+            }
           ]
           select: {
             exist: [

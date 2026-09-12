@@ -74,9 +74,13 @@ main: kit: entity: tesseract_schema: {
           }
           method: "GET"
           orig: "/complexity/cubes"
-          parts: [
-            "complexity"
-            "cubes"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "cubes"
+            }
           ]
           select: {
             exist: [
@@ -128,9 +132,13 @@ main: kit: entity: tesseract_schema: {
           }
           method: "GET"
           orig: "/tesseract/cubes"
-          parts: [
-            "tesseract"
-            "cubes"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "cubes"
+            }
           ]
           select: {
             exist: [

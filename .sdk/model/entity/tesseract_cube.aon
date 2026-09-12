@@ -93,16 +93,22 @@ main: kit: entity: tesseract_cube: {
           }
           method: "GET"
           orig: "/complexity/cubes/{cube_name}"
-          parts: [
-            "complexity"
-            "cubes"
-            "{id}"
-          ]
           rename: {
             param: {
               cube_name: "id"
             }
           }
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "cubes"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "authorization"
@@ -163,16 +169,22 @@ main: kit: entity: tesseract_cube: {
           }
           method: "GET"
           orig: "/tesseract/cubes/{cube_name}"
-          parts: [
-            "tesseract"
-            "cubes"
-            "{id}"
-          ]
           rename: {
             param: {
               cube_name: "id"
             }
           }
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "cubes"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "authorization"

@@ -107,9 +107,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/merge.{extension}",
-								"parts": []any{
-									"calcs",
-									"merge.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "calcs",
+									},
+									map[string]any{
+										"lit": "merge.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -125,6 +129,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"calcs",
+									"merge.{extension}",
 								},
 							},
 							map[string]any{
@@ -185,9 +193,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/pums.{extension}",
-								"parts": []any{
-									"calcs",
-									"pums.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "calcs",
+									},
+									map[string]any{
+										"lit": "pums.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -203,6 +215,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"calcs",
+									"pums.{extension}",
 								},
 							},
 							map[string]any{
@@ -249,9 +265,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/acs.{extension}",
-								"parts": []any{
-									"calcs",
-									"acs.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "calcs",
+									},
+									map[string]any{
+										"lit": "acs.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -265,6 +285,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"calcs",
+									"acs.{extension}",
 								},
 							},
 						},
@@ -450,9 +474,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/eci_subnational.{extension}",
-								"parts": []any{
-									"complexity",
-									"eci_subnational.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "eci_subnational.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -485,6 +513,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"eci_subnational.{extension}",
 								},
 							},
 							map[string]any{
@@ -655,9 +687,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pci_subnational.{extension}",
-								"parts": []any{
-									"complexity",
-									"pci_subnational.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "pci_subnational.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -690,6 +726,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"pci_subnational.{extension}",
 								},
 							},
 							map[string]any{
@@ -861,9 +901,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relatedness_subnational.{extension}",
-								"parts": []any{
-									"complexity",
-									"relatedness_subnational.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "relatedness_subnational.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -896,6 +940,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"relatedness_subnational.{extension}",
 								},
 							},
 							map[string]any{
@@ -1067,9 +1115,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relative_relatedness_subnational.{extension}",
-								"parts": []any{
-									"complexity",
-									"relative_relatedness_subnational.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "relative_relatedness_subnational.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1102,6 +1154,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"relative_relatedness_subnational.{extension}",
 								},
 							},
 							map[string]any{
@@ -1263,9 +1319,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca_historical.{extension}",
-								"parts": []any{
-									"complexity",
-									"rca_historical.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "rca_historical.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1297,6 +1357,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"rca_historical.{extension}",
 								},
 							},
 							map[string]any{
@@ -1461,9 +1525,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca_subnational.{extension}",
-								"parts": []any{
-									"complexity",
-									"rca_subnational.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "rca_subnational.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1495,6 +1563,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"rca_subnational.{extension}",
 								},
 							},
 							map[string]any{
@@ -1640,9 +1712,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/peii.{extension}",
-								"parts": []any{
-									"complexity",
-									"peii.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "peii.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1671,6 +1747,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"peii.{extension}",
 								},
 							},
 							map[string]any{
@@ -1816,9 +1896,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pgi.{extension}",
-								"parts": []any{
-									"complexity",
-									"pgi.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "pgi.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -1847,6 +1931,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"pgi.{extension}",
 								},
 							},
 							map[string]any{
@@ -1984,9 +2072,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/eci.{extension}",
-								"parts": []any{
-									"complexity",
-									"eci.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "eci.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2014,6 +2106,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"eci.{extension}",
 								},
 							},
 							map[string]any{
@@ -2151,9 +2247,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/pci.{extension}",
-								"parts": []any{
-									"complexity",
-									"pci.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "pci.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2181,6 +2281,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"pci.{extension}",
 								},
 							},
 							map[string]any{
@@ -2312,9 +2416,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/opportunity_gain.{extension}",
-								"parts": []any{
-									"complexity",
-									"opportunity_gain.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "opportunity_gain.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2341,6 +2449,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"opportunity_gain.{extension}",
 								},
 							},
 							map[string]any{
@@ -2472,9 +2584,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relatedness.{extension}",
-								"parts": []any{
-									"complexity",
-									"relatedness.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "relatedness.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2501,6 +2617,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"relatedness.{extension}",
 								},
 							},
 							map[string]any{
@@ -2632,9 +2752,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/relative_relatedness.{extension}",
-								"parts": []any{
-									"complexity",
-									"relative_relatedness.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "relative_relatedness.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2661,6 +2785,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"relative_relatedness.{extension}",
 								},
 							},
 							map[string]any{
@@ -2791,9 +2919,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/rca.{extension}",
-								"parts": []any{
-									"complexity",
-									"rca.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "rca.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2821,6 +2953,10 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"complexity",
+									"rca.{extension}",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{
@@ -2845,9 +2981,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/{endpoint}",
-								"parts": []any{
-									"complexity",
-									"{endpoint}",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"var": "endpoint",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -2858,6 +2998,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"{endpoint}",
 								},
 							},
 						},
@@ -2884,13 +3028,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/_health",
-								"parts": []any{
-									"_health",
+								"segments": []any{
+									map[string]any{
+										"lit": "_health",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"_health",
 								},
 							},
 						},
@@ -2999,9 +3148,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/members",
-								"parts": []any{
-									"tesseract",
-									"members",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "members",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3019,6 +3172,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"members",
 								},
 							},
 						},
@@ -3041,13 +3198,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/calcs/",
-								"parts": []any{
-									"calcs",
+								"segments": []any{
+									map[string]any{
+										"lit": "calcs",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.debug`",
+								},
+								"parts": []any{
+									"calcs",
 								},
 							},
 							map[string]any{
@@ -3055,13 +3217,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/",
-								"parts": []any{
-									"complexity",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.debug`",
+								},
+								"parts": []any{
+									"complexity",
 								},
 							},
 							map[string]any{
@@ -3069,13 +3236,18 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/",
-								"parts": []any{
-									"tesseract",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.debug`",
+								},
+								"parts": []any{
+									"tesseract",
 								},
 							},
 						},
@@ -3098,12 +3270,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/",
-								"parts": []any{},
+								"segments": []any{},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{},
 							},
 						},
 					},
@@ -3143,6 +3316,10 @@ func MakeConfig() map[string]any {
 						"req": true,
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "tesseract_cube",
 				"op": map[string]any{
@@ -3193,14 +3370,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/cubes/{cube_name}",
-								"parts": []any{
-									"complexity",
-									"cubes",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"cube_name": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "cubes",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -3215,6 +3398,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"cubes",
+									"{id}",
 								},
 							},
 							map[string]any{
@@ -3260,14 +3448,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/cubes/{cube_name}",
-								"parts": []any{
-									"tesseract",
-									"cubes",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"cube_name": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "cubes",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -3282,6 +3476,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"cubes",
+									"{id}",
 								},
 							},
 						},
@@ -3361,9 +3560,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "POST",
 								"orig": "/tesseract/multiquery.{extension}",
-								"parts": []any{
-									"tesseract",
-									"multiquery.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "multiquery.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3376,6 +3579,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"multiquery.{extension}",
 								},
 							},
 						},
@@ -3524,10 +3731,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/query",
-								"parts": []any{
-									"tesseract",
-									"debug",
-									"query",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "debug",
+									},
+									map[string]any{
+										"lit": "query",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3556,6 +3769,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"debug",
+									"query",
 								},
 							},
 							map[string]any{
@@ -3700,9 +3918,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/data.{extension}",
-								"parts": []any{
-									"tesseract",
-									"data.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "data.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3731,6 +3953,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"data.{extension}",
 								},
 							},
 							map[string]any{
@@ -3761,10 +3987,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/flush",
-								"parts": []any{
-									"tesseract",
-									"debug",
-									"flush",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "debug",
+									},
+									map[string]any{
+										"lit": "flush",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3776,6 +4008,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"debug",
+									"flush",
 								},
 							},
 							map[string]any{
@@ -3806,10 +4043,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/debug/schema",
-								"parts": []any{
-									"tesseract",
-									"debug",
-									"schema",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "debug",
+									},
+									map[string]any{
+										"lit": "schema",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3821,6 +4064,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"debug",
+									"schema",
 								},
 							},
 							map[string]any{
@@ -3838,9 +4086,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/members.{extension}",
-								"parts": []any{
-									"tesseract",
-									"members.{extension}",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "members.{extension}",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3851,20 +4103,32 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"tesseract",
+									"members.{extension}",
+								},
 							},
 							map[string]any{
 								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/data",
-								"parts": []any{
-									"tesseract",
-									"data",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "data",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"tesseract",
+									"data",
 								},
 							},
 						},
@@ -3942,9 +4206,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/complexity/cubes",
-								"parts": []any{
-									"complexity",
-									"cubes",
+								"segments": []any{
+									map[string]any{
+										"lit": "complexity",
+									},
+									map[string]any{
+										"lit": "cubes",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -3957,6 +4225,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"complexity",
+									"cubes",
 								},
 							},
 							map[string]any{
@@ -3993,9 +4265,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tesseract/cubes",
-								"parts": []any{
-									"tesseract",
-									"cubes",
+								"segments": []any{
+									map[string]any{
+										"lit": "tesseract",
+									},
+									map[string]any{
+										"lit": "cubes",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -4009,6 +4285,10 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"tesseract",
+									"cubes",
+								},
 							},
 						},
 					},
@@ -4019,6 +4299,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

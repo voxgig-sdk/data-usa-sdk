@@ -191,9 +191,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/eci_subnational.{extension}"
-          parts: [
-            "complexity"
-            "eci_subnational.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "eci_subnational.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -410,9 +414,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/pci_subnational.{extension}"
-          parts: [
-            "complexity"
-            "pci_subnational.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "pci_subnational.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -630,9 +638,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/relatedness_subnational.{extension}"
-          parts: [
-            "complexity"
-            "relatedness_subnational.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "relatedness_subnational.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -850,9 +862,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/relative_relatedness_subnational.{extension}"
-          parts: [
-            "complexity"
-            "relative_relatedness_subnational.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "relative_relatedness_subnational.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -1062,9 +1078,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/rca_historical.{extension}"
-          parts: [
-            "complexity"
-            "rca_historical.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "rca_historical.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -1273,9 +1293,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/rca_subnational.{extension}"
-          parts: [
-            "complexity"
-            "rca_subnational.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "rca_subnational.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -1463,9 +1487,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/peii.{extension}"
-          parts: [
-            "complexity"
-            "peii.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "peii.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -1650,9 +1678,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/pgi.{extension}"
-          parts: [
-            "complexity"
-            "pgi.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "pgi.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -1831,9 +1863,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/eci.{extension}"
-          parts: [
-            "complexity"
-            "eci.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "eci.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2011,9 +2047,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/pci.{extension}"
-          parts: [
-            "complexity"
-            "pci.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "pci.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2184,9 +2224,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/opportunity_gain.{extension}"
-          parts: [
-            "complexity"
-            "opportunity_gain.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "opportunity_gain.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2356,9 +2400,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/relatedness.{extension}"
-          parts: [
-            "complexity"
-            "relatedness.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "relatedness.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2528,9 +2576,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/relative_relatedness.{extension}"
-          parts: [
-            "complexity"
-            "relative_relatedness.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "relative_relatedness.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2699,9 +2751,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/rca.{extension}"
-          parts: [
-            "complexity"
-            "rca.{extension}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              lit: "rca.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -2753,9 +2809,13 @@ main: kit: entity: economic_complexity_module: {
           }
           method: "GET"
           orig: "/complexity/{endpoint}"
-          parts: [
-            "complexity"
-            "{endpoint}"
+          segments: [
+            {
+              lit: "complexity"
+            }
+            {
+              var: "endpoint"
+            }
           ]
           select: {
             exist: [

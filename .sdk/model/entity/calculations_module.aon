@@ -71,9 +71,13 @@ main: kit: entity: calculations_module: {
           }
           method: "GET"
           orig: "/calcs/merge.{extension}"
-          parts: [
-            "calcs"
-            "merge.{extension}"
+          segments: [
+            {
+              lit: "calcs"
+            }
+            {
+              lit: "merge.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -153,9 +157,13 @@ main: kit: entity: calculations_module: {
           }
           method: "GET"
           orig: "/calcs/pums.{extension}"
-          parts: [
-            "calcs"
-            "pums.{extension}"
+          segments: [
+            {
+              lit: "calcs"
+            }
+            {
+              lit: "pums.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -219,9 +227,13 @@ main: kit: entity: calculations_module: {
           }
           method: "GET"
           orig: "/calcs/acs.{extension}"
-          parts: [
-            "calcs"
-            "acs.{extension}"
+          segments: [
+            {
+              lit: "calcs"
+            }
+            {
+              lit: "acs.{extension}"
+            }
           ]
           select: {
             exist: [

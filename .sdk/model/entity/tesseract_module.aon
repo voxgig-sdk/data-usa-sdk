@@ -77,9 +77,13 @@ main: kit: entity: tesseract_module: {
           }
           method: "POST"
           orig: "/tesseract/multiquery.{extension}"
-          parts: [
-            "tesseract"
-            "multiquery.{extension}"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "multiquery.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -254,10 +258,16 @@ main: kit: entity: tesseract_module: {
           }
           method: "GET"
           orig: "/tesseract/debug/query"
-          parts: [
-            "tesseract"
-            "debug"
-            "query"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "debug"
+            }
+            {
+              lit: "query"
+            }
           ]
           select: {
             exist: [
@@ -445,9 +455,13 @@ main: kit: entity: tesseract_module: {
           }
           method: "GET"
           orig: "/tesseract/data.{extension}"
-          parts: [
-            "tesseract"
-            "data.{extension}"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "data.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -508,10 +522,16 @@ main: kit: entity: tesseract_module: {
           }
           method: "GET"
           orig: "/tesseract/debug/flush"
-          parts: [
-            "tesseract"
-            "debug"
-            "flush"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "debug"
+            }
+            {
+              lit: "flush"
+            }
           ]
           select: {
             exist: [
@@ -555,10 +575,16 @@ main: kit: entity: tesseract_module: {
           }
           method: "GET"
           orig: "/tesseract/debug/schema"
-          parts: [
-            "tesseract"
-            "debug"
-            "schema"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "debug"
+            }
+            {
+              lit: "schema"
+            }
           ]
           select: {
             exist: [
@@ -586,9 +612,13 @@ main: kit: entity: tesseract_module: {
           }
           method: "GET"
           orig: "/tesseract/members.{extension}"
-          parts: [
-            "tesseract"
-            "members.{extension}"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "members.{extension}"
+            }
           ]
           select: {
             exist: [
@@ -603,9 +633,13 @@ main: kit: entity: tesseract_module: {
         {
           method: "GET"
           orig: "/tesseract/data"
-          parts: [
-            "tesseract"
-            "data"
+          segments: [
+            {
+              lit: "tesseract"
+            }
+            {
+              lit: "data"
+            }
           ]
           transform: {
             req: "`reqdata`"

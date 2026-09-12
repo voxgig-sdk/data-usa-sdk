@@ -50,7 +50,7 @@ func TestModuleStatusEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		moduleStatusRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.module_status", setup.data)))
+		moduleStatusRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.module_status")))
 		var moduleStatusRef01Data map[string]any
 		if len(moduleStatusRef01DataRaw) > 0 {
 			moduleStatusRef01Data = core.ToMapAny(moduleStatusRef01DataRaw[0][1])
@@ -97,7 +97,7 @@ func module_statusBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"module_status01", "module_status02", "module_status03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +125,22 @@ func module_statusBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["DATA_USA_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewDataUsaSDK(core.ToMapAny(mergedOpts))
 	}

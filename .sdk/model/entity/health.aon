@@ -12,8 +12,10 @@ main: kit: entity: health: {
         {
           method: "GET"
           orig: "/_health"
-          parts: [
-            "_health"
+          segments: [
+            {
+              lit: "_health"
+            }
           ]
           transform: {
             req: "`reqdata`"

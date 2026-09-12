@@ -103,9 +103,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/calcs/merge.{extension}",
-                ["parts"] = {
-                  "calcs",
-                  "merge.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "calcs",
+                  },
+                  {
+                    ["lit"] = "merge.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -121,6 +125,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "calcs",
+                  "merge.{extension}",
                 },
               },
               {
@@ -181,9 +189,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/calcs/pums.{extension}",
-                ["parts"] = {
-                  "calcs",
-                  "pums.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "calcs",
+                  },
+                  {
+                    ["lit"] = "pums.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -199,6 +211,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "calcs",
+                  "pums.{extension}",
                 },
               },
               {
@@ -245,9 +261,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/calcs/acs.{extension}",
-                ["parts"] = {
-                  "calcs",
-                  "acs.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "calcs",
+                  },
+                  {
+                    ["lit"] = "acs.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -261,6 +281,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "calcs",
+                  "acs.{extension}",
                 },
               },
             },
@@ -446,9 +470,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/eci_subnational.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "eci_subnational.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "eci_subnational.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -481,6 +509,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "eci_subnational.{extension}",
                 },
               },
               {
@@ -651,9 +683,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/pci_subnational.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "pci_subnational.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "pci_subnational.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -686,6 +722,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "pci_subnational.{extension}",
                 },
               },
               {
@@ -857,9 +897,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/relatedness_subnational.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "relatedness_subnational.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "relatedness_subnational.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -892,6 +936,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "relatedness_subnational.{extension}",
                 },
               },
               {
@@ -1063,9 +1111,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/relative_relatedness_subnational.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "relative_relatedness_subnational.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "relative_relatedness_subnational.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1098,6 +1150,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "relative_relatedness_subnational.{extension}",
                 },
               },
               {
@@ -1259,9 +1315,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/rca_historical.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "rca_historical.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "rca_historical.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1293,6 +1353,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "rca_historical.{extension}",
                 },
               },
               {
@@ -1457,9 +1521,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/rca_subnational.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "rca_subnational.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "rca_subnational.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1491,6 +1559,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "rca_subnational.{extension}",
                 },
               },
               {
@@ -1636,9 +1708,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/peii.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "peii.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "peii.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1667,6 +1743,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "peii.{extension}",
                 },
               },
               {
@@ -1812,9 +1892,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/pgi.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "pgi.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "pgi.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1843,6 +1927,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "pgi.{extension}",
                 },
               },
               {
@@ -1980,9 +2068,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/eci.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "eci.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "eci.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2010,6 +2102,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "eci.{extension}",
                 },
               },
               {
@@ -2147,9 +2243,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/pci.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "pci.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "pci.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2177,6 +2277,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "pci.{extension}",
                 },
               },
               {
@@ -2308,9 +2412,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/opportunity_gain.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "opportunity_gain.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "opportunity_gain.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2337,6 +2445,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "opportunity_gain.{extension}",
                 },
               },
               {
@@ -2468,9 +2580,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/relatedness.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "relatedness.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "relatedness.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2497,6 +2613,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "relatedness.{extension}",
                 },
               },
               {
@@ -2628,9 +2748,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/relative_relatedness.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "relative_relatedness.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "relative_relatedness.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2657,6 +2781,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "relative_relatedness.{extension}",
                 },
               },
               {
@@ -2787,9 +2915,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/rca.{extension}",
-                ["parts"] = {
-                  "complexity",
-                  "rca.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "rca.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2817,6 +2949,10 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "complexity",
+                  "rca.{extension}",
+                },
               },
               {
                 ["args"] = {
@@ -2841,9 +2977,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/{endpoint}",
-                ["parts"] = {
-                  "complexity",
-                  "{endpoint}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["var"] = "endpoint",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2854,6 +2994,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "{endpoint}",
                 },
               },
             },
@@ -2880,13 +3024,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/_health",
-                ["parts"] = {
-                  "_health",
+                ["segments"] = {
+                  {
+                    ["lit"] = "_health",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "_health",
                 },
               },
             },
@@ -2995,9 +3144,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/members",
-                ["parts"] = {
-                  "tesseract",
-                  "members",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "members",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3015,6 +3168,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "members",
                 },
               },
             },
@@ -3037,13 +3194,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/calcs/",
-                ["parts"] = {
-                  "calcs",
+                ["segments"] = {
+                  {
+                    ["lit"] = "calcs",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.debug`",
+                },
+                ["parts"] = {
+                  "calcs",
                 },
               },
               {
@@ -3051,13 +3213,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/",
-                ["parts"] = {
-                  "complexity",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.debug`",
+                },
+                ["parts"] = {
+                  "complexity",
                 },
               },
               {
@@ -3065,13 +3232,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/",
-                ["parts"] = {
-                  "tesseract",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.debug`",
+                },
+                ["parts"] = {
+                  "tesseract",
                 },
               },
             },
@@ -3094,12 +3266,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
-                ["parts"] = {},
+                ["segments"] = {},
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {},
               },
             },
           },
@@ -3139,6 +3312,10 @@ local function make_config()
             ["req"] = true,
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "tesseract_cube",
         ["op"] = {
@@ -3189,14 +3366,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/cubes/{cube_name}",
-                ["parts"] = {
-                  "complexity",
-                  "cubes",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["cube_name"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "cubes",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -3211,6 +3394,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "cubes",
+                  "{id}",
                 },
               },
               {
@@ -3256,14 +3444,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/cubes/{cube_name}",
-                ["parts"] = {
-                  "tesseract",
-                  "cubes",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["cube_name"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "cubes",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -3278,6 +3472,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "cubes",
+                  "{id}",
                 },
               },
             },
@@ -3357,9 +3556,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "POST",
                 ["orig"] = "/tesseract/multiquery.{extension}",
-                ["parts"] = {
-                  "tesseract",
-                  "multiquery.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "multiquery.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3372,6 +3575,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "multiquery.{extension}",
                 },
               },
             },
@@ -3520,10 +3727,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/debug/query",
-                ["parts"] = {
-                  "tesseract",
-                  "debug",
-                  "query",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "debug",
+                  },
+                  {
+                    ["lit"] = "query",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3552,6 +3765,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "debug",
+                  "query",
                 },
               },
               {
@@ -3696,9 +3914,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/data.{extension}",
-                ["parts"] = {
-                  "tesseract",
-                  "data.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "data.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3727,6 +3949,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "data.{extension}",
                 },
               },
               {
@@ -3757,10 +3983,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/debug/flush",
-                ["parts"] = {
-                  "tesseract",
-                  "debug",
-                  "flush",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "debug",
+                  },
+                  {
+                    ["lit"] = "flush",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3772,6 +4004,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "debug",
+                  "flush",
                 },
               },
               {
@@ -3802,10 +4039,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/debug/schema",
-                ["parts"] = {
-                  "tesseract",
-                  "debug",
-                  "schema",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "debug",
+                  },
+                  {
+                    ["lit"] = "schema",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3817,6 +4060,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "debug",
+                  "schema",
                 },
               },
               {
@@ -3834,9 +4082,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/members.{extension}",
-                ["parts"] = {
-                  "tesseract",
-                  "members.{extension}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "members.{extension}",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3847,20 +4099,32 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "tesseract",
+                  "members.{extension}",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/data",
-                ["parts"] = {
-                  "tesseract",
-                  "data",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "data",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "data",
                 },
               },
             },
@@ -3938,9 +4202,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/complexity/cubes",
-                ["parts"] = {
-                  "complexity",
-                  "cubes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "complexity",
+                  },
+                  {
+                    ["lit"] = "cubes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -3953,6 +4221,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "complexity",
+                  "cubes",
                 },
               },
               {
@@ -3989,9 +4261,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tesseract/cubes",
-                ["parts"] = {
-                  "tesseract",
-                  "cubes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tesseract",
+                  },
+                  {
+                    ["lit"] = "cubes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -4004,6 +4280,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tesseract",
+                  "cubes",
                 },
               },
             },

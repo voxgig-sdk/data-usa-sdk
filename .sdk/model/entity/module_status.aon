@@ -12,8 +12,10 @@ main: kit: entity: module_status: {
         {
           method: "GET"
           orig: "/calcs/"
-          parts: [
-            "calcs"
+          segments: [
+            {
+              lit: "calcs"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -23,8 +25,10 @@ main: kit: entity: module_status: {
         {
           method: "GET"
           orig: "/complexity/"
-          parts: [
-            "complexity"
+          segments: [
+            {
+              lit: "complexity"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -34,8 +38,10 @@ main: kit: entity: module_status: {
         {
           method: "GET"
           orig: "/tesseract/"
-          parts: [
-            "tesseract"
+          segments: [
+            {
+              lit: "tesseract"
+            }
           ]
           transform: {
             req: "`reqdata`"
