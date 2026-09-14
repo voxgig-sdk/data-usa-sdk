@@ -103,7 +103,7 @@ local result, err = client:RouteIndexGet():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
+| TypeScript | `@voxgig-sdk/data-usa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
 | Python | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
 | PHP | `voxgig-sdk/data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/data-usa-sdk/go` | `go get github.com/voxgig-sdk/data-usa-sdk/go@latest` |
@@ -117,7 +117,7 @@ local result, err = client:RouteIndexGet():load()
 ### TypeScript
 
 ```ts
-import { DataUsaSDK } from '@voxgig-sdk/data-usa'
+import { DataUsaSDK } from '@voxgig-sdk/data-usa-sdk'
 
 const client = new DataUsaSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DataUsaSDK } from '@voxgig-sdk/data-usa'
+import { DataUsaSDK } from '@voxgig-sdk/data-usa-sdk'
 
 const client = new DataUsaSDK()
 ```
@@ -702,7 +702,7 @@ data-usa/
 Import the SDK from the package root:
 
 ```ts
-import { DataUsaSDK } from '@voxgig-sdk/data-usa'
+import { DataUsaSDK } from '@voxgig-sdk/data-usa-sdk'
 ```
 
 ### Entity state
