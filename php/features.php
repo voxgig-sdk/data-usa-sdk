@@ -4,7 +4,10 @@ declare(strict_types=1);
 // DataUsa SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class DataUsaFeatures
@@ -14,8 +17,14 @@ class DataUsaFeatures
         switch ($name) {
             case "base":
                 return new DataUsaBaseFeature();
+            case "ratelimit":
+                return new DataUsaRatelimitFeature();
+            case "retry":
+                return new DataUsaRetryFeature();
             case "test":
                 return new DataUsaTestFeature();
+            case "timeout":
+                return new DataUsaTimeoutFeature();
             default:
                 return new DataUsaBaseFeature();
         }
@@ -31,7 +40,10 @@ class DataUsaFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -1,12 +1,18 @@
 # DataUsa SDK feature factory
 
 from datausa_sdk.feature.base_feature import DataUsaBaseFeature
+from datausa_sdk.feature.ratelimit_feature import DataUsaRatelimitFeature
+from datausa_sdk.feature.retry_feature import DataUsaRetryFeature
 from datausa_sdk.feature.test_feature import DataUsaTestFeature
+from datausa_sdk.feature.timeout_feature import DataUsaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: DataUsaBaseFeature(),
+    "ratelimit": lambda: DataUsaRatelimitFeature(),
+    "retry": lambda: DataUsaRetryFeature(),
     "test": lambda: DataUsaTestFeature(),
+    "timeout": lambda: DataUsaTimeoutFeature(),
 }
 
 

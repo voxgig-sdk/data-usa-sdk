@@ -34,5 +34,959 @@
         "name": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /complexity/cubes": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_schema_complexity_cubes_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Locale"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "annotations": {
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "title": "Annotations",
+                      "type": "object"
+                    },
+                    "cubes": {
+                      "items": {
+                        "properties": {
+                          "annotations": {
+                            "additionalProperties": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "title": "Annotations",
+                            "type": "object"
+                          },
+                          "caption": {
+                            "title": "Caption",
+                            "type": "string"
+                          },
+                          "dimensions": {
+                            "items": {
+                              "properties": {
+                                "annotations": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "title": "Annotations",
+                                  "type": "object"
+                                },
+                                "caption": {
+                                  "title": "Caption",
+                                  "type": "string"
+                                },
+                                "default_hierarchy": {
+                                  "title": "Default Hierarchy",
+                                  "type": "string"
+                                },
+                                "hierarchies": {
+                                  "items": {
+                                    "properties": {
+                                      "annotations": {
+                                        "additionalProperties": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "title": "Annotations",
+                                        "type": "object"
+                                      },
+                                      "caption": {
+                                        "title": "Caption",
+                                        "type": "string"
+                                      },
+                                      "levels": {
+                                        "items": {
+                                          "properties": {
+                                            "annotations": {
+                                              "additionalProperties": {
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string"
+                                                  },
+                                                  {
+                                                    "type": "null"
+                                                  }
+                                                ]
+                                              },
+                                              "title": "Annotations",
+                                              "type": "object"
+                                            },
+                                            "caption": {
+                                              "title": "Caption",
+                                              "type": "string"
+                                            },
+                                            "count": {
+                                              "title": "Count",
+                                              "type": "integer"
+                                            },
+                                            "depth": {
+                                              "title": "Depth",
+                                              "type": "integer"
+                                            },
+                                            "name": {
+                                              "title": "Name",
+                                              "type": "string"
+                                            },
+                                            "properties": {
+                                              "items": {
+                                                "properties": {
+                                                  "annotations": {
+                                                    "additionalProperties": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "string"
+                                                        },
+                                                        {
+                                                          "type": "null"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "title": "Annotations",
+                                                    "type": "object"
+                                                  },
+                                                  "caption": {
+                                                    "title": "Caption",
+                                                    "type": "string"
+                                                  },
+                                                  "name": {
+                                                    "title": "Name",
+                                                    "type": "string"
+                                                  },
+                                                  "type": {
+                                                    "description": "Types of the data the user can expect to find in the associated column.",
+                                                    "enum": [
+                                                      "bool",
+                                                      "date",
+                                                      "time",
+                                                      "dttm",
+                                                      "stmp",
+                                                      "f32",
+                                                      "f64",
+                                                      "i8",
+                                                      "i16",
+                                                      "i32",
+                                                      "i64",
+                                                      "i128",
+                                                      "u8",
+                                                      "u16",
+                                                      "u32",
+                                                      "u64",
+                                                      "u128",
+                                                      "str"
+                                                    ],
+                                                    "title": "DataType",
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name",
+                                                  "caption",
+                                                  "type",
+                                                  "annotations"
+                                                ],
+                                                "title": "TesseractProperty",
+                                                "type": "object"
+                                              },
+                                              "title": "Properties",
+                                              "type": "array"
+                                            }
+                                          },
+                                          "required": [
+                                            "name",
+                                            "caption",
+                                            "depth",
+                                            "count",
+                                            "annotations",
+                                            "properties"
+                                          ],
+                                          "title": "TesseractLevel",
+                                          "type": "object"
+                                        },
+                                        "title": "Levels",
+                                        "type": "array"
+                                      },
+                                      "name": {
+                                        "title": "Name",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name",
+                                      "caption",
+                                      "annotations",
+                                      "levels"
+                                    ],
+                                    "title": "TesseractHierarchy",
+                                    "type": "object"
+                                  },
+                                  "title": "Hierarchies",
+                                  "type": "array"
+                                },
+                                "name": {
+                                  "title": "Name",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Kind of data a dimension is storing.",
+                                  "enum": [
+                                    "standard",
+                                    "time",
+                                    "geo"
+                                  ],
+                                  "title": "DimensionType",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "caption",
+                                "type",
+                                "annotations",
+                                "hierarchies",
+                                "default_hierarchy"
+                              ],
+                              "title": "TesseractDimension",
+                              "type": "object"
+                            },
+                            "title": "Dimensions",
+                            "type": "array"
+                          },
+                          "measures": {
+                            "items": {
+                              "properties": {
+                                "aggregator": {
+                                  "title": "Aggregator",
+                                  "type": "string"
+                                },
+                                "annotations": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "title": "Annotations",
+                                  "type": "object"
+                                },
+                                "attached": {
+                                  "items": {
+                                    "properties": "[Circular *paths./tesseract/cubes.get.responses.200.content.application/json.schema.properties.cubes.items.properties.measures.items.properties]",
+                                    "required": [
+                                      "name",
+                                      "caption",
+                                      "aggregator",
+                                      "annotations",
+                                      "attached"
+                                    ],
+                                    "title": "TesseractMeasure",
+                                    "type": "object"
+                                  },
+                                  "title": "Attached",
+                                  "type": "array"
+                                },
+                                "caption": {
+                                  "title": "Caption",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "title": "Name",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "caption",
+                                "aggregator",
+                                "annotations",
+                                "attached"
+                              ],
+                              "title": "TesseractMeasure",
+                              "type": "object"
+                            },
+                            "title": "Measures",
+                            "type": "array"
+                          },
+                          "name": {
+                            "title": "Name",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "caption",
+                          "annotations",
+                          "dimensions",
+                          "measures"
+                        ],
+                        "title": "TesseractCube",
+                        "type": "object"
+                      },
+                      "title": "Cubes",
+                      "type": "array"
+                    },
+                    "default_locale": {
+                      "title": "Default Locale",
+                      "type": "string"
+                    },
+                    "locales": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "title": "Locales",
+                      "type": "array"
+                    },
+                    "name": {
+                      "title": "Name",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "locales",
+                    "default_locale",
+                    "annotations",
+                    "cubes"
+                  ],
+                  "title": "TesseractSchema",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/cubes": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "get_schema_tesseract_cubes_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Locale"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "annotations": {
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "title": "Annotations",
+                      "type": "object"
+                    },
+                    "cubes": {
+                      "items": {
+                        "properties": {
+                          "annotations": {
+                            "additionalProperties": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "title": "Annotations",
+                            "type": "object"
+                          },
+                          "caption": {
+                            "title": "Caption",
+                            "type": "string"
+                          },
+                          "dimensions": {
+                            "items": {
+                              "properties": {
+                                "annotations": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "title": "Annotations",
+                                  "type": "object"
+                                },
+                                "caption": {
+                                  "title": "Caption",
+                                  "type": "string"
+                                },
+                                "default_hierarchy": {
+                                  "title": "Default Hierarchy",
+                                  "type": "string"
+                                },
+                                "hierarchies": {
+                                  "items": {
+                                    "properties": {
+                                      "annotations": {
+                                        "additionalProperties": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "null"
+                                            }
+                                          ]
+                                        },
+                                        "title": "Annotations",
+                                        "type": "object"
+                                      },
+                                      "caption": {
+                                        "title": "Caption",
+                                        "type": "string"
+                                      },
+                                      "levels": {
+                                        "items": {
+                                          "properties": {
+                                            "annotations": {
+                                              "additionalProperties": {
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string"
+                                                  },
+                                                  {
+                                                    "type": "null"
+                                                  }
+                                                ]
+                                              },
+                                              "title": "Annotations",
+                                              "type": "object"
+                                            },
+                                            "caption": {
+                                              "title": "Caption",
+                                              "type": "string"
+                                            },
+                                            "count": {
+                                              "title": "Count",
+                                              "type": "integer"
+                                            },
+                                            "depth": {
+                                              "title": "Depth",
+                                              "type": "integer"
+                                            },
+                                            "name": {
+                                              "title": "Name",
+                                              "type": "string"
+                                            },
+                                            "properties": {
+                                              "items": {
+                                                "properties": {
+                                                  "annotations": {
+                                                    "additionalProperties": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "string"
+                                                        },
+                                                        {
+                                                          "type": "null"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "title": "Annotations",
+                                                    "type": "object"
+                                                  },
+                                                  "caption": {
+                                                    "title": "Caption",
+                                                    "type": "string"
+                                                  },
+                                                  "name": {
+                                                    "title": "Name",
+                                                    "type": "string"
+                                                  },
+                                                  "type": {
+                                                    "description": "Types of the data the user can expect to find in the associated column.",
+                                                    "enum": [
+                                                      "bool",
+                                                      "date",
+                                                      "time",
+                                                      "dttm",
+                                                      "stmp",
+                                                      "f32",
+                                                      "f64",
+                                                      "i8",
+                                                      "i16",
+                                                      "i32",
+                                                      "i64",
+                                                      "i128",
+                                                      "u8",
+                                                      "u16",
+                                                      "u32",
+                                                      "u64",
+                                                      "u128",
+                                                      "str"
+                                                    ],
+                                                    "title": "DataType",
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "name",
+                                                  "caption",
+                                                  "type",
+                                                  "annotations"
+                                                ],
+                                                "title": "TesseractProperty",
+                                                "type": "object"
+                                              },
+                                              "title": "Properties",
+                                              "type": "array"
+                                            }
+                                          },
+                                          "required": [
+                                            "name",
+                                            "caption",
+                                            "depth",
+                                            "count",
+                                            "annotations",
+                                            "properties"
+                                          ],
+                                          "title": "TesseractLevel",
+                                          "type": "object"
+                                        },
+                                        "title": "Levels",
+                                        "type": "array"
+                                      },
+                                      "name": {
+                                        "title": "Name",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "name",
+                                      "caption",
+                                      "annotations",
+                                      "levels"
+                                    ],
+                                    "title": "TesseractHierarchy",
+                                    "type": "object"
+                                  },
+                                  "title": "Hierarchies",
+                                  "type": "array"
+                                },
+                                "name": {
+                                  "title": "Name",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Kind of data a dimension is storing.",
+                                  "enum": [
+                                    "standard",
+                                    "time",
+                                    "geo"
+                                  ],
+                                  "title": "DimensionType",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "caption",
+                                "type",
+                                "annotations",
+                                "hierarchies",
+                                "default_hierarchy"
+                              ],
+                              "title": "TesseractDimension",
+                              "type": "object"
+                            },
+                            "title": "Dimensions",
+                            "type": "array"
+                          },
+                          "measures": {
+                            "items": {
+                              "properties": {
+                                "aggregator": {
+                                  "title": "Aggregator",
+                                  "type": "string"
+                                },
+                                "annotations": {
+                                  "additionalProperties": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "null"
+                                      }
+                                    ]
+                                  },
+                                  "title": "Annotations",
+                                  "type": "object"
+                                },
+                                "attached": {
+                                  "items": {
+                                    "properties": "[Circular *paths./tesseract/cubes.get.responses.200.content.application/json.schema.properties.cubes.items.properties.measures.items.properties]",
+                                    "required": [
+                                      "name",
+                                      "caption",
+                                      "aggregator",
+                                      "annotations",
+                                      "attached"
+                                    ],
+                                    "title": "TesseractMeasure",
+                                    "type": "object"
+                                  },
+                                  "title": "Attached",
+                                  "type": "array"
+                                },
+                                "caption": {
+                                  "title": "Caption",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "title": "Name",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "caption",
+                                "aggregator",
+                                "annotations",
+                                "attached"
+                              ],
+                              "title": "TesseractMeasure",
+                              "type": "object"
+                            },
+                            "title": "Measures",
+                            "type": "array"
+                          },
+                          "name": {
+                            "title": "Name",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "caption",
+                          "annotations",
+                          "dimensions",
+                          "measures"
+                        ],
+                        "title": "TesseractCube",
+                        "type": "object"
+                      },
+                      "title": "Cubes",
+                      "type": "array"
+                    },
+                    "default_locale": {
+                      "title": "Default Locale",
+                      "type": "string"
+                    },
+                    "locales": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "title": "Locales",
+                      "type": "array"
+                    },
+                    "name": {
+                      "title": "Name",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "locales",
+                    "default_locale",
+                    "annotations",
+                    "cubes"
+                  ],
+                  "title": "TesseractSchema",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

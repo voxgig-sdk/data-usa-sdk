@@ -16,5 +16,21 @@
     "route_index_get": {
       "route_index_get_ref01": {}
     }
+  },
+  "requests": {
+    "GET /": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_index__get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "302": {
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

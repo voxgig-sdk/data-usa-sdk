@@ -16,5 +16,21 @@
     "health": {
       "health_ref01": {}
     }
+  },
+  "requests": {
+    "GET /_health": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "LogicLayer_healthcheck__health_get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

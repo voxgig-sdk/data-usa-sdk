@@ -32,5 +32,2325 @@
         "requests": []
       }
     }
+  },
+  "requests": {
+    "POST /tesseract/multiquery.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "multiquery_data_tesseract_multiquery__extension__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "joins": {
+                    "items": {
+                      "description": "Specifies the intent of the user to perform a Join operation between 2 datasets.",
+                      "properties": {
+                        "coalesce": {
+                          "anyOf": [
+                            {
+                              "type": "boolean"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "title": "Coalesce"
+                        },
+                        "how": {
+                          "default": "left",
+                          "description": "Defines the different types of join operations available to the user.",
+                          "enum": [
+                            "inner",
+                            "left",
+                            "right",
+                            "full",
+                            "semi",
+                            "anti",
+                            "cross"
+                          ],
+                          "title": "JoinType",
+                          "type": "string"
+                        },
+                        "join_nulls": {
+                          "default": false,
+                          "title": "Join Nulls",
+                          "type": "boolean"
+                        },
+                        "on": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            {
+                              "properties": {
+                                "left_on": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "title": "Left On"
+                                },
+                                "right_on": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "title": "Right On"
+                                }
+                              },
+                              "required": [
+                                "left_on",
+                                "right_on"
+                              ],
+                              "title": "JoinOnColumns",
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "title": "On"
+                        },
+                        "suffix": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "title": "Suffix"
+                        },
+                        "validate_relation": {
+                          "default": "m:m",
+                          "enum": [
+                            "m:m",
+                            "m:1",
+                            "1:m",
+                            "1:1"
+                          ],
+                          "title": "Validate Relation",
+                          "type": "string"
+                        }
+                      },
+                      "title": "JoinIntent",
+                      "type": "object"
+                    },
+                    "title": "Joins",
+                    "type": "array"
+                  },
+                  "pagination": {
+                    "description": "Pagination instructions.",
+                    "properties": {
+                      "limit": {
+                        "default": 0,
+                        "minimum": 0,
+                        "title": "Limit",
+                        "type": "integer"
+                      },
+                      "offset": {
+                        "default": 0,
+                        "minimum": 0,
+                        "title": "Offset",
+                        "type": "integer"
+                      }
+                    },
+                    "title": "PaginationIntent",
+                    "type": "object"
+                  },
+                  "requests": {
+                    "items": {
+                      "description": "Represents the intent for a Data Query made by the user.\n\nAll its properties are defined by strings of the names of the components\nfrom the schema.\nNone of these parameters are verified during construction, so it's possible\nfor the query to be invalid; a subclass of :class:`backend.exceptions.BackendError`\nwill be raised in that case.\nThe only purpose of this structure is containing and passing over the query\nintent to the internals.\n\nDuring a request, a :class:`Query` instance is constructed with objects from\na schema, using parameters from this instance.",
+                      "properties": {
+                        "aliases": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "title": "Aliases",
+                          "type": "object"
+                        },
+                        "captions": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Captions",
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "cube": {
+                          "title": "Cube",
+                          "type": "string"
+                        },
+                        "cuts": {
+                          "additionalProperties": {
+                            "description": "Filtering instructions for a qualitative value.\n\nInstances of this class are used to define cut parameters.\nIts values are directly inputted by the user, so should never be considered\nvalid by itself.",
+                            "properties": {
+                              "exclude_members": {
+                                "items": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                },
+                                "title": "Exclude Members",
+                                "type": "array",
+                                "uniqueItems": true
+                              },
+                              "include_members": {
+                                "items": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "number"
+                                    },
+                                    {
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                },
+                                "title": "Include Members",
+                                "type": "array",
+                                "uniqueItems": true
+                              },
+                              "level": {
+                                "title": "Level",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "level",
+                              "include_members",
+                              "exclude_members"
+                            ],
+                            "title": "CutIntent",
+                            "type": "object"
+                          },
+                          "title": "Cuts",
+                          "type": "object"
+                        },
+                        "drilldowns": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Drilldowns",
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "filters": {
+                          "additionalProperties": {
+                            "description": "Filtering instructions for a quantitative value.\n\nInstances of this class are used to define filter parameters.\nIts values are directly inputted by the user, so should never be considered\nvalid by itself.",
+                            "properties": {
+                              "condition": {
+                                "anyOf": [
+                                  {
+                                    "maxItems": 3,
+                                    "minItems": 3,
+                                    "prefixItems": [
+                                      {
+                                        "const": 1,
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "description": "Defines the available comparison operations.",
+                                        "enum": [
+                                          "gt",
+                                          "gte",
+                                          "lt",
+                                          "lte",
+                                          "eq",
+                                          "neq"
+                                        ],
+                                        "title": "Comparison",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "type": "array"
+                                  },
+                                  {
+                                    "maxItems": 3,
+                                    "minItems": 3,
+                                    "prefixItems": [
+                                      {
+                                        "const": 2,
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "description": "Defines the available comparison operations.",
+                                        "enum": [
+                                          "gt",
+                                          "gte",
+                                          "lt",
+                                          "lte",
+                                          "eq",
+                                          "neq"
+                                        ],
+                                        "title": "Comparison",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "number"
+                                      }
+                                    ],
+                                    "type": "array"
+                                  },
+                                  {
+                                    "maxItems": 3,
+                                    "minItems": 3,
+                                    "prefixItems": [
+                                      {
+                                        "const": 3,
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "description": "Specifies the membership relation of a value to a set.",
+                                        "enum": [
+                                          "in",
+                                          "nin"
+                                        ],
+                                        "title": "Membership",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "anyOf": [
+                                          {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array"
+                                          },
+                                          {
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "type": "array",
+                                            "uniqueItems": true
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "type": "array"
+                                  },
+                                  {
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "prefixItems": [
+                                      {
+                                        "const": 4,
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "description": "Evaluates if a value is or not is NULL.",
+                                        "enum": [
+                                          "isnull",
+                                          "isnotnull"
+                                        ],
+                                        "title": "NullityOperator",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "type": "array"
+                                  },
+                                  {
+                                    "maxItems": 3,
+                                    "minItems": 3,
+                                    "prefixItems": [
+                                      {
+                                        "anyOf": [
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 1,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Defines the available comparison operations.",
+                                                "enum": [
+                                                  "gt",
+                                                  "gte",
+                                                  "lt",
+                                                  "lte",
+                                                  "eq",
+                                                  "neq"
+                                                ],
+                                                "title": "Comparison",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 2,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Defines the available comparison operations.",
+                                                "enum": [
+                                                  "gt",
+                                                  "gte",
+                                                  "lt",
+                                                  "lte",
+                                                  "eq",
+                                                  "neq"
+                                                ],
+                                                "title": "Comparison",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 3,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Specifies the membership relation of a value to a set.",
+                                                "enum": [
+                                                  "in",
+                                                  "nin"
+                                                ],
+                                                "title": "Membership",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "anyOf": [
+                                                  {
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                  },
+                                                  {
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array",
+                                                    "uniqueItems": true
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "prefixItems": [
+                                              {
+                                                "const": 4,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Evaluates if a value is or not is NULL.",
+                                                "enum": [
+                                                  "isnull",
+                                                  "isnotnull"
+                                                ],
+                                                "title": "NullityOperator",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {},
+                                              {
+                                                "description": "Defines logical operations between conditional predicates.",
+                                                "enum": [
+                                                  "and",
+                                                  "or",
+                                                  "xor"
+                                                ],
+                                                "title": "LogicOperator",
+                                                "type": "string"
+                                              },
+                                              {}
+                                            ],
+                                            "type": "array"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "description": "Defines logical operations between conditional predicates.",
+                                        "enum": [
+                                          "and",
+                                          "or",
+                                          "xor"
+                                        ],
+                                        "title": "LogicOperator",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "anyOf": [
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 1,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Defines the available comparison operations.",
+                                                "enum": [
+                                                  "gt",
+                                                  "gte",
+                                                  "lt",
+                                                  "lte",
+                                                  "eq",
+                                                  "neq"
+                                                ],
+                                                "title": "Comparison",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 2,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Defines the available comparison operations.",
+                                                "enum": [
+                                                  "gt",
+                                                  "gte",
+                                                  "lt",
+                                                  "lte",
+                                                  "eq",
+                                                  "neq"
+                                                ],
+                                                "title": "Comparison",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "number"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {
+                                                "const": 3,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Specifies the membership relation of a value to a set.",
+                                                "enum": [
+                                                  "in",
+                                                  "nin"
+                                                ],
+                                                "title": "Membership",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "anyOf": [
+                                                  {
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                  },
+                                                  {
+                                                    "items": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "array",
+                                                    "uniqueItems": true
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "prefixItems": [
+                                              {
+                                                "const": 4,
+                                                "type": "integer"
+                                              },
+                                              {
+                                                "description": "Evaluates if a value is or not is NULL.",
+                                                "enum": [
+                                                  "isnull",
+                                                  "isnotnull"
+                                                ],
+                                                "title": "NullityOperator",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "type": "array"
+                                          },
+                                          {
+                                            "maxItems": 3,
+                                            "minItems": 3,
+                                            "prefixItems": [
+                                              {},
+                                              {
+                                                "description": "Defines logical operations between conditional predicates.",
+                                                "enum": [
+                                                  "and",
+                                                  "or",
+                                                  "xor"
+                                                ],
+                                                "title": "LogicOperator",
+                                                "type": "string"
+                                              },
+                                              {}
+                                            ],
+                                            "type": "array"
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "type": "array"
+                                  }
+                                ],
+                                "title": "Condition"
+                              },
+                              "field": {
+                                "title": "Field",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "field",
+                              "condition"
+                            ],
+                            "title": "FilterIntent",
+                            "type": "object"
+                          },
+                          "title": "Filters",
+                          "type": "object"
+                        },
+                        "growth": {
+                          "anyOf": [
+                            {
+                              "description": "Calculation of growth with respect to a time parameter and a measure.",
+                              "properties": {
+                                "measure": {
+                                  "title": "Measure",
+                                  "type": "string"
+                                },
+                                "method": {
+                                  "anyOf": [
+                                    {
+                                      "maxItems": 2,
+                                      "minItems": 2,
+                                      "prefixItems": [
+                                        {
+                                          "const": "period",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        }
+                                      ],
+                                      "type": "array"
+                                    },
+                                    {
+                                      "maxItems": 2,
+                                      "minItems": 2,
+                                      "prefixItems": [
+                                        {
+                                          "const": "fixed",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "default": [
+                                    "period",
+                                    1
+                                  ],
+                                  "title": "Method"
+                                },
+                                "time_level": {
+                                  "title": "Time Level",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "time_level",
+                                "measure"
+                              ],
+                              "title": "GrowthIntent",
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "locale": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "title": "Locale"
+                        },
+                        "measures": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Measures",
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "options": {
+                          "additionalProperties": {
+                            "type": "boolean"
+                          },
+                          "title": "Options",
+                          "type": "object"
+                        },
+                        "pagination": {
+                          "description": "Pagination instructions.",
+                          "properties": {
+                            "limit": {
+                              "default": 0,
+                              "minimum": 0,
+                              "title": "Limit",
+                              "type": "integer"
+                            },
+                            "offset": {
+                              "default": 0,
+                              "minimum": 0,
+                              "title": "Offset",
+                              "type": "integer"
+                            }
+                          },
+                          "title": "PaginationIntent",
+                          "type": "object"
+                        },
+                        "parents": {
+                          "anyOf": [
+                            {
+                              "type": "boolean"
+                            },
+                            {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "uniqueItems": true
+                            }
+                          ],
+                          "default": false,
+                          "title": "Parents"
+                        },
+                        "properties": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Properties",
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "ranking": {
+                          "anyOf": [
+                            {
+                              "type": "boolean"
+                            },
+                            {
+                              "additionalProperties": {
+                                "enum": [
+                                  "asc",
+                                  "desc"
+                                ],
+                                "type": "string"
+                              },
+                              "type": "object"
+                            }
+                          ],
+                          "default": false,
+                          "title": "Ranking"
+                        },
+                        "roles": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "Roles",
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "sorting": {
+                          "anyOf": [
+                            {
+                              "description": "Sorting instructions for internal use.",
+                              "properties": {
+                                "field": {
+                                  "title": "Field",
+                                  "type": "string"
+                                },
+                                "order": {
+                                  "anyOf": [
+                                    {
+                                      "enum": [
+                                        "asc",
+                                        "desc"
+                                      ],
+                                      "type": "string"
+                                    },
+                                    {
+                                      "description": "Defines a direction to use in a sorting operation.",
+                                      "enum": [
+                                        "asc",
+                                        "desc"
+                                      ],
+                                      "title": "Order",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "title": "Order"
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "order"
+                              ],
+                              "title": "SortingIntent",
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "time_restriction": {
+                          "anyOf": [
+                            {
+                              "description": "Time-axis filtering instructions for internal use.\n\nInstances of this class are used to define a time restriction over the\nresulting data. It must always contain both fields.",
+                              "properties": {
+                                "constraint": {
+                                  "anyOf": [
+                                    {
+                                      "maxItems": 2,
+                                      "minItems": 2,
+                                      "prefixItems": [
+                                        {
+                                          "enum": [
+                                            "latest",
+                                            "oldest"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        }
+                                      ],
+                                      "type": "array"
+                                    },
+                                    {
+                                      "maxItems": 2,
+                                      "minItems": 2,
+                                      "prefixItems": [
+                                        {
+                                          "enum": [
+                                            "leading",
+                                            "trailing"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "integer"
+                                        }
+                                      ],
+                                      "type": "array"
+                                    },
+                                    {
+                                      "maxItems": 2,
+                                      "minItems": 2,
+                                      "prefixItems": [
+                                        {
+                                          "const": "expr",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "anyOf": [
+                                            {
+                                              "maxItems": 3,
+                                              "minItems": 3,
+                                              "prefixItems": [
+                                                {
+                                                  "const": 1,
+                                                  "type": "integer"
+                                                },
+                                                {
+                                                  "description": "Defines the available comparison operations.",
+                                                  "enum": [
+                                                    "gt",
+                                                    "gte",
+                                                    "lt",
+                                                    "lte",
+                                                    "eq",
+                                                    "neq"
+                                                  ],
+                                                  "title": "Comparison",
+                                                  "type": "string"
+                                                },
+                                                {
+                                                  "type": "string"
+                                                }
+                                              ],
+                                              "type": "array"
+                                            },
+                                            {
+                                              "maxItems": 3,
+                                              "minItems": 3,
+                                              "prefixItems": [
+                                                {
+                                                  "const": 2,
+                                                  "type": "integer"
+                                                },
+                                                {
+                                                  "description": "Defines the available comparison operations.",
+                                                  "enum": [
+                                                    "gt",
+                                                    "gte",
+                                                    "lt",
+                                                    "lte",
+                                                    "eq",
+                                                    "neq"
+                                                  ],
+                                                  "title": "Comparison",
+                                                  "type": "string"
+                                                },
+                                                {
+                                                  "type": "number"
+                                                }
+                                              ],
+                                              "type": "array"
+                                            },
+                                            {
+                                              "maxItems": 3,
+                                              "minItems": 3,
+                                              "prefixItems": [
+                                                {
+                                                  "const": 3,
+                                                  "type": "integer"
+                                                },
+                                                {
+                                                  "description": "Specifies the membership relation of a value to a set.",
+                                                  "enum": [
+                                                    "in",
+                                                    "nin"
+                                                  ],
+                                                  "title": "Membership",
+                                                  "type": "string"
+                                                },
+                                                {
+                                                  "anyOf": [
+                                                    {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array"
+                                                    },
+                                                    {
+                                                      "items": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "array",
+                                                      "uniqueItems": true
+                                                    }
+                                                  ]
+                                                }
+                                              ],
+                                              "type": "array"
+                                            },
+                                            {
+                                              "maxItems": 2,
+                                              "minItems": 2,
+                                              "prefixItems": [
+                                                {
+                                                  "const": 4,
+                                                  "type": "integer"
+                                                },
+                                                {
+                                                  "description": "Evaluates if a value is or not is NULL.",
+                                                  "enum": [
+                                                    "isnull",
+                                                    "isnotnull"
+                                                  ],
+                                                  "title": "NullityOperator",
+                                                  "type": "string"
+                                                }
+                                              ],
+                                              "type": "array"
+                                            },
+                                            {
+                                              "maxItems": 3,
+                                              "minItems": 3,
+                                              "prefixItems": [
+                                                {},
+                                                {
+                                                  "description": "Defines logical operations between conditional predicates.",
+                                                  "enum": [
+                                                    "and",
+                                                    "or",
+                                                    "xor"
+                                                  ],
+                                                  "title": "LogicOperator",
+                                                  "type": "string"
+                                                },
+                                                {}
+                                              ],
+                                              "type": "array"
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "type": "array"
+                                    }
+                                  ],
+                                  "title": "Constraint"
+                                },
+                                "level": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "description": "Specifies a scale of detail in time.",
+                                      "enum": [
+                                        "year",
+                                        "quarter",
+                                        "month",
+                                        "week",
+                                        "day"
+                                      ],
+                                      "title": "TimeScale",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "title": "Level"
+                                }
+                              },
+                              "required": [
+                                "level",
+                                "constraint"
+                              ],
+                              "title": "TimeRestriction",
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "topk": {
+                          "anyOf": [
+                            {
+                              "description": "Limits the results to the K first/last elements in subsets determined by one or more levels and their associated value.\n\nAdds a column that indicates the position of each element in that ranking.",
+                              "properties": {
+                                "amount": {
+                                  "default": 1,
+                                  "title": "Amount",
+                                  "type": "integer"
+                                },
+                                "levels": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "title": "Levels",
+                                  "type": "array"
+                                },
+                                "measure": {
+                                  "title": "Measure",
+                                  "type": "string"
+                                },
+                                "order": {
+                                  "anyOf": [
+                                    {
+                                      "enum": [
+                                        "asc",
+                                        "desc"
+                                      ],
+                                      "type": "string"
+                                    },
+                                    {
+                                      "description": "Defines a direction to use in a sorting operation.",
+                                      "enum": [
+                                        "asc",
+                                        "desc"
+                                      ],
+                                      "title": "Order",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "default": "desc",
+                                  "title": "Order"
+                                }
+                              },
+                              "required": [
+                                "levels",
+                                "measure"
+                              ],
+                              "title": "TopkIntent",
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "cube",
+                        "drilldowns",
+                        "measures"
+                      ],
+                      "title": "DataRequest",
+                      "type": "object"
+                    },
+                    "title": "Requests",
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "requests"
+                ],
+                "title": "DataMultiRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/debug/query": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "debug_sql_tesseract_debug_query_get",
+        "parameters": [
+          {
+            "description": "The name of the cube to work with.",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The name of the cube to work with.",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "A list of the level names to slice the bulk of the aggregated data.",
+            "in": "query",
+            "name": "drilldowns",
+            "required": true,
+            "schema": {
+              "description": "A list of the level names to slice the bulk of the aggregated data.",
+              "title": "Drilldowns",
+              "type": "string"
+            }
+          },
+          {
+            "description": "A list of the measure names to retrieve from the aggregated data.",
+            "in": "query",
+            "name": "measures",
+            "required": true,
+            "schema": {
+              "description": "A list of the measure names to retrieve from the aggregated data.",
+              "title": "Measures",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Aliases"
+            }
+          },
+          {
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies pagination on the results, so the query can be separated in multiple requests.\n\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\n    `{value}` := `{limit}` | `{limit},{offset}`\nWhere:\n    `{limit}` : `int`, defines the max amount of items in the response data\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\n",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": "0",
+              "description": "Specifies pagination on the results, so the query can be separated in multiple requests.\n\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\n    `{value}` := `{limit}` | `{limit},{offset}`\nWhere:\n    `{limit}` : `int`, defines the max amount of items in the response data\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\n",
+              "title": "Limit",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies if the request should include the labels for the parent levels of the selected drilldowns.\n\nThe shape for the value is:\n    `{value}` := `{truthy}` | `{falsey}` | `{name},{name...}`\nWhere:\n    `{truthy}` : A string that can be interpreted as a truthy value; retrieves parents for all drilldowns in the request;\n    `{falsey}` : A string that can be interpreted as a falsey value; deactivates parents for all drilldowns in the request (default);\n    `{name}` : `str`, the name of the specific drilldown(s) to get parents for.\n",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies if the request should include the labels for the parent levels of the selected drilldowns.\n\nThe shape for the value is:\n    `{value}` := `{truthy}` | `{falsey}` | `{name},{name...}`\nWhere:\n    `{truthy}` : A string that can be interpreted as a truthy value; retrieves parents for all drilldowns in the request;\n    `{falsey}` : A string that can be interpreted as a falsey value; deactivates parents for all drilldowns in the request (default);\n    `{name}` : `str`, the name of the specific drilldown(s) to get parents for.\n",
+              "title": "Parents",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "properties",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Properties"
+            }
+          },
+          {
+            "description": "Adds a Ranking column to the specified measures.\n\nIf unset, or set to a value that can be interpreted as falsey, no rankings are added.\nIf set to a value that can be interpreted as truthy, a ranking for every measure is added.\nAny other string is interpreted as a comma-separated list of the measure names that are expected to be added a ranking.\n\nThe value is always an unsigned integer. If many rows have an equal value, all are assigned the same ranking value, and the next value skips the places for the repeated rows.\nThe direction of the ranking can be specified by (not) prefixing the measure name with a minus character (`-`): the ranking will be calculated in descending order if the minus is present, ascending otherwise.\n",
+            "in": "query",
+            "name": "ranking",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Adds a Ranking column to the specified measures.\n\nIf unset, or set to a value that can be interpreted as falsey, no rankings are added.\nIf set to a value that can be interpreted as truthy, a ranking for every measure is added.\nAny other string is interpreted as a comma-separated list of the measure names that are expected to be added a ranking.\n\nThe value is always an unsigned integer. If many rows have an equal value, all are assigned the same ranking value, and the next value skips the places for the repeated rows.\nThe direction of the ranking can be specified by (not) prefixing the measure name with a minus character (`-`): the ranking will be calculated in descending order if the minus is present, ascending otherwise.\n",
+              "title": "Ranking",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies the order of the results; available for properties and measures included in the request.\n\nThe shape for the value is:\n    `{value}` := `{field}` | `{field}.{order}`\nWhere:\n    `{field}` : `str`, defines the field to use: Measure or Property\n    `{order}` : `Literal[\"asc\", \"desc\"]`, defines the direction to sort the dataset\n\nThe field will be resolved to a Measure first, if not found then to a Property.\nWhen `{order}` is not set, `\"asc\"` will be used by default.\n",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies the order of the results; available for properties and measures included in the request.\n\nThe shape for the value is:\n    `{value}` := `{field}` | `{field}.{order}`\nWhere:\n    `{field}` : `str`, defines the field to use: Measure or Property\n    `{order}` : `Literal[\"asc\", \"desc\"]`, defines the direction to sort the dataset\n\nThe field will be resolved to a Measure first, if not found then to a Property.\nWhen `{order}` is not set, `\"asc\"` will be used by default.\n",
+              "title": "Sort",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "time",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Top"
+            }
+          },
+          {
+            "in": "query",
+            "name": "growth",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Growth"
+            }
+          },
+          {
+            "description": "Specifies which values should be omitted from the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n",
+            "in": "query",
+            "name": "exclude",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies which values should be omitted from the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n",
+              "title": "Exclude",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which values should be considered for the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n\nFor compatibility, this parameter also accepts the definition of the {name} parameter directly in the URL search params; note the level name must start in caps for this to work. This means both `&include=Year:2009,2010` and `&Year=2009,2010` are equivalent.\n",
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies which values should be considered for the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n\nFor compatibility, this parameter also accepts the definition of the {name} parameter directly in the URL search params; note the level name must start in caps for this to work. This means both `&include=Year:2009,2010` and `&Year=2009,2010` are equivalent.\n",
+              "title": "Include",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies filters over the values of the calculated aggregations.\n\nThe value is a list of filter parameters, where each is composed by a measure name, and one or two conditions:\n    `{value}` := `{filter},{filter...}`\n    `{filter}` := `{name}.{condition}` | `{name}.{condition}.{joint}.{condition}`\n    `{condition}` := `{comparison}.{number}`\nWhere\n    `{name}` : `str`, the name of the Measure to apply the filter on;\n    `{comparison}`: `Literal[\"gt\", \"gte\", \"eq\", \"neq\", \"lt\", \"lte\"]`, the comparison operation to evaluate ('g' is 'greater', 'l' is 'lower', 'eq' is 'equal', 'neq' is 'not equal');\n    `{number}` : `float`, the value to apply the comparison against the Measure (using decimal dot);\n    `{joint}` : `Literal[\"and\", \"or\"]`, the logic operation to apply between two conditions;\n",
+            "in": "query",
+            "name": "filters",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Specifies filters over the values of the calculated aggregations.\n\nThe value is a list of filter parameters, where each is composed by a measure name, and one or two conditions:\n    `{value}` := `{filter},{filter...}`\n    `{filter}` := `{name}.{condition}` | `{name}.{condition}.{joint}.{condition}`\n    `{condition}` := `{comparison}.{number}`\nWhere\n    `{name}` : `str`, the name of the Measure to apply the filter on;\n    `{comparison}`: `Literal[\"gt\", \"gte\", \"eq\", \"neq\", \"lt\", \"lte\"]`, the comparison operation to evaluate ('g' is 'greater', 'l' is 'lower', 'eq' is 'equal', 'neq' is 'not equal');\n    `{number}` : `float`, the value to apply the comparison against the Measure (using decimal dot);\n    `{joint}` : `Literal[\"and\", \"or\"]`, the logic operation to apply between two conditions;\n",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filters",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Accept",
+            "required": true,
+            "schema": {
+              "title": "Accept",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/data.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "query_data_tesseract_data__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The name of the cube to work with.",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The name of the cube to work with.",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "A list of the level names to slice the bulk of the aggregated data.",
+            "in": "query",
+            "name": "drilldowns",
+            "required": true,
+            "schema": {
+              "description": "A list of the level names to slice the bulk of the aggregated data.",
+              "title": "Drilldowns",
+              "type": "string"
+            }
+          },
+          {
+            "description": "A list of the measure names to retrieve from the aggregated data.",
+            "in": "query",
+            "name": "measures",
+            "required": true,
+            "schema": {
+              "description": "A list of the measure names to retrieve from the aggregated data.",
+              "title": "Measures",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "aliases",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Aliases"
+            }
+          },
+          {
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies pagination on the results, so the query can be separated in multiple requests.\n\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\n    `{value}` := `{limit}` | `{limit},{offset}`\nWhere:\n    `{limit}` : `int`, defines the max amount of items in the response data\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\n",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": "0",
+              "description": "Specifies pagination on the results, so the query can be separated in multiple requests.\n\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\n    `{value}` := `{limit}` | `{limit},{offset}`\nWhere:\n    `{limit}` : `int`, defines the max amount of items in the response data\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\n",
+              "title": "Limit",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies if the request should include the labels for the parent levels of the selected drilldowns.\n\nThe shape for the value is:\n    `{value}` := `{truthy}` | `{falsey}` | `{name},{name...}`\nWhere:\n    `{truthy}` : A string that can be interpreted as a truthy value; retrieves parents for all drilldowns in the request;\n    `{falsey}` : A string that can be interpreted as a falsey value; deactivates parents for all drilldowns in the request (default);\n    `{name}` : `str`, the name of the specific drilldown(s) to get parents for.\n",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies if the request should include the labels for the parent levels of the selected drilldowns.\n\nThe shape for the value is:\n    `{value}` := `{truthy}` | `{falsey}` | `{name},{name...}`\nWhere:\n    `{truthy}` : A string that can be interpreted as a truthy value; retrieves parents for all drilldowns in the request;\n    `{falsey}` : A string that can be interpreted as a falsey value; deactivates parents for all drilldowns in the request (default);\n    `{name}` : `str`, the name of the specific drilldown(s) to get parents for.\n",
+              "title": "Parents",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "properties",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Properties"
+            }
+          },
+          {
+            "description": "Adds a Ranking column to the specified measures.\n\nIf unset, or set to a value that can be interpreted as falsey, no rankings are added.\nIf set to a value that can be interpreted as truthy, a ranking for every measure is added.\nAny other string is interpreted as a comma-separated list of the measure names that are expected to be added a ranking.\n\nThe value is always an unsigned integer. If many rows have an equal value, all are assigned the same ranking value, and the next value skips the places for the repeated rows.\nThe direction of the ranking can be specified by (not) prefixing the measure name with a minus character (`-`): the ranking will be calculated in descending order if the minus is present, ascending otherwise.\n",
+            "in": "query",
+            "name": "ranking",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Adds a Ranking column to the specified measures.\n\nIf unset, or set to a value that can be interpreted as falsey, no rankings are added.\nIf set to a value that can be interpreted as truthy, a ranking for every measure is added.\nAny other string is interpreted as a comma-separated list of the measure names that are expected to be added a ranking.\n\nThe value is always an unsigned integer. If many rows have an equal value, all are assigned the same ranking value, and the next value skips the places for the repeated rows.\nThe direction of the ranking can be specified by (not) prefixing the measure name with a minus character (`-`): the ranking will be calculated in descending order if the minus is present, ascending otherwise.\n",
+              "title": "Ranking",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies the order of the results; available for properties and measures included in the request.\n\nThe shape for the value is:\n    `{value}` := `{field}` | `{field}.{order}`\nWhere:\n    `{field}` : `str`, defines the field to use: Measure or Property\n    `{order}` : `Literal[\"asc\", \"desc\"]`, defines the direction to sort the dataset\n\nThe field will be resolved to a Measure first, if not found then to a Property.\nWhen `{order}` is not set, `\"asc\"` will be used by default.\n",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies the order of the results; available for properties and measures included in the request.\n\nThe shape for the value is:\n    `{value}` := `{field}` | `{field}.{order}`\nWhere:\n    `{field}` : `str`, defines the field to use: Measure or Property\n    `{order}` : `Literal[\"asc\", \"desc\"]`, defines the direction to sort the dataset\n\nThe field will be resolved to a Measure first, if not found then to a Property.\nWhen `{order}` is not set, `\"asc\"` will be used by default.\n",
+              "title": "Sort",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "time",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Top"
+            }
+          },
+          {
+            "in": "query",
+            "name": "growth",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Growth"
+            }
+          },
+          {
+            "description": "Specifies which values should be omitted from the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n",
+            "in": "query",
+            "name": "exclude",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies which values should be omitted from the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n",
+              "title": "Exclude",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies which values should be considered for the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n\nFor compatibility, this parameter also accepts the definition of the {name} parameter directly in the URL search params; note the level name must start in caps for this to work. This means both `&include=Year:2009,2010` and `&Year=2009,2010` are equivalent.\n",
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "Specifies which values should be considered for the aggregation.\n\nThe value is composed by multiple cut definitions separated by semicolons:\n    `{value}` := `{cut_def};{cut_def...}`\nWhere a single cut definition is composed by the Level name, colon, and the list of keys separated by commas:\n    `{cut_def}` := `{name}:{key},{key...}`\n    `{name}` : `str`, the name of the Level to apply the cut\n    `{key}` : `str | int`, the members' ID values\n\nFor compatibility, this parameter also accepts the definition of the {name} parameter directly in the URL search params; note the level name must start in caps for this to work. This means both `&include=Year:2009,2010` and `&Year=2009,2010` are equivalent.\n",
+              "title": "Include",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specifies filters over the values of the calculated aggregations.\n\nThe value is a list of filter parameters, where each is composed by a measure name, and one or two conditions:\n    `{value}` := `{filter},{filter...}`\n    `{filter}` := `{name}.{condition}` | `{name}.{condition}.{joint}.{condition}`\n    `{condition}` := `{comparison}.{number}`\nWhere\n    `{name}` : `str`, the name of the Measure to apply the filter on;\n    `{comparison}`: `Literal[\"gt\", \"gte\", \"eq\", \"neq\", \"lt\", \"lte\"]`, the comparison operation to evaluate ('g' is 'greater', 'l' is 'lower', 'eq' is 'equal', 'neq' is 'not equal');\n    `{number}` : `float`, the value to apply the comparison against the Measure (using decimal dot);\n    `{joint}` : `Literal[\"and\", \"or\"]`, the logic operation to apply between two conditions;\n",
+            "in": "query",
+            "name": "filters",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Specifies filters over the values of the calculated aggregations.\n\nThe value is a list of filter parameters, where each is composed by a measure name, and one or two conditions:\n    `{value}` := `{filter},{filter...}`\n    `{filter}` := `{name}.{condition}` | `{name}.{condition}.{joint}.{condition}`\n    `{condition}` := `{comparison}.{number}`\nWhere\n    `{name}` : `str`, the name of the Measure to apply the filter on;\n    `{comparison}`: `Literal[\"gt\", \"gte\", \"eq\", \"neq\", \"lt\", \"lte\"]`, the comparison operation to evaluate ('g' is 'greater', 'l' is 'lower', 'eq' is 'equal', 'neq' is 'not equal');\n    `{number}` : `float`, the value to apply the comparison against the Measure (using decimal dot);\n    `{joint}` : `Literal[\"and\", \"or\"]`, the logic operation to apply between two conditions;\n",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filters",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/debug/flush": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "debug_flush_tesseract_debug_flush_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/debug/schema": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "debug_schema_tesseract_debug_schema_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/members.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "get_members_redirect_tesseract_members__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "title": "Extension",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "307": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /tesseract/data": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "query_data_redirect_tesseract_data_get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "307": {
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

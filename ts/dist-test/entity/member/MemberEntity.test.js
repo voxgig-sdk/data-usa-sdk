@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.DATA_USA_TEST_LIVE;
         for (const op of ['list']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'member.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'member.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set DATA_USA_TEST_MEMBER_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "annotations", "req": true, "type": "`$OBJECT`", "index$": 0 }, { "active": true, "name": "caption", "req": true, "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "name", "req": true, "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "type", "req": true, "short": "Types of the data the user can expect to find in the associated column.", "type": "`$STRING`", "index$": 3 }], "name": "member", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": { "header": [{ "active": true, "kind": "header", "name": "authorization", "orig": "authorization", "reqd": false, "type": "`$ANY`" }, { "active": true, "kind": "header", "name": "x_tesseract_jwt", "orig": "x_tesseract_jwt", "reqd": false, "type": "`$ANY`" }], "query": [{ "active": true, "kind": "query", "name": "cube", "orig": "cube", "reqd": true, "type": "`$STRING`", "index$": 0 }, { "active": true, "kind": "query", "name": "level", "orig": "level", "reqd": true, "type": "`$STRING`", "index$": 1 }, { "active": true, "example": "0", "kind": "query", "name": "limit", "orig": "limit", "reqd": false, "type": "`$STRING`", "index$": 2 }, { "active": true, "kind": "query", "name": "locale", "orig": "locale", "reqd": false, "type": "`$ANY`", "index$": 3 }, { "active": true, "example": false, "kind": "query", "name": "parent", "orig": "parent", "reqd": false, "type": "`$BOOLEAN`", "index$": 4 }, { "active": true, "example": "", "kind": "query", "name": "search", "orig": "search", "reqd": false, "type": "`$STRING`", "index$": 5 }, { "active": true, "kind": "query", "name": "token", "orig": "token", "reqd": false, "type": "`$STRING`", "index$": 6 }] }, "contract": { "id": "GET /tesseract/members", "json": "{\"operationId\":\"get_members_tesseract_members_get\",\"parameters\":[{\"description\":\"The name of the cube to work with.\",\"in\":\"query\",\"name\":\"cube\",\"required\":true,\"schema\":{\"description\":\"The name of the cube to work with.\",\"title\":\"Cube\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"level\",\"required\":true,\"schema\":{\"title\":\"Level\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"locale\",\"required\":false,\"schema\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Locale\"}},{\"description\":\"Specifies pagination on the results, so the query can be separated in multiple requests.\\n\\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\\n    `{value}` := `{limit}` | `{limit},{offset}`\\nWhere:\\n    `{limit}` : `int`, defines the max amount of items in the response data\\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\\n\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":\"0\",\"description\":\"Specifies pagination on the results, so the query can be separated in multiple requests.\\n\\nThe shape of the parameter is composed by one integer, or two integers separated by a comma:\\n    `{value}` := `{limit}` | `{limit},{offset}`\\nWhere:\\n    `{limit}` : `int`, defines the max amount of items in the response data\\n    `{offset}` : `int`, defines the index of the first item in the full list where the list in the response data will start.\\n\",\"title\":\"Limit\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"parents\",\"required\":false,\"schema\":{\"default\":false,\"title\":\"Parents\",\"type\":\"boolean\"}},{\"in\":\"query\",\"name\":\"search\",\"required\":false,\"schema\":{\"default\":\"\",\"title\":\"Search\",\"type\":\"string\"}},{\"in\":\"query\",\"name\":\"token\",\"required\":false,\"schema\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Token\"}},{\"in\":\"header\",\"name\":\"authorization\",\"required\":false,\"schema\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"Authorization\"}},{\"in\":\"header\",\"name\":\"x-tesseract-jwt\",\"required\":false,\"schema\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"title\":\"X-Tesseract-Jwt\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"annotations\":{\"additionalProperties\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}]},\"title\":\"Annotations\",\"type\":\"object\"},\"caption\":{\"title\":\"Caption\",\"type\":\"string\"},\"depth\":{\"title\":\"Depth\",\"type\":\"integer\"},\"dtypes\":{\"additionalProperties\":{\"description\":\"Types of the data the user can expect to find in the associated column.\",\"enum\":[\"bool\",\"date\",\"time\",\"dttm\",\"stmp\",\"f32\",\"f64\",\"i8\",\"i16\",\"i32\",\"i64\",\"i128\",\"u8\",\"u16\",\"u32\",\"u64\",\"u128\",\"str\"],\"title\":\"DataType\",\"type\":\"string\"},\"title\":\"Dtypes\",\"type\":\"object\"},\"members\":{\"items\":{\"additionalProperties\":true,\"type\":\"object\"},\"title\":\"Members\",\"type\":\"array\"},\"name\":{\"title\":\"Name\",\"type\":\"string\"},\"properties\":{\"items\":{\"properties\":{\"annotations\":{\"additionalProperties\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}]},\"title\":\"Annotations\",\"type\":\"object\"},\"caption\":{\"title\":\"Caption\",\"type\":\"string\"},\"name\":{\"title\":\"Name\",\"type\":\"string\"},\"type\":{\"description\":\"Types of the data the user can expect to find in the associated column.\",\"enum\":[\"bool\",\"date\",\"time\",\"dttm\",\"stmp\",\"f32\",\"f64\",\"i8\",\"i16\",\"i32\",\"i64\",\"i128\",\"u8\",\"u16\",\"u32\",\"u64\",\"u128\",\"str\"],\"title\":\"DataType\",\"type\":\"string\"}},\"required\":[\"name\",\"caption\",\"type\",\"annotations\"],\"title\":\"TesseractProperty\",\"type\":\"object\"},\"title\":\"Properties\",\"type\":\"array\"}},\"required\":[\"name\",\"caption\",\"depth\",\"annotations\",\"properties\",\"dtypes\",\"members\"],\"title\":\"MembersResModel\",\"type\":\"object\"}}},\"description\":\"Successful Response\"},\"422\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"detail\":{\"items\":{\"properties\":{\"loc\":{\"items\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"integer\"}]},\"title\":\"Location\",\"type\":\"array\"},\"msg\":{\"title\":\"Message\",\"type\":\"string\"},\"type\":{\"title\":\"Error Type\",\"type\":\"string\"}},\"required\":[\"loc\",\"msg\",\"type\"],\"title\":\"ValidationError\",\"type\":\"object\"},\"title\":\"Detail\",\"type\":\"array\"}},\"title\":\"HTTPValidationError\",\"type\":\"object\"}}},\"description\":\"Validation Error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/tesseract/members", "segments": [{ "lit": "tesseract" }, { "lit": "members" }], "select": { "exist": ["authorization", "cube", "level", "limit", "locale", "parent", "search", "token", "x_tesseract_jwt"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "member", "name__orig": "member", "Name": "Member", "name_": "member", "name-": "member", "NAME": "MEMBER", "index$": 3 }, { "active": true, "entity": "member", "key$": "BasicMemberFlow", "kind": "basic", "name": "BasicMemberFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "member_ref01" } }], "index$": 0 }] }, 'Member');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -101,12 +99,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['DATA_USA_TEST_MEMBER_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'DATA_USA_TEST_MEMBER_ENTID': idmap,
         'DATA_USA_TEST_LIVE': 'FALSE',
@@ -114,7 +106,13 @@ function basicSetup(extra) {
     });
     idmap = env['DATA_USA_TEST_MEMBER_ENTID'];
     const live = 'TRUE' === env.DATA_USA_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['DATA_USA_TEST_MEMBER_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.DataUsaSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -125,7 +123,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -137,7 +136,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.DATA_USA_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

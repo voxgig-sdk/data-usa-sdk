@@ -22,5 +22,5169 @@
     "economic_complexity_module": {
       "economic_complexity_module_ref01": {}
     }
+  },
+  "requests": {
+    "GET /complexity/eci_subnational.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_eci_subnational_complexity_eci_subnational__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold_eci",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold Eci",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "subnat_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Subnat Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Subnat Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Subnat Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "subnat_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Subnat Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "subnat_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Locale for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Locale for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "subnat_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the global data",
+            "in": "query",
+            "name": "global_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the global data",
+              "title": "Global Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "global_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Global Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "global_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Global Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "global_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Global Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "global_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "global_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/pci_subnational.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_pci_subnational_complexity_pci_subnational__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold_eci",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold Eci",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "subnat_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Subnat Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Subnat Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Subnat Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "subnat_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Subnat Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "subnat_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Locale for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Locale for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "subnat_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the global data",
+            "in": "query",
+            "name": "global_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the global data",
+              "title": "Global Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "global_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Global Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "global_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Global Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "global_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Global Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "global_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "global_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/relatedness_subnational.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_relatedness_subnational_complexity_relatedness_subnational__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "subnat_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Subnat Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Subnat Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Subnat Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "subnat_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Subnat Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "subnat_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Locale for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Locale for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "subnat_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the global data",
+            "in": "query",
+            "name": "global_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the global data",
+              "title": "Global Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "global_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Global Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "global_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Global Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "global_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Global Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "global_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "global_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/relative_relatedness_subnational.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_relative_relatedness_subnational_complexity_relative_relatedness_subnational__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "subnat_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Subnat Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Subnat Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Subnat Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "subnat_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Subnat Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "subnat_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Locale for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Locale for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "subnat_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the global data",
+            "in": "query",
+            "name": "global_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the global data",
+              "title": "Global Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "global_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Global Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "global_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Global Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "global_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Global Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "global_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "global_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/rca_historical.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_rca_historical_complexity_rca_historical__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Unit of time used for calculations",
+            "in": "query",
+            "name": "time",
+            "required": true,
+            "schema": {
+              "description": "Unit of time used for calculations",
+              "title": "Time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "parameter similar to time.latest of tesseract python",
+            "in": "query",
+            "name": "time_filter",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "parameter similar to time.latest of tesseract python",
+              "title": "Time Filter"
+            }
+          },
+          {
+            "description": "properties of the original cube",
+            "in": "query",
+            "name": "properties",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "properties of the original cube",
+              "title": "Properties"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Defines descriptive columns complementary to those used for the calculation base",
+            "in": "query",
+            "name": "complementary_drilldowns",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Defines descriptive columns complementary to those used for the calculation base",
+              "items": {
+                "type": "string"
+              },
+              "title": "Complementary Drilldowns",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Defines extra measures complementary to RCA",
+            "in": "query",
+            "name": "complementary_measures",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Defines extra measures complementary to RCA",
+              "items": {
+                "type": "string"
+              },
+              "title": "Complementary Measures",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "filter results by measures",
+            "in": "query",
+            "name": "having",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "filter results by measures",
+              "items": {
+                "type": "string"
+              },
+              "title": "Having",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/rca_subnational.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_rca_subnational_complexity_rca_subnational__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "subnat_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Subnat Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Subnat Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "subnat_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Subnat Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "subnat_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Subnat Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "subnat_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Locale for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Locale for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "subnat_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Subnat Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the global data",
+            "in": "query",
+            "name": "global_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the global data",
+              "title": "Global Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "global_activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Global Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "global_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Global Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Measurement to use for the RCA calculations",
+            "in": "query",
+            "name": "global_measure",
+            "required": true,
+            "schema": {
+              "description": "Measurement to use for the RCA calculations",
+              "title": "Global Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "global_cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "global_threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Global Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/peii.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_peii_complexity_peii__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the Emissions data",
+            "in": "query",
+            "name": "emissions_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the Emissions data",
+              "title": "Emissions Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the PEII calculations",
+            "in": "query",
+            "name": "emissions_measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the PEII calculations",
+              "title": "Emissions Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the emission calculation",
+            "in": "query",
+            "name": "emissions_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the emission calculation",
+              "title": "Emissions Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/pgi.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_pgi_complexity_pgi__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the GINI data",
+            "in": "query",
+            "name": "gini_cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the GINI data",
+              "title": "Gini Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the GINI calculation",
+            "in": "query",
+            "name": "gini_location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the GINI calculation",
+              "title": "Gini Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the PGI calculations",
+            "in": "query",
+            "name": "gini_measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the PGI calculations",
+              "title": "Gini Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/eci.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_eci_complexity_eci__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The number of iterations used to calculate the Complexity Indicators.",
+            "in": "query",
+            "name": "iterations",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "description": "The number of iterations used to calculate the Complexity Indicators.",
+              "title": "Iterations",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+            "in": "query",
+            "name": "wdi",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Wdi",
+              "type": "array"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/pci.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_pci_complexity_pci__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The number of iterations used to calculate the Complexity Indicators.",
+            "in": "query",
+            "name": "iterations",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "description": "The number of iterations used to calculate the Complexity Indicators.",
+              "title": "Iterations",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+            "in": "query",
+            "name": "wdi",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Wdi",
+              "type": "array"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/opportunity_gain.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_opportunity_gain_complexity_opportunity_gain__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/relatedness.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_relatedness_complexity_relatedness__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/relative_relatedness.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_relative_relatedness_complexity_relative_relatedness__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+            "in": "query",
+            "name": "cutoff",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "description": "The threshold value at which a country's RCA is considered relevant for an economic activity, for the purpose of calculating the Complexity Indicators.",
+              "title": "Cutoff",
+              "type": "number"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Geographical categories for the RCA calculation",
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "description": "Geographical categories for the RCA calculation",
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/rca.{extension}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_rca_complexity_rca__extension__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extension",
+            "required": true,
+            "schema": {
+              "description": "Define the extensions available to the user and how to response to them.",
+              "enum": [
+                "csv",
+                "csvbom",
+                "xlsx",
+                "jsonarrays",
+                "jsonrecords",
+                "parquet",
+                "tsv",
+                "tsvbom"
+              ],
+              "title": "ResponseFormat",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Changes the label of a Level in the response tidy data dictionaries.",
+            "in": "query",
+            "name": "alias",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Changes the label of a Level in the response tidy data dictionaries.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Alias",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "filter",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Filter",
+              "type": "array"
+            }
+          },
+          {
+            "description": "The cube to retrieve the main data",
+            "in": "query",
+            "name": "cube",
+            "required": true,
+            "schema": {
+              "description": "The cube to retrieve the main data",
+              "title": "Cube",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Productivity categories for the RCA calculation",
+            "in": "query",
+            "name": "activity",
+            "required": true,
+            "schema": {
+              "description": "Productivity categories for the RCA calculation",
+              "title": "Activity",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "location",
+            "required": true,
+            "schema": {
+              "title": "Location",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Values to use for the RCA calculations",
+            "in": "query",
+            "name": "measure",
+            "required": true,
+            "schema": {
+              "description": "Values to use for the RCA calculations",
+              "title": "Measure",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Defines the locale variation for the labels in the data",
+            "in": "query",
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Defines the locale variation for the labels in the data",
+              "title": "Locale"
+            }
+          },
+          {
+            "description": "Specifies if the response items should include the parent levels for activity and location.",
+            "in": "query",
+            "name": "parents",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Specifies if the response items should include the parent levels for activity and location.",
+              "title": "Parents",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+            "in": "query",
+            "name": "ascending",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Outputs the results in ascending or descending order. If not defined, results will be returned sorted by level member.",
+              "title": "Ascending"
+            }
+          },
+          {
+            "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+            "in": "query",
+            "name": "rank",
+            "required": false,
+            "schema": {
+              "default": false,
+              "description": "Adds a 'Ranking' column to the data. This value represents the index in the whole result list, sorted by value.",
+              "title": "Rank",
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+            "in": "query",
+            "name": "cuts",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Limits the results returned by the output. Only members of a dimension matching one of the parameters will be kept in the response.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Cuts",
+              "type": "array"
+            }
+          },
+          {
+            "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+            "in": "query",
+            "name": "threshold",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Restricts the data to be used in the calculation, to rows where the sum of all values through the other dimension fulfills the condition.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Threshold",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Token"
+            }
+          },
+          {
+            "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+            "in": "query",
+            "name": "wdi",
+            "required": false,
+            "schema": {
+              "default": [],
+              "description": "Applies an additional threshold over the data, using a parameter from the World Bank's WDI database.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Wdi",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": false,
+            "schema": {
+              "default": "",
+              "description": "",
+              "title": "Top",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-tesseract-jwt",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Tesseract-Jwt"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /complexity/{endpoint}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "route_redirect_complexity__endpoint__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "endpoint",
+            "required": true,
+            "schema": {
+              "title": "Endpoint",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "accept",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Accept"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "307": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "detail": {
+                      "items": {
+                        "properties": {
+                          "loc": {
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "integer"
+                                }
+                              ]
+                            },
+                            "title": "Location",
+                            "type": "array"
+                          },
+                          "msg": {
+                            "title": "Message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "title": "Error Type",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "loc",
+                          "msg",
+                          "type"
+                        ],
+                        "title": "ValidationError",
+                        "type": "object"
+                      },
+                      "title": "Detail",
+                      "type": "array"
+                    }
+                  },
+                  "title": "HTTPValidationError",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

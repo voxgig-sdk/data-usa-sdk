@@ -10,6 +10,12 @@ main: kit: entity: route_index_get: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /"
+            json: "{\"operationId\":\"route_index__get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"302\":{\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/"
           transform: {
