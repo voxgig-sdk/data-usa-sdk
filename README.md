@@ -103,12 +103,12 @@ local result, err = client:RouteIndexGet():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/data-usa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
-| Python | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
-| PHP | `voxgig-sdk/data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
+| TypeScript | `@voxgig-sdk/data-usa-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/tags) |
+| Python | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/tags) |
+| PHP | `voxgig-sdk/data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/data-usa-sdk/go` | `go get github.com/voxgig-sdk/data-usa-sdk/go@latest` |
-| Ruby | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
-| Lua | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/releases) |
+| Ruby | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/tags) |
+| Lua | `voxgig-sdk-data-usa` | publish pending — [install from git tag](https://github.com/voxgig-sdk/data-usa-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/data-usa-sdk/go-cli` | `go install github.com/voxgig-sdk/data-usa-sdk/go-cli/cmd/data-usa@latest` |
 | Go MCP server | `github.com/voxgig-sdk/data-usa-sdk/go-mcp` | `go get github.com/voxgig-sdk/data-usa-sdk/go-mcp@latest` |
 

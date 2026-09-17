@@ -127,33 +127,33 @@ class Config {
 
     entity: {
       
-      calculations_module: {
-      },
-
-      economic_complexity_module: {
-      },
-
-      health: {
-      },
-
-      member: {
-      },
-
-      module_status: {
-      },
-
-      route_index_get: {
-      },
-
-      tesseract_cube: {
-      },
-
-      tesseract_module: {
-      },
-
-      tesseract_schema: {
-      },
-
+        calculations_module: {
+        },
+  
+        economic_complexity_module: {
+        },
+  
+        health: {
+        },
+  
+        member: {
+        },
+  
+        module_status: {
+        },
+  
+        route_index_get: {
+        },
+  
+        tesseract_cube: {
+        },
+  
+        tesseract_module: {
+        },
+  
+        tesseract_schema: {
+        },
+  
     }
   }
 
